@@ -1,0 +1,166 @@
+.toasts-stack {
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+  -ms-overflow-y: hidden;
+  z-index: 899;
+  transition: transform 200ms ease-out;
+  transform-origin: 0 0;
+}
+
+.toast-wrapper {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.toast-wrapper .toast {
+  flex-basis: 100%;
+  max-width: 100%;
+  -webkit-flex-basis: 100%;
+  border: 1px inset #000000;
+  background: #EBEBEB;
+}
+.toast-wrapper .toast-header {
+  padding: 10px 5px;
+  background: #EEC71C;
+  color: #000000;
+}
+.toast-wrapper .toast-body > * {
+  font-size: 16px !important;
+  text-align: left;
+  text-align: -webkit-left;
+  text-align: -moz-left;
+}
+.toast-wrapper .toast-body .form {
+  row-gap: 10px;
+}
+.toast-wrapper .toast-body .form-r {
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 44px 42px 40px;
+}
+.toast-wrapper .toast-body .form-r .form-i-r {
+  display: grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  grid-template-columns: minmax(10px, 1fr) 42px;
+  grid-template-rows: minmax(10px, 42px);
+}
+.toast-wrapper .toast-body .form-r .form-i-r .icon-tooltip {
+  width: 42px !important;
+  height: 42px !important;
+}
+.toast-wrapper .toast-body .form-r .form-i-r .icon-tooltip .icon {
+  width: 24px !important;
+  height: 24px !important;
+}
+.toast-wrapper .toast-body .form-r .form-i-r .form-i {
+  grid-area: 1/1/2/2;
+  height: 42px;
+  border: 1px inset #000000;
+  padding: 10px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  color: #000000;
+  background: #ffffff;
+  font-size: 18px;
+}
+.toast-wrapper .toast-body .form-r .form-i-r .form-i:disabled {
+  opacity: 0.5;
+}
+
+.rem-t {
+  animation: rem-t 400ms ease-in-out forwards;
+  -webkit-animation: rem-t 400ms ease-in-out forwards;
+  -moz-animation: rem-t 400ms ease-in-out forwards;
+  -o-animation: rem-t 400ms ease-in-out forwards;
+}
+
+@keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@-webkit-keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@-moz-keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@-o-keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@-ms-keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@-khtml-keyframes rem-t {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+@media only screen and (min-width: 1851px) {
+  .toasts-stack {
+    grid-area: 1/1/2/2;
+    display: block;
+    position: sticky;
+    height: 100vh;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 1850px) {
+  .toasts-stack {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+  }
+}
+
+/*# sourceMappingURL=ToastMessage.css.map */

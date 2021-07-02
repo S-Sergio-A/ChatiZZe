@@ -1,0 +1,16 @@
+.card {
+  box-shadow: 0 2px 8px #2a0800;
+  -webkit-box-shadow: 0 2px 8px #2a0800;
+  -moz-box-shadow: 0 2px 8px #2a0800;
+  -o-box-shadow: 0 2px 8px #2a0800;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  background: #ffffff;
+}
+.card.gray {
+  background: #f0f0f0;
+}
+
+/*# sourceMappingURL=Card.css.map */

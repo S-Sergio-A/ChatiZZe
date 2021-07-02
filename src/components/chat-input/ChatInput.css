@@ -1,0 +1,22 @@
+.input-area {
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: minmax(10px, 1fr);
+}
+.input-area div {
+  padding-bottom: 20px;
+}
+.input-area > div:first-child {
+  row-gap: 20px;
+}
+.input-area .ta {
+  min-height: 30px;
+  max-height: 30px;
+}
+.input-area .ta.extended {
+  min-height: 130px;
+  max-height: 130px;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+
+/*# sourceMappingURL=ChatInput.css.map */

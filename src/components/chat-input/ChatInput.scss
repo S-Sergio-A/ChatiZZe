@@ -1,0 +1,54 @@
+@import '../../styles/Extensions';
+
+.input-area {
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: minmax(10px, 1fr);
+
+  div {
+    padding-bottom: 20px;
+  }
+
+  & > div:first-child {
+    row-gap: 20px;
+  }
+
+  .ta {
+    min-height: 30px;
+    max-height: 30px;
+  }
+
+  .ta.extended {
+    min-height: 130px;
+    max-height: 130px;
+    overflow-y: auto;
+    -ms-overflow-y: auto;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+
+}

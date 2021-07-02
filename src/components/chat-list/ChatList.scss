@@ -1,0 +1,63 @@
+@import '../../styles/Extensions';
+
+.chat-list {
+  grid-area: 1/1/2/2;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+
+  .chat-wrapper {
+    height: 100px;
+
+    .chat {
+      background: $tertiary-100;
+
+      &:hover {
+        background: $tertiary-300;
+      }
+
+      &:active {
+        background: $tertiary-400;
+      }
+
+      &:focus {
+        outline: none;
+        background: $tertiary-100;
+      }
+
+      &:focus-visible {
+        outline: none;
+        background: $tertiary-100;
+      }
+
+      &:focus-within {
+        outline: none;
+        background: $tertiary-100;
+      }
+
+      &:-moz-focusring {
+        outline: none;
+        background: $tertiary-100;
+      }
+
+      &.active {
+        background: $primary-800;
+      }
+
+      &-logo {
+
+      }
+
+
+      &-name {
+        grid-template-rows:minmax(10px, 1fr);
+        grid-template-columns: minmax(10px, 1fr) 30px;
+
+        &.channel {
+          grid-template-rows:minmax(10px, 1fr);
+          grid-template-columns: 20px minmax(10px, 1fr) 30px;
+        }
+      }
+
+    }
+  }
+}

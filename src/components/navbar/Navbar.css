@@ -1,0 +1,165 @@
+.nav {
+  grid-template-columns: minmax(10px, 1fr);
+  margin: auto;
+  z-index: 901;
+  top: 0;
+  position: sticky;
+  background: #DFBEFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease-in-out !important;
+  -webkit-transition: all 0.25s ease-in-out !important;
+  -moz-transition: all 0.25s ease-in-out !important;
+  -ms-transition: all 0.25s ease-in-out !important;
+  -o-transition: all 0.25s ease-in-out !important;
+}
+.nav-t {
+  grid-area: 1/1/2/2;
+  grid-template-columns: repeat(2, 200px);
+  grid-gap: calc(5px * 4);
+}
+.nav-b {
+  grid-area: 2/1/3/2;
+  grid-template-rows: minmax(10px, 1fr);
+}
+.nav-b .nav-l-r {
+  grid-area: 1/1/2/2;
+}
+.nav-b .nav-r-r {
+  grid-area: 1/3/2/4;
+}
+.nav-b .nav-r-r ul {
+  column-gap: calc(5px * 2);
+}
+
+.hideNavTop {
+  transform: translateY(-40px);
+  -webkit-transform: translateY(-40px);
+  -moz-transform: translateY(-40px);
+  -o-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+}
+
+.showNavTop {
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+}
+
+@media only screen and (min-width: 1400px) {
+  .nav {
+    grid-area: 1/2/2/3;
+    width: 1400px;
+    left: calc((100% - 1400px) / 2);
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .nav {
+    grid-area: 1/1/2/2;
+    width: 100%;
+    left: 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .nav {
+    grid-template-rows: 40px 90px;
+  }
+  .nav-b {
+    grid-template-columns: 620px minmax(10px, 1fr) 290px;
+    padding-inline: calc(5px * 10);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .nav {
+    grid-template-rows: 40px 90px;
+  }
+
+  .nav-b {
+    grid-template-columns: 460px minmax(10px, 1fr) 260px;
+    padding-inline: calc(5px * 4);
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .nav {
+    grid-template-rows: 40px 75px;
+  }
+
+  .nav-b {
+    grid-template-columns: minmax(10px, 1fr);
+    padding-inline: 30px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .nav {
+    grid-template-rows: 40px 75px;
+  }
+
+  .nav-b {
+    grid-template-columns: minmax(10px, 1fr);
+    padding-inline: 30px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .nav {
+    grid-template-rows: 40px 75px;
+  }
+
+  .nav-b {
+    grid-template-columns: minmax(10px, 1fr);
+    padding-inline: 30px;
+  }
+}
+.btn-i-l {
+  cursor: pointer;
+  background-size: 100px 100px;
+  -webkit-background-size: 100px 100px;
+  -moz-background-size: 100px 100px;
+  -o-background-size: 100px 100px;
+  background: transparent linear-gradient(135deg, white 50%, transparent 51%) no-repeat -50px -50px;
+  transition: all 0.35s ease-in-out !important;
+  -webkit-transition: all 0.35s ease-in-out !important;
+  -moz-transition: all 0.35s ease-in-out !important;
+  -ms-transition: all 0.35s ease-in-out !important;
+  -o-transition: all 0.35s ease-in-out !important;
+}
+.btn-i-l:hover {
+  background-size: 200% 200%;
+  -webkit-background-size: 200% 200%;
+  -moz-background-size: 200% 200%;
+  -o-background-size: 200% 200%;
+  background-position: 0 0;
+}
+.btn-i-l:active {
+  background-size: 200% 200%;
+  -webkit-background-size: 200% 200%;
+  -moz-background-size: 200% 200%;
+  -o-background-size: 200% 200%;
+  background-position: 0 0;
+}
+.btn-i-l:focus {
+  background-size: 200% 200%;
+  -webkit-background-size: 200% 200%;
+  -moz-background-size: 200% 200%;
+  -o-background-size: 200% 200%;
+  background-position: 0 0;
+}
+.btn-i-l:focus-visible {
+  background-size: 200% 200%;
+  -webkit-background-size: 200% 200%;
+  -moz-background-size: 200% 200%;
+  -o-background-size: 200% 200%;
+  background-position: 0 0;
+}
+.btn-i-l:-moz-focusring {
+  background-size: 200% 200%;
+  -webkit-background-size: 200% 200%;
+  -moz-background-size: 200% 200%;
+  -o-background-size: 200% 200%;
+  background-position: 0 0;
+}
+
+/*# sourceMappingURL=Navbar.css.map */

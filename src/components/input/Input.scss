@@ -1,0 +1,283 @@
+@import '../../styles/Extensions';
+
+%errorLabel {
+  color: $error-300;
+  text-transform: uppercase;
+}
+
+%errorInputBorder {
+  border-width: 4px;
+  padding-block: 8px;
+  border-color: $error-400 !important;
+}
+
+%focus {
+  border-width: 4px;
+  padding-block: 8px;
+  border-color: $warning-300;
+}
+
+.form-i-r.tel-i {
+  & > .sel-tel-c {
+    grid-area: 1/1/2/2;
+    border: 1px inset $black;
+    @include border-radius(8px 0 0 8px);
+  }
+
+  & > .form-i {
+    grid-area: 1/2/2/3;
+    border-left: none;
+    @include border-radius(0);
+  }
+
+  & > .i-t {
+    grid-area: 1/3/2/4;
+  }
+}
+
+.form-ta-r {
+  grid-template-rows: 30px 200px;
+
+  .ta {
+    grid-area: 2/1/3/2;
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  .i-t{
+    grid-area: 2/2/3/3;
+  }
+}
+
+.form-i, .form-sel {
+  grid-area: 1/1/2/2;
+  border: 1px inset $black;
+  @include box-shadow(none);
+  color: $black;
+  background: $white;
+  @include border-radius(8px 0 0 8px);
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.form-sel {
+  grid-area: 1/1/2/3;
+  @include border-radius(8px);
+}
+
+.form-i {
+  border-right: none !important;
+
+  &:focus {
+    @extend %focus;
+  }
+
+  &:-moz-focusring {
+    @extend %focus;
+  }
+
+  &:focus-visible {
+    @extend %focus;
+  }
+
+  &:empty:active {
+    border-color: $warning-300;
+  }
+
+  &:valid {
+    border-color: $success-300;
+  }
+
+  &:focus:invalid {
+    @extend %errorInputBorder;
+  }
+}
+
+.i-e, .s-e {
+  @extend %errorInputBorder;
+}
+
+.form-l {
+  color: $black;
+  cursor: text;
+
+  &-e {
+    @extend %errorLabel;
+  }
+}
+
+.i-t {
+  grid-area: 1/2/2/3;
+  @include border-radius(0 8px 8px 0);
+  @include box-shadow(none);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $white inset !important;
+}
+
+@media only screen and (min-width: 1400px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 46px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 46px;
+    grid-template-rows: minmax(10px, 46px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 46px;
+    }
+  }
+
+  .form-i{
+    padding: 8px;
+  }
+
+  .form-i, .form-sel {
+    height: 46px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 42px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 42px;
+    grid-template-rows: minmax(10px, 42px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 42px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 7px;
+  }
+
+  .form-i, .form-sel {
+    height: 42px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 40px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 40px;
+    grid-template-rows: minmax(10px, 40px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 40px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 6px;
+  }
+
+  .form-i, .form-sel {
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 38px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 38px;
+    grid-template-rows: minmax(10px, 38px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 38px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 5px;
+  }
+
+  .form-i, .form-sel {
+    height: 38px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 36px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 36px;
+    grid-template-rows: minmax(10px, 36px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 36px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 4px;
+  }
+
+  .form-i, .form-sel {
+    height: 36px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 34px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 34px;
+    grid-template-rows: minmax(10px, 34px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 34px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 3px;
+  }
+
+  .form-i, .form-sel {
+    height: 34px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .form-ta-r {
+    grid-template-columns: minmax(10px, 1fr) 32px;
+  }
+
+  .form-i-r {
+    grid-template-columns: minmax(10px, 1fr) 32px;
+    grid-template-rows: minmax(10px, 32px);
+
+    &.tel-i {
+      grid-template-columns: 60px minmax(10px, 1fr) 32px;
+    }
+  }
+
+  .form-i{
+    padding: 8px 3px;
+  }
+
+  .form-i, .form-sel {
+    height: 32px;
+  }
+}

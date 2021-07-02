@@ -1,0 +1,432 @@
+@import "Extensions";
+
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-Black'), url(../../assets/fonts/Nunito/Nunito-Black.woff2) format('woff2');
+//  font-weight: 900;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-BlackItalic'), url(../../assets/fonts/Nunito/Nunito-BlackItalic.woff2) format('woff2');
+//  font-weight: 900;
+//  font-style: italic;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-SemiBold'), url(../../assets/fonts/Nunito/Nunito-SemiBold.woff2) format('woff2');
+//  font-weight: 600;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-SemiBoldItalic'), url(../../assets/fonts/Nunito/Nunito-SemiBoldItalic.woff2) format('woff2');
+//  font-weight: 600;
+//  font-style: italic;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-Light'), url(../../assets/fonts/Nunito/Nunito-Light.woff2) format('woff2');
+//  font-weight: 300;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Nunito';
+//  src: local('Nunito-LightItalic'), url(../../assets/fonts/Nunito/Nunito-LightItalic.woff2) format('woff2');
+//  font-weight: 300;
+//  font-style: italic;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Playfair Display';
+//  src: local('Playfair-Black'), url(../../assets/fonts/Playfair/PlayfairDisplay-Black.woff2) format('woff2');
+//  font-weight: 900;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Playfair Display';
+//  src: local('Playfair-SemiBold'), url(../../assets/fonts/Playfair/PlayfairDisplay-SemiBold.woff2) format('woff2');
+//  font-weight: 600;
+//  font-style: normal;
+//  font-display: swap;
+//}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p, blockquote {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  @include flex;
+}
+
+.grid {
+  @include grid;
+}
+
+.a-i-c {
+  @include align-items(center);
+}
+
+.a-i-f-s {
+  @include align-items(flex-start);
+}
+
+.a-i-f-e {
+  @include align-items(flex-end);
+}
+
+.a-s-c {
+  @include align-self(center);
+}
+
+.a-s-f-s {
+  @include align-self(flex-start);
+}
+
+.a-s-f-e {
+  @include align-self(flex-end);
+}
+
+.j-c-c {
+  @include justify-content(center);
+}
+
+.j-c-f-s {
+  @include justify-content(flex-start);
+}
+
+.j-c-f-e {
+  @include justify-content(flex-end);
+}
+
+.j-c-s-a {
+  @include justify-content(space-around);
+}
+
+.j-c-s-b {
+  @include justify-content(space-between);
+}
+
+.j-s-c {
+  justify-self: center;
+}
+
+.j-s-s {
+  justify-self: start;
+}
+
+.j-s-e {
+  justify-self: end;
+}
+
+.f-f-c-n {
+  @include flex-flow(column nowrap);
+}
+
+.f-f-c-w {
+  @include flex-flow(column wrap);
+}
+
+.f-f-r-n {
+  @include flex-flow(row nowrap);
+}
+
+.f-f-r-w {
+  @include flex-flow(row wrap);
+}
+
+.t-c {
+  @include textCenter;
+}
+
+.t-l {
+  @include textLeft;
+}
+
+.t-r {
+  @include textRight;
+}
+
+.t-j {
+  @include textJustify;
+}
+
+.dropdown-toggle.tel {
+  @include border-radius(8px 0 0 8px);
+}
+
+.dropdown-toggle, .dropdown-toggle:focus, .dropdown-toggle:-moz-focusring {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -o-box-shadow: none !important;
+}
+
+.n-p {
+  padding: 0 !important;
+}
+
+.n-m {
+  margin: 0 !important;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+.block-scroll {
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+  -ms-overflow-y: hidden;
+}
+
+.active {
+  color: $black;
+  background: $dark-theme-secondary !important;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  @include border-radius(30px);
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background: rgba(116, 0, 184, 1);
+}
+
+
+::-webkit-scrollbar-track {
+  background: $light-theme-layout;
+  border-left: 1px solid $dark-theme-primary;
+}
+
+img {
+  vertical-align: unset;
+  @include user-select(none);
+}
+
+.page {
+  grid-area: 2/2/3/3;
+}
+
+.it {
+  font-style: italic;
+}
+
+.f-w {
+  &__300 {
+    font-weight: 300 !important;
+  }
+
+  &__600 {
+    font-weight: 600 !important;
+  }
+
+  &__900 {
+    font-weight: 900 !important;
+  }
+}
+
+body {
+  background: $light-theme-layout;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif !important;
+  overflow-x: -moz-hidden-unscrollable;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+  font-size: 20px;
+  line-height: 1.5;
+  word-spacing: 0.16px;
+  letter-spacing: 0.12px;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.crossed {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: $tertiary-700;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1-s {
+  font-size: 2em !important;
+  font-weight: 900;
+}
+
+h2, .h2-s {
+  font-size: 1.6em !important;
+  font-weight: 900;
+}
+
+h3, .h3-s {
+  font-size: 1.4em !important;
+  font-weight: 600;
+}
+
+h4, .h4-s {
+  font-size: 1.2em !important;
+  font-weight: 600;
+}
+
+h5, .h5-s {
+  font-size: 1.1em !important;
+  font-weight: 600;
+}
+
+h6, .h6-s {
+  font-size: 0.9em !important;
+  font-weight: 300;
+}
+
+.copyright {
+  font-size: 0.7em !important;
+  font-weight: 300;
+}
+
+.helper {
+  font-size: 0.8em !important;
+  font-weight: 300;
+}
+
+a, button {
+  transition: all 400ms ease-in-out;
+  border: none;
+  padding: 0;
+  @include textCenter;
+}
+
+*, *:focus, *:active {
+  outline: none;
+}
+
+.none {
+  display: none !important;
+}
+
+.f-h {
+  @include avaHeight;
+}
+
+.f-w {
+  @include avaWidth;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.dropdown-menu {
+  z-index: 0;
+}
+
+.nav, h1, h2, h3, h4, h5, h6, .footer {
+  @include user-select(none);
+}
+
+@media only screen and (min-width: 1200px) {
+  ::-webkit-scrollbar-thumb {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  ::-webkit-scrollbar-thumb {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  ::-webkit-scrollbar-thumb {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  ::-webkit-scrollbar-thumb {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  ::-webkit-scrollbar-thumb {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  ::-webkit-scrollbar-thumb {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}

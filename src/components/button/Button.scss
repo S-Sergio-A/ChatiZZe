@@ -1,0 +1,497 @@
+@import "../../styles/Extensions";
+
+button:focus-within,
+button:focus,
+button:active {
+  outline: none;
+}
+
+.btn {
+  &-p,
+  &-s,
+  &-t,
+  &-su,
+  &-w,
+  &-e {
+    @include flex;
+    @include flex-center;
+    outline: none;
+    @include transition(0.6);
+    @include border-radius(8px);
+    @include box-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
+  }
+
+  &-p {
+    color: $white;
+    background: $primary-700;
+
+    &:hover {
+      color: $black;
+      background: $dark-theme-layout-primary;
+    }
+
+    &:active {
+      color: $black;
+      background: $dark-theme-secondary;
+    }
+
+    &:focus {
+      background: $primary-500;
+    }
+
+    &:focus-visible {
+      background: $primary-500;
+    }
+
+    &:-moz-focusring {
+      background: $primary-500;
+    }
+
+    &:disabled {
+      background: $primary-700;
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+
+  &-s {
+    color: $black;
+    background: $light-theme-layout;
+    border: 1px solid $secondary-1000;
+
+    &:hover {
+      color: $black;
+      background: $secondary-100;
+    }
+
+    &:active {
+      color: $black;
+      background: $secondary-200;
+    }
+
+    &:focus {
+      background: $secondary-500;
+    }
+
+    &:focus-visible {
+      background: $secondary-500;
+    }
+
+    &:-moz-focusring {
+      background: $secondary-500;
+    }
+
+    &:disabled {
+      background: $light-theme-layout;
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+
+  &-t {
+    color: $white;
+    background: $tertiary-700;
+
+    &:hover {
+      color: $black;
+      background: $tertiary-300;
+    }
+
+    &:active {
+      color: $black;
+      background: $tertiary-200;
+    }
+
+    &:focus {
+      background: $tertiary-400;
+    }
+
+    &:focus-visible {
+      background: $tertiary-400;
+    }
+
+    &:-moz-focusring {
+      background: $tertiary-400;
+    }
+
+    &:disabled {
+      background: $tertiary-700;
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+
+  &-su {
+    color: $black;
+    background: $success-300;
+
+    &:hover {
+      background: $success-200;
+    }
+
+    &:active {
+      background: $success-100;
+    }
+
+    &:focus {
+      background: $success-400;
+    }
+
+    &:focus-visible {
+      background: $success-400;
+    }
+
+    &:-moz-focusring {
+      background: $success-400;
+    }
+
+    &:disabled {
+      background: $success-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-w {
+    color: $black;
+    background: $warning-300;
+
+    &:hover {
+      color: $black;
+      background: $warning-200;
+    }
+
+    &:active {
+      color: $black;
+      background: $warning-100;
+    }
+
+    &:focus {
+      background: $warning-400;
+    }
+
+    &:focus-visible {
+      background: $warning-400;
+    }
+
+    &:-moz-focusring {
+      background: $warning-400;
+    }
+
+    &:disabled {
+      background: $warning-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-e {
+    color: $white;
+    background: $error-300;
+
+    &:hover {
+      color: $black;
+      background: $error-200;
+    }
+
+    &:active {
+      color: $black;
+      background: $error-100;
+    }
+
+    &:focus {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:focus-visible {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:-moz-focusring {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:disabled {
+      background: $error-300;
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .btn {
+    &-i {
+      width: 60px;
+      height: 60px;
+
+      &-f {
+        width: 40px;
+        height: 40px;
+      }
+
+      &-d {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &-sm {
+      width: 110px;
+      height: 50px;
+
+      &-x-w {
+        width: 200px;
+        height: 60px;
+      }
+
+      &-a-w {
+        height: 60px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 180px;
+      height: 80px;
+
+      &-x-w {
+        width: 260px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .btn {
+    &-i {
+      width: 57px;
+      height: 57px;
+
+      &-f {
+        width: 38px;
+        height: 38px;
+      }
+
+      &-d {
+        width: 49px;
+        height: 49px;
+      }
+    }
+
+    &-sm {
+      width: 106px;
+      height: 47px;
+
+      &-x-w {
+        width: 190px;
+        height: 57px;
+      }
+
+      &-a-w {
+        height: 57px;
+        padding: 9px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 170px;
+      height: 76px;
+
+      &-x-w {
+        width: 245px;
+        height: 76px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .btn {
+    &-i {
+      width: 54px;
+      height: 54px;
+
+      &-f {
+        width: 36px;
+        height: 36px;
+      }
+
+      &-d {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    &-sm {
+      width: 102px;
+      height: 44px;
+
+      &-x-w {
+        width: 180px;
+        height: 54px;
+      }
+
+      &-a-w {
+        height: 54px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 160px;
+      height: 72px;
+
+      &-x-w {
+        width: 230px;
+        height: 72px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .btn {
+    &-i {
+      width: 51px;
+      height: 51px;
+
+      &-f {
+        width: 34px;
+        height: 34px;
+      }
+
+      &-d {
+        width: 43px;
+        height: 43px;
+      }
+    }
+
+    &-sm {
+      width: 98px;
+      height: 41px;
+
+      &-x-w {
+        width: 170px;
+        height: 51px;
+      }
+
+      &-a-w {
+        height: 51px;
+        padding: 7px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 150px;
+      height: 68px;
+
+      &-x-w {
+        width: 215px;
+        height: 68px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .btn {
+    &-i {
+      width: 48px;
+      height: 48px;
+
+      &-f {
+        width: 32px;
+        height: 32px;
+      }
+
+      &-d {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-sm {
+      width: 94px;
+      height: 38px;
+
+      &-x-w {
+        width: 160px;
+        height: 48px;
+      }
+
+      &-a-w {
+        height: 48px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 146px;
+      height: 64px;
+
+      &-x-w {
+        width: 200px;
+        height: 64px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .btn {
+    &-i {
+      width: 45px;
+      height: 45px;
+
+      &-f {
+        width: 30px;
+        height: 30px;
+      }
+
+      &-d {
+        width: 37px;
+        height: 37px;
+      }
+    }
+
+    &-sm {
+      width: 90px;
+      height: 35px;
+
+      &-x-w {
+        width: 150px;
+        height: 45px;
+      }
+
+      &-a-w {
+        height: 45px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-l {
+      width: 130px;
+      height: 60px;
+
+      &-x-w {
+        width: 185px;
+        height: 60px;
+      }
+    }
+  }
+}
