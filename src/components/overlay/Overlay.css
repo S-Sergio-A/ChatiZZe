@@ -1,0 +1,29 @@
+.ov-c {
+  position: relative;
+}
+.ov-c:hover .ov {
+  opacity: 1;
+}
+.ov-c > .ov {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  padding: 1rem;
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+}
+.ov-c > .ov > p, .ov-c > .ov span, .ov-c > .ov h1, .ov-c > .ov h2, .ov-c > .ov h3, .ov-c > .ov h4, .ov-c > .ov h5, .ov-c > .ov h6 {
+  color: #ffffff !important;
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  margin: 1rem;
+}
+
+/*# sourceMappingURL=Overlay.css.map */

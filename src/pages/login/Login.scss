@@ -1,0 +1,123 @@
+@import "../../styles/Extensions";
+
+.login-page {
+  .card {
+    grid-template-rows: 80px 400px;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+
+  .b-m {
+    grid-area: 2/2/3/3;
+    grid-template-rows: minmax(10px, 1fr);
+
+    .f-c {
+      grid-area: 1/1/2/2;
+    }
+
+    .s-c {
+      grid-area: 1/2/2/3;
+      grid-template-rows: 100px 340px;
+
+      .lo-h {
+        grid-area: 1/2/2/3;
+      }
+
+      .form {
+        grid-area: 2/2/3/3;
+        grid-template-columns: minmax(10px, 1fr);
+        grid-template-rows: repeat(3, 100px);
+      }
+    }
+  }
+
+  .b-b {
+    grid-area: 3/2/4/3;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .login-page {
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+    .b-m {
+      grid-template-columns: 500px minmax(10px, 1fr);
+
+      .s-c {
+        grid-template-columns: calc(#{$standard} * 12) minmax(10px, 1fr) calc(#{$standard} * 12);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .login-page {
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+
+    .b-m {
+      grid-template-columns: 400px minmax(10px, 1fr);
+
+      .s-c {
+        grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .login-page {
+    grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
+
+    .b-m {
+      grid-template-columns: 300px minmax(10px, 1fr);
+
+      .s-c {
+        grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .login-page {
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+
+    .b-m {
+      grid-template-columns: minmax(10px, 1fr);
+
+      .s-c {
+        grid-area: 1/1/2/2;
+        grid-template-columns: 15% minmax(10px, 1fr) 15%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .login-page {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .b-m {
+      grid-template-columns: minmax(10px, 1fr);
+
+      .s-c {
+        grid-area: 1/1/2/2;
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .login-page {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .b-m {
+      grid-template-columns: minmax(10px, 1fr);
+
+      .s-c {
+        grid-area: 1/1/2/2;
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+      }
+    }
+  }
+}

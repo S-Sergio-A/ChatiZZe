@@ -1,0 +1,46 @@
+.chat-list {
+  grid-area: 1/1/2/2;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.chat-list .chat-wrapper {
+  height: 100px;
+}
+.chat-list .chat-wrapper .chat {
+  background: #f0f0f0;
+}
+.chat-list .chat-wrapper .chat:hover {
+  background: #C6C9C7;
+}
+.chat-list .chat-wrapper .chat:active {
+  background: #a7aca9;
+}
+.chat-list .chat-wrapper .chat:focus {
+  outline: none;
+  background: #f0f0f0;
+}
+.chat-list .chat-wrapper .chat:focus-visible {
+  outline: none;
+  background: #f0f0f0;
+}
+.chat-list .chat-wrapper .chat:focus-within {
+  outline: none;
+  background: #f0f0f0;
+}
+.chat-list .chat-wrapper .chat:-moz-focusring {
+  outline: none;
+  background: #f0f0f0;
+}
+.chat-list .chat-wrapper .chat.active {
+  background: #5e1304;
+}
+.chat-list .chat-wrapper .chat-name {
+  grid-template-rows: minmax(10px, 1fr);
+  grid-template-columns: minmax(10px, 1fr) 30px;
+}
+.chat-list .chat-wrapper .chat-name.channel {
+  grid-template-rows: minmax(10px, 1fr);
+  grid-template-columns: 20px minmax(10px, 1fr) 30px;
+}
+
+/*# sourceMappingURL=ChatList.css.map */

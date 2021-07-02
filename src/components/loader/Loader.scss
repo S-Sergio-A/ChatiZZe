@@ -1,0 +1,19 @@
+%flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+%flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  grid-area: 1/2/2/3;
+  background: #f8f7de;
+  margin: 0 260px;
+  height: 100vh;
+}
