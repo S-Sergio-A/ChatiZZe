@@ -10,7 +10,7 @@ public/*.svg
 public/*.png
 public/*.jpg
 
-src/**.css.map
+**.css.map
 
 /coverage
 
