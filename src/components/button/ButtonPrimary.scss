@@ -1,0 +1,122 @@
+@import "../../styles/Extensions";
+
+@mixin focus {
+  letter-spacing: 1.6px;
+}
+
+@mixin focusStyles {
+  @include focus;
+  color: $black;
+
+  &:before,
+  &:after {
+    width: 50%;
+    background: $white;
+  }
+}
+
+@mixin focusStylesDark {
+  @include focus;
+
+  &:before,
+  &:after {
+    width: 50%;
+    background: $light-theme-secondary;
+  }
+}
+
+.btn-pr {
+  position: relative;
+  background: transparent;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+  line-height: 1.6;
+  cursor: pointer;
+  border: 1px solid $white;
+  color: $white;
+
+  &:hover {
+    letter-spacing: 2px;
+    color: $black;
+    @include focusStyles;
+  }
+
+  &:active {
+    @include focusStyles;
+  }
+
+  &:focus {
+    @include focusStyles;
+  }
+
+  &:focus-visible {
+    @include focusStyles;
+  }
+
+  &:focus-within {
+    @include focusStyles;
+  }
+
+  &:-moz-focusring {
+    @include focusStyles;
+  }
+
+  &.active {
+    @include focusStyles;
+  }
+
+  &.dark {
+    border-color: $black;
+    color: $black;
+
+    &:hover {
+      letter-spacing: 2px;
+      color: $black;
+      @include focusStylesDark;
+    }
+
+    &:active {
+      @include focusStylesDark;
+    }
+
+    &:focus {
+      @include focusStylesDark;
+    }
+
+    &:focus-visible {
+      @include focusStylesDark;
+    }
+
+    &:focus-within {
+      @include focusStylesDark;
+    }
+
+    &:-moz-focusring {
+      @include focusStylesDark;
+    }
+  }
+
+  span {
+    text-align: center;
+    z-index: 1;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    top: 0;
+    @include transition(0.4);
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
