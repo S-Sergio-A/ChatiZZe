@@ -113,53 +113,5 @@
     padding-inline: 30px;
   }
 }
-.btn-i-l {
-  cursor: pointer;
-  background-size: 100px 100px;
-  -webkit-background-size: 100px 100px;
-  -moz-background-size: 100px 100px;
-  -o-background-size: 100px 100px;
-  background: transparent linear-gradient(135deg, white 50%, transparent 51%) no-repeat -50px -50px;
-  transition: all 0.35s ease-in-out !important;
-  -webkit-transition: all 0.35s ease-in-out !important;
-  -moz-transition: all 0.35s ease-in-out !important;
-  -ms-transition: all 0.35s ease-in-out !important;
-  -o-transition: all 0.35s ease-in-out !important;
-}
-.btn-i-l:hover {
-  background-size: 200% 200%;
-  -webkit-background-size: 200% 200%;
-  -moz-background-size: 200% 200%;
-  -o-background-size: 200% 200%;
-  background-position: 0 0;
-}
-.btn-i-l:active {
-  background-size: 200% 200%;
-  -webkit-background-size: 200% 200%;
-  -moz-background-size: 200% 200%;
-  -o-background-size: 200% 200%;
-  background-position: 0 0;
-}
-.btn-i-l:focus {
-  background-size: 200% 200%;
-  -webkit-background-size: 200% 200%;
-  -moz-background-size: 200% 200%;
-  -o-background-size: 200% 200%;
-  background-position: 0 0;
-}
-.btn-i-l:focus-visible {
-  background-size: 200% 200%;
-  -webkit-background-size: 200% 200%;
-  -moz-background-size: 200% 200%;
-  -o-background-size: 200% 200%;
-  background-position: 0 0;
-}
-.btn-i-l:-moz-focusring {
-  background-size: 200% 200%;
-  -webkit-background-size: 200% 200%;
-  -moz-background-size: 200% 200%;
-  -o-background-size: 200% 200%;
-  background-position: 0 0;
-}
 
 /*# sourceMappingURL=Navbar.css.map */

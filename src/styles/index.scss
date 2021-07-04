@@ -68,7 +68,13 @@ html {
   scroll-behavior: smooth;
 }
 
-p, blockquote {
+//*{
+//  overflow: -moz-hidden-unscrollable;
+//  overflow: hidden;
+//}
+
+p,
+blockquote {
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -174,7 +180,9 @@ p, blockquote {
   @include border-radius(8px 0 0 8px);
 }
 
-.dropdown-toggle, .dropdown-toggle:focus, .dropdown-toggle:-moz-focusring {
+.dropdown-toggle,
+.dropdown-toggle:focus,
+.dropdown-toggle:-moz-focusring {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -194,15 +202,18 @@ p, blockquote {
 }
 
 .block-scroll {
-  overflow-y: hidden;
-  overflow-y: -moz-hidden-unscrollable;
-  -ms-overflow-y: hidden;
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
 }
 
-.active {
-  color: $black;
-  background: $dark-theme-secondary !important;
+[class^="btn"] {
+  cursor: pointer;
 }
+
+//.active {
+//  color: $black;
+//  background: $dark-theme-secondary !important;
+//}
 
 .hidden {
   visibility: hidden;
@@ -215,7 +226,6 @@ p, blockquote {
   -webkit-background-clip: padding;
   background: rgba(116, 0, 184, 1);
 }
-
 
 ::-webkit-scrollbar-track {
   background: $light-theme-layout;
@@ -253,7 +263,7 @@ body {
   background: $light-theme-layout;
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', sans-serif !important;
+  font-family: "Nunito", sans-serif !important;
   overflow-x: -moz-hidden-unscrollable;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
@@ -263,7 +273,8 @@ body {
   letter-spacing: 0.12px;
 }
 
-ul, li {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -279,37 +290,48 @@ ul, li {
   content: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
 
-h1, .h1-s {
+h1,
+.h1-s {
   font-size: 2em !important;
   font-weight: 900;
 }
 
-h2, .h2-s {
+h2,
+.h2-s {
   font-size: 1.6em !important;
   font-weight: 900;
 }
 
-h3, .h3-s {
+h3,
+.h3-s {
   font-size: 1.4em !important;
   font-weight: 600;
 }
 
-h4, .h4-s {
+h4,
+.h4-s {
   font-size: 1.2em !important;
   font-weight: 600;
 }
 
-h5, .h5-s {
+h5,
+.h5-s {
   font-size: 1.1em !important;
   font-weight: 600;
 }
 
-h6, .h6-s {
+h6,
+.h6-s {
   font-size: 0.9em !important;
   font-weight: 300;
 }
@@ -324,14 +346,17 @@ h6, .h6-s {
   font-weight: 300;
 }
 
-a, button {
+a,
+button {
   transition: all 400ms ease-in-out;
   border: none;
   padding: 0;
   @include textCenter;
 }
 
-*, *:focus, *:active {
+*,
+*:focus,
+*:active {
   outline: none;
 }
 
@@ -367,8 +392,27 @@ a, button {
   z-index: 0;
 }
 
-.nav, h1, h2, h3, h4, h5, h6, .footer {
+.nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.footer {
   @include user-select(none);
+}
+
+@media only screen and (min-width: 1400px) {
+  main {
+    grid-area: 2/2/3/3;
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  main {
+    grid-area: 2/1/3/2;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

@@ -10,9 +10,13 @@
 }
 .main-page .features .card {
   padding: 20px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
 }
 .main-page .features .card > div {
   background-repeat: no-repeat !important;

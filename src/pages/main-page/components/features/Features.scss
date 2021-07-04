@@ -13,7 +13,8 @@
 
   .card {
     padding: 20px;
-    @include border-radius(30px);
+    @include border-radius(15px);
+    @include box-shadow(none);
 
     & > div {
       background-repeat: no-repeat !important;

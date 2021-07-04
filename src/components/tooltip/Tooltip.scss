@@ -1,6 +1,6 @@
-@import '../../styles/Extensions';
+@import "../../styles/Extensions";
 
-.hover-tip{
+.hover-tip {
   grid-area: 3/2/4/3;
   width: 100px;
   height: 100px;
@@ -13,7 +13,7 @@
   z-index: 900;
 }
 
-.image_100_50{
+.image_100_50 {
   width: 100px;
   height: 50px;
 }

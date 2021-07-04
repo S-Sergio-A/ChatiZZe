@@ -1,34 +1,38 @@
-@import '../../styles/Extensions';
+@import "../../styles/Extensions";
 
-.checkbox-c {
-  display: inline-block;
-  vertical-align: middle;
+.ch-wr {
+  @include columnGap(30px);
 
-  .icon {
-    fill: none;
-    stroke: white;
-    stroke-width: 3px;
-  }
+  .checkbox-c {
+    display: inline-block;
+    vertical-align: middle;
 
-  .h-checkbox {
-    border: 0;
-    clip: rect(0 0 0 0);
-    clippath: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+    .icon {
+      fill: none;
+      stroke: white;
+      stroke-width: 3px;
+    }
 
-  .s-checkbox {
-    border: 1px inset $black;
-    background: $white;
-    width: 24px;
-    height: 24px;
-    @include border-radius(4px);
-    @include transition(0.15);
+    .h-checkbox {
+      border: 0;
+      clip: rect(0 0 0 0);
+      clippath: inset(50%);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    .s-checkbox {
+      border: 1px inset $black;
+      background: $white;
+      width: 24px;
+      height: 24px;
+      @include border-radius(4px);
+      @include transition(0.15);
+    }
   }
 }

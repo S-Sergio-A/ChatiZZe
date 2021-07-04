@@ -1,13 +1,18 @@
-.checkbox-c {
+.ch-wr {
+  column-gap: 30px;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+}
+.ch-wr .checkbox-c {
   display: inline-block;
   vertical-align: middle;
 }
-.checkbox-c .icon {
+.ch-wr .checkbox-c .icon {
   fill: none;
   stroke: white;
   stroke-width: 3px;
 }
-.checkbox-c .h-checkbox {
+.ch-wr .checkbox-c .h-checkbox {
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
@@ -19,7 +24,7 @@
   white-space: nowrap;
   width: 1px;
 }
-.checkbox-c .s-checkbox {
+.ch-wr .checkbox-c .s-checkbox {
   border: 1px inset #000000;
   background: #ffffff;
   width: 24px;

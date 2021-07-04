@@ -4,67 +4,112 @@
   position: relative;
 }
 
-.d-m {
-  @include pageMainPartShadow;
+.btn-i-l {
+  cursor: pointer;
+  background-size: 100px 100px;
+  -webkit-background-size: 100px 100px;
+  -moz-background-size: 100px 100px;
+  -o-background-size: 100px 100px;
+  background: transparent linear-gradient(135deg, rgb(255, 255, 255) 50%, transparent 51%) no-repeat -50px -50px;
+  @include transition(0.35);
+
+  @mixin fill {
+    background-size: 200% 200%;
+    -webkit-background-size: 200% 200%;
+    -moz-background-size: 200% 200%;
+    -o-background-size: 200% 200%;
+    background-position: 0 0;
+  }
+
+  &.active{
+    @include fill;
+  }
+
+  &:hover {
+    @include fill;
+  }
+
+  &:active {
+    @include fill;
+  }
+
+  &:focus {
+    @include fill;
+  }
+
+  &:focus-visible {
+    @include fill;
+  }
+
+  &:-moz-focusring {
+    @include fill;
+  }
+}
+
+.lang-drop {
+  width: 60px;
   position: absolute;
   padding-block: 8px;
   background: $tertiary-200;
-  @include border-radius(4px);
+  @include border-radius(2px);
 
   .d-i {
     margin-block: 4px;
   }
 }
 
+.icon-nav {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-lang {
+  width: 60px;
+  height: 60px;
+}
+
 @media only screen and (min-width: 1400px) {
-  .d-m {
-    width: 60px;
+  .lang-drop {
     top: 116px;
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .d-m {
-    width: 60px;
+  .lang-drop {
     top: 115px;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .d-m {
-    width: 57px;
+  .lang-drop {
     top: 112px;
     padding-block: 8px;
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .d-m {
-    width: 54px;
+  .lang-drop {
     top: 109px;
     margin-top: -1px;
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .d-m {
-    width: 51px;
+  .lang-drop {
     top: 106px;
     margin-top: -5px;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .d-m {
-    width: 48px;
+  .lang-drop {
     top: 103px;
     margin-top: -8px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .d-m {
-    width: 45px;
+  .lang-drop {
     top: 100px;
     margin-top: -17px;
   }
