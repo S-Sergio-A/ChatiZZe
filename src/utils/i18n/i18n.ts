@@ -1,24 +1,34 @@
-import i18n from "i18next";
+import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
-import { logError } from "../../pages/error/errorHandler";
-import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import i18n from "i18next";
 
 i18n
+  .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .use(HttpApi)
-  .use(I18nextBrowserLanguageDetector)
   .init({
     backend: {
-      loadPath: "http://localhost:3000/locales/{{lng}}/{{ns}}.json"
+      loadPath: "http://localhost:3000/locales/{{lng}}.json",
+      allowMultiLoading: true
     },
-    lng: navigator.language,
+    load: "languageOnly",
+    supportedLngs: ["en", "ru", "ua"],
+    ns: ["common"],
+    defaultNS: "common",
     fallbackLng: "en",
-    ns: navigator.language
+    debug: true,
+    interpolation: {
+      escapeValue: false
+    },
+    react: {
+      wait: true,
+      useSuspense: false
+    }
   });
 
 export default i18n;
 
-export function changeLang(i18n: any, lng: string) {
-  i18n.changeLanguage(lng).catch((error: Error) => logError(error));
+export function changeLang(lng: string) {
+  i18n.changeLanguage(lng);
 }
