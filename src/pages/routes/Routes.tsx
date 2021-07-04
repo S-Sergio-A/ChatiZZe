@@ -13,6 +13,7 @@ import Registration from "../registration/Registration";
 import Login from "../login/Login";
 import PageNotFound from "../error/PageNotFound";
 import Chat from "../chat/Chat";
+import FeaturesPage from "../features/Features";
 
 // const Attribution = lazy(() =>  import(/* webpackChunkName: "attribution" */ '../attribution/Attribution'));
 // const PageNotFound = lazy(() =>  import(/* webpackChunkName: "notFound" */ '../error/PageNotFound'));
@@ -35,46 +36,26 @@ export const Routes = () => {
 
   return (
     <Switch>
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/" component={Main} isPrivate={false} />
-      {/*<Route exact path="/:lang/features" component={Features}*/}
-      {/*  isPrivate={false}*/}
-      {/*/>*/}
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/faq" component={InformationPage} isPrivate={false} />
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/attribution" component={Attribution} isPrivate={false} />
+      <Route exact path="/:lang/" component={Main} />
+      <Route exact path="/:lang/features" component={FeaturesPage} />
+      <Route exact path="/:lang/faq" component={InformationPage} />
+      <Route exact path="/:lang/attribution" component={Attribution} />
 
-      {/*<Route exact path="/:lang/support" component={Support}*/}
-      {/*       isPrivate={false}*/}
-      {/*/>*/}
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/contact-us" component={ContactUs} isPrivate={false} />
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/chat" component={Chat} isPrivate={false} />
-      {/*<Route exact path="/:lang/blog" component={Blog}*/}
-      {/*       isPrivate={false}*/}
-      {/*/>*/}
-      {/*<Route exact path="/:lang/news/article/:id" component={PressRelease}*/}
-      {/*       isPrivate={false}*/}
-      {/*/>*/}
+      <Route exact path="/:lang/contact-us" component={ContactUs} />
+      <Route exact path="/:lang/chat" component={Chat} />
 
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/terms-of-use" component={TermsAndConditions} isPrivate={false} />
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/privacy-policy" component={PrivacyPolicy} isPrivate={false} />
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/cookie-policy" component={CookiePolicy} isPrivate={false} />
+      <Route exact path="/:lang/terms-of-use" component={TermsAndConditions} />
+      <Route exact path="/:lang/privacy-policy" component={PrivacyPolicy} />
+      <Route exact path="/:lang/cookie-policy" component={CookiePolicy} />
 
-      {/*@ts-ignore*/}
-      <Route exact path="/:lang/user/registration" component={Registration} isPrivate={false} />
+      <Route exact path="/:lang/user/registration" component={Registration} />
       <UnauthedRoute path="/:lang/user/login" component={Login} logged={logged} isPrivate={false} />
-      {/*<Route exact path="/:lang/user/verification/:email/:verificationCode" component={EmailValidation}*/}
-      {/*  isPrivate={false}*/}
-      {/*/>*/}
-      <AuthedRoute path="/:lang/chats" component={Chat} logged={logged} isPrivate />
-      {/*@ts-ignore*/}
-      <Route component={PageNotFound} isPrivate />
+      <UnauthedRoute path="/:lang/chats" component={Chat} logged={logged} isPrivate />
+      {/*<Route exact path="/:lang/user/verification/:email/:verificationCode" component={EmailValidation} />*/}
+      {/*<Route exact path="/:lang/support" component={Support} />*/}
+      {/*<Route exact path="/:lang/blog" component={Blog} />*/}
+      {/*<Route exact path="/:lang/blog/:id" component={PressRelease} />*/}
+      <Route component={PageNotFound} />
     </Switch>
   );
 };

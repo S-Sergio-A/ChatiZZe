@@ -5,12 +5,18 @@
   grid-template-columns: 100%;
   place-items: center;
   padding-block: 100px;
+  background: $white;
 
   .card {
     grid-template-rows: 80px 400px;
+    @include border-radius(15px);
+
+    h1 {
+      color: #7400b8;
+    }
   }
 
-  .btn-con {
+  .button-con {
     row-gap: 30px;
   }
 

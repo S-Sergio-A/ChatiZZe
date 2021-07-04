@@ -10,7 +10,7 @@ export default function ChatList({ chats }: { chats: any[] }) {
       <ul className="f-w f-h flex j-c-c a-i-c f-f-c-n">
         {chats.map((item) => (
           <li key={item.key} className={`chat-wrapper f-w ${chatName === item.name ? "active" : ""}`}>
-            <button type="button" onClick={() => setActiveChat(item.chatId)} aria-label={`${item.chatName} chat`}>
+            <button type="button" onClick={() => setActiveChat(item.chatId)} aria-label={`${item.name} chat`}>
               <div className="chat-logo flex j-c-c a-i-c">{item.logo}</div>
               <div className="chat-info flex j-c-c a-i-c f-f-c-n">
                 <div className={`chat-name grid ${item.isChannel ? 'channel': ''}`}>

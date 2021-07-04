@@ -6,7 +6,7 @@ type BasicInputProps = {
   inputId: string;
   inputMode?: "text" | "none" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
   name?: string;
-  onBlur: FocusEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
   onChange: ChangeEventHandler<HTMLInputElement>;
   max?: number;
   min?: number;
@@ -19,7 +19,6 @@ type InputWithTooltipProps = {
   errorIdentifier: string;
   errorLabelText: string;
   overlayPlacement?: "top" | "bottom" | "right" | "left";
-  tooltipId: string;
   tooltipText: string;
 };
 

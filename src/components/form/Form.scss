@@ -112,11 +112,12 @@
 .su-t-ch {
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
-  transition: stroke-dashoffset 1s 0.5s ease-out;
+  @include transition(1);
+  //-webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
+  //-moz-transition: stroke-dashoffset 1s 0.5s ease-out;
+  //-ms-transition: stroke-dashoffset 1s 0.5s ease-out;
+  //-o-transition: stroke-dashoffset 1s 0.5s ease-out;
+  //transition: stroke-dashoffset 1s 0.5s ease-out;
   fill: none;
   stroke: $success-200;
   stroke-width: 3;
@@ -129,7 +130,6 @@
     grid-template-rows: 30px 46px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 46px 30px;
       }
@@ -146,7 +146,6 @@
     grid-template-rows: 30px 42px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 42px 30px;
       }
@@ -163,7 +162,6 @@
     grid-template-rows: 30px 40px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 40px 30px;
       }
@@ -180,7 +178,6 @@
     grid-template-rows: 30px 38px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 38px 30px;
       }
@@ -197,7 +194,6 @@
     grid-template-rows: 30px 36px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 36px 30px;
       }
@@ -214,7 +210,6 @@
     grid-template-rows: 30px 34px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 34px 30px;
       }
@@ -231,7 +226,6 @@
     grid-template-rows: 30px 32px 30px;
 
     &-d {
-
       .c-f {
         grid-template-rows: 30px 32px 30px;
       }

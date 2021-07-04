@@ -16,7 +16,7 @@ interface HeadProps {
   ogType?: string;
   ogUrl?: string;
   siteTwitterAccount?: string;
-  structuredDataJSON?: object;
+  structuredDataJSON?: Record<string, unknown>;
   title: string;
   twitterCardType?: string;
 }

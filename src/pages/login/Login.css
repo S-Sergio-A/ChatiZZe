@@ -3,11 +3,18 @@
   grid-template-columns: 100%;
   place-items: center;
   padding-block: 100px;
+  background: #ffffff;
 }
 .login-page .card {
-  grid-template-rows: 80px 400px;
+  grid-template-rows: 80px 500px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
 }
-.login-page .btn-con {
+.login-page .card h1 {
+  color: #7400b8;
+}
+.login-page .button-con {
   row-gap: 30px;
 }
 .login-page .b-b {

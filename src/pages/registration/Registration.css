@@ -3,11 +3,18 @@
   grid-template-columns: 100%;
   place-items: center;
   padding-block: 100px;
+  background: #ffffff;
 }
 .registration-page .card {
   grid-template-rows: 80px 400px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
 }
-.registration-page .btn-con {
+.registration-page .card h1 {
+  color: #7400b8;
+}
+.registration-page .button-con {
   row-gap: 30px;
 }
 .registration-page .b-b {

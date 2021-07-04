@@ -8,6 +8,9 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
+import "./components/button/ButtonNav.css";
+import "./components/button/ButtonPrimary.css";
+import "./components/button/ButtonSecondary.css";
 
 // const store = createStore(rootReducer);
 

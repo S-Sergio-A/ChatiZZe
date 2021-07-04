@@ -12,10 +12,10 @@ export const Footer = () => {
 
   return (
     <footer id="footer" className="footer grid">
-      <nav className="footer-t">
+      <nav className="footer-t grid">
         <section className="grid legal">
           <h2 className="h3-s f-w__900 t-l">Legal</h2>
-          <ul className="l-l flex f-f-c-n">
+          <ul className="l-l flex a-i-f-s j-c-f-s f-f-c-n">
             <li className="btn-sm">
               <NavLink to={`/${i18n.language}/terms-of-use`}>
                 Terms of Use
@@ -35,7 +35,7 @@ export const Footer = () => {
         </section>
         <section className="grid help">
           <h2  className="h3-s f-w__900 t-l">Help</h2>
-          <ul className="l-l flex f-f-c-n">
+          <ul className="l-l flex a-i-f-s j-c-f-s f-f-c-n">
             <li className="btn-sm">
               <NavLink to={`/${i18n.language}/support`}>
                 Support

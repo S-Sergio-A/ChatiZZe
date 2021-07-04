@@ -36,9 +36,8 @@ export const ThirdPage = ({ password, setPassword, passwordVerification, setPass
   };
 
   return (
-    <div className="Form-R Grid">
-      <div className="Form-R Grid">
-        <Input
+    <React.Fragment>
+    <Input
           labelText="Password"
           errorIdentifier={passwordError}
           errorLabelText={passwordError}
@@ -51,11 +50,9 @@ export const ThirdPage = ({ password, setPassword, passwordVerification, setPass
           min={8}
           max={50}
           required={true}
-          tooltipId={t("tooltip.header.password")}
           tooltipText={t("tooltip.password")}
           value={password}
         />
-      </div>
       <Input
         labelText="Password Verification"
         errorIdentifier={passwordVerificationError}
@@ -69,10 +66,9 @@ export const ThirdPage = ({ password, setPassword, passwordVerification, setPass
         min={8}
         max={50}
         required={true}
-        tooltipId={t("tooltip.header.passwordVer")}
         tooltipText={t("tooltip.passwordVer")}
         value={passwordVerification}
       />
-    </div>
+    </React.Fragment>
   );
 };

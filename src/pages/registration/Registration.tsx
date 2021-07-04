@@ -41,6 +41,10 @@ export default function Registration() {
     }
   }
 
+  async function previousPage() {
+    setCurrentPage(currentPage - 1);
+  }
+
   async function handleRegistration() {
     await axios
       .post(userLinks.register, {
@@ -74,31 +78,38 @@ export default function Registration() {
   }
 
   return (
-    <div className="login-page flex j-c-c a-i-c">
+    <main id="main" className="registration-page grid">
       <Head
-        title={t("login.seo.title")}
-        cardTitle={t("login.seo.title")}
-        description={t("login.seo.description")}
-        cardDescription={t("login.seo.description")}
+        title={t("signUp.seo.title")}
+        cardTitle={t("signUp.seo.title")}
+        description={t("signUp.seo.description")}
+        cardDescription={t("signUp.seo.description")}
       />
       <Card layoutType="grid">
         <header className="t-c">
-          <h1>Login</h1>
+          <h1>Sign Up</h1>
         </header>
         <Form success={animate}>
           {currentPage === 1 ? (
             <React.Fragment>
               <FirstPage telNum={telNum} setTelNum={setTelNum} />
-              <div className="Form-B">
-                <Button onClick={nextPage}>Continue</Button>
+              <div className="button-con flex a-i-c j-c-c f-f-c-n">
+                <Button onClick={nextPage} type="button" className="btn-pr dark btn-sm-x-w">
+                  <span className="flex a-i-c j-c-c">Continue</span>
+                </Button>
               </div>
             </React.Fragment>
           ) : null}
           {currentPage === 2 ? (
             <React.Fragment>
               <SecondPage email={email} username={username} setEmail={setEmail} setUsername={setUsername} />
-              <div className="Form-B">
-                <Button onClick={nextPage}>Continue</Button>
+              <div className="button-con flex a-i-c j-c-s-b f-f-r-n">
+                <Button onClick={previousPage} type="button" className="btn-pr dark btn-sm-x-w">
+                  <span className="flex a-i-c j-c-c">Previous</span>
+                </Button>
+                <Button onClick={nextPage} type="button" className="btn-pr dark btn-sm-x-w">
+                  <span className="flex a-i-c j-c-c">Continue</span>
+                </Button>
               </div>
             </React.Fragment>
           ) : null}
@@ -110,9 +121,12 @@ export default function Registration() {
                 setPassword={setPassword}
                 setPasswordVerification={setPasswordVerification}
               />
-              <div className="Form-B">
-                <Button type="button" onClick={nextPage}>
-                  Register
+              <div className="button-con flex a-i-c j-c-s-b f-f-r-n">
+                <Button onClick={previousPage} type="button" className="btn-pr dark btn-sm-x-w">
+                  <span className="flex a-i-c j-c-c">Previous</span>
+                </Button>
+                <Button onClick={nextPage} type="button" className="btn-pr dark btn-sm-x-w">
+                  <span className="flex a-i-c j-c-c">Register</span>
                 </Button>
               </div>
             </React.Fragment>
@@ -124,6 +138,6 @@ export default function Registration() {
           Already have an account? Log in!
         </Link>
       </section>
-    </div>
+    </main>
   );
 }

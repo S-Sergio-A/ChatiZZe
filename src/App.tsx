@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { useHistory, useLocation } from "react-router-dom";
 import { ModalContext } from "./context/modal/ModalContext";
 import useWindowDimensions from "./utils/hooks/useWindowDimensions";
-import { MenuContext } from "./context/navbar-menu/NavbarMenuContext";
+import { MenuContext } from "./context/menu/MenuContext";
 import { ToastContext } from "./context/toast/ToastContext";
 import { AuthContext } from "./context/auth/AuthContext";
 import { changeLang } from "./utils/i18n/i18n";
@@ -33,9 +33,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [firstRefresh, setFirstRefresh] = useState(true);
   const [cookies] = useCookies();
-  const menuContext = useContext(MenuContext);
   const { show, showCookieInfo } = useContext(ToastContext);
   const { showErrorModal } = useContext(ErrorContext);
+  const { show: showMenu } = useContext(MenuContext);
   const { checkState, logged } = useContext(AuthContext);
   const location = useLocation();
   const history = useHistory();
@@ -43,20 +43,20 @@ const App = () => {
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    if ((width < 481 && menuContext.show) || (width < 768 && show && document.getElementsByClassName("Toast-Stack-Reveal").length > 0)) {
+    if ((width < 600 && showMenu) || (width < 768 && show && document.getElementsByClassName("Toast-Stack-Reveal").length > 0)) {
       // @ts-ignore
-      document.getElementById("root").classList.add("Block-Scrolling");
+      document.getElementById("root").classList.add("block-scroll");
     } else {
       // @ts-ignore
-      document.getElementById("root").classList.remove("Block-Scrolling");
+      document.getElementById("root").classList.remove("block-scroll");
     }
-  }, [menuContext, show]);
+  }, [showMenu, show]);
 
   useEffect(() => {
     const language = navigator.language ? navigator.language : "en";
 
     if (!localStorage.getItem(btoa("f-r"))) {
-      changeLang(i18n, language);
+      changeLang(language);
       localStorage.setItem(btoa("f-r"), btoa("true"));
     }
   }, []);
@@ -71,7 +71,7 @@ const App = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    changeLang(i18n, i18n.language);
+    changeLang(i18n.language);
     setLoading(false);
   }, [location]);
 

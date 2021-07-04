@@ -37,7 +37,8 @@ export const ChatInput = () => {
     setExtend(false);
   }
 
-  function sendMessage() {}
+  function sendMessage() {
+  }
 
   function onFileChange(event: any) {
     setAttachedFile(event.target.files[0]);

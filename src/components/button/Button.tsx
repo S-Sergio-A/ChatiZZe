@@ -7,6 +7,7 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   name?: string;
+  layoutType?: "flex" | "grid";
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   onMouseEnter?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   onMouseLeave?: React.MouseEventHandler<HTMLButtonElement> | undefined;
@@ -21,17 +22,18 @@ export const Button = ({
   className = "",
   disabled = false,
   name = "",
+  layoutType = "flex",
   onClick = undefined,
   onMouseEnter = undefined,
   onMouseLeave = undefined,
-  tabIndex = 1,
+  tabIndex,
   type = "button",
   children
 }: ButtonProps) => {
   return (
     <button
       aria-label={ariaLabel}
-      className={`btn flex j-c-c a-i-c t-c ${className}`}
+      className={`btn ${layoutType === "grid" ? "grid" : "flex j-c-c a-i-c"} t-c ${className}`}
       disabled={disabled}
       name={name}
       onClick={onClick}
@@ -39,7 +41,7 @@ export const Button = ({
       onMouseLeave={onMouseLeave}
       ref={buttonRef}
       type={type}
-      tabIndex={tabIndex}
+      tabIndex={tabIndex ? tabIndex : undefined}
     >
       {children}
     </button>

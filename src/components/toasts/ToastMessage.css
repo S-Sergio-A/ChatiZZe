@@ -56,22 +56,6 @@
   width: 24px !important;
   height: 24px !important;
 }
-.toast-wrapper .toast-body .form-r .form-i-r .form-i {
-  grid-area: 1/1/2/2;
-  height: 42px;
-  border: 1px inset #000000;
-  padding: 10px;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -o-box-shadow: none;
-  color: #000000;
-  background: #ffffff;
-  font-size: 18px;
-}
-.toast-wrapper .toast-body .form-r .form-i-r .form-i:disabled {
-  opacity: 0.5;
-}
 
 .rem-t {
   animation: rem-t 400ms ease-in-out forwards;

@@ -6,7 +6,11 @@ import "./HowItWorks.css";
 export default function HowItWorks() {
   const [t] = useTranslation();
   const { width } = useWindowDimensions();
-
+  
+  //TODO
+  function play() {
+  
+  }
   return (
     <section className="how-it-works grid">
       <header className="f-w flex a-i-c j-c-c">
@@ -52,7 +56,7 @@ export default function HowItWorks() {
         <figure className="f-w flex a-i-c j-c-c f-f-c-n">
           <video className="demo-img" controls preload="metadata" poster="http://localhost:3000/chat-demo-r.jpg" />
           <figcaption className="flex a-i-c j-c-s-b">
-            <Button onClick={() => {}} type="button" ariaLabel="Play the chat usage demo." className="btn-i">
+            <Button onClick={play} type="button" ariaLabel="Play the chat usage demo." className="btn-i">
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"

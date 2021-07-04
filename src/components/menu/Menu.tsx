@@ -1,102 +1,72 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useEffect, useRef } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
-import { MenuContext } from "../../context/navbar-menu/NavbarMenuContext";
+import { MenuContext } from "../../context/menu/MenuContext";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
-// import logo from "../../../assets/images/icons/logo.svg";
-import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import "./Menu.css";
+import useOutsideClick from "../../utils/hooks/useOutsideClick";
+import NavLink from "../link/NavLink";
+import { Button } from "../button/Button";
+import { AuthContext } from "../../context/auth/AuthContext";
+import { languages } from "../../utils/i18n/Langs";
+import { changeLang } from "../../utils/i18n/i18n";
+import { setLanguageCookie } from "../button/language/LanguageButton";
 
 export const Menu = () => {
-  const { showMenu } = useContext(MenuContext);
-  const { width } = useWindowDimensions();
   const [t] = useTranslation();
-  // const [elementRef] = useOutsideClick("menu", () => showMenu(false));
+  const { show, showMenu, menuButtonRef } = useContext(MenuContext);
+  const { logged } = useContext(AuthContext);
+  const { width } = useWindowDimensions();
+  const menuRef = useRef(null);
   const location = useLocation();
+  const history = useHistory();
+  
+  useOutsideClick(menuRef, () => showMenu(false), menuButtonRef);
 
   useEffect(() => showMenu(false), [location]);
 
   useEffect(() => {
-    if (width > 768) {
+    if (width > 599) {
       showMenu(false);
     }
   }, [width]);
 
   const navbarMenuList = [
-    {
-      markup: (
-        <React.Fragment>
-          <Link to={`/${i18n.language}/`} className="btn-p f-w h6-s" aria-label={t("ariaLabel.main")}>
-            <img src="" alt="" className="Icon-Logo" /> Main
-          </Link>
-        </React.Fragment>
-      ),
-      index: 1
-    },
-    {
-      markup: (
-        <React.Fragment>
-          <Link to={`/${i18n.language}/shop`} className="btn-p f-w h6-s">
-            {t("order")}
-          </Link>
-        </React.Fragment>
-      ),
-      index: 2
-    },
-    {
-      markup: (
-        <React.Fragment>
-          <Link to={`/${i18n.language}/catering`} className="btn-p f-w h6-s">
-            {t("catering")}
-          </Link>
-        </React.Fragment>
-      ),
-      index: 3
-    },
-    {
-      markup: (
-        <React.Fragment>
-          <Link to={`/${i18n.language}/locations`} className="btn-p f-w h6-s">
-            {t("locations")}
-          </Link>
-        </React.Fragment>
-      ),
-      index: 4
-    },
-    {
-      markup: (
-        <React.Fragment>
-          <button
-            className="btn-p f-w h6-s"
-            onClick={() => showMenu(false)}
-            aria-label={t("ariaLabel.closeMenu")}
-          >
-            {t("button.close")}
-          </button>
-        </React.Fragment>
-      ),
-      index: 5
-    }
+    <NavLink to={`/${i18n.language}/`}>Main</NavLink>,
+    <NavLink to={`/${i18n.language}/features`}>Features</NavLink>,
+    <NavLink to={`/${i18n.language}/faq`}>FAQ</NavLink>,
+    !logged ? <NavLink to={`/${i18n.language}/locations`}>Try now!</NavLink> : null,
+    <Button className="btn-i-l btn-sm f-w h6-s" onClick={() => showMenu(false)} aria-label={t("ariaLabel.closeMenu")}>
+      {t("button.close")}
+    </Button>,
+    <div
+      className="flex j-c-c a-i-c f-f-r-n"
+      ref={menuRef ? menuRef : undefined}
+    >
+      {languages.map((item, index) => (
+        <button
+          key={index}
+          aria-label={t(`navbar.ariaLabel.langButton.${item}}`)}
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => setLanguageCookie(event, history)}
+          data-lang={item}
+          className={`d-i flex j-c-c a-i-c icon-nav lang ${location.pathname.split("/")[1] === item ? "active" : ""}`}
+        >
+          {item.toUpperCase()}
+        </button>
+      ))}
+    </div>
   ];
 
-  return null;
-  // <animated.div style={width < 769 ? { transform: show ? 'translateX(0)' : 'translateX(-100%)' } : { transform: 'translateX(-100%)' }}
-  //               className={`menu flex j-c-c a-i-c f-h ${!show ? 'hidden' : ''}`} ref={elementRef}>
-  //   <div className="ct f-w">
-  //     <ul className="flex j-c-s-a a-i-c f-f-c-w f-w">
-  //       <Trail items={navbarMenuList}
-  //         config={config.gentle}
-  //         keys={(item: { index: any; }) => item.index}
-  //         from={{ opacity: 0, transform: 'translateX(-100%)' }}
-  //         to={{ transform: `translateX(${show ? '0' : '-100%'})`, opacity: 1 }}>
-  //         {(item:{ markup: React.ReactNode, index: number}) => (props:any) => (
-  //           <animated.li style={props} key={item.index} className="menu-item flex j-c-c a-i-c f-w h5-s">
-  //             {item.markup}
-  //           </animated.li>
-  //         )}
-  //       </Trail>
-  //     </ul>
-  //   </div>
-  // </animated.div>
+  return (
+    <div className={`menu flex j-c-c a-i-c ${width < 600 && show ? "show-menu" : "hide-menu hidden"}`} ref={menuRef}>
+      <ul className="flex j-c-s-a a-i-c f-f-c-w">
+        {navbarMenuList.map((item, index) => (
+          <li key={index} className="menu-item flex j-c-c a-i-c h5-s f-f-c-n">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useTranslation } from "react-i18next";
@@ -17,6 +17,7 @@ import { Form } from "../../components/form/Form";
 import { logError } from "../error/errorHandler";
 import Head from "../../components/head/Head";
 import "./Login.css";
+import Checkbox from "../../components/checkbox/Checkbox";
 
 // import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
 
@@ -35,6 +36,9 @@ export default function Login() {
 
   const { showErrorModal } = useContext(ErrorContext);
   const { showNotActivatedModal } = useContext(ActivationContext);
+  const { login } = useContext(AuthContext);
+  const history = useHistory();
+  const location = useLocation();
 
   const userIdentifierOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUserIdentifier(event.target.value);
@@ -56,9 +60,9 @@ export default function Login() {
     // validateTelNum()
   };
 
-  const history = useHistory();
-  const { login } = useContext(AuthContext);
-  const location = useLocation();
+  function rememberMe() {
+    console.log("remembered");
+  }
 
   async function handleLogin() {
     setUserIdentifierError("");
@@ -134,7 +138,7 @@ export default function Login() {
   }
 
   return (
-    <div className="login-page flex j-c-c a-i-c">
+    <main id="main" className="login-page grid">
       <Head
         title={t("login.seo.title")}
         cardTitle={t("login.seo.title")}
@@ -149,17 +153,16 @@ export default function Login() {
           <div className="form-r grid">
             <div className="form-r grid">
               <Input
-                labelText="Username or email or phone number"
+                labelText="Username / Email / Phone Number"
                 errorIdentifier={userIdentifierError}
                 errorLabelText={userIdentifierError}
-                onBlur={userIdentifierOnChange}
-                onChange={validateUserIdentifierOnBlur}
+                onBlur={validateUserIdentifierOnBlur}
+                onChange={userIdentifierOnChange}
                 inputId="username"
                 name="username"
                 inputMode="text"
                 autoComplete="username"
                 required={true}
-                tooltipId={t("tooltip.header.userIdentifier")}
                 tooltipText={t("tooltip.userIdentifier")}
                 value={userIdentifier}
               />
@@ -177,13 +180,20 @@ export default function Login() {
               min={8}
               max={50}
               required={true}
-              tooltipId={t("tooltip.header.password")}
               tooltipText={t("tooltip.password")}
               value={password}
             />
+            <Checkbox onClick={rememberMe}>
+              <p className="h6-s">Remember Me</p>
+            </Checkbox>
           </div>
-          <div className="form-b">
-            <Button onClick={handleLogin}>Continue</Button>
+          <div className="button-con flex a-i-c j-c-c f-f-c-n">
+            <Button onClick={handleLogin} type="button" className="btn-pr dark btn-sm">
+              <span className="flex a-i-c j-c-c">Sign in</span>
+            </Button>
+            <Button onClick={rememberMe} type="button" className="btn-pr dark btn-sm-x-w">
+              <span className="flex a-i-c j-c-c">Log in with Google</span>
+            </Button>
           </div>
         </Form>
       </Card>
@@ -192,6 +202,6 @@ export default function Login() {
           Don't have an account? Try now!
         </Link>
       </section>
-    </div>
+    </main>
   );
 }

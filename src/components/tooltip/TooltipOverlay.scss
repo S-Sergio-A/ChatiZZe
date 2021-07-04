@@ -1,0 +1,159 @@
+@import "../../styles/Extensions";
+
+@mixin opacity-min {
+  opacity: 0;
+  -moz-opacity: 0;
+}
+
+@mixin opacity-max {
+  opacity: 1;
+  -moz-opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  height: 150px;
+  width: 60%;
+  z-index: 5;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  @include backdrop-filter(blur(4px));
+  @include border-radius(5px);
+  @include linear-gradient-bg(linear-gradient($white, transparent));
+
+  &.top {
+    top: -90%;
+
+    &.show-tooltip {
+      @include animation(show-tooltip-top, 400ms, ease-in-out, forwards);
+    }
+
+    &.hide-tooltip {
+      @include animation(hide-tooltip-top, 400ms, ease-in-out, forwards);
+    }
+  }
+
+  &.bottom {
+    bottom: -60%;
+
+    &.show-tooltip {
+      @include animation(show-tooltip-bottom, 400ms, ease-in-out, forwards);
+    }
+
+    &.hide-tooltip {
+      @include animation(hide-tooltip-bottom, 400ms, ease-in-out, forwards);
+    }
+  }
+
+  &.left {
+    left: -70%;
+    &.show-tooltip {
+      @include animation(show-tooltip-left, 400ms, ease-in-out, forwards);
+    }
+
+    &.hide-tooltip {
+      @include animation(hide-tooltip-left, 400ms, ease-in-out, forwards);
+    }
+
+  }
+
+  &.right {
+    right: -70%;
+    &.show-tooltip {
+      @include animation(show-tooltip-right, 400ms, ease-in-out, forwards);
+    }
+
+    &.hide-tooltip {
+      @include animation(hide-tooltip-right, 400ms, ease-in-out, forwards);
+    }
+
+  }
+}
+
+@include keyframes(show-tooltip-top) {
+  from {
+    @include transform(translateY(-1000px) scale(0));
+    @include opacity-min;
+  }
+  to {
+    @include transform(translateY(0) scale(1));
+    @include opacity-max;
+  }
+}
+
+@include keyframes(hide-tooltip-top) {
+  from {
+    @include transform(translateY(0) scale(1));
+    @include opacity-max;
+  }
+  to {
+    @include transform(translateY(-1000px) scale(0));
+    @include opacity-min;
+  }
+}
+
+@include keyframes(show-tooltip-bottom) {
+  from {
+    @include transform(translateY(1000px) scale(0));
+    @include opacity-min;
+  }
+  to {
+    @include transform(translateY(0) scale(1));
+    @include opacity-max;
+  }
+}
+
+@include keyframes(hide-tooltip-bottom) {
+  from {
+    @include transform(translateY(0%) scale(1));
+    @include opacity-max;
+  }
+  to {
+    @include transform(translateY(1000px) scale(0));
+    @include opacity-min;
+  }
+}
+
+@include keyframes(show-tooltip-left) {
+  from {
+    @include transform(translateX(-1000px) scale(0));
+    @include opacity-min;
+  }
+  to {
+    @include transform(translateX(0) scale(1));
+    @include opacity-max;
+  }
+}
+
+@include keyframes(hide-tooltip-left) {
+  from {
+    @include transform(translateX(0%) scale(1));
+    @include opacity-max;
+  }
+  to {
+    @include transform(translateX(-1000px) scale(0));
+    @include opacity-min;
+  }
+}
+
+@include keyframes(show-tooltip-right) {
+  from {
+    @include transform(translateX(1000px) scale(0));
+    @include opacity-min;
+  }
+  to {
+    @include transform(translateX(0) scale(1));
+    @include opacity-max;
+  }
+}
+
+@include keyframes(hide-tooltip-right) {
+  from {
+    @include transform(translateX(0%) scale(1));
+    @include opacity-max;
+  }
+  to {
+    @include transform(translateX(1000px) scale(0));
+    @include opacity-min;
+  }
+}

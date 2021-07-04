@@ -1,25 +1,33 @@
 import React from "react";
 
 type MenuAction = {
-  type: "SHOW_MENU";
+  type: "SHOW_MENU" | "SET_MENU_BUTTON_REF";
   payload: MenuType;
 };
 
 interface MenuType {
-  show: boolean;
+  show?: boolean;
+  menuButtonRef?: any | null;
 }
 
 interface MenuContextType extends MenuType {
   showMenu(show: boolean): void;
+
+  setRef(ref: React.MutableRefObject<any | null>): void;
 }
 
 const initialState: MenuType = {
-  show: false
+  show: false,
+  menuButtonRef: null
 };
 
 const reducer = (state: MenuType, action: MenuAction): MenuType => {
   if (action.type === "SHOW_MENU") {
     return { ...state, show: action.payload.show };
+  }
+
+  if (action.type === "SET_MENU_BUTTON_REF") {
+    return { ...state, menuButtonRef: action.payload.menuButtonRef };
   }
 
   return state;
@@ -39,11 +47,21 @@ export const MenuContextProvider = ({ children }: { children: React.ReactNode })
     });
   }
 
+  function setRef(ref: React.MutableRefObject<any | null>): void {
+    dispatch({
+      type: "SET_MENU_BUTTON_REF",
+      payload: {
+        menuButtonRef: ref
+      }
+    });
+  }
+
   return (
     <MenuContext.Provider
       value={{
         ...menu,
-        showMenu
+        showMenu,
+        setRef
       }}
     >
       {children}

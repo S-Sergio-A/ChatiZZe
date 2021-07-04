@@ -148,11 +148,11 @@ export default function ContactUs() {
   }
 
   async function handleContact() {
-    let id = btoa("" + Date.now());
-
+    const id = btoa("" + Date.now());
+  
     let config: any, url: string;
-
-    let data = {
+  
+    const data = {
       appealId: id,
       subject: contactForm.subject,
       firstName: contactForm.firstName,
@@ -188,7 +188,7 @@ export default function ContactUs() {
             const { errors } = response.data;
 
             if (errors) {
-              let errors = response.data.errors;
+              const errors = response.data.errors;
 
               if (errors.code === 500) {
                 showErrorModal(500);
@@ -232,7 +232,6 @@ export default function ContactUs() {
           onChange={firstNameOnChange}
           required={true}
           autoComplete="given-name"
-          tooltipId={t("tooltip.header")}
           tooltipText={t("tooltip.name")}
           value={contactForm.firstName}
           overlayPlacement={width < 769 ? "bottom" : "right"}
@@ -249,7 +248,6 @@ export default function ContactUs() {
           onChange={lastNameOnChange}
           required={true}
           autoComplete="family-name"
-          tooltipId={t("tooltip.header")}
           tooltipText={t("tooltip.name")}
           value={contactForm.lastName}
           overlayPlacement={width < 769 ? "bottom" : "right"}
@@ -311,7 +309,6 @@ export default function ContactUs() {
                 onChange={emailOnBlur}
                 required={true}
                 autoComplete="email"
-                tooltipId={t("tooltip.header")}
                 tooltipText={t("tooltip.email")}
                 value={contactForm.email}
                 overlayPlacement={width < 769 ? "bottom" : "right"}

@@ -60,20 +60,20 @@
             }
           }
 
-          .form-i {
-            grid-area: 1/1/2/2;
-            height: 42px;
-            border: 1px inset $black;
-            padding: 10px;
-            @include box-shadow(none);
-            color: $black;
-            background: $white;
-            font-size: 18px;
-
-            &:disabled {
-              opacity: 0.5;
-            }
-          }
+          //.form-i {
+          //  grid-area: 1/1/2/2;
+          //  height: 42px;
+          //  border: 1px inset $black;
+          //  padding: 10px;
+          //  @include box-shadow(none);
+          //  color: $black;
+          //  background: $white;
+          //  font-size: 18px;
+          //
+          //  &:disabled {
+          //    opacity: 0.5;
+          //  }
+          //}
         }
       }
     }

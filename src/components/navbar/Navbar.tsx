@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
-// import logoutImage from "../../../assets/images/icons/logout.svg";
 import { useTouchDevice } from "../../utils/hooks/useTouchDevice";
 import { AuthContext } from "../../context/auth/AuthContext";
 import LanguageButton from "../button/language/LanguageButton";
@@ -60,7 +59,7 @@ export const Navbar = () => {
                 <li className="btn-sm">
                   <NavLink to={`/${i18n.language}/faq`}>FAQ</NavLink>
                 </li>
-                <li>{!logged ? <NavLink to={`/${i18n.language}/user/login`}>Try now!</NavLink> : null}</li>
+                <li className="btn-sm">{!logged ? <NavLink to={`/${i18n.language}/user/login`}>Try now!</NavLink> : null}</li>
               </React.Fragment>
             )}
           </ul>
@@ -69,12 +68,12 @@ export const Navbar = () => {
           <ul className="f-w f-h flex j-c-s-a a-i-c">
             <li>
               {logged ? (
-                <button className="btn-nav btn-sm btn-i" onClick={() => logout()} aria-label={t("navbar.ariaLabel.logOut")}>
+                <button className="btn-pr btn-sm btn-i" onClick={() => logout()} aria-label={t("navbar.ariaLabel.logOut")}>
                   <img src="http://localhost:3000/icons/logout.svg" alt="" className="icon" />
                 </button>
               ) : null}
             </li>
-            <li>{width < 600 ? <MenuButton/> : <LanguageButton />}</li>
+            <li>{width < 600 ? <MenuButton /> : <LanguageButton />}</li>
           </ul>
         </div>
       </nav>

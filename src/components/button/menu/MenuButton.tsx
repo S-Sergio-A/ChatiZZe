@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Button } from "../Button";
 import "./MenuButton.css";
 import { useTranslation } from "react-i18next";
+import { MenuContext } from "../../../context/menu/MenuContext";
 
 export default function MenuButton() {
-  const [toggle, setToggle] = useState(false);
-  const [clicksCount, setClicksCount] = useState(0);
   const [t] = useTranslation();
+  const { showMenu, setRef } = useContext(MenuContext);
+  const menuButtonRef = useRef(null);
+
+  useEffect(() => {
+    setRef(menuButtonRef);
+  }, [menuButtonRef]);
 
   return (
     <Button
-      className="btn-i-l btn-i d-t"
+      className="btn-pr btn-i d-t"
       type="button"
       onClick={() => {
-        if (clicksCount !== 0) {
-          setToggle(!(clicksCount % 2));
-        } else {
-          setToggle(true);
-        }
-        setClicksCount(clicksCount + 1);
+        showMenu(true);
       }}
       ariaLabel={t("navbar.ariaLabel.langButton")}
+      buttonRef={menuButtonRef}
     >
-      <img src="http://localhost:3000/icons/menu.svg" alt="" className="icon" />
+      <span className="flex a-i-c j-c-c">
+        <img src="http://localhost:3000/icons/menu.svg" alt="" className="icon" />
+      </span>
     </Button>
   );
 }

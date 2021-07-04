@@ -36,24 +36,21 @@ export const SecondPage = ({ email, setEmail, username, setUsername }: SecondPag
   };
 
   return (
-    <div className="Form-R Grid">
-      <div className="Form-R Grid">
-        <Input
-          labelText="Username"
-          errorIdentifier={usernameError}
-          errorLabelText={usernameError}
-          onBlur={validateUsernameOnBlur}
-          onChange={usernameOnChange}
-          inputId="username"
-          name="username"
-          inputMode="text"
-          autoComplete="username"
-          required={true}
-          tooltipId={t("tooltip.header.username")}
-          tooltipText={t("tooltip.username")}
-          value={username}
-        />
-      </div>
+    <React.Fragment>
+      <Input
+        labelText="Username"
+        errorIdentifier={usernameError}
+        errorLabelText={usernameError}
+        onBlur={validateUsernameOnBlur}
+        onChange={usernameOnChange}
+        inputId="username"
+        name="username"
+        inputMode="text"
+        autoComplete="username"
+        required
+        tooltipText={t("tooltip.username")}
+        value={username}
+      />
       <Input
         labelText="Email (optional)"
         errorIdentifier={emailError}
@@ -66,11 +63,10 @@ export const SecondPage = ({ email, setEmail, username, setUsername }: SecondPag
         autoComplete="email"
         min={6}
         max={254}
-        required={true}
-        tooltipId={t("tooltip.header.email")}
+        required={false}
         tooltipText={t("tooltip.email")}
         value={email}
       />
-    </div>
+    </React.Fragment>
   );
 };
