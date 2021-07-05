@@ -14,7 +14,7 @@ interface ChatContextType extends ChatType {
 }
 
 const initialState: ChatType = {
-  chatName: ''
+  chatName: ""
 };
 
 const reducer = (state: ChatType, action: ChatAction): ChatType => {
@@ -34,7 +34,7 @@ export const ChatContextProvider = ({ children }: { children: React.ReactNode })
     dispatch({
       type: "SET_ACTIVE_CHAT",
       payload: {
-        chatName: chatName,
+        chatName: chatName
       }
     });
   }

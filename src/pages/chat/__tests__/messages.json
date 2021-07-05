@@ -1,0 +1,35 @@
+{
+  "chatName": "Booba",
+  "messages": [
+    {
+      "id": 34567,
+      "userIcon": "https://via.placeholder.com/50",
+      "author": {
+        "id": 123,
+        "username": "Big Floppa"
+      },
+      "text": "It IS NOT a WAR CRIME if I was having fun!!1!",
+      "timestamp": "12:20"
+    },
+    {
+      "id": 34564,
+      "userIcon": "https://via.placeholder.com/50",
+      "author": {
+        "id": 123,
+        "username": "Big Floppa"
+      },
+      "text": "It IS NOT a WAR CRIME if I was having fun!!1!",
+      "timestamp": "12:20"
+    },
+    {
+      "id": 34598,
+      "userIcon": "https://via.placeholder.com/50",
+      "author": {
+        "id": 123,
+        "username": "Big Floppa"
+      },
+      "text": "It IS NOT a WAR CRIME if I was having fun!!1!",
+      "timestamp": "12:20"
+    }
+  ]
+}

@@ -4,33 +4,55 @@ import { ChatContext } from "../../context/chat/ChatContext";
 import Message from "../message/Message";
 import { ChatInput } from "../chat-input/ChatInput";
 import ChatHeader from "../chat-header/ChatHeader";
+import "./ChatArea.css";
 
-export default function ChatArea({ messages }: { messages: any[] }) {
-  const { chatName } = useContext(ChatContext);
+const chatName = "Booba";
+
+export default function ChatArea({
+  chat
+}: {
+  chat: {
+    chatName: string;
+    messages: {
+      id: number;
+      userIcon: string;
+      author: {
+        id: number;
+        username: string;
+      };
+      text: string;
+      timestamp: string;
+    }[];
+  };
+}) {
+  // const { chatName } = useContext(ChatContext);
 
   return (
     <React.Fragment>
-      {!chatName ? (
-        <section className="chat-layout">
+      {!chat.chatName ? (
+        <section
+          className="chat-layout flex a-i-c j-c-f-s f-f-c-n"
+          style={{ background: `url(http://localhost:3000/chat_dummy_primary.svg) no-repeat center` }}
+        >
           <h1>Choose a person to chat with</h1>
         </section>
       ) : (
-        <section className="chat-layout">
-          <ChatHeader/>
+        <section className="chat-layout grid">
+          <ChatHeader />
           <ul>
-            {messages.map((item, index) => (
+            {chat.messages.map((item, index) => (
               <li key={item.id}>
                 <Message
-                  userImageSrc={item.userImageSrc}
-                  messageAuthorId={item.messageAuthorId}
-                  messageText={item.messageText}
-                  messageTimestamp={item.messageTimestamp}
-                  nextMessageAuthorId={messages[index + 1].messageAuthorId}
+                  userIcon={item.userIcon}
+                  author={item.author}
+                  text={item.text}
+                  timestamp={item.timestamp}
+                  nextMessageAuthorId={chat.messages[index + 1] ? chat.messages[index + 1].author.id : undefined}
                 />
               </li>
             ))}
           </ul>
-          <ChatInput/>
+          <ChatInput />
         </section>
       )}
     </React.Fragment>

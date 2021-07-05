@@ -1,6 +1,13 @@
 .chat-page {
-  grid-template-rows: minmax(10px, 1fr);
+  grid-template-rows: minmax(880px, 1fr);
   grid-template-columns: 400px minmax(10px, 1fr);
+  background: #ffffff;
+}
+.chat-page .chat-list {
+  grid-area: 1/1/2/2;
+}
+.chat-page .chat-layout {
+  grid-area: 1/2/2/3;
 }
 
 /*# sourceMappingURL=Chat.css.map */

@@ -1,4 +1,15 @@
+@import "../../styles/Extensions";
+
 .chat-page {
-  grid-template-rows: minmax(10px, 1fr);
+  grid-template-rows: minmax(880px, 1fr);
   grid-template-columns: 400px minmax(10px, 1fr);
+  background: $white;
+
+  .chat-list {
+    grid-area: 1/1/2/2;
+  }
+
+  .chat-layout {
+    grid-area: 1/2/2/3;
+  }
 }

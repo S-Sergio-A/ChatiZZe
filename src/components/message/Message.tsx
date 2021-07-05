@@ -2,24 +2,27 @@ import { useCookies } from "react-cookie";
 import "./Message.css";
 
 interface MessageProps {
-  userImageSrc: string;
-  messageAuthorId: string;
-  messageText: string;
-  messageTimestamp: string;
-  nextMessageAuthorId: string | undefined;
+  userIcon: string;
+  author: {
+    id: number;
+    username: string;
+  };
+  text: string;
+  timestamp: string;
+  nextMessageAuthorId: number | undefined;
 }
 
-export default function Message({ userImageSrc, messageAuthorId, messageText, messageTimestamp, nextMessageAuthorId }: MessageProps) {
+export default function Message({ userIcon, author, text, timestamp, nextMessageAuthorId }: MessageProps) {
   const [cookies] = useCookies(["user"]);
-  
+
   return (
     <div className="message-wrapper flex a-i-c j-c-s-b">
       <div className="message-author-image flex a-i-f-e j-c-c">
-        {nextMessageAuthorId !== messageAuthorId ? <img src={userImageSrc} alt="" /> : null}
+        {nextMessageAuthorId !== author.id ? <img src={userIcon} alt="" /> : null}
       </div>
-      <div className={messageAuthorId === cookies.userId ? "message-yours" : "message-others"}>
-        <p className="message-text">{messageText}</p>
-        <span className="message-timestamp">{messageTimestamp}</span>
+      <div className={author.id === cookies.userId ? "message-yours" : "message-others"}>
+        <p className="message-text">{text}</p>
+        <span className="message-timestamp">{timestamp}</span>
       </div>
     </div>
   );

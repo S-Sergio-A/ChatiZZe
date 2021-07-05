@@ -5,14 +5,16 @@ import { SearchInput } from "../input/search-input/SearchInput";
 import { ChatInfoContext } from "../../context/chat-info/ChatInfoContext";
 import { ChatMetadataContext } from "../../context/chat-metadata/ChatInfoContext";
 
+const membersCount = 5, activeMembersCount = 2, name = "BOOBA";
+
 export default function ChatHeader() {
   const [searchMessage, setSearchMessage] = useState(false);
   const { show, showChatInfo } = useContext(ChatInfoContext);
-  const { loadChatMetadata, membersCount, activeMembersCount, name } = useContext(ChatMetadataContext);
+  // const { loadChatMetadata, membersCount, activeMembersCount, name } = useContext(ChatMetadataContext);
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    loadChatMetadata();
+    // loadChatMetadata();
   }, []);
 
   function showSearchBar() {

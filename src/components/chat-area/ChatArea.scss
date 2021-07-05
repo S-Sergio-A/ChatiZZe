@@ -1,0 +1,11 @@
+.chat-layout {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.flex {
+    padding-top: 100px;
+  }
+
+  &.grid {
+  }
+}

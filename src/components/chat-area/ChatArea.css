@@ -1,0 +1,9 @@
+.chat-layout {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.chat-layout.flex {
+  padding-top: 100px;
+}
+
+/*# sourceMappingURL=ChatArea.css.map */
