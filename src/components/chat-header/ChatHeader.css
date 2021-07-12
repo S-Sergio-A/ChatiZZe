@@ -1,0 +1,22 @@
+.chat-header {
+  grid-area: 1/1/2/2;
+  grid-template-rows: auto;
+  grid-template-columns: minmax(10px, 1fr) 180px 60px 60px;
+}
+.chat-header > .gr-name-con {
+  grid-area: 1/1/2/2;
+  grid-template-rows: 29px 29px;
+  grid-template-columns: minmax(10px, 1fr);
+  padding-inline: 20px;
+}
+.chat-header > .search-field {
+  grid-area: 1/2/2/3;
+}
+.chat-header > .btn-search {
+  grid-area: 1/3/2/4;
+}
+.chat-header > .btn-settings {
+  grid-area: 1/4/2/5;
+}
+
+/*# sourceMappingURL=ChatHeader.css.map */
