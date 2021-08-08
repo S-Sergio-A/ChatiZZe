@@ -1,0 +1,204 @@
+.switch > input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.switch > input[type=checkbox]:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+}
+.switch > label {
+  cursor: pointer;
+  width: 70px;
+  height: 35px;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.switch > label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  transition: all 0.35s ease-in-out !important;
+  -webkit-transition: all 0.35s ease-in-out !important;
+  -moz-transition: all 0.35s ease-in-out !important;
+  -ms-transition: all 0.35s ease-in-out !important;
+  -o-transition: all 0.35s ease-in-out !important;
+}
+.switch > label:active:after {
+  width: 45.5px;
+}
+
+.tr-switch {
+  position: relative;
+  height: 26px;
+  width: 126px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  cursor: pointer;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+}
+.tr-switch > * {
+  cursor: pointer;
+}
+.tr-switch > button.switch-position, .tr-switch > span.pointer {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+.tr-switch > button.switch-position {
+  background: transparent;
+}
+.tr-switch > span.pointer {
+  position: absolute;
+  top: -2px;
+  left: -1px;
+  border: 2px solid;
+}
+
+input[type=radio] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.start-position {
+  transform: translateX(0);
+}
+
+.middle-position {
+  transform: translateX(calc((126px - 26px) / 2));
+}
+
+.end-position {
+  transform: translateX(100px);
+}
+
+.start {
+  animation: start 300ms ease-in-out forwards;
+  -webkit-animation: start 300ms ease-in-out forwards;
+  -moz-animation: start 300ms ease-in-out forwards;
+  -o-animation: start 300ms ease-in-out forwards;
+}
+
+.middle {
+  animation: middle 300ms ease-in-out forwards;
+  -webkit-animation: middle 300ms ease-in-out forwards;
+  -moz-animation: middle 300ms ease-in-out forwards;
+  -o-animation: middle 300ms ease-in-out forwards;
+}
+
+.end {
+  animation: end 300ms ease-in-out forwards;
+  -webkit-animation: end 300ms ease-in-out forwards;
+  -moz-animation: end 300ms ease-in-out forwards;
+  -o-animation: end 300ms ease-in-out forwards;
+}
+
+@keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@-webkit-keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@-moz-keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@-o-keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@-ms-keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@-khtml-keyframes middle {
+  to {
+    transform: translateX(calc((126px - 26px) / 2));
+  }
+}
+@keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@-webkit-keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@-moz-keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@-o-keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@-ms-keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@-khtml-keyframes end {
+  to {
+    transform: translateX(100px);
+  }
+}
+@keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+@-o-keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+@-ms-keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+@-khtml-keyframes start {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/*# sourceMappingURL=Switch.css.map */
