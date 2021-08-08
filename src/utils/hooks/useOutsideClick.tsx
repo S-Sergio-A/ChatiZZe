@@ -7,13 +7,12 @@ export default function useOutsideClick(
 ) {
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (anotherElementRef?.current) {
-        if (elementRef.current && !elementRef.current.contains(event.target) && !anotherElementRef.current.contains(event.target)) {
-          console.log(elementRef.current.contains(event.target), anotherElementRef.current.contains(event.target));
+      if (anotherElementRef && anotherElementRef.current && elementRef.current) {
+        if (!elementRef.current.contains(event.target) && !anotherElementRef.current.contains(event.target)) {
           actionToCall();
         }
       } else {
-        if (elementRef.current && elementRef.current !== event.target) {
+        if (elementRef.current && elementRef.current !== event.target && !elementRef.current.contains(event.target)) {
           actionToCall();
         }
       }
@@ -23,5 +22,5 @@ export default function useOutsideClick(
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [actionToCall, elementRef]);
+  }, [actionToCall, elementRef, anotherElementRef]);
 }
