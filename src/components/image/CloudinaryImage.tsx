@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Image, Placeholder, Transformation } from 'cloudinary-react';
+import { Image, Placeholder, Transformation } from "cloudinary-react";
+import { useEffect, useState } from "react";
 
 interface CloudinaryImageProps {
   alt: string;
@@ -10,8 +10,8 @@ interface CloudinaryImageProps {
 }
 
 export const CloudinaryImage = ({ alt, folders, imageHeight, imageName, imageWidth }: CloudinaryImageProps) => {
-  const [width, setWidth] = useState('');
-  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
 
   useEffect(() => {
     setHeight(imageHeight);
@@ -21,7 +21,7 @@ export const CloudinaryImage = ({ alt, folders, imageHeight, imageName, imageWid
   if (imageHeight && imageWidth) {
     return (
       <Image publicId={`ChatiZZe/${folders}/${imageName}`} secure alt={alt} loading="lazy">
-        <Transformation rawTransformation={`w_${width ? width : 'auto'},h_${height ? height : 'auto'},c_fill`} />
+        <Transformation rawTransformation={`w_${width ? width : "auto"},h_${height ? height : "auto"},c_fill`} />
         <Placeholder type="blur" />
       </Image>
     );

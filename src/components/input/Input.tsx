@@ -13,16 +13,25 @@ export const Input = ({
   name = "",
   onBlur,
   onChange,
+  type = "text",
   required = false,
   labelText,
   max = undefined,
   min = undefined,
   overlayPlacement = "top",
   tooltipText,
+  showTip = true,
+  setInputRef,
   value
 }: BasicInputProps & InputWithTooltipProps) => {
   const [inputFocused, setInputFocused] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (setInputRef && inputRef.current) {
+      setInputRef(inputRef);
+    }
+  }, [inputRef]);
 
   function useFocusListener(ref: React.MutableRefObject<any>) {
     useEffect(() => {
@@ -57,7 +66,11 @@ export const Input = ({
         <div className="label-container">
           <label
             htmlFor={inputId}
-            className={`${inputFocused || value.length !== 0 ? "transform-label" : ""} form-l flex a-s-f-s h6-s`}
+            className={`${
+              inputFocused || (value && value.length !== 0) || (inputRef.current && inputRef.current.value.length !== 0)
+                ? "transform-label"
+                : ""
+            } form-l flex a-s-f-s h6-s`}
             tabIndex={-1}
           >
             {labelText}
@@ -72,13 +85,26 @@ export const Input = ({
           onBlur={onBlur}
           onChange={onChange}
           required={required}
+          type={type}
           min={min}
           max={max}
-          value={value}
+          value={
+            value ? value : inputRef.current && inputRef.current.value.length !== 0 && !inputFocused ? inputRef.current.value : undefined
+          }
           ref={inputRef}
+          className={
+            inputFocused || (value && value.length !== 0) || (inputRef.current && inputRef.current.value.length !== 0) ? "notEmpty" : ""
+          }
         />
         <p className={errorIdentifier ? "form-l-e it flex a-s-f-s f-w copyright" : "none"}>{errorLabelText ? errorLabelText : null}</p>
-        <TooltipOverlay overlayPlacement={overlayPlacement} tooltipText={tooltipText} show={inputFocused} inputId={inputId} />
+        {showTip ? (
+          <TooltipOverlay
+            overlayPlacement={overlayPlacement}
+            tooltipText={tooltipText ? tooltipText : ""}
+            show={inputFocused}
+            inputId={inputId}
+          />
+        ) : null}
       </div>
     </React.Fragment>
   );

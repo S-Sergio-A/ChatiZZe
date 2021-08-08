@@ -1,32 +1,47 @@
-import { render } from "react-dom";
-import React from "react";
-import * as serviceWorkerRegistration from "./utils/serwice-worker/serviceWorkerRegistration";
-import reportWebVitals from "./utils/reportWebVitals";
-import Wrapper from "./Wrapper";
-import "./styles/index.css";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { Suspense } from "react";
-import "./components/button/ButtonNav.css";
-import "./components/button/ButtonPrimary.css";
+import React, { Suspense } from "react";
+import { Provider } from "react-redux";
+import { render } from "react-dom";
+import axios from "axios";
+import { LoadingFallback } from "./pages/lazy-loaders/LoadingFallback";
+// import reportWebVitals from "./utils/reportWebVitals";
+import { store } from "./context/store";
+import Wrapper from "./Wrapper";
 import "./components/button/ButtonSecondary.css";
+import "./components/button/ButtonTertiary.css";
+import "./components/button/ButtonPrimary.css";
+import "./components/button/ButtonNav.css";
+import "./components/toasts/Toast.css";
+import "./components/link/Link.css";
+import "./pages/info-pages/InfoPage.css";
+import "./styles/index.css";
 
-// const store = createStore(rootReducer);
+axios.defaults.baseURL = "https://chatizze-public-api.herokuapp.com/public";
+axios.defaults.timeout = 1500;
+axios.defaults.withCredentials = true;
+
+if ("serviceWorker" in navigator && typeof window !== "undefined") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((registration) => {
+        // console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        // console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
 
 render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Suspense fallback="loading">
-        {/*<Provider store={store}>*/}
+  <BrowserRouter>
+    <Suspense fallback={<LoadingFallback />}>
+      <Provider store={store}>
         <Wrapper />
-      </Suspense>
-    </BrowserRouter>
-    {/*</Provider>*/}
-  </React.StrictMode>,
+      </Provider>
+    </Suspense>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 
-serviceWorkerRegistration.unregister();
-
-reportWebVitals(console.log);
+// reportWebVitals(console.log);

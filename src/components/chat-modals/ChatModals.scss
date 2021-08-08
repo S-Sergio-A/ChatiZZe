@@ -1,0 +1,21 @@
+@import "../../styles/Extensions";
+
+.modal-content {
+  row-gap: 20px;
+
+  .ruler {
+    height: 20px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  ul {
+    row-gap: 20px;
+
+    li a {
+      padding: 10px;
+      text-decoration: none;
+      @include columnGap(20px);
+    }
+  }
+}

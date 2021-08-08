@@ -4,7 +4,7 @@ import "./LoadingOverlay.css";
 interface LoadingOverlayProps {
   active: boolean;
   text: string;
-  children: any;
+  children?: any;
 }
 export const LoadingOverlay = ({ active, text, children }: LoadingOverlayProps) => {
   const spinnerRef = useRef(null);
