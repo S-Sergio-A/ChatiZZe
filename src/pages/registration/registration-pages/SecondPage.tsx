@@ -5,14 +5,13 @@ import { Input } from "../../../components/input/Input";
 interface SecondPageProps {
   email: string;
   username: string;
+  emailError: string;
+  usernameError: string;
   setEmail: Dispatch<React.SetStateAction<string>>;
   setUsername: Dispatch<React.SetStateAction<string>>;
 }
 
-export const SecondPage = ({ email, setEmail, username, setUsername }: SecondPageProps) => {
-  const [emailError, setEmailError] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-
+export const SecondPage = ({ email, setEmail, username, setUsername, emailError, usernameError }: SecondPageProps) => {
   const [t] = useTranslation();
 
   const usernameOnChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,25 +22,12 @@ export const SecondPage = ({ email, setEmail, username, setUsername }: SecondPag
     setEmail(event.target.value);
   };
 
-  const validateUsernameOnBlur = () => {
-    setUsernameError("");
-
-    // validateTelNum()
-  };
-
-  const validateEmailOnBlur = () => {
-    setEmailError("");
-
-    // validateTelNum()
-  };
-
   return (
     <React.Fragment>
       <Input
-        labelText="Username"
+        labelText={t("label.username")}
         errorIdentifier={usernameError}
         errorLabelText={usernameError}
-        onBlur={validateUsernameOnBlur}
         onChange={usernameOnChange}
         inputId="username"
         name="username"
@@ -52,10 +38,9 @@ export const SecondPage = ({ email, setEmail, username, setUsername }: SecondPag
         value={username}
       />
       <Input
-        labelText="Email (optional)"
+        labelText={t("label.email")}
         errorIdentifier={emailError}
         errorLabelText={emailError}
-        onBlur={validateEmailOnBlur}
         onChange={emailOnChange}
         inputId="email"
         name="email"

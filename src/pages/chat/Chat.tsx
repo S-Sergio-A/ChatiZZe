@@ -1,58 +1,156 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useCookies } from "react-cookie";
+import { io } from "socket.io-client";
+import { timer } from "rxjs";
 import axios from "axios";
+import {
+  resetDeletedMessageId,
+  resetUpdatedMessageId,
+  resetUpdatedMessageNewState,
+  setUpdatedMessagePrevState
+} from "../../context/actions/chat";
+import UserSettingsModal from "../../components/chat-user-settings-modal/UserSettingsModal";
+import AddUserModal from "../../components/chat-add-user-modal/AddUserModal";
+import CreateChatModal from "../../components/chat-create-modal/CreateChatModal";
+import ManageChatModal from "../../components/chat-manage-modal/ManageChatModal";
+import ChatDataModal from "../../components/chat-data-modal/ChatDataModal";
+import { UserChatMenu } from "../../components/chat-menu/UserChatMenu";
+import { RootState } from "../../context/rootState.interface";
 import ChatList from "../../components/chat-list/ChatList";
 import ChatArea from "../../components/chat-area/ChatArea";
 import { userLinks } from "../../utils/api-endpoints.enum";
-import { ChatContext } from "../../context/chat/ChatContext";
-import chatList from "./__tests__/chats.json";
-import messagesList from "./__tests__/messages.json";
+import "../../components/chat-modals/ChatModals.css";
 import "./Chat.css";
+import Head from "../../components/head/Head";
+import { useTranslation } from "react-i18next";
 
 export default function Chat() {
-  const [chats, setChats] = useState<
-    {
-      key: string;
-      chatId: number;
-      name: string;
-      logo: string;
-      isChannel: boolean;
-      recentMessage: {
-        author: {
-          id: number;
-          username: string;
-        };
-        message: string;
-        time: string;
-      };
-    }[]
-  >([]);
-  const [messages, setMessages] = useState([]);
+  const [t] = useTranslation();
+  const [chats, setChats] = useState<any[]>([]);
+  const [messages, setMessages] = useState<any[]>([]);
+  const [users, setUsers] = useState<{ [key: string]: any }[]>([]);
 
-  const { chatName } = useContext(ChatContext);
+  const [newMessage, setNewMessage] = useState<boolean>(false);
+
+  const [cookies] = useCookies([]);
+
+  const socketRef = useRef<any>(null);
+  const indexOfUpdated = useRef(-1);
+  const dispatch = useDispatch();
+
+  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const userId = useSelector((state: RootState) => state.auth.user._id);
+
+  const deletedMessageId = useSelector((state: RootState) => state.chat.deletedMessageId);
+  const updatedMessageId = useSelector((state: RootState) => state.chat.updatedMessageId);
+  const updatedMessageNewState = useSelector((state: RootState) => state.chat.updatedMessageNewState);
+
+  const showUserMenu = useSelector((state: RootState) => state.chat.showUserMenu);
+  const enlargeChatList = useSelector((state: RootState) => state.chat.enlargeChatList);
 
   useEffect(() => {
-    loadChats();
-    loadMessages();
+    if (roomId.length !== 0 && userId.length !== 0) {
+      socketRef.current = io(
+        process.env.REACT_APP_WSS_SERVER ? `${process.env.REACT_APP_WSS_SERVER}?roomId=${roomId}&userId=${userId}` : "",
+        {
+          reconnection: true,
+          reconnectionAttempts: 4,
+          reconnectionDelay: 3000,
+          reconnectionDelayMax: 10000,
+          transports: ["websocket"]
+        }
+      );
+
+      socketRef.current.emit("load-last-messages");
+
+      socketRef.current.on("last-messages", (lastMessages: any) => {
+        setMessages(lastMessages.reverse());
+      });
+
+      socketRef.current.on("new-message", (newMessage: any) => {
+        setMessages((oldMessages) => [...oldMessages, newMessage]);
+        setNewMessage(true);
+        timer(100).subscribe(() => setNewMessage(false));
+      });
+
+      return () => {
+        socketRef.current.disconnect();
+      };
+    }
+  }, [roomId, userId]);
+
+  useEffect(() => {
+    if (chats.length === 0) loadChats();
   }, []);
 
-  async function loadChats() {
-    setChats(chatList);
-    // axios.get(userLinks.loadChats).then((response) => {
-    //   setChats(response.data.chats);
-    // });
-  }
+  useEffect(() => {
+    if (roomId && chats && users && users.length === 0) {
+      const loadedUsers = chats.find((item: any) => item._id === roomId);
+      setUsers(loadedUsers?.usersID);
+    }
+  }, [chats, roomId]);
 
-  async function loadMessages() {
-    setChats(messages);
-    // axios.get(userLinks.loadMessages(chatName)).then((response) => {
-    //   setMessages(response.data.chats);
-    // });
+  useEffect(() => {
+    if (deletedMessageId !== "") {
+      const messagesCopy = [...messages];
+      const indexOfDeleted = messagesCopy.findIndex((item) => item._id === deletedMessageId);
+
+      messagesCopy.splice(indexOfDeleted, 1);
+      setMessages(messagesCopy);
+      dispatch(resetDeletedMessageId());
+    }
+  }, [deletedMessageId]);
+
+  useEffect(() => {
+    if (updatedMessageId !== "") {
+      const messagesCopy = [...messages];
+
+      indexOfUpdated.current = messagesCopy.findIndex((item) => item._id === updatedMessageId);
+      dispatch(setUpdatedMessagePrevState(messagesCopy[indexOfUpdated.current]));
+      dispatch(resetUpdatedMessageId());
+    }
+  }, [updatedMessageId]);
+
+  useEffect(() => {
+    if (Object.keys(updatedMessageNewState).length !== 0) {
+      const messagesCopy = [...messages];
+
+      messagesCopy[indexOfUpdated.current] = updatedMessageNewState;
+      setMessages(messagesCopy);
+      dispatch(resetUpdatedMessageNewState());
+    }
+  }, [updatedMessageNewState]);
+
+  async function loadChats() {
+    axios
+      .get(userLinks.loadUserRooms, {
+        headers: {
+          "Access-Token": cookies["accessToken"]?.accessToken,
+          "Refresh-Token": cookies["refreshToken"]?.refreshToken
+        }
+      })
+      .then(({ data }) => {
+        setChats(data);
+      });
   }
 
   return (
-    <main id="main" className="chat-page grid">
-      <ChatList chats={chatList} />
-      <ChatArea chat={messagesList} />
-    </main>
+    <React.Fragment>
+      <Head title={t("chat.seo.title")} description={t("chat.seo.description")} />
+      <div className="placeholder-f" />
+      <main id="main" className={`chat-page grid ${enlargeChatList ? "enlarge-menu" : ""}`}>
+        <ChatList chats={chats} />
+        <ChatArea messages={messages} newMessage={newMessage} socketRef={socketRef} chatData={[]} />
+        <CreateChatModal />
+        <AddUserModal />
+        <ChatDataModal users={users} chatData={[]} />
+        <ManageChatModal users={users} chatData={[]} />
+        <UserChatMenu />
+        <UserSettingsModal />
+      </main>
+      <div className={`menu-back ${showUserMenu ? "" : "none"}`} />
+      <div className="placeholder-s" />
+    </React.Fragment>
   );
 }

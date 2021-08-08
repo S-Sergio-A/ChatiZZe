@@ -1,23 +1,25 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { timer } from "rxjs";
-import i18n from "i18next";
 import axios from "axios";
-import { ActivationContext } from "../../context/activation/ActivationContext";
-import { ErrorContext } from "../../context/error/ErrorContext";
-import { AuthContext } from "../../context/auth/AuthContext";
+import ForgotPasswordModal from "../../components/forgot-password-modal/ForgotPasswordModal";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
+import { login, showForgotPassword } from "../../context/actions/auth";
 import { userLinks } from "../../utils/api-endpoints.enum";
+import Checkbox from "../../components/checkbox/Checkbox";
+import { cookieOptions } from "../../utils/cookieOptions";
 import { Button } from "../../components/button/Button";
 import { Input } from "../../components/input/Input";
 import { Card } from "../../components/card/Card";
-import { Form } from "../../components/form/Form";
-import { logError } from "../error/errorHandler";
 import Head from "../../components/head/Head";
+import i18n from "../../utils/i18n/i18n";
+import { logError } from "../error/errorHandler";
 import "./Login.css";
-import Checkbox from "../../components/checkbox/Checkbox";
+import { getRandomColor } from "../../utils/color/shadeColor";
 
 // import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
 
@@ -28,41 +30,18 @@ export default function Login() {
   const [userIdentifierError, setUserIdentifierError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const [rememberMe, setRememberMe] = useState(false);
   const [animate, setAnimate] = useState(false);
 
-  const [cookies] = useCookies(["client"]);
+  const [cookies, setCookies] = useCookies([]);
 
   const [t] = useTranslation();
 
-  const { showErrorModal } = useContext(ErrorContext);
-  const { showNotActivatedModal } = useContext(ActivationContext);
-  const { login } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
 
-  const userIdentifierOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setUserIdentifier(event.target.value);
-  };
-
-  const passwordOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const validateUserIdentifierOnBlur = () => {
-    setUserIdentifierError("");
-
-    // validateTelNum()
-  };
-
-  const validatePasswordOnBlur = () => {
-    setPasswordError("");
-
-    // validateTelNum()
-  };
-
-  function rememberMe() {
-    console.log("remembered");
-  }
+  const { width } = useWindowDimensions();
 
   async function handleLogin() {
     setUserIdentifierError("");
@@ -70,65 +49,90 @@ export default function Login() {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
 
+    let prop: string;
+
+    if (userIdentifier.includes("@")) {
+      prop = "email";
+    } else if (userIdentifier.includes("+")) {
+      prop = "phoneNumber";
+    } else {
+      prop = "username";
+    }
+
     await axios
       .post(
         userLinks.login,
         {
-          userIdentifier,
+          [prop]: userIdentifier,
           password,
-          fingerprint: result.visitorId
+          rememberMe
         },
         {
           headers: {
-            "Client-Token": cookies.accessToken,
-            withCredentials: true
+            Fingerprint: result.visitorId
           }
         }
       )
       .then((response) => {
-        const { errors, body } = response.data;
+        const { errors, accessToken, refreshToken, user } = response.data;
 
         if (errors) {
-          if (errors.code === 500) {
-            showErrorModal(500);
-          } else if (errors.code === 40) {
-            showNotActivatedModal(true);
+          if (errors.email) {
+            setUserIdentifierError(errors.email);
+          } else if (errors.phoneNumber) {
+            setUserIdentifierError(errors.phoneNumber);
+          } else if (errors.username) {
+            setUserIdentifierError(errors.username);
           } else {
-            if (errors.userIdentifier) {
-              setUserIdentifierError(errors.userIdentifier);
-            } else {
-              setUserIdentifierError("");
-            }
+            setUserIdentifierError("");
+          }
 
-            if (errors.password) {
-              setPasswordError(errors.password);
-            } else {
-              setPasswordError("");
-            }
+          if (errors.password) {
+            setPasswordError(errors.password);
+          } else {
+            setPasswordError("");
           }
         } else {
           setAnimate(true);
           timer(400).subscribe(() => setAnimate(false));
 
-          localStorage.setItem(btoa("token"), btoa(JSON.stringify(body[0].token)));
-          localStorage.setItem(btoa("refreshToken"), btoa(JSON.stringify(body[1].refreshToken)));
-          localStorage.setItem(
-            btoa("refreshTime"),
-            btoa(
-              JSON.stringify({
-                now: Date.now(),
-                expires: Date.now() + 840000
-              })
-            )
+          setCookies(
+            "dummy-photo",
+            {
+              photo: (
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 248.349 248.349">
+                  <path
+                    fill={getRandomColor()}
+                    d="M9.954,241.305h228.441c3.051,0,5.896-1.246,7.805-3.416c1.659-1.882,2.393-4.27,2.078-6.723
+                    c-5.357-41.734-31.019-76.511-66.15-95.053c-14.849,14.849-35.348,24.046-57.953,24.046s-43.105-9.197-57.953-24.046
+                    C31.09,154.65,5.423,189.432,0.071,231.166c-0.315,2.453,0.424,4.846,2.078,6.723C4.058,240.059,6.903,241.305,9.954,241.305z"
+                  />
+                  <path
+                    fill={getRandomColor()}
+                    d="M72.699,127.09c1.333,1.398,2.725,2.73,4.166,4.019c12.586,11.259,29.137,18.166,47.309,18.166
+                    s34.723-6.913,47.309-18.166c1.441-1.289,2.834-2.622,4.166-4.019c1.327-1.398,2.622-2.828,3.84-4.329
+                    c9.861-12.211,15.8-27.717,15.8-44.6c0-39.216-31.906-71.116-71.116-71.116S53.059,38.95,53.059,78.16
+                    c0,16.883,5.939,32.39,15.8,44.6C70.072,124.262,71.366,125.687,72.699,127.09z"
+                  />
+                </svg>
+              )
+            },
+            cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800)
+          );
+          setCookies("accessToken", { accessToken: accessToken }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
+          setCookies("refreshToken", { refreshToken: refreshToken }, cookieOptions(3600 * 24 * 60));
+          setCookies("user-id", { userId: user._id, username: user.username }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
+          setCookies(
+            "user-auth",
+            { logged: true, expTime: rememberMe ? 3600 * 24 * 30 : 1800 },
+            cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800)
           );
 
           timer(500).subscribe(() => {
-            login();
+            dispatch(login(user));
             if (location.pathname === `/${i18n.language}/user/login`) {
-              // @ts-ignore
               history.push({
-                pathname: `/${i18n.language}/user/homepage`,
-                isLoggedIn: true
+                pathname: `/${i18n.language}/chat`
               });
             }
           });
@@ -146,62 +150,64 @@ export default function Login() {
         cardDescription={t("login.seo.description")}
       />
       <Card layoutType="grid">
-        <header className="t-c">
-          <h1>Login</h1>
+        <header className="flex a-i-c j-c-c t-c">
+          <h1 className="h2-s">{t("login.header")}</h1>
         </header>
-        <Form success={animate}>
+        <form className="form grid f-w" method="POST">
           <div className="form-r grid">
             <div className="form-r grid">
               <Input
-                labelText="Username / Email / Phone Number"
+                labelText={width > 700 ? t("label.userIdLong") : t("label.userId")}
                 errorIdentifier={userIdentifierError}
                 errorLabelText={userIdentifierError}
-                onBlur={validateUserIdentifierOnBlur}
-                onChange={userIdentifierOnChange}
+                onBlur={(event) => setUserIdentifier(event.target.value)}
                 inputId="username"
                 name="username"
                 inputMode="text"
                 autoComplete="username"
-                required={true}
-                tooltipText={t("tooltip.userIdentifier")}
+                type="email"
+                required
+                showTip={false}
                 value={userIdentifier}
               />
             </div>
             <Input
-              labelText="Password"
+              labelText={t("label.password")}
               errorIdentifier={passwordError}
               errorLabelText={passwordError}
-              onBlur={validatePasswordOnBlur}
-              onChange={passwordOnChange}
+              onBlur={(event) => setPassword(event.target.value)}
               inputId="password"
               name="password"
               inputMode="text"
               autoComplete="new-password"
               min={8}
               max={50}
-              required={true}
-              tooltipText={t("tooltip.password")}
+              type="password"
+              required
+              showTip={false}
               value={password}
             />
-            <Checkbox onClick={rememberMe}>
-              <p className="h6-s">Remember Me</p>
+            <Checkbox onClick={() => setRememberMe(!rememberMe)}>
+              <p className="h6-s">{t("login.remember")}</p>
             </Checkbox>
           </div>
-          <div className="button-con flex a-i-c j-c-c f-f-c-n">
-            <Button onClick={handleLogin} type="button" className="btn-pr dark btn-sm">
-              <span className="flex a-i-c j-c-c">Sign in</span>
+          <div className={`button-con flex a-i-c ${width < 769 ? "f-f-c-n j-c-c" : "f-f-r-n j-c-s-b"}`}>
+            <Button onClick={handleLogin} type="button" className="btn-pr dark btn-sm-x-w">
+              <span className="flex a-i-c j-c-c">{t("login.button")}</span>
             </Button>
-            <Button onClick={rememberMe} type="button" className="btn-pr dark btn-sm-x-w">
-              <span className="flex a-i-c j-c-c">Log in with Google</span>
-            </Button>
+            <button onClick={() => alert("oopsy...")} type="button" className="google" aria-label={t("login.google")} />
           </div>
-        </Form>
+        </form>
       </Card>
-      <section className="b-b flex j-c-c a-i-c">
-        <Link to={`/${i18n.language}/user/registration`} className="h6-size font-weight_300">
-          Don't have an account? Try now!
+      <section className="b-b flex j-c-c a-i-c f-f-c-n">
+        <Link to={`/${i18n.language}/user/registration`} className="h6-s">
+          {t("login.link.signUp")}
         </Link>
+        <Button onClick={() => dispatch(showForgotPassword(true))} type="button" className="h6-s f-w__300">
+          {t("login.forgor")}
+        </Button>
       </section>
+      <ForgotPasswordModal />
     </main>
   );
 }
