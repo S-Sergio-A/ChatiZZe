@@ -6,7 +6,6 @@
   grid-template-rows: 60px minmax(10px, 1fr);
   padding-top: 30px;
   row-gap: 30px;
-  background: $white;
 
   header {
     grid-area: 1/1/2/3;
@@ -21,7 +20,6 @@
     }
 
     span {
-      background: $light-theme-secondary;
       padding-inline: 8px;
       @include border-radius(4px);
     }
@@ -36,37 +34,13 @@
 
     button {
       background: transparent;
-
-      svg path {
-        fill: $light-theme-primary;
-      }
-
-      svg:hover path {
-        fill: $light-theme-secondary;
-      }
-
-      svg:active {
-        fill: $light-theme-secondary;
-      }
-
-      svg:focus {
-        fill: $light-theme-secondary;
-      }
-
-      svg:focus-visible {
-        fill: $light-theme-secondary;
-      }
-
-      svg:-moz-focusring {
-        fill: $light-theme-secondary;
-      }
     }
   }
 }
 
 @media only screen and (min-width: 1400px) {
   .main-page .how-it-works .col.grid {
-    grid-template-rows: repeat(2, 200px) minmax(10px, 1fr);
+    grid-template-rows: repeat(2, 270px);
     grid-template-columns: repeat(2, 300px);
     @include columnGap(50px);
   }
@@ -74,7 +48,7 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .main-page .how-it-works .col.grid {
-    grid-template-rows: repeat(2, 200px) minmax(10px, 1fr);
+    grid-template-rows: repeat(2, 270px);
     grid-template-columns: repeat(2, 300px);
     @include columnGap(50px);
   }
@@ -82,7 +56,7 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .main-page .how-it-works .col.grid {
-    grid-template-rows: repeat(2, 220px) minmax(10px, 1fr);
+    grid-template-rows: repeat(2, 270px);
     grid-template-columns: repeat(2, 200px);
     @include columnGap(50px);
   }
@@ -90,7 +64,7 @@
 
 @media only screen and (min-width: 670px) and (max-width: 991px) {
   .main-page .how-it-works .col.grid {
-    grid-template-rows: repeat(4, 170px) minmax(10px, 1fr);
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: 300px;
     @include columnGap(50px);
   }
@@ -98,7 +72,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 669px) {
   .main-page .how-it-works .col.grid {
-    grid-template-rows: repeat(4, 170px) minmax(10px, 1fr);
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: 200px;
   }
 }
@@ -113,7 +87,7 @@
 
     .col.grid {
       grid-area: 3/1/4/3;
-      grid-template-rows: repeat(4, 170px) minmax(10px, 1fr);
+      grid-template-rows: repeat(4, auto);
     }
   }
 }

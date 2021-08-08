@@ -1,6 +1,5 @@
 .main-page .intro {
   grid-area: 1/1/2/2;
-  background: #ffffff;
   padding-top: 50px;
   row-gap: 10px;
 }
@@ -45,6 +44,10 @@
     -webkit-column-gap: 25px;
     -moz-column-gap: 25px;
   }
+  .main-page .intro .btn-sm-x-w {
+    width: 160px;
+    height: 60px;
+  }
   .main-page .intro img {
     grid-area: 1/2/3/3;
   }
@@ -54,6 +57,10 @@
     grid-template-columns: repeat(2, minmax(10px, 1fr));
     grid-template-rows: 220px 100px minmax(10px, 1fr);
     padding-inline: 50px;
+  }
+  .main-page .intro .btn-sm-x-w {
+    width: 180px;
+    height: 60px;
   }
   .main-page .intro header {
     grid-area: 1/1/2/3;

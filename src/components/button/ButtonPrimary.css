@@ -6,114 +6,99 @@
   letter-spacing: 2.8px;
   line-height: 1.6;
   cursor: pointer;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+}
+.btn-pr.no-border {
+  border: none;
+}
+.btn-pr.btn-r:before {
+  border-radius: 50px 0 0 50px;
+  -webkit-border-radius: 50px 0 0 50px;
+  -moz-border-radius: 50px 0 0 50px;
+}
+.btn-pr.btn-r:after {
+  border-radius: 0 50px 50px 0;
+  -webkit-border-radius: 0 50px 50px 0;
+  -moz-border-radius: 0 50px 50px 0;
 }
 .btn-pr:hover {
   letter-spacing: 2px;
-  color: #000000;
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:hover:before, .btn-pr:hover:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr:active {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:active:before, .btn-pr:active:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr:focus {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:focus:before, .btn-pr:focus:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr:focus-visible {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:focus-visible:before, .btn-pr:focus-visible:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr:focus-within {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:focus-within:before, .btn-pr:focus-within:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr:-moz-focusring {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr:-moz-focusring:before, .btn-pr:-moz-focusring:after {
   width: 50%;
-  background: #ffffff;
 }
 .btn-pr.active {
   letter-spacing: 1.6px;
-  color: #000000;
 }
 .btn-pr.active:before, .btn-pr.active:after {
   width: 50%;
-  background: #ffffff;
-}
-.btn-pr.dark {
-  border-color: #000000;
-  color: #000000;
 }
 .btn-pr.dark:hover {
   letter-spacing: 2px;
-  color: #000000;
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:hover:before, .btn-pr.dark:hover:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr.dark:active {
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:active:before, .btn-pr.dark:active:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr.dark:focus {
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:focus:before, .btn-pr.dark:focus:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr.dark:focus-visible {
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:focus-visible:before, .btn-pr.dark:focus-visible:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr.dark:focus-within {
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:focus-within:before, .btn-pr.dark:focus-within:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr.dark:-moz-focusring {
   letter-spacing: 1.6px;
 }
 .btn-pr.dark:-moz-focusring:before, .btn-pr.dark:-moz-focusring:after {
   width: 50%;
-  background: #DFBEFF;
 }
 .btn-pr span {
   text-align: center;

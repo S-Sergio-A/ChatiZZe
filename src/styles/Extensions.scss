@@ -1,60 +1,50 @@
 $black: #000000;
 $white: #ffffff;
 
-$success-100: #95E8AB;
+$success-100: #95e8ab;
 $success-200: #5dd07c;
-$success-300: #25B84C;
+$success-300: #25b84c;
 $success-400: #168734;
 
-$warning-100: #F0D458;
-$warning-200: #EEC71C;
-$warning-300: #DDB814;
-$warning-400: #C8A919;
+$warning-100: #f0d458;
+$warning-200: #eec71c;
+$warning-300: #ddb814;
+$warning-400: #c8a919;
 
-$error-100: #FA6E75;
-$error-200: #FA6E75;
-$error-300: #D0343C;
+$error-100: #fa6e75;
+$error-200: #fa6e75;
+$error-300: #d0343c;
 $error-400: #c11c24;
 
-$light-theme-layout: #EBEBEB;
-$light-theme-primary: #7400B8;
-$light-theme-secondary: #DFBEFF;
+$light-theme-layout: #ebebeb;
+$light-theme-primary: #7400b8;
+$light-theme-secondary: #dfbeff;
+$border-color-light_prim: #dfe1e5;
+$border-color-light_sec: #b7b5b5;
 
-$dark-theme-tertiary-1: #FFD100;
-$dark-theme-tertiary-2: #FFEE32;
-$dark-theme-primary: #333533;
-$dark-theme-secondary: #202020;
-$dark-theme-layout-primary: #171614;
+$dark-theme-layout: #171614;
+$dark-theme-primary: #ffd100;
+$dark-theme-secondary: #ffee32;
+$border-color-dark_prim: #333533;
+$border-color-dark_sec: #202020;
 
-$primary-300: #E74A2B;
-$primary-400: #D43819;
-$primary-500: #BD2608;
-$primary-600: #961D05;
+$primary-300: #e74a2b;
+$primary-400: #d43819;
+$primary-500: #bd2608;
+$primary-600: #961d05;
 $primary-700: #711604;
 $primary-800: #5e1304;
 
 $secondary-100: #ffcf9c;
 $secondary-200: #eeb785;
-$secondary-300: #DC9E6E;
+$secondary-300: #dc9e6e;
 $secondary-400: #cb8657;
 $secondary-500: #b96d40;
 $secondary-600: #965430;
 $secondary-700: #723b20;
 $secondary-800: #4e2210;
-$secondary-900: #3C1508;
+$secondary-900: #3c1508;
 $secondary-1000: #2a0800;
-
-$tertiary-100: #f0f0f0;
-$tertiary-200: #DBDDDC;
-$tertiary-300: #C6C9C7;
-$tertiary-400: #a7aca9;
-$tertiary-500: #979d9a;
-$tertiary-600: #878e8a;
-$tertiary-700: #757C78;
-$tertiary-800: #626A66;
-$tertiary-900: #565d59;
-$tertiary-1000: #49504C;
-
 
 $standard: 5px;
 $mainPadding: calc(#{$standard} * 10);
@@ -147,7 +137,7 @@ $mainPadding: calc(#{$standard} * 10);
   text-align: justify;
 }
 
-@mixin columnGap($val){
+@mixin columnGap($val) {
   column-gap: $val;
   -webkit-column-gap: $val;
   -moz-column-gap: $val;

@@ -1,15 +1,15 @@
-@import "../../../styles/Extensions";
+@import "../../styles/Extensions";
 
 $spinnerSize: 86;
 
 .ov-show {
   @include transition(1);
-  @include animation(fadeIn, 300ms, ease-in-out, forwards)
+  @include animation(fadeIn, 300ms, ease-in-out, forwards);
 }
 
 .ov-hide {
-  @include transition(.8);
-  @include animation(fadeOut, 600ms, ease-in-out, forwards)
+  @include transition(0.8);
+  @include animation(fadeOut, 600ms, ease-in-out, forwards);
 }
 
 .load-ov-c {
@@ -22,11 +22,18 @@ $spinnerSize: 86;
     top: 0;
     left: 0;
     font-size: 1.2em;
-    color: #FFF;
+    color: #fff;
     background: rgba(0, 0, 0, 0.7);
     z-index: 4;
 
-    p, span, h1, h2, h3, h4, h5, h6 {
+    p,
+    span,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: $white !important;
       @include textCenter;
       margin: 1rem;
@@ -37,7 +44,7 @@ $spinnerSize: 86;
       height: $spinnerSize + px;
       x: 0px;
       y: 0px;
-      viewBox: 0 0 $spinnerSize $spinnerSize;
+      viewbox: 0 0 $spinnerSize $spinnerSize;
 
       circle {
         fill: transparent;

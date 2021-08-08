@@ -1,34 +1,11 @@
-@import "../../styles/Extensions";
-
 .btn-sec {
-  background: $white;
-  border: 1px inset rgba(0, 0, 0, 0.7);
+  border: 1px solid;
+
+  &.no-border {
+    border: none;
+  }
 
   &.icon-tooltip {
     border-left: none;
-  }
-
-  &:hover {
-    background: $light-theme-secondary;
-  }
-
-  &:active {
-    background: $light-theme-secondary;
-  }
-
-  &:focus {
-    background: $light-theme-secondary;
-  }
-
-  &:focus-visible {
-    background: $light-theme-secondary;
-  }
-
-  &:-moz-focusring {
-    background: $light-theme-secondary;
-  }
-
-  &.active {
-    background: $light-theme-secondary;
   }
 }

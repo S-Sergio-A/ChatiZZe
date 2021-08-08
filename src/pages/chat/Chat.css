@@ -1,13 +1,50 @@
 .chat-page {
-  grid-template-rows: minmax(880px, 1fr);
-  grid-template-columns: 400px minmax(10px, 1fr);
-  background: #ffffff;
+  position: relative;
+  grid-template-rows: minmax(10px, 1fr);
 }
-.chat-page .chat-list {
-  grid-area: 1/1/2/2;
+
+.modal-body.chat > .form-r {
+  grid-template-rows: repeat(2, minmax(10px, 2fr)) minmax(10px, 1fr);
+  grid-template-columns: minmax(10px, 1fr);
+  padding-inline: 10px;
 }
-.chat-page .chat-layout {
-  grid-area: 1/2/2/3;
+
+@media only screen and (min-width: 1200px) {
+  .chat-page {
+    grid-template-columns: 340px minmax(10px, 1fr);
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .chat-page {
+    grid-template-columns: 300px minmax(10px, 1fr);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .chat-page {
+    grid-template-columns: 290px minmax(10px, 1fr);
+  }
+}
+@media only screen and (min-width: 769px) {
+  .chat-page {
+    grid-template-columns: 290px minmax(10px, 1fr);
+  }
+  .chat-page .chat-list {
+    grid-area: 1/1/2/2;
+  }
+  .chat-page .chat-layout {
+    grid-area: 1/2/2/3;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .chat-page {
+    grid-template-columns: 0 minmax(10px, 1fr);
+  }
+  .chat-page.enlarge-menu {
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .chat-page .chat-layout {
+    grid-area: 1/1/2/3;
+  }
 }
 
 /*# sourceMappingURL=Chat.css.map */

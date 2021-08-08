@@ -1,0 +1,18 @@
+.verification {
+  bottom: 5px;
+}
+
+@media only screen and (min-width: 1400px) {
+  .verification {
+    width: 1390px;
+    left: calc((100% - 1400px) / 2 + 5px);
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .verification {
+    width: calc(100% - 10px);
+    left: 5px;
+  }
+}
+
+/*# sourceMappingURL=Verification.css.map */

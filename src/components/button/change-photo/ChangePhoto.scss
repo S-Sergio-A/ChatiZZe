@@ -1,0 +1,41 @@
+@import "../../../styles/Extensions";
+
+.change-photo {
+  position: relative;
+
+  & > .label {
+    position: absolute;
+    width: 30px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
+    &-back {
+      position: absolute;
+      width: 20px;
+      height: 15px;
+      top: 9px;
+      right: 7px;
+      background: $white;
+    }
+  }
+
+  & > button {
+    border: 1px solid $black;
+
+    & > .chat-logo {
+      width: 100px !important;
+      height: 100px !important;
+    }
+
+    & > .user-photo {
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+
+  & > button,
+  img {
+    @include border-radius(50%);
+  }
+}

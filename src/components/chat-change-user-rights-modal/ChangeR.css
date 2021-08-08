@@ -1,0 +1,11 @@
+.change {
+  max-width: 80vw;
+}
+.change .modal-body {
+  row-gap: 20px;
+}
+.change .modal-body .options ul {
+  row-gap: 20px;
+}
+
+/*# sourceMappingURL=ChangeR.css.map */

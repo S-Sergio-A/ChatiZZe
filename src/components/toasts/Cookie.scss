@@ -1,0 +1,62 @@
+@import "../../styles/Extensions";
+
+.cookie {
+  top: 5px;
+}
+
+.show-toast {
+  @include animation(show-toast, 250ms, ease-in-out, forwards);
+}
+
+.hide-toast {
+  @include animation(hide-toast, 250ms, ease-in-out, forwards);
+}
+
+.fade-out {
+  @include animation(fade-out, 400ms, ease-in-out, forwards);
+}
+
+@include keyframes(show-toast) {
+  from {
+    @include transform(translateX(-200%));
+  }
+  to {
+    @include transform(translateX(0));
+  }
+}
+
+@include keyframes(hide-toast) {
+  from {
+    @include transform(translateX(0));
+  }
+  to {
+    @include transform(translateX(200%));
+  }
+  100% {
+    display: none;
+  }
+}
+
+@include keyframes(fade-out) {
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .cookie {
+    width: 1390px;
+    left: calc((100% - 1400px) / 2 + 5px);
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  .cookie {
+    width: calc(100% - 10px);
+    left: 5px;
+  }
+}

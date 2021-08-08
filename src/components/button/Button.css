@@ -4,7 +4,7 @@ button:active {
   outline: none;
 }
 
-.btn-p, .btn-s, .btn-t, .btn-su, .btn-w, .btn-e {
+.btn-su, .btn-w, .btn-e {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -13,107 +13,96 @@ button:active {
   align-items: center;
   justify-content: center;
   outline: none;
-  transition: all 0.6s ease-in-out !important;
-  -webkit-transition: all 0.6s ease-in-out !important;
-  -moz-transition: all 0.6s ease-in-out !important;
-  -ms-transition: all 0.6s ease-in-out !important;
-  -o-transition: all 0.6s ease-in-out !important;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
-  -o-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
 }
-.btn-p {
-  color: #ffffff;
-  background: #711604;
+.btn-r {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
-.btn-p:hover {
-  color: #000000;
-  background: #171614;
+.btn-rem {
+  background: transparent;
 }
-.btn-p:active {
-  color: #000000;
-  background: #202020;
+.btn-rem:hover {
+  background: #d0343c;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-p:focus {
-  background: #BD2608;
+.btn-rem:hover > svg {
+  fill: #ffffff;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-p:focus-visible {
-  background: #BD2608;
+.btn-rem:focus {
+  background: #d0343c;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-p:-moz-focusring {
-  background: #BD2608;
+.btn-rem:focus > svg {
+  fill: #ffffff;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-p:disabled {
-  background: #711604;
-  color: #000000;
-  opacity: 0.5;
+.btn-rem:focus-visible {
+  background: #d0343c;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-s {
-  color: #000000;
-  background: #EBEBEB;
-  border: 1px solid #2a0800;
+.btn-rem:focus-visible > svg {
+  fill: #ffffff;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-s:hover {
-  color: #000000;
-  background: #ffcf9c;
+.btn-rem:-moz-focusring {
+  background: #d0343c;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
-.btn-s:active {
-  color: #000000;
-  background: #eeb785;
-}
-.btn-s:focus {
-  background: #b96d40;
-}
-.btn-s:focus-visible {
-  background: #b96d40;
-}
-.btn-s:-moz-focusring {
-  background: #b96d40;
-}
-.btn-s:disabled {
-  background: #EBEBEB;
-  color: #000000;
-  opacity: 0.5;
-}
-.btn-t {
-  color: #ffffff;
-  background: #757C78;
-}
-.btn-t:hover {
-  color: #000000;
-  background: #C6C9C7;
-}
-.btn-t:active {
-  color: #000000;
-  background: #DBDDDC;
-}
-.btn-t:focus {
-  background: #a7aca9;
-}
-.btn-t:focus-visible {
-  background: #a7aca9;
-}
-.btn-t:-moz-focusring {
-  background: #a7aca9;
-}
-.btn-t:disabled {
-  background: #757C78;
-  color: #000000;
-  opacity: 0.5;
+.btn-rem:-moz-focusring > svg {
+  fill: #ffffff;
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
 }
 .btn-su {
   color: #000000;
-  background: #25B84C;
+  background: #25b84c;
 }
 .btn-su:hover {
   background: #5dd07c;
 }
 .btn-su:active {
-  background: #95E8AB;
+  background: #95e8ab;
 }
 .btn-su:focus {
   background: #168734;
@@ -125,45 +114,45 @@ button:active {
   background: #168734;
 }
 .btn-su:disabled {
-  background: #25B84C;
+  background: #25b84c;
   opacity: 0.5;
 }
 .btn-w {
   color: #000000;
-  background: #DDB814;
+  background: #ddb814;
 }
 .btn-w:hover {
   color: #000000;
-  background: #EEC71C;
+  background: #eec71c;
 }
 .btn-w:active {
   color: #000000;
-  background: #F0D458;
+  background: #f0d458;
 }
 .btn-w:focus {
-  background: #C8A919;
+  background: #c8a919;
 }
 .btn-w:focus-visible {
-  background: #C8A919;
+  background: #c8a919;
 }
 .btn-w:-moz-focusring {
-  background: #C8A919;
+  background: #c8a919;
 }
 .btn-w:disabled {
-  background: #DDB814;
+  background: #ddb814;
   opacity: 0.5;
 }
 .btn-e {
   color: #ffffff;
-  background: #D0343C;
+  background: #d0343c;
 }
 .btn-e:hover {
   color: #000000;
-  background: #FA6E75;
+  background: #fa6e75;
 }
 .btn-e:active {
   color: #000000;
-  background: #FA6E75;
+  background: #fa6e75;
 }
 .btn-e:focus {
   background: #c11c24;
@@ -187,15 +176,15 @@ button:active {
   -o-box-shadow: 0 0 4px 8px #4e2210;
 }
 .btn-e:disabled {
-  background: #D0343C;
+  background: #d0343c;
   color: #000000;
   opacity: 0.5;
 }
 
 @media only screen and (min-width: 1200px) {
   .btn-i {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
   }
   .btn-i-f {
     width: 40px;
@@ -206,11 +195,11 @@ button:active {
     height: 52px;
   }
   .btn-sm {
-    width: 110px;
-    height: 60px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
-    width: 220px;
+    width: 200px;
     height: 60px;
   }
   .btn-sm-a-w {
@@ -226,14 +215,14 @@ button:active {
     height: 80px;
   }
   .btn-l-x-w {
-    width: 260px;
-    height: 80px;
+    width: 200px;
+    height: 60px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .btn-i {
-    width: 57px;
-    height: 57px;
+    width: 45px;
+    height: 45px;
   }
   .btn-i-f {
     width: 38px;
@@ -244,12 +233,12 @@ button:active {
     height: 49px;
   }
   .btn-sm {
-    width: 106px;
-    height: 57px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
-    width: 210px;
-    height: 57px;
+    width: 200px;
+    height: 60px;
   }
   .btn-sm-a-w {
     height: 57px;
@@ -264,14 +253,14 @@ button:active {
     height: 76px;
   }
   .btn-l-x-w {
-    width: 245px;
-    height: 76px;
+    width: 200px;
+    height: 60px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .btn-i {
-    width: 54px;
-    height: 54px;
+    width: 42px;
+    height: 42px;
   }
   .btn-i-f {
     width: 36px;
@@ -282,12 +271,12 @@ button:active {
     height: 46px;
   }
   .btn-sm {
-    width: 102px;
-    height: 54px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
     width: 200px;
-    height: 54px;
+    height: 60px;
   }
   .btn-sm-a-w {
     height: 54px;
@@ -302,14 +291,14 @@ button:active {
     height: 72px;
   }
   .btn-l-x-w {
-    width: 230px;
-    height: 72px;
+    width: 200px;
+    height: 60px;
   }
 }
 @media only screen and (max-width: 768px) {
   .btn-i {
-    width: 51px;
-    height: 51px;
+    width: 39px;
+    height: 39px;
   }
   .btn-i-f {
     width: 34px;
@@ -320,12 +309,12 @@ button:active {
     height: 43px;
   }
   .btn-sm {
-    width: 98px;
-    height: 51px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
-    width: 190px;
-    height: 51px;
+    width: 200px;
+    height: 60px;
   }
   .btn-sm-a-w {
     height: 51px;
@@ -340,14 +329,14 @@ button:active {
     height: 68px;
   }
   .btn-l-x-w {
-    width: 215px;
-    height: 68px;
+    width: 200px;
+    height: 60px;
   }
 }
 @media only screen and (max-width: 480px) {
   .btn-i {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
   .btn-i-f {
     width: 32px;
@@ -358,12 +347,12 @@ button:active {
     height: 40px;
   }
   .btn-sm {
-    width: 94px;
-    height: 48px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
-    width: 180px;
-    height: 48px;
+    width: 200px;
+    height: 60px;
   }
   .btn-sm-a-w {
     height: 48px;
@@ -379,13 +368,13 @@ button:active {
   }
   .btn-l-x-w {
     width: 200px;
-    height: 64px;
+    height: 60px;
   }
 }
 @media only screen and (max-width: 320px) {
   .btn-i {
-    width: 45px;
-    height: 45px;
+    width: 33px;
+    height: 33px;
   }
   .btn-i-f {
     width: 30px;
@@ -396,12 +385,12 @@ button:active {
     height: 37px;
   }
   .btn-sm {
-    width: 90px;
-    height: 45px;
+    width: 180px;
+    height: 40px;
   }
   .btn-sm-x-w {
-    width: 170px;
-    height: 45px;
+    width: 200px;
+    height: 60px;
   }
   .btn-sm-a-w {
     height: 45px;
@@ -416,7 +405,7 @@ button:active {
     height: 60px;
   }
   .btn-l-x-w {
-    width: 185px;
+    width: 200px;
     height: 60px;
   }
 }

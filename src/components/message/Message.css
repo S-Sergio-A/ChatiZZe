@@ -1,33 +1,81 @@
-.container {
-  width: 400px;
-  padding: 10px;
+.message {
+  grid-template-rows: minmax(10px, 1fr);
+  column-gap: 15px;
+  -webkit-column-gap: 15px;
+  -moz-column-gap: 15px;
+}
+.message .actions {
+  row-gap: 20px;
+}
+.message.yours .message-user-image {
+  grid-area: 1/3/2/4;
+}
+.message.yours > .message-yours {
+  grid-area: 1/2/2/3;
+}
+.message.yours .actions {
+  grid-area: 1/1/2/2;
+}
+.message.yours .actions > button {
+  padding: 5px;
+}
+.message.others .message-user-image {
+  grid-area: 1/1/2/2;
+}
+.message.others > .message-others {
+  grid-area: 1/2/2/3;
+}
+.message.others > .actions {
+  grid-area: 1/3/2/4;
+}
+.message.others > .actions > button {
+  padding: 5px;
+}
+.message > .message-yours {
+  grid-template-rows: 20px minmax(10px, 1fr) 12px;
+  grid-template-columns: minmax(10px, 1fr);
+}
+.message > .message-yours > .message-author {
+  grid-area: 1/1/2/2;
+}
+.message > .message-yours > .message-text {
+  grid-area: 2/1/3/2;
+  word-wrap: anywhere;
+  -ms-word-wrap: anywhere;
+  white-space: pre-wrap;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+.message > .message-yours > .message-timestamp {
+  grid-area: 3/1/4/2;
+}
+.message > .message-others {
+  grid-template-rows: 20px minmax(10px, 1fr) 12px;
+  grid-template-columns: minmax(10px, 1fr);
+}
+.message > .message-others > .message-author {
+  grid-area: 1/1/2/2;
+}
+.message > .message-others > .message-text {
+  grid-area: 2/1/3/2;
+  word-wrap: anywhere;
+  -ms-word-wrap: anywhere;
+  white-space: pre-wrap;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+.message > .message-others > .message-timestamp {
+  grid-area: 3/1/4/2;
 }
 
-.message-others {
-  position: relative;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #A8DDFD;
-  width: 200px;
-  height: 50px;
+.msg {
   text-align: left;
-  font: 400 0.9em "Open Sans", sans-serif;
-  border: 1px solid #97C6E3;
-  border-radius: 10px;
-}
-
-.message-yours {
   position: relative;
-  margin-bottom: 10px;
-  margin-left: calc(100% - 240px);
   padding: 10px;
-  background-color: #f8e896;
-  width: 200px;
-  height: 50px;
-  text-align: left;
-  font: 400 0.9em "Open Sans", sans-serif;
-  border: 1px solid #dfd087;
   border-radius: 10px;
 }
 
@@ -36,52 +84,154 @@
   margin: 0;
 }
 
-.message-others:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 15px solid #A8DDFD;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  top: 0;
-  left: -15px;
+.message-others {
+  margin-left: 20px;
+  border: 1px solid;
 }
-
-.message-others:before {
-  content: "";
+.message-others > .msg-tail {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 17px solid #97C6E3;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  top: -1px;
-  left: -17px;
-}
-
-.message-yours:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 15px solid #f8e896;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
   bottom: 0;
-  right: -15px;
+  left: -40px;
+  transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+}
+.message-others > .back {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 5px;
+  height: 14px;
 }
 
-.message-yours:before {
-  content: "";
+.message-yours {
+  margin-right: 20px;
+  border: 1px solid;
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+.message-yours > .msg-tail {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 17px solid #dfd087;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  bottom: -1px;
-  right: -17px;
+  bottom: 0;
+  right: -40px;
+}
+.message-yours > .back {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+  width: 5px;
+  height: 14px;
+}
+
+@media only screen and (min-width: 769px) {
+  .message {
+    column-gap: 15px;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+  }
+  .message.yours {
+    grid-template-columns: 40px minmax(10px, 1fr) 60px;
+  }
+  .message.others {
+    grid-template-columns: 60px minmax(10px, 1fr) 40px;
+  }
+  .message > .message-yours .message-timestamp {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    margin-left: -2px;
+  }
+  .message > .message-others .message-timestamp {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    margin-left: -2px;
+  }
+  .message .actions > button {
+    width: 30px;
+    height: 30px;
+  }
+  .message .msg {
+    width: 30vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .message {
+    column-gap: 10px;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+  }
+  .message.yours {
+    grid-template-columns: 30px minmax(10px, 1fr) 60px;
+  }
+  .message.others {
+    grid-template-columns: 60px minmax(10px, 1fr) 30px;
+  }
+  .message > .message-yours .message-timestamp {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    margin-left: -7px;
+  }
+  .message > .message-others .message-timestamp {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    margin-left: -7px;
+  }
+  .message .actions > button {
+    width: 28px;
+    height: 28px;
+  }
+  .message .msg {
+    width: 290px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .message {
+    column-gap: 5px;
+    -webkit-column-gap: 5px;
+    -moz-column-gap: 5px;
+  }
+  .message.yours {
+    grid-template-columns: 25px minmax(10px, 1fr) 60px;
+  }
+  .message.others {
+    grid-template-columns: 60px minmax(10px, 1fr) 25px;
+  }
+  .message > .message-yours .message-timestamp {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    margin-left: -11px;
+  }
+  .message > .message-others .message-timestamp {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    margin-left: -11px;
+  }
+  .message .actions > button {
+    width: 26px;
+    height: 26px;
+  }
+  .message .msg {
+    width: calc(100vw - 163px);
+  }
 }
 
 /*# sourceMappingURL=Message.css.map */

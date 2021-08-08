@@ -68,10 +68,15 @@ html {
   scroll-behavior: smooth;
 }
 
-//*{
-//  overflow: -moz-hidden-unscrollable;
-//  overflow: hidden;
-//}
+.menu, .user-menu, .chat-list {
+  ::-webkit-scrollbar-thumb {
+    width: 5px !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px !important;
+  }
+}
 
 p,
 blockquote {
@@ -224,12 +229,10 @@ blockquote {
   background-clip: padding-box;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  background: rgba(116, 0, 184, 1);
 }
 
 ::-webkit-scrollbar-track {
-  background: $light-theme-layout;
-  border-left: 1px solid $dark-theme-primary;
+  border-left: 1px solid;
 }
 
 img {
@@ -260,7 +263,6 @@ img {
 }
 
 body {
-  background: $light-theme-layout;
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif !important;
@@ -273,6 +275,13 @@ body {
   letter-spacing: 0.12px;
 }
 
+input,
+textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 ul,
 li {
   margin: 0;
@@ -283,7 +292,7 @@ li {
 .crossed {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
-  color: $tertiary-700;
+  //color: $tertiary-700;
 }
 
 .dropdown-toggle::after {
@@ -352,6 +361,7 @@ button {
   border: none;
   padding: 0;
   @include textCenter;
+  font-family: "Nunito", sans-serif;
 }
 
 *,

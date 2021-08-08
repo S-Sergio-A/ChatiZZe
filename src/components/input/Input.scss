@@ -13,26 +13,16 @@
   position: relative;
 
   input {
-    border: 1px solid #dfe1e5;
+    border: 1px solid;
     border-radius: $standard;
-    background-color: $white;
     position: relative;
     z-index: 1;
     line-height: 1.5;
     @include transition(0.4);
-
-    &:focus {
-      border-color: $light-theme-primary;
-    }
-
-    &:not([value=""]) {
-      border-color: $light-theme-primary;
-    }
   }
 
   label {
     position: absolute;
-    color: #9e9e9e;
     top: 0;
     left: 1rem;
     right: auto;
@@ -45,15 +35,12 @@
   }
 
   .transform-label {
-    color: $light-theme-primary;
-    background: $white;
     padding: 0 $standard;
     opacity: 1;
   }
 }
 
 input {
-  border: 1px inset rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
@@ -69,6 +56,20 @@ input {
   & > p {
     grid-area: 3/1/4/2;
   }
+}
+
+.search {
+  height: 40px;
+  width: 80%;
+  padding: 2px 8px;
+  border: 1px solid;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  align-self: center;
+  -webkit-align-self: center;
+  justify-self: center;
+  @include border-radius(5px);
 }
 
 .form-ta-r {
@@ -90,7 +91,6 @@ input {
 }
 
 .form-l {
-  color: $black;
   cursor: text;
 
   &-e {
@@ -101,13 +101,6 @@ input {
 .i-t {
   grid-area: 1/2/2/3;
   @include box-shadow(none);
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px $white inset !important;
 }
 
 @media only screen and (min-width: 481px) {
@@ -250,7 +243,10 @@ input:-webkit-autofill:active {
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .input-con {
     label {
-      @include transform(translateY(2.35rem));
+      @include transform(translateY(2.35rem) scale(0.7));
+      width: max-content;
+      width: -moz-max-content;
+      max-width: 16rem;
     }
 
     .transform-label {
@@ -275,11 +271,14 @@ input:-webkit-autofill:active {
 @media only screen and (max-width: 320px) {
   .input-con {
     label {
-      @include transform(translateY(2.25rem));
+      @include transform(translateY(2.25rem) scale(0.7));
+      width: max-content;
+      width: -moz-max-content;
+      max-width: 16rem;
     }
 
     .transform-label {
-      @include transform(translateY(1.35rem) scale(0.75));
+      @include transform(translateY(1.35rem) scale(0.65));
     }
   }
 

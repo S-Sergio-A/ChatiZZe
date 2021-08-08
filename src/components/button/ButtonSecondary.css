@@ -1,27 +1,11 @@
 .btn-sec {
-  background: #ffffff;
-  border: 1px inset rgba(0, 0, 0, 0.7);
+  border: 1px solid;
+}
+.btn-sec.no-border {
+  border: none;
 }
 .btn-sec.icon-tooltip {
   border-left: none;
-}
-.btn-sec:hover {
-  background: #DFBEFF;
-}
-.btn-sec:active {
-  background: #DFBEFF;
-}
-.btn-sec:focus {
-  background: #DFBEFF;
-}
-.btn-sec:focus-visible {
-  background: #DFBEFF;
-}
-.btn-sec:-moz-focusring {
-  background: #DFBEFF;
-}
-.btn-sec.active {
-  background: #DFBEFF;
 }
 
 /*# sourceMappingURL=ButtonSecondary.css.map */

@@ -59,16 +59,15 @@
 }
 
 .lang-drop {
+  top: 115px;
   width: 60px;
   position: absolute;
   padding-block: 8px;
-  background: #DBDDDC;
+  background: #dfe1e5;
+  row-gap: 5px;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-}
-.lang-drop .d-i {
-  margin-block: 4px;
 }
 
 .icon-nav {
@@ -81,44 +80,19 @@
   height: 60px;
 }
 
-@media only screen and (min-width: 1400px) {
-  .lang-drop {
-    top: 116px;
-  }
-}
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .lang-drop {
-    top: 115px;
-  }
-}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .lang-drop {
-    top: 112px;
     padding-block: 8px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .lang-drop {
-    top: 109px;
     margin-top: -1px;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 600px) and (max-width: 768px) {
   .lang-drop {
-    top: 106px;
     margin-top: -5px;
-  }
-}
-@media only screen and (min-width: 321px) and (max-width: 480px) {
-  .lang-drop {
-    top: 103px;
-    margin-top: -8px;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .lang-drop {
-    top: 100px;
-    margin-top: -17px;
   }
 }
 

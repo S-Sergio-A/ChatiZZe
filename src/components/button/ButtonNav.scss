@@ -1,13 +1,29 @@
 @import "../../styles/Extensions";
 
 @mixin showSpan {
+  width: 90%;
+  display: block;
+  opacity: 1;
+  -moz-opacity: 1;
+  align-self: center;
+  -webkit-align-self: center;
+}
+
+@mixin showSpanFooter {
+  width: 160px;
+  display: block;
+  opacity: 1;
+  -moz-opacity: 1;
+}
+
+@mixin showSpanSmall {
+  width: 120px;
   display: block;
   opacity: 1;
   -moz-opacity: 1;
 }
 
 .btn-nav {
-  color: $black;
   outline: none;
   background: transparent;
   text-decoration: none !important;
@@ -19,35 +35,89 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  &.ftr {
+    &:hover + span {
+      @include showSpanFooter;
+    }
+
+    &:active + span {
+      @include showSpanFooter;
+    }
+
+    &:focus + span {
+      @include showSpanFooter;
+    }
+
+    &:focus-visible + span {
+      @include showSpanFooter;
+    }
+
+    &:-moz-focusring + span {
+      @include showSpanFooter;
+    }
+
+    & + span.active-link {
+      min-width: 140px;
+      max-width: 160px;
+    }
+  }
+
+  &:hover + span {
+    @include showSpan;
+  }
+
+  &:active + span {
+    @include showSpan;
+  }
+
+  &:focus + span {
+    @include showSpan;
+  }
+
+  &:focus-visible + span {
+    @include showSpan;
+  }
+
+  &:-moz-focusring + span {
+    @include showSpan;
+  }
+
+  & + span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    opacity: 0;
+    -moz-opacity: 0;
+    @include border-radius(20px);
+    @include transition(0.4);
+  }
 }
 
-.btn-nav:hover + span {
-  @include showSpan;
-}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .btn-nav.ftr {
+    &.active-link {
+      width: 120px;
+    }
 
-.btn-nav:active + span {
-  @include showSpan;
-}
+    &:hover + span {
+      @include showSpanSmall;
+    }
 
-.btn-nav:focus + span {
-  @include showSpan;
-}
+    &:active + span {
+      @include showSpanSmall;
+    }
 
-.btn-nav:focus-visible + span {
-  @include showSpan;
-}
+    &:focus + span {
+      @include showSpanSmall;
+    }
 
-.btn-nav:-moz-focusring + span {
-  @include showSpan;
-}
+    &:focus-visible + span {
+      @include showSpanSmall;
+    }
 
-.btn-nav + span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  opacity: 0;
-  -moz-opacity: 0;
-  background: $black;
-  @include border-radius(20px);
-  @include transition(0.4);
+    &:-moz-focusring + span {
+      @include showSpanSmall;
+    }
+  }
 }

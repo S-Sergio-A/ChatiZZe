@@ -1,9 +1,93 @@
 .chat-layout {
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+.chat-layout .dummy-svg {
+  position: relative;
+}
+.chat-layout .dummy {
+  position: absolute;
+}
+.chat-layout img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 .chat-layout.flex {
   padding-top: 100px;
+  padding-inline: 20px;
+}
+.chat-layout.grid {
+  grid-template-columns: minmax(10px, 1fr);
+}
+.chat-layout.grid.expanded {
+  grid-template-rows: 80px minmax(10px, 1fr) 150px;
+}
+.chat-layout.grid .messages-container {
+  max-height: 90vh;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.chat-layout.grid .messages-container .messages-list {
+  grid-area: 2/1/3/2;
+  row-gap: 20px;
+}
+
+@media only screen and (min-width: 769px) {
+  .chat-layout.grid {
+    grid-template-rows: 80px minmax(10px, 1fr) 60px;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .chat-layout.grid.expanded {
+    grid-template-rows: 80px minmax(10px, 1fr) 150px;
+  }
+  .chat-layout.grid .messages-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    -ms-overflow-y: auto;
+  }
+  .chat-layout.grid .messages-container .messages-list {
+    grid-area: 2/1/3/2;
+    row-gap: 30px;
+  }
+
+  .messages-list {
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .chat-layout {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+  }
+  .chat-layout.grid {
+    grid-template-rows: 80px minmax(10px, 1fr) 82px;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .chat-layout.grid.expanded {
+    grid-template-rows: 80px minmax(10px, 1fr) 150px;
+  }
+  .chat-layout.grid .messages-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    -ms-overflow-y: auto;
+  }
+  .chat-layout.grid .messages-container .messages-list {
+    grid-area: 2/1/3/2;
+    row-gap: 30px;
+  }
+  .chat-layout .messages-list {
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .messages-list {
+    padding: 10px !important;
+  }
 }
 
 /*# sourceMappingURL=ChatArea.css.map */

@@ -1,0 +1,129 @@
+@import "../../styles/Extensions";
+
+.modal-content.user-settings {
+  padding: 0 !important;
+
+  &.modal-content > * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+
+  & > .modal-header {
+    padding-bottom: 0;
+  }
+
+  & > .modal-body {
+    grid-template-rows: 20px 100px minmax(10px, 1fr);
+    grid-template-columns: minmax(10px, 1fr);
+    row-gap: 20px;
+    padding: 0;
+
+    & > * {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      padding: 0 10px;
+    }
+
+    button > span {
+      justify-self: start;
+      padding-left: 5px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    .top.grid {
+      grid-template-rows: repeat(2, minmax(10px, 1fr));
+      grid-template-columns: 100px minmax(10px, 1fr);
+      @include columnGap(20px);
+      row-gap: 10px;
+
+      .change-photo {
+        grid-area: 1/1/3/2;
+      }
+    }
+
+    form {
+      row-gap: 15px;
+      padding-bottom: 15px;
+    }
+
+    &.f-r {
+      height: 70px;
+    }
+
+    [class^="block-"] > button,
+    fieldset > button {
+      width: 200px;
+      min-height: 50px;
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: 120px 20px;
+      align-items: center;
+      -webkit-align-items: center;
+      @include columnGap(25px);
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    fieldset {
+      @include flex;
+      @include flex-center;
+      @include flex-flow(column nowrap);
+      row-gap: 25px;
+      margin: 0;
+      border-width: 1px;
+    }
+
+    .password-block {
+      padding-bottom: 20px;
+    }
+
+    .enlarge {
+      @include animation(enlarge-set, 1ms, ease-in-out, forwards);
+      @include transform-origin(top);
+    }
+
+    .reduce {
+      @include animation(reduce-set, 250ms, ease-in-out, forwards);
+      @include transform-origin(top);
+      @include flex;
+      @include align-items(center);
+    }
+  }
+}
+
+@include keyframes(enlarge-set) {
+  from {
+    height: 70px;
+  }
+  to {
+    height: 430px;
+  }
+}
+
+@include keyframes(reduce-set) {
+  from {
+    height: 430px;
+  }
+  to {
+    height: 70px;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .modal-content.user-settings {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .modal-content.user-settings {
+    max-width: 84vw;
+    width: 84vw;
+  }
+}

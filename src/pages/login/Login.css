@@ -1,9 +1,8 @@
 .login-page {
-  grid-template-rows: auto 100px;
+  grid-template-rows: auto 200px;
   grid-template-columns: 100%;
   place-items: center;
   padding-block: 100px;
-  background: #ffffff;
 }
 .login-page .card {
   grid-template-rows: 80px 500px;
@@ -11,17 +10,57 @@
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
 }
-.login-page .card h1 {
-  color: #7400b8;
-}
 .login-page .button-con {
   row-gap: 30px;
 }
+.login-page .button-con > button {
+  width: 191px;
+  height: 46px;
+}
+.login-page .google {
+  background-image: url("http://localhost:3000/google.png");
+  -webkit-background-image: url("http://localhost:3000/google.png");
+  -moz-background-image: url("http://localhost:3000/google.png");
+  -o-background-image: url("http://localhost:3000/google.png");
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  cursor: pointer;
+}
+.login-page .google:active {
+  background-image: url("http://localhost:3000/google_active.png");
+  -webkit-background-image: url("http://localhost:3000/google_active.png");
+  -moz-background-image: url("http://localhost:3000/google_active.png");
+  -o-background-image: url("http://localhost:3000/google_active.png");
+}
+.login-page .google:focus {
+  background-image: url("http://localhost:3000/google_focus.png");
+  -webkit-background-image: url("http://localhost:3000/google_focus.png");
+  -moz-background-image: url("http://localhost:3000/google_focus.png");
+  -o-background-image: url("http://localhost:3000/google_focus.png");
+}
 .login-page .b-b {
   grid-area: 2/1/3/2;
+  row-gap: 20px;
 }
-.login-page .b-b a {
-  color: #7400B8;
+.login-page .b-b button {
+  all: unset;
+  cursor: pointer;
+}
+.login-page .b-b button:hover {
+  text-decoration: underline;
+}
+.login-page .b-b button:active {
+  text-decoration: underline;
+}
+.login-page .b-b button:focus {
+  text-decoration: underline;
+}
+.login-page .b-b button:focus-visible {
+  text-decoration: underline;
+}
+.login-page .b-b button:-moz-focusring {
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 769px) {
@@ -38,8 +77,8 @@
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .login-page .card {
-    grid-template-columns: 310px;
-    padding: 10px;
+    grid-template-columns: 300px;
+    padding: 8px;
   }
 }
 @media only screen and (max-width: 320px) {

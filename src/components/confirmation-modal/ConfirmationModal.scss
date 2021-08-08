@@ -1,0 +1,20 @@
+@import "../../styles/Extensions";
+
+.modal-content.confirm {
+  row-gap: 20px;
+
+  & > .modal-header {
+    grid-template-rows: 35px 20px;
+    grid-template-columns: minmax(10px, 1fr) 40px;
+    row-gap: 10px;
+    @include columnGap(20px);
+
+    & > .h5-s {
+      grid-area: 1/1/2/2;
+    }
+  }
+
+  &> .modal-footer .btn-sm{
+    width: 110px;
+  }
+}

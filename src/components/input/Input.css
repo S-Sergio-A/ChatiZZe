@@ -1,5 +1,5 @@
 .form-l-e {
-  color: #D0343C;
+  color: #d0343c;
   text-transform: uppercase;
 }
 
@@ -11,9 +11,8 @@
   position: relative;
 }
 .input-con input {
-  border: 1px solid #dfe1e5;
+  border: 1px solid;
   border-radius: 5px;
-  background-color: #ffffff;
   position: relative;
   z-index: 1;
   line-height: 1.5;
@@ -23,15 +22,8 @@
   -ms-transition: all 0.4s ease-in-out !important;
   -o-transition: all 0.4s ease-in-out !important;
 }
-.input-con input:focus {
-  border-color: #7400B8;
-}
-.input-con input:not([value=""]) {
-  border-color: #7400B8;
-}
 .input-con label {
   position: absolute;
-  color: #9e9e9e;
   top: 0;
   left: 1rem;
   right: auto;
@@ -54,14 +46,11 @@
   -ms-user-select: none;
 }
 .input-con .transform-label {
-  color: #7400B8;
-  background: #ffffff;
   padding: 0 5px;
   opacity: 1;
 }
 
 input {
-  border: 1px inset rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
@@ -73,6 +62,22 @@ input {
 }
 .form-i-r > p {
   grid-area: 3/1/4/2;
+}
+
+.search {
+  height: 40px;
+  width: 80%;
+  padding: 2px 8px;
+  border: 1px solid;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  align-self: center;
+  -webkit-align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 }
 
 .form-ta-r {
@@ -88,7 +93,6 @@ input {
 }
 
 .form-l {
-  color: #000000;
   cursor: text;
 }
 .i-t {
@@ -97,13 +101,6 @@ input {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -o-box-shadow: none;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
 }
 
 @media only screen and (min-width: 481px) {
@@ -263,11 +260,14 @@ input:-webkit-autofill:active {
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .input-con label {
-    transform: translateY(2.35rem);
-    -webkit-transform: translateY(2.35rem);
-    -moz-transform: translateY(2.35rem);
-    -o-transform: translateY(2.35rem);
-    -ms-transform: translateY(2.35rem);
+    transform: translateY(2.35rem) scale(0.7);
+    -webkit-transform: translateY(2.35rem) scale(0.7);
+    -moz-transform: translateY(2.35rem) scale(0.7);
+    -o-transform: translateY(2.35rem) scale(0.7);
+    -ms-transform: translateY(2.35rem) scale(0.7);
+    width: max-content;
+    width: -moz-max-content;
+    max-width: 16rem;
   }
   .input-con .transform-label {
     transform: translateY(1.45rem) scale(0.75);
@@ -292,18 +292,21 @@ input:-webkit-autofill:active {
 }
 @media only screen and (max-width: 320px) {
   .input-con label {
-    transform: translateY(2.25rem);
-    -webkit-transform: translateY(2.25rem);
-    -moz-transform: translateY(2.25rem);
-    -o-transform: translateY(2.25rem);
-    -ms-transform: translateY(2.25rem);
+    transform: translateY(2.25rem) scale(0.7);
+    -webkit-transform: translateY(2.25rem) scale(0.7);
+    -moz-transform: translateY(2.25rem) scale(0.7);
+    -o-transform: translateY(2.25rem) scale(0.7);
+    -ms-transform: translateY(2.25rem) scale(0.7);
+    width: max-content;
+    width: -moz-max-content;
+    max-width: 16rem;
   }
   .input-con .transform-label {
-    transform: translateY(1.35rem) scale(0.75);
-    -webkit-transform: translateY(1.35rem) scale(0.75);
-    -moz-transform: translateY(1.35rem) scale(0.75);
-    -o-transform: translateY(1.35rem) scale(0.75);
-    -ms-transform: translateY(1.35rem) scale(0.75);
+    transform: translateY(1.35rem) scale(0.65);
+    -webkit-transform: translateY(1.35rem) scale(0.65);
+    -moz-transform: translateY(1.35rem) scale(0.65);
+    -o-transform: translateY(1.35rem) scale(0.65);
+    -ms-transform: translateY(1.35rem) scale(0.65);
   }
 
   .form-ta-r {

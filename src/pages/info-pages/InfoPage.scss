@@ -1,13 +1,13 @@
 @import "../../styles/Extensions";
 
-.Info-Page {
+.info-page {
   row-gap: calc(#{$standard * 6});
 
-  .B-T {
+  .t-b {
     grid-area: 2/2/3/3;
   }
 
-  .B-M {
+  .m-b {
     grid-area: 3/2/4/3;
     row-gap: 50px;
 
@@ -16,35 +16,33 @@
       padding: 0;
     }
 
-    .Po-L li {
-      @include box-shadow(none);
+    h2 {
+      padding: 3px;
+      @include border-radius(8px);
+    }
+
+    .po-l li {
       background: none;
-      @include border-radius(0);
       list-style-type: circle;
       padding: 0;
+      @include box-shadow(none);
+      @include border-radius(0);
     }
 
     ul {
-      row-gap: 45px;
+      row-gap: 50px;
 
       li {
-        row-gap: 21px;
-        @include box-shadow(0 1px 12px rgba(0, 0, 0, 0.4));
-        background: $tertiary-100;
-        color: $black;
+        padding: $standard;
+        row-gap: 20px;
         @include border-radius(8px);
-
-        h2 {
-          background: linear-gradient(180deg, $dark-theme-secondary 100%, $tertiary-100 100%);
-        }
       }
     }
   }
 }
 
-
 @media only screen and (min-width: 1200px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
 
@@ -59,7 +57,7 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 7}) minmax(10px, 1fr) calc(#{$standard * 7});
 
@@ -74,7 +72,7 @@
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 5}) minmax(10px, 1fr) calc(#{$standard * 5});
 
@@ -89,46 +87,22 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 4}) minmax(10px, 1fr) calc(#{$standard * 4});
-
-    li {
-      padding: $standard calc(#{$standard * 2});
-
-      h2 {
-        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
-      }
-    }
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 3}) minmax(10px, 1fr) calc(#{$standard * 3});
-
-    li {
-      padding: $standard;
-
-      h2 {
-        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
-      }
-    }
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 2}) minmax(10px, 1fr) calc(#{$standard * 2});
-
-    li {
-      padding: $standard;
-
-      h2 {
-        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
-      }
-    }
   }
 }

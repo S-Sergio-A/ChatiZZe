@@ -1,5 +1,15 @@
 @import "../../styles/Extensions";
 
+@mixin remFocusStyles {
+  background: $error-300;
+  @include transition(0.4);
+
+  & > svg {
+    fill: $white;
+    @include transition(0.4);
+  }
+}
+
 button:focus-within,
 button:focus,
 button:active {
@@ -7,117 +17,38 @@ button:active {
 }
 
 .btn {
-  &-p,
-  &-s,
-  &-t,
   &-su,
   &-w,
   &-e {
     @include flex;
     @include flex-center;
     outline: none;
-    @include transition(0.6);
+    @include transition(0.4);
     @include border-radius(8px);
-    @include box-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
+    //@include box-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
   }
 
-  &-p {
-    color: $white;
-    background: $primary-700;
+  &-r {
+    @include border-radius(50%);
+  }
+
+  &-rem {
+    background: transparent;
 
     &:hover {
-      color: $black;
-      background: $dark-theme-layout-primary;
-    }
-
-    &:active {
-      color: $black;
-      background: $dark-theme-secondary;
+      @include remFocusStyles;
     }
 
     &:focus {
-      background: $primary-500;
+      @include remFocusStyles;
     }
 
     &:focus-visible {
-      background: $primary-500;
+      @include remFocusStyles;
     }
 
     &:-moz-focusring {
-      background: $primary-500;
-    }
-
-    &:disabled {
-      background: $primary-700;
-      color: $black;
-      opacity: 0.5;
-    }
-  }
-
-  &-s {
-    color: $black;
-    background: $light-theme-layout;
-    border: 1px solid $secondary-1000;
-
-    &:hover {
-      color: $black;
-      background: $secondary-100;
-    }
-
-    &:active {
-      color: $black;
-      background: $secondary-200;
-    }
-
-    &:focus {
-      background: $secondary-500;
-    }
-
-    &:focus-visible {
-      background: $secondary-500;
-    }
-
-    &:-moz-focusring {
-      background: $secondary-500;
-    }
-
-    &:disabled {
-      background: $light-theme-layout;
-      color: $black;
-      opacity: 0.5;
-    }
-  }
-
-  &-t {
-    color: $white;
-    background: $tertiary-700;
-
-    &:hover {
-      color: $black;
-      background: $tertiary-300;
-    }
-
-    &:active {
-      color: $black;
-      background: $tertiary-200;
-    }
-
-    &:focus {
-      background: $tertiary-400;
-    }
-
-    &:focus-visible {
-      background: $tertiary-400;
-    }
-
-    &:-moz-focusring {
-      background: $tertiary-400;
-    }
-
-    &:disabled {
-      background: $tertiary-700;
-      color: $black;
-      opacity: 0.5;
+      @include remFocusStyles;
     }
   }
 
@@ -223,8 +154,8 @@ button:active {
 @media only screen and (min-width: 1200px) {
   .btn {
     &-i {
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
 
       &-f {
         width: 40px;
@@ -238,11 +169,11 @@ button:active {
     }
 
     &-sm {
-      width: 110px;
-      height: 60px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
-        width: 220px;
+        width: 200px;
         height: 60px;
       }
 
@@ -259,8 +190,8 @@ button:active {
       height: 80px;
 
       &-x-w {
-        width: 260px;
-        height: 80px;
+        width: 200px;
+        height: 60px;
       }
     }
   }
@@ -269,8 +200,8 @@ button:active {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .btn {
     &-i {
-      width: 57px;
-      height: 57px;
+      width: 45px;
+      height: 45px;
 
       &-f {
         width: 38px;
@@ -284,12 +215,12 @@ button:active {
     }
 
     &-sm {
-      width: 106px;
-      height: 57px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
-        width: 210px;
-        height: 57px;
+        width: 200px;
+        height: 60px;
       }
 
       &-a-w {
@@ -305,8 +236,8 @@ button:active {
       height: 76px;
 
       &-x-w {
-        width: 245px;
-        height: 76px;
+        width: 200px;
+        height: 60px;
       }
     }
   }
@@ -315,8 +246,8 @@ button:active {
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .btn {
     &-i {
-      width: 54px;
-      height: 54px;
+      width: 42px;
+      height: 42px;
 
       &-f {
         width: 36px;
@@ -330,12 +261,12 @@ button:active {
     }
 
     &-sm {
-      width: 102px;
-      height: 54px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
         width: 200px;
-        height: 54px;
+        height: 60px;
       }
 
       &-a-w {
@@ -351,8 +282,8 @@ button:active {
       height: 72px;
 
       &-x-w {
-        width: 230px;
-        height: 72px;
+        width: 200px;
+        height: 60px;
       }
     }
   }
@@ -361,8 +292,8 @@ button:active {
 @media only screen and (max-width: 768px) {
   .btn {
     &-i {
-      width: 51px;
-      height: 51px;
+      width: 39px;
+      height: 39px;
 
       &-f {
         width: 34px;
@@ -376,12 +307,12 @@ button:active {
     }
 
     &-sm {
-      width: 98px;
-      height: 51px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
-        width: 190px;
-        height: 51px;
+        width: 200px;
+        height: 60px;
       }
 
       &-a-w {
@@ -397,8 +328,8 @@ button:active {
       height: 68px;
 
       &-x-w {
-        width: 215px;
-        height: 68px;
+        width: 200px;
+        height: 60px;
       }
     }
   }
@@ -407,8 +338,8 @@ button:active {
 @media only screen and (max-width: 480px) {
   .btn {
     &-i {
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
 
       &-f {
         width: 32px;
@@ -422,12 +353,12 @@ button:active {
     }
 
     &-sm {
-      width: 94px;
-      height: 48px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
-        width: 180px;
-        height: 48px;
+        width: 200px;
+        height: 60px;
       }
 
       &-a-w {
@@ -444,7 +375,7 @@ button:active {
 
       &-x-w {
         width: 200px;
-        height: 64px;
+        height: 60px;
       }
     }
   }
@@ -453,8 +384,8 @@ button:active {
 @media only screen and (max-width: 320px) {
   .btn {
     &-i {
-      width: 45px;
-      height: 45px;
+      width: 33px;
+      height: 33px;
 
       &-f {
         width: 30px;
@@ -468,12 +399,12 @@ button:active {
     }
 
     &-sm {
-      width: 90px;
-      height: 45px;
+      width: 180px;
+      height: 40px;
 
       &-x-w {
-        width: 170px;
-        height: 45px;
+        width: 200px;
+        height: 60px;
       }
 
       &-a-w {
@@ -489,7 +420,7 @@ button:active {
       height: 60px;
 
       &-x-w {
-        width: 185px;
+        width: 200px;
         height: 60px;
       }
     }

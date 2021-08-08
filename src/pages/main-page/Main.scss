@@ -35,7 +35,7 @@
 
 @media only screen and (min-width: 1400px) {
   .main-page {
-    grid-template-rows: 480px 630px 770px 700px;
+    grid-template-rows: 480px 680px 770px 750px;
 
     .demo-img {
       width: 302px;
@@ -50,7 +50,7 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .main-page {
-    grid-template-rows: 480px 630px 770px 700px;
+    grid-template-rows: 480px 680px 770px 750px;
   }
 
   .demo-img {
@@ -65,7 +65,7 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .main-page {
-    grid-template-rows: 480px 630px 770px 550px;
+    grid-template-rows: 480px 680px 770px 600px;
 
     .demo-img {
       width: 280px;
@@ -80,7 +80,7 @@
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .main-page {
-    grid-template-rows: 480px 1000px 850px 530px;
+    grid-template-rows: 480px 1050px 850px 580px;
 
     .demo-img {
       width: 264px;
@@ -95,7 +95,7 @@
 
 @media only screen and (min-width: 670px) and (max-width: 768px) {
   .main-page {
-    grid-template-rows: 480px 1000px 850px 530px;
+    grid-template-rows: 480px 1050px 850px 580px;
 
     .demo-img {
       width: 264px;
@@ -110,7 +110,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 669px) {
   .main-page {
-    grid-template-rows: 680px 1200px 850px 530px;
+    grid-template-rows: 680px 1450px 950px 580px;
 
     .demo-img {
       width: 200px;
@@ -125,7 +125,7 @@
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .main-page {
-    grid-template-rows: 700px 1200px 1250px 700px;
+    grid-template-rows: 700px 1450px 1250px 850px;
 
     .demo-img {
       width: 180px;
@@ -140,7 +140,7 @@
 
 @media only screen and (max-width: 320px) {
   .main-page {
-    grid-template-rows: 700px 1200px 1250px 700px;
+    grid-template-rows: 700px 1250px 1250px 850px;
 
     .demo-img {
       width: 160px;

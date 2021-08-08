@@ -2,6 +2,18 @@
 
 .ch-wr {
   @include columnGap(30px);
+  cursor: pointer;
+
+  &.focused{
+    outline: 2px dashed;
+    outline-offset: 2px;
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+  }
 
   .checkbox-c {
     display: inline-block;
@@ -9,7 +21,6 @@
 
     .icon {
       fill: none;
-      stroke: white;
       stroke-width: 3px;
     }
 
@@ -27,8 +38,7 @@
     }
 
     .s-checkbox {
-      border: 1px inset $black;
-      background: $white;
+      border: 1px inset;
       width: 24px;
       height: 24px;
       @include border-radius(4px);

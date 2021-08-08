@@ -1,0 +1,125 @@
+@import "../../styles/Extensions";
+
+$height: 35px;
+$width: $height * 2;
+
+$pointerSize: 26px;
+$switchWidth: 126px;
+
+.switch {
+  & > input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+
+    &:checked + label:after {
+      left: calc(100% - 5px);
+      @include transform(translateX(-100%));
+    }
+  }
+
+  & > label {
+    cursor: pointer;
+    width: $width;
+    height: $height;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: $standard;
+      left: $standard;
+      width: $height - $standard * 2;
+      height: $height - $standard * 2;
+      @include border-radius(50%);
+      @include transition(0.35);
+    }
+
+    &:active:after {
+      width: $width * 13 / 20;
+    }
+  }
+}
+
+.tr-switch {
+  position: relative;
+  height: $pointerSize;
+  width: $switchWidth;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  cursor: pointer;
+  @include border-radius($pointerSize);
+
+  & > * {
+    cursor: pointer;
+  }
+
+  & > button.switch-position,
+  & > span.pointer {
+    width: $pointerSize;
+    height: $pointerSize;
+    @include border-radius(50%);
+  }
+
+  & > button.switch-position {
+    background: transparent;
+  }
+
+  & > span.pointer {
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    border: 2px solid;
+  }
+}
+
+input[type="radio"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.start-position {
+  transform: translateX(0);
+}
+
+.middle-position {
+  transform: translateX(calc((#{$switchWidth} - #{$pointerSize}) / 2));
+}
+
+.end-position {
+  transform: translateX($switchWidth - $pointerSize);
+}
+
+.start {
+  @include animation(start, 300ms, ease-in-out, forwards);
+}
+
+.middle {
+  @include animation(middle, 300ms, ease-in-out, forwards);
+}
+
+.end {
+  @include animation(end, 300ms, ease-in-out, forwards);
+}
+
+@include keyframes(middle) {
+  to {
+    transform: translateX(calc((#{$switchWidth} - #{$pointerSize}) / 2));
+  }
+}
+
+@include keyframes(end) {
+  to {
+    transform: translateX($switchWidth - $pointerSize);
+  }
+}
+
+@include keyframes(start) {
+  to {
+    transform: translateX(0);
+  }
+}

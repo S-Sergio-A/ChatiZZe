@@ -2,6 +2,7 @@
 
 .error-page {
   row-gap: calc(#{$standard} * 6);
+  height: 100vh;
 
   .t-b {
     grid-area: 2/2/3/3;
@@ -19,42 +20,42 @@
 
 @media only screen and (min-width: 1200px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 50px 480px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 50px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 50px 440px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 50px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 100px 360px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 100px 340px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 130px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }
 
 @media only screen and (max-width: 320px) {
   .error-page {
-    grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
+    grid-template-rows: calc(#{$standard} * 4) 130px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }

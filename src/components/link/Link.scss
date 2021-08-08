@@ -1,4 +1,4 @@
-@import '../../styles/Extensions';
+@import "../../styles/Extensions";
 
 a {
   text-decoration: none;
@@ -33,114 +33,8 @@ a {
 }
 
 .link {
-  color: $white;
-
-  &:hover {
-    color: $dark-theme-primary;
-  }
-
-  &:active {
-    color: $dark-theme-tertiary-1;
-  }
-
-  &:focus {
-    color: $dark-theme-layout-primary;
-  }
-
-  &:focus-visible {
-    color: $dark-theme-layout-primary;
-  }
-
-  &:-moz-focusring {
-    color: $dark-theme-layout-primary;
-  }
-
   &:focus-within {
     outline: none;
-  }
-}
-
-.P-link {
-  color: $primary-800;
-
-  &:hover {
-    color: $primary-400;
-  }
-
-  &:active {
-    color: $primary-300;
-  }
-
-  &:focus {
-    color: $primary-500;
-  }
-
-  &:focus-visible {
-    color: $primary-500;
-  }
-
-  &:-moz-focusring {
-    color: $primary-500;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-  }
-}
-
-.Secondary-link {
-  color: $white;
-
-  &:hover {
-    color: $secondary-700;
-  }
-
-  &:active {
-    color: $secondary-600;
-  }
-
-  &:focus {
-    color: $secondary-800;
-  }
-
-  &:focus-visible {
-    color: $secondary-800;
-  }
-
-  &:-moz-focusring {
-    color: $secondary-800;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-  }
-}
-
-.Footer-link {
-  color: $black;
-
-  &:hover {
-    color: $dark-theme-layout-primary;
-  }
-
-  &:active {
-    color: $dark-theme-secondary;
-  }
-
-  &:focus {
-    color: $primary-500;
-  }
-
-  &:focus-visible {
-    color: $primary-500;
-  }
-
-  &:-moz-focusring {
-    color: $primary-500;
-  }
-
-  &:disabled {
-    opacity: 0.5;
   }
 }
 

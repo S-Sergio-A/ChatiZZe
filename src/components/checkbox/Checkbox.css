@@ -2,6 +2,16 @@
   column-gap: 30px;
   -webkit-column-gap: 30px;
   -moz-column-gap: 30px;
+  cursor: pointer;
+}
+.ch-wr.focused {
+  outline: 2px dashed;
+  outline-offset: 2px;
+}
+.ch-wr.reverse {
+  flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
 }
 .ch-wr .checkbox-c {
   display: inline-block;
@@ -9,7 +19,6 @@
 }
 .ch-wr .checkbox-c .icon {
   fill: none;
-  stroke: white;
   stroke-width: 3px;
 }
 .ch-wr .checkbox-c .h-checkbox {
@@ -25,8 +34,7 @@
   width: 1px;
 }
 .ch-wr .checkbox-c .s-checkbox {
-  border: 1px inset #000000;
-  background: #ffffff;
+  border: 1px solid;
   width: 24px;
   height: 24px;
   border-radius: 4px;

@@ -1,118 +1,98 @@
-.Info-Page {
+.info-page {
   row-gap: calc(30px);
 }
-.Info-Page .B-T {
+.info-page .t-b {
   grid-area: 2/2/3/3;
 }
-.Info-Page .B-M {
+.info-page .m-b {
   grid-area: 3/2/4/3;
   row-gap: 50px;
 }
-.Info-Page .B-M p {
+.info-page .m-b p {
   text-align: justify;
   padding: 0;
 }
-.Info-Page .B-M .Po-L li {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -o-box-shadow: none;
-  background: none;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  list-style-type: circle;
-  padding: 0;
-}
-.Info-Page .B-M ul {
-  row-gap: 45px;
-}
-.Info-Page .B-M ul li {
-  row-gap: 21px;
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-  -o-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-  background: #f0f0f0;
-  color: #000000;
+.info-page .m-b h2 {
+  padding: 3px;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
 }
-.Info-Page .B-M ul li h2 {
-  background: linear-gradient(180deg, #202020 100%, #f0f0f0 100%);
+.info-page .m-b .po-l li {
+  background: none;
+  list-style-type: circle;
+  padding: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+.info-page .m-b ul {
+  row-gap: 50px;
+}
+.info-page .m-b ul li {
+  padding: 5px;
+  row-gap: 20px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
 }
 
 @media only screen and (min-width: 1200px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 40px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(5px * 10) minmax(10px, 1fr) calc(5px * 10);
   }
-  .Info-Page li {
+  .info-page li {
     padding: calc(10px) calc(25px);
   }
-  .Info-Page li h2 {
+  .info-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 40px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(35px) minmax(10px, 1fr) calc(35px);
   }
-  .Info-Page li {
+  .info-page li {
     padding: calc(10px) calc(20px);
   }
-  .Info-Page li h2 {
+  .info-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 100px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(25px) minmax(10px, 1fr) calc(25px);
   }
-  .Info-Page li {
+  .info-page li {
     padding: 5px calc(15px);
   }
-  .Info-Page li h2 {
+  .info-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 100px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(20px) minmax(10px, 1fr) calc(20px);
   }
-  .Info-Page li {
-    padding: 5px calc(10px);
-  }
-  .Info-Page li h2 {
-    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
-  }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(15px) minmax(10px, 1fr) calc(15px);
   }
-  .Info-Page li {
-    padding: 5px;
-  }
-  .Info-Page li h2 {
-    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
-  }
 }
 @media only screen and (max-width: 320px) {
-  .Info-Page {
+  .info-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(10px) minmax(10px, 1fr) calc(10px);
-  }
-  .Info-Page li {
-    padding: 5px;
-  }
-  .Info-Page li h2 {
-    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
   }
 }
 

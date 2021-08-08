@@ -2,6 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 
+.menu ::-webkit-scrollbar-thumb, .user-menu ::-webkit-scrollbar-thumb, .chat-list ::-webkit-scrollbar-thumb {
+  width: 5px !important;
+}
+.menu ::-webkit-scrollbar, .user-menu ::-webkit-scrollbar, .chat-list ::-webkit-scrollbar {
+  width: 5px !important;
+}
+
 p,
 blockquote {
   font-weight: 300;
@@ -179,12 +186,10 @@ blockquote {
   background-clip: padding-box;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  background: #7400b8;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EBEBEB;
-  border-left: 1px solid #333533;
+  border-left: 1px solid;
 }
 
 img {
@@ -214,7 +219,6 @@ img {
 }
 
 body {
-  background: #EBEBEB;
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif !important;
@@ -227,6 +231,13 @@ body {
   letter-spacing: 0.12px;
 }
 
+input,
+textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 ul,
 li {
   margin: 0;
@@ -237,7 +248,6 @@ li {
 .crossed {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
-  color: #757C78;
 }
 
 .dropdown-toggle::after {
@@ -308,6 +318,7 @@ button {
   text-align: center;
   text-align: -webkit-center;
   text-align: -moz-center;
+  font-family: "Nunito", sans-serif;
 }
 
 *,

@@ -6,12 +6,10 @@
 
 @mixin focusStyles {
   @include focus;
-  color: $black;
 
   &:before,
   &:after {
     width: 50%;
-    background: $white;
   }
 }
 
@@ -21,7 +19,6 @@
   &:before,
   &:after {
     width: 50%;
-    background: $light-theme-secondary;
   }
 }
 
@@ -33,12 +30,23 @@
   letter-spacing: 2.8px;
   line-height: 1.6;
   cursor: pointer;
-  border: 1px solid $white;
-  color: $white;
+
+  &.no-border {
+    border: none;
+  }
+
+  &.btn-r {
+    &:before {
+      @include border-radius(50px 0 0 50px);
+    }
+
+    &:after {
+      @include border-radius(0 50px 50px 0);
+    }
+  }
 
   &:hover {
     letter-spacing: 2px;
-    color: $black;
     @include focusStyles;
   }
 
@@ -67,12 +75,8 @@
   }
 
   &.dark {
-    border-color: $black;
-    color: $black;
-
     &:hover {
       letter-spacing: 2px;
-      color: $black;
       @include focusStylesDark;
     }
 

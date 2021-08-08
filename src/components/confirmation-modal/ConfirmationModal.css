@@ -1,0 +1,19 @@
+.modal-content.confirm {
+  row-gap: 20px;
+}
+.modal-content.confirm > .modal-header {
+  grid-template-rows: 35px 20px;
+  grid-template-columns: minmax(10px, 1fr) 40px;
+  row-gap: 10px;
+  column-gap: 20px;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+}
+.modal-content.confirm > .modal-header > .h5-s {
+  grid-area: 1/1/2/2;
+}
+.modal-content.confirm > .modal-footer .btn-sm {
+  width: 110px;
+}
+
+/*# sourceMappingURL=ConfirmationModal.css.map */

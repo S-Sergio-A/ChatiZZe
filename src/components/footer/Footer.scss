@@ -3,7 +3,6 @@
 .footer {
   grid-template-rows: 270px 40px;
   grid-template-columns: minmax(10px, 1fr);
-  background: $light-theme-secondary;
   @include pageMainPartShadow;
 
   &-t,
@@ -13,13 +12,9 @@
 
   & > &-t {
     grid-area: 1/1/2/2;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
     grid-column-gap: calc(#{$standard} * 8);
     padding-block: calc(#{$standard} * 5);
-
-    h2 {
-      color: $black;
-    }
 
     .legal,
     .help {
@@ -51,12 +46,14 @@
     .help {
       grid-area: 1/2/2/3;
     }
+
+    .theme {
+      grid-area: 1/3/2/4;
+    }
   }
 
   & > &-b {
     grid-area: 2/1/3/2;
-    color: $white;
-    background: $light-theme-primary;
   }
 }
 

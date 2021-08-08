@@ -5,19 +5,15 @@
   grid-template-columns: 100%;
   place-items: center;
   padding-block: 100px;
-  background: $white;
 
   .card {
     grid-template-rows: 80px 400px;
     @include border-radius(15px);
-
-    h1 {
-      color: #7400b8;
-    }
   }
 
   .button-con {
-    row-gap: 30px;
+    padding-inline: 5px;
+    @include columnGap(10px);
   }
 
   .b-b {
@@ -41,8 +37,12 @@
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .registration-page .card {
-    grid-template-columns: 310px;
-    padding: 10px;
+    grid-template-columns: 300px;
+    padding: 8px;
+
+    .button-con > button {
+      width: 145px;
+    }
   }
 }
 
@@ -50,5 +50,9 @@
   .registration-page .card {
     grid-template-columns: 300px;
     padding: 5px;
+
+    .button-con > button {
+      width: 140px;
+    }
   }
 }

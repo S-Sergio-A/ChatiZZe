@@ -1,0 +1,23 @@
+@import "../../styles/Extensions";
+
+.toast {
+  position: fixed;
+  min-height: 60px;
+  max-height: 200px;
+  z-index: 2000;
+  padding: 10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  @include border-radius(30px);
+  @include backdrop-filter(blur(20px));
+
+  & > section {
+    max-height: 140px;
+
+    .inner-container {
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+    }
+  }
+}

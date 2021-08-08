@@ -32,11 +32,18 @@
   top: 0;
   left: 0;
   font-size: 1.2em;
-  color: #FFF;
+  color: #fff;
   background: rgba(0, 0, 0, 0.7);
   z-index: 4;
 }
-.load-ov-c .sp p, .load-ov-c .sp span, .load-ov-c .sp h1, .load-ov-c .sp h2, .load-ov-c .sp h3, .load-ov-c .sp h4, .load-ov-c .sp h5, .load-ov-c .sp h6 {
+.load-ov-c .sp p,
+.load-ov-c .sp span,
+.load-ov-c .sp h1,
+.load-ov-c .sp h2,
+.load-ov-c .sp h3,
+.load-ov-c .sp h4,
+.load-ov-c .sp h5,
+.load-ov-c .sp h6 {
   color: #ffffff !important;
   text-align: center;
   text-align: -webkit-center;
@@ -48,7 +55,7 @@
   height: 86px;
   x: 0px;
   y: 0px;
-  viewBox: 0 0 86 86;
+  viewbox: 0 0 86 86;
 }
 .load-ov-c .sp svg.sp circle {
   fill: transparent;

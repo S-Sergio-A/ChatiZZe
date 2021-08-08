@@ -2,7 +2,6 @@
 
 .main-page .intro {
   grid-area: 1/1/2/2;
-  background: $white;
   padding-top: 50px;
   row-gap: 10px;
 
@@ -50,6 +49,11 @@
     grid-template-rows: minmax(1px, 1fr) 100px;
     @include columnGap(25px);
 
+    .btn-sm-x-w {
+      width: 160px;
+      height: 60px;
+    }
+
     img {
       grid-area: 1/2/3/3;
     }
@@ -61,6 +65,11 @@
     grid-template-columns: repeat(2, minmax(10px, 1fr));
     grid-template-rows: 220px 100px minmax(10px, 1fr);
     padding-inline: 50px;
+
+    .btn-sm-x-w {
+      width: 180px;
+      height: 60px;
+    }
 
     header {
       grid-area: 1/1/2/3;
