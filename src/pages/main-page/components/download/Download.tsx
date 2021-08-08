@@ -8,24 +8,24 @@ export default function Download() {
 
   return (
     <section className="download-now grid">
-      <div className={`col ${width < 481 ? 'j-s-c' : ''}`}>
-        <img className="demo-img" src="http://localhost:3000/download-r.png" alt="Download our app on IOS or Android for free!" />
+      <div className={`col ${width < 481 ? "j-s-c" : ""}`}>
+        <img className="demo-img" src="http://localhost:3000/download-r.png" alt={t("main.download.alt")} />
       </div>
       <div className="col flex j-c-c a-i-f-s">
         <div className="grid">
           <header className="f-w flex a-i-c j-c-f-s">
-            <h2 className={width > 768 ? "h1-s" : "h3-s f-w__900"}>Download the app</h2>
+            <h2 className={width > 768 ? "h1-s" : "h3-s f-w__900"}>{t("main.download.header")}</h2>
           </header>
           <p className={`${width > 768 ? "" : "h6-s"} flex a-i-f-s f-f-c-n`}>
-            <span className="t-j">Chatizze is available on IOS and Android.</span>
-            <span className="t-j">Download now and enjoy free conversations 24/7!</span>
+            <span className="t-j">{t("main.download.fir")}</span>
+            <span className="t-j">{t("main.download.sec")}</span>
           </p>
-          <div className={`flex a-i-c j-c-s-b  ${(width > 480 && width < 670) ? "f-f-c-n" : "f-f-r-w"}`}>
+          <div className={`badges flex a-i-c j-c-s-b  ${width > 480 && width < 670 ? "f-f-c-n" : "f-f-r-w"}`}>
             <a href="#some-link-to-app-store">
-              <img className="badge" src="http://localhost:3000/app-store-badge.png" alt="Download on the App Store" width={170} height={55} />
+              <img className="btn-sm-x-w" src="http://localhost:3000/app-store-badge.png" alt={t("main.alt.app_st")} />
             </a>
             <a href="#some-link-to-google-play">
-              <img className="badge" src="http://localhost:3000/google-play-badge.png" alt="Download on the Google Play" width={170} height={55} />
+              <img className="btn-sm-x-w" src="http://localhost:3000/google-play-badge.png" alt={t("main.alt.g_pl")} />
             </a>
           </div>
         </div>

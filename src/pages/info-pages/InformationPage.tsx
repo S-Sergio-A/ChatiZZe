@@ -1,19 +1,15 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
-import Head from '../../components/head/Head';
+import Head from "../../components/head/Head";
 
 export default function InformationPage() {
   const [t] = useTranslation();
-  const location = useLocation();
-  const type = location.pathname.split("/")[2];
-  const questions:{question: string; answer:string}[] = Array.from(t(`infoPages.${type}`, { returnObjects: true }));
+  const questions: { question: string; answer: string }[] = Array.from(t(`infoPages.faq`, { returnObjects: true }));
 
   return (
-    <div className="Info-Page Grid">
+    <main id="main" className="info-page grid">
       <Head
-        title={t(`infoPages.${type}.seo.title`)}
-        description={t(`infoPages.${type}.seo.description`)}
+        title={t("infoPages.faq.seo.title")}
+        description={t("infoPages.faq.seo.description")}
         // structuredDataJSON={type === 'faq' ? structuredDataList.faq(
         //   t('infoPages.faq', { returnObjects: true })[0].question,
         //   t('infoPages.faq', { returnObjects: true })[0].answer,
@@ -27,21 +23,21 @@ export default function InformationPage() {
         //   t('infoPages.order', { returnObjects: true })[4].answer
         // ) : null}
       />
-      <section className="B-T flex J-C-C a-i-c T-C">
-        <h1>{t(`infoPages.${type}.header`)}</h1>
+      <section className="t-b flex j-c-c a-i-c">
+        <h1>{t(`infoPages.faq.header`)}</h1>
       </section>
-      <section className="B-M Nunito flex J-C-S-B A-I-F-S f-f-c-n">
-        <ul className="flex J-C-S-B A-I-F-S f-f-c-n F-W F-H">
+      <section className="m-b flex j-c-s-b a-i-f-s f-f-c-n">
+        <ul className="flex j-c-s-b a-i-f-s f-f-c-n f-w f-h">
           {questions.map((item, index) => {
             return (
-              <li key={index} className="flex J-C-S-B A-I-F-S f-f-c-n F-W F-H">
-                <h2 className="h3-size">{item.question}</h2>
+              <li key={index} className="flex j-c-s-b a-i-f-s f-w f-h f-f-c-n">
+                <h2 className="h3-s">{item.question}</h2>
                 <p>{item.answer}</p>
               </li>
             );
           })}
         </ul>
       </section>
-    </div>
+    </main>
   );
 }
