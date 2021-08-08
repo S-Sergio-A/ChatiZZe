@@ -1,18 +1,48 @@
 export const iconsAttributionList = [
   {
-    author: 'Icons made by Freepik from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com.',
+    author: "Blue Vectors by Vecteezy",
+    link: "https://www.vecteezy.com/free-vector/blue",
+    title: "Vecteezy"
+  },
+  {
+    author: "cons made by Icongeek26",
+    link: "https://www.flaticon.com/authors/icongeek26",
+    title: "Icongeek26"
+  },
+  {
+    author: "Icons made by Freepik from www.flaticon.com.",
     link: "https://www.freepik.com",
     title: "Freepik"
   },
   {
-    author: 'Icons made by Kiranshastry from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com.',
-    link: "https://www.flaticon.com/authors/kiranshastry",
-    title: "Kiranshastry"
-  },
-  {
-    author: 'Icons made by Pixel perfect from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com.',
+    author: "Icons made by Pixel perfect from www.flaticon.com.",
     link: "https://www.flaticon.com/authors/pixel-perfect",
     title: "Pixel perfect"
+  },
+  {
+    author: "Icons made by Smartline from www.flaticon.com.",
+    link: "https://www.flaticon.com/authors/smartline",
+    title: "Smartline"
+  },
+  {
+    author: "Icons made by DinosoftLabs from www.flaticon.com.",
+    link: "https://www.flaticon.com/authors/dinosoftlabs",
+    title: "DinosoftLabs"
+  },
+  {
+    author: "Icons made by Becris from www.flaticon.com.",
+    link: "https://creativemarket.com/Becris",
+    title: "Becris"
+  },
+  {
+    author: "Icons made by Good Ware from www.flaticon.com.",
+    link: "https://www.flaticon.com/authors/good-ware",
+    title: "Good Ware"
+  },
+  {
+    author: "Icons made by Lyolya from www.flaticon.com.",
+    link: "https://www.flaticon.com/authors/lyolya",
+    title: "Lyolya"
   }
 ];
 
