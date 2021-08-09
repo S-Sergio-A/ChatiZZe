@@ -58,8 +58,8 @@ export default function Verification() {
           }
         )
         .then(({ data }) => {
-          if (data.errors) {
-            dispatch(setError(data.errors.message));
+          if (data.error) {
+            dispatch(setError(data.error.message));
           }
 
           if (data.user) {

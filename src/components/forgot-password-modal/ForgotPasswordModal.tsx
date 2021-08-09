@@ -36,11 +36,11 @@ export default function ForgotPasswordModal() {
         }
       )
       .then(({ data, status }) => {
-        if (data.errors.email) {
-          setEmailError(data.errors.email);
+        if (data.error.email) {
+          setEmailError(data.error.email);
         }
 
-        if (!data.errors && status === 200) setPage(2);
+        if (!data.error && status === 200) setPage(2);
       });
   }
 

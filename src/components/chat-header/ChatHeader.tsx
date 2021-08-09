@@ -96,8 +96,8 @@ export default function ChatHeader({
 
   async function disableNotifications() {
     axios.put(userLinks.notifications(userId, roomId, "false"), {}).then(({ data }) => {
-      if (data.errors) {
-        dispatch(setError(data.errors.message));
+      if (data.error) {
+        dispatch(setError(data.error.message));
       }
     });
   }

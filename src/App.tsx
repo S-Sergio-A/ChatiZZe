@@ -198,9 +198,9 @@ const App = () => {
             }
           )
           .then((response) => {
-            const { success, errors, accessToken, refreshToken } = response.data;
+            const { success, error, accessToken, refreshToken } = response.data;
 
-            if (!success && errors) {
+            if (!success && error) {
               // dispatchError({
               //   type: "SET_ERROR_CODE_AND_SHOW_ERROR_MODAL",
               //   payload: {

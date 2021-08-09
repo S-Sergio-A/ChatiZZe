@@ -65,25 +65,25 @@ export default function Registration() {
         passwordVerification
       })
       .then(({ data, status }) => {
-        const { errors } = data;
+        const { error } = data;
 
-        if (errors) {
-          if (errors.email) {
-            setEmailError(errors.email);
+        if (error) {
+          if (error.email) {
+            setEmailError(error.email);
           }
-          if (errors.phoneNumber) {
-            setPhoneNumberError(errors.phoneNumber);
+          if (error.phoneNumber) {
+            setPhoneNumberError(error.phoneNumber);
           }
-          if (errors.username) {
-            setUsernameError(errors.username);
+          if (error.username) {
+            setUsernameError(error.username);
           }
-          if (errors.password) {
-            setPasswordError(errors.password);
+          if (error.password) {
+            setPasswordError(error.password);
           }
-          if (errors.passwordVerification) {
-            setPasswordVerificationError(errors.passwordVerification);
+          if (error.passwordVerification) {
+            setPasswordVerificationError(error.passwordVerification);
           }
-          // dispatch(setError(errors));
+          // dispatch(setError(error));
         } else {
           setPhoneNumber("");
           setUsername("");

@@ -98,8 +98,8 @@ export default function ChangeUserRightsModal({
         }
       )
       .then(({ data, status }) => {
-        if (data.errors) {
-          dispatch(setError(data.errors.message));
+        if (data.error) {
+          dispatch(setError(data.error.message));
         }
       });
   }

@@ -51,12 +51,12 @@ export default function UsernameChangeForm({
         newUsername: username
       })
       .then(({ data }) => {
-        if (data.errors) {
-          if (data.errors.username) {
-            setUsernameError(data.errors.username);
+        if (data.error) {
+          if (data.error.username) {
+            setUsernameError(data.error.username);
           }
         } else {
-          dispatch(setError(data.errors.message));
+          dispatch(setError(data.error.message));
         }
       });
   }

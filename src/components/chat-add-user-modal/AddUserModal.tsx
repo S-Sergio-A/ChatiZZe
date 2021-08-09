@@ -95,11 +95,11 @@ export default function AddUserModal() {
         }
       )
       .then(({ data, status }) => {
-        if (data.errors) {
-          if (data.errors.newUserIdentifier) {
-            setNewUserIdError(data.errors.newUserIdentifier);
+        if (data.error) {
+          if (data.error.newUserIdentifier) {
+            setNewUserIdError(data.error.newUserIdentifier);
           } else {
-            dispatch(setError(data.errors.message));
+            dispatch(setError(data.error.message));
           }
         } else {
           dispatch(reloadChats(true));

@@ -70,13 +70,10 @@ export default function ContactUs() {
         await axios
           .post(url, data, config)
           .then((response) => {
-            const { errors } = response.data;
+            const { error } = response.data;
 
-            if (errors) {
-              const errors = response.data.errors;
-
-              if (errors.code === 500) {
-              }
+            if (error) {
+  
             } else {
               setContactFormError({
                 ...contactFormError,

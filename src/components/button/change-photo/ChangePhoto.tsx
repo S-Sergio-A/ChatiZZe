@@ -68,8 +68,8 @@ export default function ChangePhoto({
         }
       )
       .then(({ data }) => {
-        if (data.errors && data.errors.photo) {
-          dispatch(setError(data.errors.photo));
+        if (data.error && data.error.photo) {
+          dispatch(setError(data.error.photo));
         } else {
           if (data.user) {
             const expTime = cookies["user-auth"].expTime;
@@ -97,8 +97,8 @@ export default function ChangePhoto({
         }
       )
       .then(({ data }) => {
-        if (data.errors && data.errors.photo) {
-          dispatch(setError(data.errors.photo));
+        if (data.error && data.error.photo) {
+          dispatch(setError(data.error.photo));
         } else {
         }
       });

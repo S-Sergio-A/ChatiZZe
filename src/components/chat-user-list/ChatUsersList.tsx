@@ -41,8 +41,8 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
 
   const removeUser = (userId: string) => {
     axios.delete(userLinks.deleteUserFromRoom(userId, roomId)).then(({ data, status }) => {
-      if (data.errors) {
-        dispatch(setError(data.errors.message));
+      if (data.error) {
+        dispatch(setError(data.error.message));
       } else {
         dispatch(reloadChats(true));
       }

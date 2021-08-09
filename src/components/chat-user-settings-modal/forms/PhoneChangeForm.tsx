@@ -45,12 +45,12 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         newPhoneNumber: phone
       })
       .then(({ data }) => {
-        if (data.errors) {
-          if (data.errors.phoneNumber) {
-            setPhoneError(data.errors.phoneNumber);
+        if (data.error) {
+          if (data.error.phoneNumber) {
+            setPhoneError(data.error.phoneNumber);
           }
         } else {
-          dispatch(setError(data.errors.message));
+          dispatch(setError(data.error.message));
         }
       });
   }

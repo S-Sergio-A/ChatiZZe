@@ -52,9 +52,9 @@ export default function BirthdaySubModal({
         }
       )
       .then(({ data }) => {
-        if (data.errors) {
-          if (data.errors.birthday) {
-            setBirthdayError(data.errors.birthday);
+        if (data.error) {
+          if (data.error.birthday) {
+            setBirthdayError(data.error.birthday);
           }
         } else {
           if (data.user) {

@@ -45,12 +45,12 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
         newEmail: email
       })
       .then(({ data }) => {
-        if (data.errors) {
-          if (data.errors.email) {
-            setEmailError(data.errors.email);
+        if (data.error) {
+          if (data.error.email) {
+            setEmailError(data.error.email);
           }
         } else {
-          dispatch(setError(data.errors.message));
+          dispatch(setError(data.error.message));
         }
       });
   }

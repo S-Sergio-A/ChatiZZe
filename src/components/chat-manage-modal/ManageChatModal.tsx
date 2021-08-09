@@ -79,15 +79,15 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
         membersCount: users.length
       })
       .then(({ data, status }) => {
-        if (data.errors) {
-          if (data.errors.name) {
-            setNameError(data.errors.name);
+        if (data.error) {
+          if (data.error.name) {
+            setNameError(data.error.name);
           }
 
-          if (data.errors.description) {
-            setDescriptionError(data.errors.description);
+          if (data.error.description) {
+            setDescriptionError(data.error.description);
           } else {
-            dispatch(setError(data.errors.message));
+            dispatch(setError(data.error.message));
           }
         } else {
           dispatch(reloadChats(true));

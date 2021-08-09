@@ -74,21 +74,21 @@ export default function Login() {
         }
       )
       .then((response) => {
-        const { errors, accessToken, refreshToken, user } = response.data;
+        const { error, accessToken, refreshToken, user } = response.data;
 
-        if (errors) {
-          if (errors.email) {
-            setUserIdentifierError(errors.email);
-          } else if (errors.phoneNumber) {
-            setUserIdentifierError(errors.phoneNumber);
-          } else if (errors.username) {
-            setUserIdentifierError(errors.username);
+        if (error) {
+          if (error.email) {
+            setUserIdentifierError(error.email);
+          } else if (error.phoneNumber) {
+            setUserIdentifierError(error.phoneNumber);
+          } else if (error.username) {
+            setUserIdentifierError(error.username);
           } else {
             setUserIdentifierError("");
           }
 
-          if (errors.password) {
-            setPasswordError(errors.password);
+          if (error.password) {
+            setPasswordError(error.password);
           } else {
             setPasswordError("");
           }

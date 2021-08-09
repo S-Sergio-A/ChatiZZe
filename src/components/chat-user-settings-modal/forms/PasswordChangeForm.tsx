@@ -51,15 +51,15 @@ export default function PasswordChangeForm({
         newPassword
       })
       .then(({ data }) => {
-        if (data.errors) {
-          if (data.errors.oldPassword) {
-            setOldPasswordError(data.errors.oldPassword);
+        if (data.error) {
+          if (data.error.oldPassword) {
+            setOldPasswordError(data.error.oldPassword);
           }
-          if (data.errors.newPassword) {
-            setNewPasswordError(data.errors.newPassword);
+          if (data.error.newPassword) {
+            setNewPasswordError(data.error.newPassword);
           }
         } else {
-          dispatch(setError(data.errors.message));
+          dispatch(setError(data.error.message));
         }
       });
   }
