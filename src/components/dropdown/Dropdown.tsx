@@ -16,7 +16,6 @@ export const Dropdown = ({
   dropdownRef: React.MutableRefObject<any>;
   children?: any;
 }) => {
-  
   const [cursor, setCursor] = useState(0);
 
   const [firstRender, setFirstRender] = useState(true);

@@ -2,10 +2,14 @@ html {
   scroll-behavior: smooth;
 }
 
-.menu ::-webkit-scrollbar-thumb, .user-menu ::-webkit-scrollbar-thumb, .chat-list ::-webkit-scrollbar-thumb {
+.menu ::-webkit-scrollbar-thumb,
+.user-menu ::-webkit-scrollbar-thumb,
+.chat-list ::-webkit-scrollbar-thumb {
   width: 5px !important;
 }
-.menu ::-webkit-scrollbar, .user-menu ::-webkit-scrollbar, .chat-list ::-webkit-scrollbar {
+.menu ::-webkit-scrollbar,
+.user-menu ::-webkit-scrollbar,
+.chat-list ::-webkit-scrollbar {
   width: 5px !important;
 }
 
@@ -171,7 +175,7 @@ blockquote {
   overflow: -moz-hidden-unscrollable;
 }
 
-[class^=btn] {
+[class^="btn"] {
   cursor: pointer;
 }
 

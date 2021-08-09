@@ -9,6 +9,7 @@ import axios from "axios";
 import ForgotPasswordModal from "../../components/forgot-password-modal/ForgotPasswordModal";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { login, showForgotPassword } from "../../context/actions/auth";
+import { getRandomColor } from "../../utils/color/shadeColor";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import Checkbox from "../../components/checkbox/Checkbox";
 import { cookieOptions } from "../../utils/cookieOptions";
@@ -19,7 +20,6 @@ import Head from "../../components/head/Head";
 import i18n from "../../utils/i18n/i18n";
 import { logError } from "../error/errorHandler";
 import "./Login.css";
-import { getRandomColor } from "../../utils/color/shadeColor";
 
 // import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
 
@@ -121,21 +121,19 @@ export default function Login() {
           );
           setCookies("accessToken", { accessToken: accessToken }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
           setCookies("refreshToken", { refreshToken: refreshToken }, cookieOptions(3600 * 24 * 60));
-          setCookies("user-id", { userId: user._id, username: user.username }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
+          setCookies("user-data", user, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
           setCookies(
             "user-auth",
             { logged: true, expTime: rememberMe ? 3600 * 24 * 30 : 1800 },
             cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800)
           );
 
-          timer(500).subscribe(() => {
-            dispatch(login(user));
-            if (location.pathname === `/${i18n.language}/user/login`) {
-              history.push({
-                pathname: `/${i18n.language}/chat`
-              });
-            }
-          });
+          dispatch(login(user));
+          if (location.pathname === `/${i18n.language}/user/login`) {
+            history.push({
+              pathname: `/${i18n.language}/chat`
+            });
+          }
         }
       })
       .catch((error) => logError(error));

@@ -5,6 +5,7 @@ import { io } from "socket.io-client";
 import { timer } from "rxjs";
 import axios from "axios";
 import {
+  reloadChats,
   resetDeletedMessageId,
   resetUpdatedMessageId,
   resetUpdatedMessageNewState,
@@ -28,6 +29,7 @@ import { useTranslation } from "react-i18next";
 export default function Chat() {
   const [t] = useTranslation();
   const [chats, setChats] = useState<any[]>([]);
+  const [chatData, setChatData] = useState<any>({});
   const [messages, setMessages] = useState<any[]>([]);
   const [users, setUsers] = useState<{ [key: string]: any }[]>([]);
 
@@ -48,6 +50,7 @@ export default function Chat() {
 
   const showUserMenu = useSelector((state: RootState) => state.chat.showUserMenu);
   const enlargeChatList = useSelector((state: RootState) => state.chat.enlargeChatList);
+  const reload = useSelector((state: RootState) => state.chat.reload);
 
   useEffect(() => {
     if (roomId.length !== 0 && userId.length !== 0) {
@@ -68,6 +71,10 @@ export default function Chat() {
         setMessages(lastMessages.reverse());
       });
 
+      socketRef.current.on("users", (usersOnline: any) => {
+        setChatData({ ...chatData, usersOnline: usersOnline.length });
+      });
+
       socketRef.current.on("new-message", (newMessage: any) => {
         setMessages((oldMessages) => [...oldMessages, newMessage]);
         setNewMessage(true);
@@ -81,13 +88,21 @@ export default function Chat() {
   }, [roomId, userId]);
 
   useEffect(() => {
+    if (reload) {
+      loadChats();
+      dispatch(reloadChats(false));
+    }
+  }, [reload]);
+
+  useEffect(() => {
     if (chats.length === 0) loadChats();
   }, []);
 
   useEffect(() => {
     if (roomId && chats && users && users.length === 0) {
-      const loadedUsers = chats.find((item: any) => item._id === roomId);
-      setUsers(loadedUsers?.usersID);
+      const currentChat = chats.find((item: any) => item._id === roomId);
+      setChatData(currentChat);
+      setUsers(currentChat?.usersID);
     }
   }, [chats, roomId]);
 
@@ -141,11 +156,11 @@ export default function Chat() {
       <div className="placeholder-f" />
       <main id="main" className={`chat-page grid ${enlargeChatList ? "enlarge-menu" : ""}`}>
         <ChatList chats={chats} />
-        <ChatArea messages={messages} newMessage={newMessage} socketRef={socketRef} chatData={[]} />
+        <ChatArea messages={messages} newMessage={newMessage} socketRef={socketRef} chatData={chatData} />
         <CreateChatModal />
         <AddUserModal />
-        <ChatDataModal users={users} chatData={[]} />
-        <ManageChatModal users={users} chatData={[]} />
+        <ChatDataModal socketRef={socketRef} users={users} chatData={chatData} />
+        <ManageChatModal socketRef={socketRef} users={users} chatData={chatData} />
         <UserChatMenu />
         <UserSettingsModal />
       </main>

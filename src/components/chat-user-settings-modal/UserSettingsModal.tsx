@@ -29,7 +29,7 @@ export default function UserSettingsModal() {
 
   const [showNamesSubModal, setShowNamesSubModal] = useState(false);
   const [showBirthdaySubModal, setShowBirthdaySubModal] = useState(false);
-  
+
   const dispatch = useDispatch();
 
   function closeModal() {

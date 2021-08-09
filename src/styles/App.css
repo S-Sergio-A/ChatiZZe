@@ -3,7 +3,7 @@
   position: relative;
   gap: 0 0;
 }
-.base.chat [class^=placeholder] {
+.base.chat [class^="placeholder"] {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
@@ -32,7 +32,7 @@ main {
   -ms-transform-origin: 0;
 }
 
-[class$=con],
+[class$="con"],
 .svg {
   height: auto;
 }
@@ -101,10 +101,10 @@ main {
     font-family: "Playfair Display", serif;
   }
   .playfair p,
-.playfair a,
-.playfair label,
-.playfair button,
-.playfair input {
+  .playfair a,
+  .playfair label,
+  .playfair button,
+  .playfair input {
     font-size: 18px;
     margin: 0;
   }
@@ -113,10 +113,10 @@ main {
     font-family: "Nunito", sans-serif;
   }
   .nunito p,
-.nunito a,
-.nunito label,
-.nunito button,
-.nunito input {
+  .nunito a,
+  .nunito label,
+  .nunito button,
+  .nunito input {
     font-size: 18px;
     margin: 0;
   }
@@ -126,10 +126,10 @@ main {
     font-family: "Playfair Display", serif;
   }
   .playfair p,
-.playfair a,
-.playfair label,
-.playfair button,
-.playfair input {
+  .playfair a,
+  .playfair label,
+  .playfair button,
+  .playfair input {
     font-size: 14px;
     margin: 0;
   }
@@ -138,10 +138,10 @@ main {
     font-family: "Nunito", sans-serif;
   }
   .nunito p,
-.nunito a,
-.nunito label,
-.nunito button,
-.nunito input {
+  .nunito a,
+  .nunito label,
+  .nunito button,
+  .nunito input {
     font-size: 14px;
     margin: 0;
   }
@@ -155,10 +155,10 @@ main {
     font-family: "Playfair Display", serif;
   }
   .playfair p,
-.playfair a,
-.playfair label,
-.playfair button,
-.playfair input {
+  .playfair a,
+  .playfair label,
+  .playfair button,
+  .playfair input {
     font-size: 20px;
     margin: 0;
   }
@@ -167,10 +167,10 @@ main {
     font-family: "Nunito", sans-serif;
   }
   .nunito p,
-.nunito a,
-.nunito label,
-.nunito button,
-.nunito input {
+  .nunito a,
+  .nunito label,
+  .nunito button,
+  .nunito input {
     font-size: 20px;
     margin: 0;
   }

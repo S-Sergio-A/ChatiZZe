@@ -46,7 +46,7 @@
 .modal-content.user-settings > .modal-body.f-r {
   height: 70px;
 }
-.modal-content.user-settings > .modal-body [class^=block-] > button,
+.modal-content.user-settings > .modal-body [class^="block-"] > button,
 .modal-content.user-settings > .modal-body fieldset > button {
   width: 200px;
   min-height: 50px;
@@ -58,7 +58,7 @@
   -webkit-column-gap: 25px;
   -moz-column-gap: 25px;
 }
-.modal-content.user-settings > .modal-body [class^=block-] > button svg,
+.modal-content.user-settings > .modal-body [class^="block-"] > button svg,
 .modal-content.user-settings > .modal-body fieldset > button svg {
   width: 15px;
   height: 15px;

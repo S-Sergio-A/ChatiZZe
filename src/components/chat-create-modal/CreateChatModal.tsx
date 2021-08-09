@@ -10,6 +10,7 @@ import axios from "axios";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import { Button } from "../button/Button";
 import { useCookies } from "react-cookie";
+import { setError } from "../../context/actions/error";
 
 export default function CreateChatModal() {
   const [name, setName] = useState("");
@@ -58,7 +59,7 @@ export default function CreateChatModal() {
             setDescriptionError(data.errors.description);
           }
         } else {
-          // dispatch(setError(data.errors));
+          dispatch(setError(data.errors.message));
         }
       });
   }

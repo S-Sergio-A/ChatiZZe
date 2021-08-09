@@ -5,6 +5,8 @@ import axios from "axios";
 import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
+import { setError } from "../../../context/actions/error";
+import { useDispatch } from "react-redux";
 
 export default function PasswordChangeForm({
   passwordChange,
@@ -23,6 +25,8 @@ export default function PasswordChangeForm({
 
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (passwordChange && firstRender) {
@@ -55,7 +59,7 @@ export default function PasswordChangeForm({
             setNewPasswordError(data.errors.newPassword);
           }
         } else {
-          // dispatch(setError(data.errors));
+          dispatch(setError(data.errors.message));
         }
       });
   }

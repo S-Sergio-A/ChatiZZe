@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
@@ -9,6 +9,7 @@ import Checkbox from "../checkbox/Checkbox";
 import { Button } from "../button/Button";
 import Modal from "../modal/Modal";
 import "./ChangeR.css";
+import { setError } from "../../context/actions/error";
 
 export default function ChangeUserRightsModal({
   userRights,
@@ -30,6 +31,8 @@ export default function ChangeUserRightsModal({
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   const { width } = useWindowDimensions();
+
+  const dispatch = useDispatch();
 
   const rightsList = [
     {
@@ -94,7 +97,7 @@ export default function ChangeUserRightsModal({
       )
       .then(({ data, status }) => {
         if (data.errors) {
-          // dispatch(setError(data.errors));
+          dispatch(setError(data.errors.message));
         }
       });
   }

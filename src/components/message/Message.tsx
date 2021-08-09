@@ -33,9 +33,7 @@ export default function Message({
   const roomId = useSelector((state: RootState) => state.chat.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const rights = useSelector((state: RootState) => state.chat.rights);
-  
-  console.log(user);
-  
+
   const dispatch = useDispatch();
 
   const removeMessage = (messageId: string) => {

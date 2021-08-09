@@ -16,7 +16,7 @@ export default function ChatArea({
   messages,
   socketRef
 }: {
-  chatData: { [key: string]: any }[];
+  chatData: { [key: string]: any };
   newMessage: boolean;
   messages: { [key: string]: any }[];
   socketRef: React.MutableRefObject<any>;
@@ -162,7 +162,7 @@ export default function ChatArea({
             </section>
           ) : (
             <section className={`chat-layout grid ${expand ? "expanded" : ""}`} role="log" aria-live="polite">
-              <ChatHeader socketRef={socketRef} membersCount={2} activeMembersCount={1} />
+              <ChatHeader socketRef={socketRef} membersCount={chatData.usersID.length} activeMembersCount={chatData?.activeUsers} />
               <div className="messages-container">
                 <ul className="messages-list flex j-c-f-e f-f-c-n" ref={listRef} style={space ? { paddingBottom: "100px" } : undefined}>
                   {messages &&

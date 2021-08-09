@@ -20,7 +20,9 @@ export const TooltipOverlay = ({ show, overlayPlacement = "bottom", tooltipText 
   return (
     <div
       role="tooltip"
-      className={`${overlayPlacement} ${firstRender ? "none" : ""} ${show ? "show-tooltip" : "hide-tooltip"} tooltip flex a-i-c j-c-s-b f-f-c-n`}
+      className={`${overlayPlacement} ${firstRender ? "none" : ""} ${
+        show ? "show-tooltip" : "hide-tooltip"
+      } tooltip flex a-i-c j-c-s-b f-f-c-n`}
       aria-labelledby={inputId}
       aria-live="polite"
     >

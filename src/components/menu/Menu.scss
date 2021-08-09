@@ -73,10 +73,6 @@
     &-item {
       width: 45vw;
     }
-
-    &-item > * {
-      height: 50px;
-    }
   }
 }
 
@@ -84,10 +80,6 @@
   .menu {
     &-item {
       width: 60vw;
-    }
-
-    &-item > * {
-      height: 40px;
     }
   }
 }

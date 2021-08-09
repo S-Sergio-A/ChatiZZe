@@ -15,15 +15,17 @@ function login(user: {
 
 function logout(removeCookie: (name: string) => void) {
   removeCookie("user-auth");
+  removeCookie("user-data");
+  removeCookie("access-token");
+  removeCookie("refresh-token");
   return { type: LOGOUT, payload: { logged: false } };
 }
 
 function checkState(cookies: any) {
   const logged = cookies.hasOwnProperty("user-auth") ? cookies["user-auth"]?.logged : false;
-  const userId = cookies.hasOwnProperty("user-id") ? cookies["user-id"]?.userId : "";
-  const username = cookies.hasOwnProperty("user-id") ? cookies["user-id"]?.username : "";
+  const user = cookies.hasOwnProperty("user-data") ? cookies["user-data"]?.userId : {};
 
-  return { type: CHECK_STATE, payload: { logged, userId, username } };
+  return { type: CHECK_STATE, payload: { logged, user } };
 }
 
 function showForgotPassword(showForgotPassword: boolean) {

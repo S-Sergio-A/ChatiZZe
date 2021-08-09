@@ -129,6 +129,10 @@ export default function CustomThemeModal() {
           <Button
             className="btn-pr btn-sm-x-w dark"
             onClick={() => {
+              if (primaryColor === "#ffffff" && secondaryColor === "#ffffff") {
+                setSecondaryColor("#000000");
+              }
+
               dispatch(setCustomTheme(primary, secondary, layout, primaryBorder, secondaryBorder, primaryColor, secondaryColor, ""));
               setCookies(
                 "theme",

@@ -11,6 +11,7 @@ import useKeyDown from "../../utils/hooks/useKeyDown";
 import { Button } from "../button/Button";
 import "./ChatInput.css";
 import Modal from "../modal/Modal";
+import { fileToBase64 } from "../../utils/fileToBase64";
 
 type TextMessage = {
   text: string;
@@ -130,7 +131,7 @@ export const ChatInput = ({
     }
   }
 
-  function onFileChange(event: any) {
+  async function onFileChange(event: any) {
     if (Array.from(event.target.files).length > MAX_LENGTH) {
       event.preventDefault();
       alert(`Cannot upload more than ${MAX_LENGTH} files!`);
@@ -140,8 +141,12 @@ export const ChatInput = ({
     if (event.target.files) {
       setShowMessageModal(true);
       const attachedFilesArray = [];
-      for (let i = 0; i < MAX_LENGTH - 1; i++) {
-        attachedFilesArray.push(URL.createObjectURL(event.target.files[i]));
+
+      const length = event.target.files.length <= 5 ? event.target.files.length : MAX_LENGTH;
+
+      for (let i = 0; i < length; i++) {
+        const file = await fileToBase64(event.target.files[i]).catch((e) => Error(e));
+        attachedFilesArray.push(file);
       }
 
       switch (attachedFilesArray.length) {
@@ -268,7 +273,7 @@ export const ChatInput = ({
           style={expand ? { rowGap: "15px" } : undefined}
         >
           <div className="attach-file-btn">
-            <input onChange={onFileChange} type="file" accept="image/*" hidden ref={inputRef} className="none" />
+            <input onChange={onFileChange} type="file" accept="image/*" hidden ref={inputRef} className="none" multiple />
             <Button
               onClick={() => inputRef.current && inputRef.current.click()}
               type="button"
@@ -365,10 +370,10 @@ export const ChatInput = ({
           </Button>
         </div>
       </div>
-      <Modal onModalClose={() => setShowMessageModal(false)} show={showMessageModal}>
+      <Modal onModalClose={() => setShowMessageModal(false)} show={showMessageModal} className="message-modal">
         <Modal.Header onCloseModal={() => setShowMessageModal(false)} className="a-i-f-e" />
-        <Modal.Body className="message">
-          <ul className={`grid ${attachedFilesClass}`}>
+        <Modal.Body>
+          <ul className={`grid images ${attachedFilesClass}`}>
             {message.attachment &&
               message.attachment.map((item: any, index: number) => (
                 <li key={index}>
@@ -377,7 +382,7 @@ export const ChatInput = ({
               ))}
           </ul>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="grid input-area">
           <div
             className={`btn-cont flex j-c-c a-i-c ${expand ? "exp" : ""} ${width < 769 ? "f-f-c-n" : "f-f-r-n"}`}
             style={expand ? { rowGap: "15px" } : undefined}

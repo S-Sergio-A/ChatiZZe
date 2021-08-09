@@ -1,18 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { displayAddUserModal } from "../../context/actions/chat";
+import { displayAddUserModal, reloadChats } from "../../context/actions/chat";
 import { RootState } from "../../context/rootState.interface";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import ChangeUserRightsModal from "../chat-change-user-rights-modal/ChangeUserRightsModal";
 import ConfirmationModal from "../confirmation-modal/ConfirmationModal";
 import { Button } from "../button/Button";
 import "./ChatUsersList.css";
+import { setError } from "../../context/actions/error";
 
-export default function ChatUsersList({ users }: { users: any[] }) {
+export default function ChatUsersList({ users, socketRef }: { users: any[]; socketRef: any }) {
   const [t] = useTranslation();
   const [confirmDelete, setConfirmDelete] = useState({
+    show: false,
+    _id: ""
+  });
+
+  const [confirmLeave, setConfirmLeave] = useState({
     show: false,
     _id: ""
   });
@@ -25,6 +31,7 @@ export default function ChatUsersList({ users }: { users: any[] }) {
   const [userRights, setUserRights] = useState([]);
 
   const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const userId = useSelector((state: RootState) => state.auth.user._id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,9 +41,17 @@ export default function ChatUsersList({ users }: { users: any[] }) {
   const removeUser = (userId: string) => {
     axios.delete(userLinks.deleteUserFromRoom(userId, roomId)).then(({ data, status }) => {
       if (data.errors) {
-        // dispatch(setError(data.errors));
+        dispatch(setError(data.errors.message));
+      } else {
+        dispatch(reloadChats(true));
       }
     });
+  };
+
+  const leaveRoom = (userId: string) => {
+    if (socketRef.current) {
+      socketRef.current.emit("leave-room", { roomId, userId });
+    }
   };
 
   const getUserRights = (userId: string) => {
@@ -75,6 +90,12 @@ export default function ChatUsersList({ users }: { users: any[] }) {
           onClose={() => setConfirmDelete({ show: false, _id: "" })}
           message={t("modal.confirm.del_u")}
         />
+        <ConfirmationModal
+          show={confirmLeave.show}
+          action={() => leaveRoom(confirmLeave._id)}
+          onClose={() => setConfirmLeave({ show: false, _id: "" })}
+          message={t("modal.confirm.leave_room")}
+        />
         <ChangeUserRightsModal
           show={changeUser.show}
           onClose={() => setChangeUser({ show: false, _id: "" })}
@@ -90,55 +111,70 @@ export default function ChatUsersList({ users }: { users: any[] }) {
                 {/*<p>{item.lastSeen}</p>*/}
               </div>
               <div className="cont flex a-i-c j-c-c f-f-c-n">
-                <Button
-                  onClick={() => setConfirmDelete({ show: true, _id: item._id })}
-                  ariaLabel={t("button.del_u")}
-                  className="btn-r btn-rem no-border"
-                >
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
-                    <path
-                      d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30
-                      c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512
-                      h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30
-                      C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408
-                      c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z
-                      M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z"
-                    />
-                    <path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" />
-                    <path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" />
-                    <path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" />
-                  </svg>
-                </Button>
-                <Button
-                  onClick={() => setChangeUser({ show: true, _id: item._id })}
-                  ariaLabel={t("button.ch_u")}
-                  className="btn-r no-border btn-sec"
-                >
-                  <svg
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 477.873 477.873"
-                    xmlSpace="preserve"
+                {item._id === userId ? (
+                  <Button
+                    onClick={() => setConfirmLeave({ show: true, _id: item._id })}
+                    ariaLabel={t("button.leave_room")}
+                    className="btn-r btn-rem no-border"
                   >
-                    <path
-                      d="M392.533,238.937c-9.426,0-17.067,7.641-17.067,17.067V426.67c0,9.426-7.641,17.067-17.067,17.067H51.2
+                    <svg height="24px" width="24px" viewBox="0 0 512.00533 512" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m320 277.335938c-11.796875 0-21.332031 9.558593-21.332031 21.332031v85.335937c0 11.753906-9.558594 21.332032-21.335938 21.332032h-64v-320c0-18.21875-11.605469-34.496094-29.054687-40.554688l-6.316406-2.113281h99.371093c11.777344 0 21.335938 9.578125 21.335938 21.335937v64c0 11.773438 9.535156 21.332032 21.332031 21.332032s21.332031-9.558594 21.332031-21.332032v-64c0-35.285156-28.714843-63.99999975-64-63.99999975h-229.332031c-.8125 0-1.492188.36328175-2.28125.46874975-1.027344-.085937-2.007812-.46874975-3.050781-.46874975-23.53125 0-42.667969 19.13281275-42.667969 42.66406275v384c0 18.21875 11.605469 34.496093 29.054688 40.554687l128.386718 42.796875c4.351563 1.34375 8.679688 1.984375 13.226563 1.984375 23.53125 0 42.664062-19.136718 42.664062-42.667968v-21.332032h64c35.285157 0 64-28.714844 64-64v-85.335937c0-11.773438-9.535156-21.332031-21.332031-21.332031zm0 0" />
+                      <path d="m505.75 198.253906-85.335938-85.332031c-6.097656-6.101563-15.273437-7.9375-23.25-4.632813-7.957031 3.308594-13.164062 11.09375-13.164062 19.714844v64h-85.332031c-11.777344 0-21.335938 9.554688-21.335938 21.332032 0 11.777343 9.558594 21.332031 21.335938 21.332031h85.332031v64c0 8.621093 5.207031 16.40625 13.164062 19.714843 7.976563 3.304688 17.152344 1.46875 23.25-4.628906l85.335938-85.335937c8.339844-8.339844 8.339844-21.824219 0-30.164063zm0 0" />
+                    </svg>
+                  </Button>
+                ) : (
+                  <Fragment>
+                    <Button
+                      onClick={() => setConfirmDelete({ show: true, _id: item._id })}
+                      ariaLabel={t("button.del_u")}
+                      className="btn-r btn-rem no-border"
+                    >
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
+                        <path
+                          d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30
+                          c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512
+                          h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30
+                          C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408
+                          c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z
+                          M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z"
+                        />
+                        <path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" />
+                        <path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" />
+                        <path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" />
+                      </svg>
+                    </Button>
+                    <Button
+                      onClick={() => setChangeUser({ show: true, _id: item._id })}
+                      ariaLabel={t("button.ch_u")}
+                      className="btn-r no-border btn-sec"
+                    >
+                      <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 477.873 477.873"
+                        xmlSpace="preserve"
+                      >
+                        <path
+                          d="M392.533,238.937c-9.426,0-17.067,7.641-17.067,17.067V426.67c0,9.426-7.641,17.067-17.067,17.067H51.2
                       c-9.426,0-17.067-7.641-17.067-17.067V85.337c0-9.426,7.641-17.067,17.067-17.067H256c9.426,0,17.067-7.641,17.067-17.067
                       S265.426,34.137,256,34.137H51.2C22.923,34.137,0,57.06,0,85.337V426.67c0,28.277,22.923,51.2,51.2,51.2h307.2
                       c28.277,0,51.2-22.923,51.2-51.2V256.003C409.6,246.578,401.959,238.937,392.533,238.937z"
-                    />
-                    <path
-                      d="M458.742,19.142c-12.254-12.256-28.875-19.14-46.206-19.138c-17.341-0.05-33.979,6.846-46.199,19.149L141.534,243.937
+                        />
+                        <path
+                          d="M458.742,19.142c-12.254-12.256-28.875-19.14-46.206-19.138c-17.341-0.05-33.979,6.846-46.199,19.149L141.534,243.937
                       c-1.865,1.879-3.272,4.163-4.113,6.673l-34.133,102.4c-2.979,8.943,1.856,18.607,10.799,21.585
                       c1.735,0.578,3.552,0.873,5.38,0.875c1.832-0.003,3.653-0.297,5.393-0.87l102.4-34.133c2.515-0.84,4.8-2.254,6.673-4.13
                       l224.802-224.802C484.25,86.023,484.253,44.657,458.742,19.142z M434.603,87.419L212.736,309.286l-66.287,22.135l22.067-66.202
                       L390.468,43.353c12.202-12.178,31.967-12.158,44.145,0.044c5.817,5.829,9.095,13.72,9.12,21.955
                       C443.754,73.631,440.467,81.575,434.603,87.419z"
-                    />
-                  </svg>
-                </Button>
+                        />
+                      </svg>
+                    </Button>
+                  </Fragment>
+                )}
               </div>
             </li>
           ))}

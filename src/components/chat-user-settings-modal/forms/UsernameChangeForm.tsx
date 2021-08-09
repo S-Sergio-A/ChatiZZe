@@ -1,12 +1,13 @@
 import React, { Dispatch, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { timer } from "rxjs";
 import axios from "axios";
 import { RootState } from "../../../context/rootState.interface";
 import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
+import { setError } from "../../../context/actions/error";
 
 export default function UsernameChangeForm({
   usernameChange,
@@ -24,6 +25,8 @@ export default function UsernameChangeForm({
 
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (usernameChange && firstRender) {
@@ -53,7 +56,7 @@ export default function UsernameChangeForm({
             setUsernameError(data.errors.username);
           }
         } else {
-          // dispatch(setError(data.errors));
+          dispatch(setError(data.errors.message));
         }
       });
   }

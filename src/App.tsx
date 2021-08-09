@@ -93,7 +93,8 @@ const App = () => {
       showThemeModal ||
       errorModal ||
       showAddUserModal ||
-      forgotPasswordModal) {
+      forgotPasswordModal
+    ) {
       // @ts-ignore
       document.getElementById("root").classList.add("block-scroll");
     } else {
@@ -112,20 +113,16 @@ const App = () => {
     showThemeModal,
     errorModal,
     showAddUserModal,
-    forgotPasswordModal,
+    forgotPasswordModal
   ]);
-  
+
   useEffect(() => {
-    if (
-      location.pathname.includes("chat")
-    ) {
+    if (location.pathname.includes("chat")) {
       document.body.classList.add("block-scroll");
     } else {
       document.body.classList.remove("block-scroll");
     }
-  }, [
-    location
-  ]);
+  }, [location]);
 
   useEffect(() => {
     dispatch(displayUserMenu(false));
@@ -152,7 +149,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));
-    if (logged && cookies["user-auth"].expTime < 300) {
+    if (logged && cookies["user-auth"].expTime < 1801) {
       if (firstRefresh) {
         setFirstRefresh(false);
         refreshSession();
@@ -166,7 +163,7 @@ const App = () => {
   }, [logged]);
 
   async function invoke() {
-    return await axios.post(clientLinks.invoke).catch((e) => logError(e));
+    return await axios.get(clientLinks.invoke).catch((e) => logError(e));
   }
 
   async function __generateClientsToken() {

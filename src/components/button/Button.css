@@ -4,7 +4,9 @@ button:active {
   outline: none;
 }
 
-.btn-su, .btn-w, .btn-e {
+.btn-su,
+.btn-w,
+.btn-e {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;

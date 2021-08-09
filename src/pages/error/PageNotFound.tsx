@@ -18,13 +18,7 @@ export default function PageNotFound() {
         <h1>{t("error.header")}</h1>
       </header>
       <div className="m-b flex j-c-s-a a-i-c f-f-c-n">
-        <svg
-          className="svg"
-          xmlns="http://www.w3.org/2000/svg"
-          width="1074.392"
-          height="584.231"
-          viewBox="0 0 1074.392 584.231"
-        >
+        <svg className="svg" xmlns="http://www.w3.org/2000/svg" width="1074.392" height="584.231" viewBox="0 0 1074.392 584.231">
           <title>{t("error.title")}</title>
           <ellipse cx="540.64346" cy="549.3094" rx="527.5" ry="34.9216" fill="#f2f2f2" />
           <path

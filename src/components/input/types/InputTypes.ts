@@ -50,16 +50,7 @@ type BasicInputProps = {
     | "photo";
   disabled?: boolean;
   inputId: string;
-  inputMode?:
-    | "text"
-    | "none"
-    | "tel"
-    | "url"
-    | "email"
-    | "numeric"
-    | "decimal"
-    | "search"
-    | undefined;
+  inputMode?: "text" | "none" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
   name?: string;
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onChange?: ChangeEventHandler<HTMLInputElement>;

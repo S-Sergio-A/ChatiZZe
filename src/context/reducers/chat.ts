@@ -1,5 +1,6 @@
 import {
   CHANGE_CHAT_LIST_SIZE,
+  RELOAD_CHATS,
   RESET_DELETED_MESSAGE_ID,
   RESET_UPDATED_MESSAGE_ID,
   RESET_UPDATED_MESSAGE_NEW_STATE,
@@ -10,13 +11,13 @@ import {
   SET_UPDATED_MESSAGE_ID,
   SET_UPDATED_MESSAGE_NEW_STATE,
   SET_UPDATED_MESSAGE_PREV_STATE,
+  SET_USER_MENU_BUTTON_REF,
   SHOW_ADD_USER_MODAL,
   SHOW_CHAT_DATA,
   SHOW_CREATE_CHAT_MODAL,
   SHOW_MANAGE_CHAT_MODAL,
   SHOW_USER_INFO,
   SHOW_USER_MENU,
-  SET_USER_MENU_BUTTON_REF,
   SHOW_USER_SETTINGS
 } from "../consts/actionTypes";
 
@@ -27,6 +28,7 @@ type ChatAction = {
     | typeof SHOW_ADD_USER_MODAL
     | typeof SHOW_MANAGE_CHAT_MODAL
     | typeof SHOW_CHAT_DATA
+    | typeof RELOAD_CHATS
     | typeof SHOW_USER_INFO
     | typeof SET_DELETED_MESSAGE_ID
     | typeof RESET_DELETED_MESSAGE_ID
@@ -63,6 +65,7 @@ interface ChatType {
   deletedMessageId: string;
   updatedMessageId: string;
   rights: string[];
+  reload: boolean;
 }
 
 const initialState = {
@@ -93,7 +96,8 @@ const initialState = {
     "CHANGE_ROOM",
     "DELETE_ROOM",
     "UPDATE_MESSAGE"
-  ]
+  ],
+  reload: false
 };
 
 export const reducer = (state: ChatType = initialState, action: ChatAction): ChatType => {
@@ -109,6 +113,9 @@ export const reducer = (state: ChatType = initialState, action: ChatAction): Cha
     }
     case SHOW_CREATE_CHAT_MODAL: {
       return { ...state, showCreateChat: action.payload.showCreateChat };
+    }
+    case RELOAD_CHATS: {
+      return { ...state, reload: action.payload.reload };
     }
     case SHOW_ADD_USER_MODAL: {
       return { ...state, showAddUser: action.payload.showAddUser };

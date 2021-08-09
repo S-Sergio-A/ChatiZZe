@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import axios from "axios";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
-import { displayAddUserModal } from "../../context/actions/chat";
+import { displayAddUserModal, reloadChats } from "../../context/actions/chat";
 import { RootState } from "../../context/rootState.interface";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import Checkbox from "../checkbox/Checkbox";
@@ -99,8 +99,10 @@ export default function AddUserModal() {
           if (data.errors.newUserIdentifier) {
             setNewUserIdError(data.errors.newUserIdentifier);
           } else {
-            // dispatch(setError(data.errors));
+            dispatch(setError(data.errors.message));
           }
+        } else {
+          dispatch(reloadChats(true));
         }
       });
   }

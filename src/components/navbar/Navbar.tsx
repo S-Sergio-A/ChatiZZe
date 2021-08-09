@@ -2,7 +2,7 @@ import { Fragment, MutableRefObject, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { setMenuButtonRef, showMenu } from "../../context/actions/menu";
 import { useTouchDevice } from "../../utils/hooks/useTouchDevice";
@@ -25,6 +25,7 @@ export const Navbar = () => {
   const themePrimary = useSelector((state: RootState) => state.theme.primary);
   const colorSecondary = useSelector((state: RootState) => state.theme.colorSecondary);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const skipLinkMainRef = useRef(null);
 
@@ -125,7 +126,10 @@ export const Navbar = () => {
               {logged ? (
                 <Button
                   className={width < 600 ? "btn-brgr btn-r no-border btn-pr" : "btn-r btn-pr no-border btn-lang"}
-                  onClick={() => dispatch(logout(removeCookies))}
+                  onClick={() => {
+                    dispatch(logout(removeCookies));
+                    history.push({ pathname: `/${i18n.language}/` });
+                  }}
                   aria-label={t("navbar.ariaLabel.logOut")}
                 >
                   <span className="flex a-i-c j-c-c">

@@ -8,6 +8,9 @@ import { setError } from "../../../context/actions/error";
 import { useDispatch, useSelector } from "react-redux";
 import { useCookies } from "react-cookie";
 import { RootState } from "../../../context/rootState.interface";
+import { fileToBase64 } from "../../../utils/fileToBase64";
+import { login } from "../../../context/actions/auth";
+import { cookieOptions } from "../../../utils/cookieOptions";
 
 export default function ChangePhoto({
   type = "img",
@@ -21,7 +24,7 @@ export default function ChangePhoto({
   actionType?: "chat-photo" | "user-photo";
 }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies([]);
 
   const [photo, setPhoto] = useState(type === "img" ? previousState : "");
 
@@ -35,16 +38,21 @@ export default function ChangePhoto({
 
   async function onFileChange(event: any) {
     if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files);
       setPhoto(URL.createObjectURL(event.target.files[0]));
     }
+    const file = await fileToBase64(event.target.files[0]).catch((e) => Error(e));
+
+    console.log(file, URL.createObjectURL(event.target.files[0]));
+
     if (actionType === "user-photo") {
-      await changeUserPhoto();
+      await changeUserPhoto(file);
     } else {
-      await changeChatPhoto();
+      await changeChatPhoto(file);
     }
   }
 
-  async function changeUserPhoto() {
+  async function changeUserPhoto(photo: any) {
     axios
       .put(
         userLinks.changePhoto,
@@ -53,7 +61,6 @@ export default function ChangePhoto({
         },
         {
           headers: {
-            Rights: [rights],
             "Access-Token": cookies["accessToken"]?.accessToken,
             "Refresh-Token": cookies["refreshToken"]?.refreshToken,
             withCredentials: true
@@ -64,11 +71,16 @@ export default function ChangePhoto({
         if (data.errors && data.errors.photo) {
           dispatch(setError(data.errors.photo));
         } else {
+          if (data.user) {
+            const expTime = cookies["user-auth"].expTime;
+            setCookies("user-data", data.user, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
+            dispatch(login(data.user));
+          }
         }
       });
   }
 
-  async function changeChatPhoto() {
+  async function changeChatPhoto(photo: any) {
     axios
       .put(
         userLinks.changeRoomPhoto(userId, roomId),
@@ -77,6 +89,7 @@ export default function ChangePhoto({
         },
         {
           headers: {
+            Rights: [rights],
             "Access-Token": cookies["accessToken"]?.accessToken,
             "Refresh-Token": cookies["refreshToken"]?.refreshToken,
             withCredentials: true

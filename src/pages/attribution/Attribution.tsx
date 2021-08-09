@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Attribution() {
   const [t] = useTranslation();
-  
+
   return (
     <main id="main" className="attr-page grid">
       <Head title={t("attr.seo.title")} description={t("attr.seo.description")} />

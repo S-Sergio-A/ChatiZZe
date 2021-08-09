@@ -17,7 +17,8 @@ import {
   SHOW_ADD_USER_MODAL,
   SHOW_USER_MENU,
   SET_USER_MENU_BUTTON_REF,
-  SHOW_USER_SETTINGS
+  SHOW_USER_SETTINGS,
+  RELOAD_CHATS
 } from "../consts/actionTypes";
 
 function setActiveChatAction(chatName: string, roomId: string, isPrivate: boolean, isUser: boolean) {
@@ -26,6 +27,10 @@ function setActiveChatAction(chatName: string, roomId: string, isPrivate: boolea
 
 function displayCreateChatModal(showCreateChat: boolean) {
   return { type: SHOW_CREATE_CHAT_MODAL, payload: { showCreateChat } };
+}
+
+function reloadChats(reload: boolean) {
+  return { type: RELOAD_CHATS, payload: { reload } };
 }
 
 function displayAddUserModal(showAddUser: boolean) {
@@ -101,6 +106,7 @@ export {
   displayCreateChatModal,
   displayAddUserModal,
   displayChatData,
+  reloadChats,
   displayUserInfo,
   displayUserMenu,
   setUserMenuButtonRef,

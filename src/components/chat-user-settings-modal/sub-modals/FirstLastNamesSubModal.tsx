@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 import { RootState } from "../../../context/rootState.interface";
 import { userLinks } from "../../../utils/api-endpoints.enum";
+import { cookieOptions } from "../../../utils/cookieOptions";
+import { login } from "../../../context/actions/auth";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import Modal from "../../modal/Modal";
-import { useCookies } from "react-cookie";
 
 export default function FirstLastNamesSubModal({
   showSubModal,
@@ -17,7 +19,7 @@ export default function FirstLastNamesSubModal({
   setShowSubModal: (val: boolean) => void;
 }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies([]);
 
   const user = useSelector((state: RootState) => state.auth.user);
 
@@ -29,6 +31,8 @@ export default function FirstLastNamesSubModal({
 
   const [firstNameRef, setFirstNameRef] = useState<any>(null);
   const [lastNameRef, setLastNameRef] = useState<any>(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (firstNameRef && firstNameRef?.current?.value.length === 0) {
@@ -44,28 +48,35 @@ export default function FirstLastNamesSubModal({
 
   async function changeOptionalData() {
     axios
-      .put(userLinks.changeOptionalData, {
-        firstName,
-        lastName
-      },
+      .put(
+        userLinks.changeOptionalData,
+        {
+          firstName,
+          lastName
+        },
         {
           headers: {
             "Access-Token": cookies["accessToken"]?.accessToken,
             "Refresh-Token": cookies["refreshToken"]?.refreshToken,
             withCredentials: true
           }
-        })
+        }
+      )
       .then(({ data }) => {
         if (data.errors) {
           if (data.errors.firstName) {
             setFirstNameError(data.errors.firstName);
           }
-  
+
           if (data.errors.lastName) {
             setLastNameError(data.errors.lastName);
           }
         } else {
-          // dispatch(setError(data.errors));
+          if (data.user) {
+            const expTime = cookies["user-auth"].expTime;
+            setCookies("user-data", data.user, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
+            dispatch(login(data.user));
+          }
         }
       });
   }

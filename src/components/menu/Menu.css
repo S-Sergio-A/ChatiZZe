@@ -44,7 +44,8 @@
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
 }
-.menu > .list .menu-item > button, .menu > .list .menu-item > a {
+.menu > .list .menu-item > button,
+.menu > .list .menu-item > a {
   width: 200px;
   height: 60px;
   padding-inline: 20px 40px;
@@ -85,16 +86,10 @@
   .menu-item {
     width: 45vw;
   }
-  .menu-item > * {
-    height: 50px;
-  }
 }
 @media only screen and (max-width: 480px) {
   .menu-item {
     width: 60vw;
-  }
-  .menu-item > * {
-    height: 40px;
   }
 }
 

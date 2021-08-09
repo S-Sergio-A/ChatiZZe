@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { timer } from "rxjs";
 import axios from "axios";
-import { displayManageChatModal } from "../../context/actions/chat";
+import { displayManageChatModal, reloadChats } from "../../context/actions/chat";
 import { RootState } from "../../context/rootState.interface";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import ConfirmationModal from "../confirmation-modal/ConfirmationModal";
@@ -13,8 +13,9 @@ import { Button } from "../button/Button";
 import { Input } from "../input/Input";
 import Modal from "../modal/Modal";
 import "./ManageChatModal.css";
+import { setError } from "../../context/actions/error";
 
-export default function ManageChatModal({ users, chatData }: { users: any[]; chatData: any }) {
+export default function ManageChatModal({ users, chatData, socketRef }: { users: any[]; chatData: any; socketRef: any }) {
   const [changeChat, setChangeChat] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
@@ -85,11 +86,11 @@ export default function ManageChatModal({ users, chatData }: { users: any[]; cha
 
           if (data.errors.description) {
             setDescriptionError(data.errors.description);
+          } else {
+            dispatch(setError(data.errors.message));
           }
         } else {
-          // dispatch(setError(data.errors));
-        }
-        if (status === 201) {
+          dispatch(reloadChats(true));
           closeModal();
         }
       });
@@ -97,9 +98,8 @@ export default function ManageChatModal({ users, chatData }: { users: any[]; cha
 
   async function deleteChat() {
     await axios.delete(userLinks.deleteRoom(roomId)).then(({ data, status }) => {
-      console.log(data, status);
-
       if (status === 200) {
+        dispatch(reloadChats(true));
         closeModal();
       }
     });
@@ -189,7 +189,7 @@ export default function ManageChatModal({ users, chatData }: { users: any[]; cha
           </div>
         </div>
         <div className="ruler f-w" />
-        <ChatUsersList users={users} />
+        <ChatUsersList users={users} socketRef={socketRef} />
         <div className="ruler f-w" />
         <div className="del-cont flex j-c-c a-i-c">
           <ConfirmationModal

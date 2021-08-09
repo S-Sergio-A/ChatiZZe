@@ -1,12 +1,13 @@
 import React, { Dispatch, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { timer } from "rxjs";
 import axios from "axios";
 import { RootState } from "../../../context/rootState.interface";
 import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
+import { setError } from "../../../context/actions/error";
 
 export default function EmailChangeForm({ emailChange, setEmailChange }: { emailChange: boolean; setEmailChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
@@ -18,6 +19,8 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
 
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (emailChange && firstRender) {
@@ -47,7 +50,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
             setEmailError(data.errors.email);
           }
         } else {
-          // dispatch(setError(data.errors));
+          dispatch(setError(data.errors.message));
         }
       });
   }

@@ -47,7 +47,7 @@ export const reducer = (state: AuthType = initialState, action: AuthAction): Aut
       return {
         ...state,
         logged: action.payload.logged,
-        user: { ...state.user, username: action.payload.username, _id: action.payload.userId }
+        user: action.payload.user
       };
     case SHOW_FORGOT_PASSWORD:
       return {

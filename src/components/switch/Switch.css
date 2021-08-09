@@ -1,9 +1,9 @@
-.switch > input[type=checkbox] {
+.switch > input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
 }
-.switch > input[type=checkbox]:checked + label:after {
+.switch > input[type="checkbox"]:checked + label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
@@ -54,7 +54,8 @@
 .tr-switch > * {
   cursor: pointer;
 }
-.tr-switch > button.switch-position, .tr-switch > span.pointer {
+.tr-switch > button.switch-position,
+.tr-switch > span.pointer {
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -71,7 +72,7 @@
   border: 2px solid;
 }
 
-input[type=radio] {
+input[type="radio"] {
   height: 0;
   width: 0;
   visibility: hidden;

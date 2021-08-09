@@ -68,7 +68,9 @@ html {
   scroll-behavior: smooth;
 }
 
-.menu, .user-menu, .chat-list {
+.menu,
+.user-menu,
+.chat-list {
   ::-webkit-scrollbar-thumb {
     width: 5px !important;
   }

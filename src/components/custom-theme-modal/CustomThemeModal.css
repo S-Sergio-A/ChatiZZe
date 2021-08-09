@@ -22,12 +22,12 @@
 .theme > .modal-body > div.grid label {
   font-size: 18px;
 }
-.theme > .modal-body > div.grid input[type=color] {
+.theme > .modal-body > div.grid input[type="color"] {
   width: 80px;
   height: 80px;
   padding: 2px;
 }
-.theme > .modal-body > [class^=color-] {
+.theme > .modal-body > [class^="color-"] {
   grid-template-rows: 80px auto;
   grid-template-columns: minmax(10px, 1fr);
   row-gap: 10px;

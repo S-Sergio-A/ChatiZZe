@@ -35,6 +35,7 @@ export interface RootState {
     updatedMessagePrevState: any;
     updatedMessageNewState: any;
     rights: string[];
+    reload: boolean;
   };
   error: {
     show: boolean;
@@ -46,7 +47,8 @@ export interface RootState {
   };
   notification: {
     showCookie: boolean;
-    showVerification: boolean;  };
+    showVerification: boolean;
+  };
   theme: {
     showCustomThemeModal: boolean;
     type: "light" | "dark" | "custom";

@@ -14,6 +14,7 @@ import useKeyDown from "../../utils/hooks/useKeyDown";
 import { Dropdown } from "../dropdown/Dropdown";
 import { Button } from "../button/Button";
 import "./ChatHeader.css";
+import { setError } from "../../context/actions/error";
 
 export default function ChatHeader({
   socketRef,
@@ -96,7 +97,7 @@ export default function ChatHeader({
   async function disableNotifications() {
     axios.put(userLinks.notifications(userId, roomId, "false"), {}).then(({ data }) => {
       if (data.errors) {
-        // dispatch(setError(data.errors));
+        dispatch(setError(data.errors.message));
       }
     });
   }

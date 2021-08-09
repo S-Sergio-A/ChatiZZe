@@ -10,7 +10,15 @@ import "./ChatData.css";
 import { options } from "./options";
 import { getRandomColor } from "../../utils/color/shadeColor";
 
-export default function ChatDataModal({ users, chatData }: { users: { [key: string]: any }[]; chatData: { [key: string]: any } }) {
+export default function ChatDataModal({
+  users,
+  chatData,
+  socketRef
+}: {
+  users: { [key: string]: any }[];
+  chatData: { [key: string]: any };
+  socketRef: any;
+}) {
   const [t] = useTranslation();
 
   const showChatDataModal = useSelector((state: RootState) => state.chat.showChatData);
@@ -78,7 +86,7 @@ export default function ChatDataModal({ users, chatData }: { users: { [key: stri
           ))}
         </ul>
         <div className="ruler" />
-        <ChatUsersList users={users} />
+        <ChatUsersList users={users} socketRef={socketRef} />
       </Modal.Body>
     </Modal>
   );

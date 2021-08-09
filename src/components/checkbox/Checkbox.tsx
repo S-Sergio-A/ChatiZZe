@@ -10,14 +10,7 @@ interface CheckboxProps {
   children?: any;
 }
 
-const Checkbox = ({
-  id = undefined,
-  className = "",
-  onClick,
-  reverseLayout = false,
-  isChecked = false,
-  children
-}: CheckboxProps) => {
+const Checkbox = ({ id = undefined, className = "", onClick, reverseLayout = false, isChecked = false, children }: CheckboxProps) => {
   const [nativeFocused, setNativeFocused] = useState(false);
   const [checked, setChecked] = useState(false);
   const customCheckboxRef = useRef<any>(null);

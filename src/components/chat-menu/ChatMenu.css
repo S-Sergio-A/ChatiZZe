@@ -63,7 +63,8 @@
   row-gap: 10px;
   margin-block: 60px;
 }
-.user-menu .list ul .user-menu-item > button, .user-menu .list ul .user-menu-item > a {
+.user-menu .list ul .user-menu-item > button,
+.user-menu .list ul .user-menu-item > a {
   padding: 20px;
   column-gap: 20px;
   -webkit-column-gap: 20px;
@@ -598,9 +599,6 @@
     padding-left: 30px;
     width: 60vw;
   }
-  .user-menu-item > * {
-    height: 40px;
-  }
 }
 @media only screen and (max-width: 620px) {
   .user-menu {
@@ -612,9 +610,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding-inline: 10px;
-  }
-  .user-menu-item > * {
-    height: 40px;
   }
 }
 

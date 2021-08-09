@@ -47,25 +47,32 @@
   letter-spacing: 2px;
   color: #000000;
 }
-.manage > .modal-body .del-cont > .btn-pr:hover:before, .manage > .modal-body .del-cont > .btn-pr:hover:after {
+.manage > .modal-body .del-cont > .btn-pr:hover:before,
+.manage > .modal-body .del-cont > .btn-pr:hover:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr:active:before, .manage > .modal-body .del-cont > .btn-pr:active:after {
+.manage > .modal-body .del-cont > .btn-pr:active:before,
+.manage > .modal-body .del-cont > .btn-pr:active:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr:focus:before, .manage > .modal-body .del-cont > .btn-pr:focus:after {
+.manage > .modal-body .del-cont > .btn-pr:focus:before,
+.manage > .modal-body .del-cont > .btn-pr:focus:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr:focus-visible:before, .manage > .modal-body .del-cont > .btn-pr:focus-visible:after {
+.manage > .modal-body .del-cont > .btn-pr:focus-visible:before,
+.manage > .modal-body .del-cont > .btn-pr:focus-visible:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr:focus-within:before, .manage > .modal-body .del-cont > .btn-pr:focus-within:after {
+.manage > .modal-body .del-cont > .btn-pr:focus-within:before,
+.manage > .modal-body .del-cont > .btn-pr:focus-within:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr:-moz-focusring:before, .manage > .modal-body .del-cont > .btn-pr:-moz-focusring:after {
+.manage > .modal-body .del-cont > .btn-pr:-moz-focusring:before,
+.manage > .modal-body .del-cont > .btn-pr:-moz-focusring:after {
   background: #fa6e75;
 }
-.manage > .modal-body .del-cont > .btn-pr.active:before, .manage > .modal-body .del-cont > .btn-pr.active:after {
+.manage > .modal-body .del-cont > .btn-pr.active:before,
+.manage > .modal-body .del-cont > .btn-pr.active:after {
   background: #fa6e75;
 }
 .manage > .modal-body .enlarge {

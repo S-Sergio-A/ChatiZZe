@@ -1,5 +1,31 @@
 @import "../../styles/Extensions";
 
+.message-modal {
+  .grid.images {
+    grid-template-columns: minmax(10px, 500px);
+
+    &.one {
+      grid-template-rows: 300px;
+    }
+
+    &.two {
+      grid-template-rows: repeat(2, 300px);
+    }
+
+    &.three {
+      grid-template-rows: repeat(3, 300px);
+    }
+
+    &.four {
+      grid-template-rows: repeat(4, 300px);
+    }
+
+    &.five {
+      grid-template-rows: repeat(5, 300px);
+    }
+  }
+}
+
 .input-area {
   position: relative;
   grid-template-columns: 96px auto 46px;

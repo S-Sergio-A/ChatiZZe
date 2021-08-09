@@ -1,3 +1,22 @@
+.message-modal .grid.images {
+  grid-template-columns: minmax(10px, 500px);
+}
+.message-modal .grid.images.one {
+  grid-template-rows: 300px;
+}
+.message-modal .grid.images.two {
+  grid-template-rows: repeat(2, 300px);
+}
+.message-modal .grid.images.three {
+  grid-template-rows: repeat(3, 300px);
+}
+.message-modal .grid.images.four {
+  grid-template-rows: repeat(4, 300px);
+}
+.message-modal .grid.images.five {
+  grid-template-rows: repeat(5, 300px);
+}
+
 .input-area {
   position: relative;
   grid-template-columns: 96px auto 46px;

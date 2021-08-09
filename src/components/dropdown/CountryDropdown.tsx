@@ -34,7 +34,7 @@ export const CountryDropdown = ({ onClick, phoneCode }: { onClick: Dispatch<Reac
     const oneDigitCountries = countries.filter((item) => item.phone_code === oneDigitPhoneCode);
     const twoDigitsCountries = countries.filter((item) => item.phone_code === twoDigitsPhoneCode);
     const threeDigitsCountries = countries.filter((item) => item.phone_code === threeDigitsPhoneCode);
-    
+
     const filteredCountries = [...threeDigitsCountries, ...twoDigitsCountries, ...oneDigitCountries];
 
     if (filteredCountries.length !== 0) {
