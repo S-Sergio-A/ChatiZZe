@@ -14,11 +14,13 @@ import { setError } from "../../context/actions/error";
 export default function ChangeUserRightsModal({
   userRights,
   _id,
+  username,
   show,
   onClose
 }: {
   userRights: string[];
   _id: string;
+  username: string;
   show: boolean;
   onClose: () => void;
 }) {
@@ -85,7 +87,7 @@ export default function ChangeUserRightsModal({
   async function changeUserRights() {
     await axios
       .put(
-        userLinks.changeUserRightsInRoom(userId, roomId),
+        userLinks.changeUserRightsInRoom(userId, _id, roomId),
         {
           userRights: newRights
         },
@@ -108,7 +110,7 @@ export default function ChangeUserRightsModal({
         <h1 className="t-l h5-s">{t("modal.userRights.header")}</h1>
       </Modal.Header>
       <Modal.Body className="options flex f-f-c-n" useFocusListener={true}>
-        <p>{_id}</p>
+        <p>{username}</p>
         <ul className="flex f-f-c-n">
           {rightsList.map((item, index) => (
             <li key={index}>

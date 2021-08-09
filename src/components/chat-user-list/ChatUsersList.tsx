@@ -25,7 +25,8 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
 
   const [changeUser, setChangeUser] = useState({
     show: false,
-    _id: ""
+    _id: "",
+    username: ""
   });
 
   const [userRights, setUserRights] = useState([]);
@@ -98,8 +99,9 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
         />
         <ChangeUserRightsModal
           show={changeUser.show}
-          onClose={() => setChangeUser({ show: false, _id: "" })}
+          onClose={() => setChangeUser({ show: false, _id: "", username: "" })}
           _id={changeUser._id}
+          username={changeUser.username}
           userRights={userRights && userRights}
         />
         {users &&
@@ -144,7 +146,7 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
                       </svg>
                     </Button>
                     <Button
-                      onClick={() => setChangeUser({ show: true, _id: item._id })}
+                      onClick={() => setChangeUser({ show: true, _id: item._id, username: item.username })}
                       ariaLabel={t("button.ch_u")}
                       className="btn-r no-border btn-sec"
                     >

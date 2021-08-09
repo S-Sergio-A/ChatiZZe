@@ -58,7 +58,7 @@ export const UserChatMenu = () => {
     >
       <header className="grid">
         <div className="wrapper flex j-c-c a-i-c">
-          <img src={user.photo} alt="" width={70} height={70} />
+          <img src={user.photo ? user.photo : "https://via.placeholder.com/70"} alt={user.username} width={70} height={70} />
         </div>
         {user.firstName && user.lastName ? (
           <p className="flex a-i-c j-c-f-s">

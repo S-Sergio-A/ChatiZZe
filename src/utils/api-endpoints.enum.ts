@@ -32,7 +32,8 @@ export const userLinks = {
   addUserToRoom: (userId: string, roomId: string, newUserIdentifier: string) =>
     `/user?userId=${userId}&roomId=${roomId}&newUserIdentifier=${newUserIdentifier}`,
   deleteUserFromRoom: (userId: string, roomId: string) => `/user?userId=${userId}&roomId=${roomId}&type=DELETE_USER`,
-  changeUserRightsInRoom: (userId: string, roomId: string) => `/user-rights?userId=${userId}&roomId=${roomId}`,
+  changeUserRightsInRoom: (performerUserId: string, targetUserId: string, roomId: string) =>
+    `/user-rights?performerUserId=${performerUserId}&targetUserId=${targetUserId}&roomId=${roomId}`,
   loadUserRights: (userId: string, roomId: string) => `/rights?userId=${userId}&roomId=${roomId}`,
   notifications: (userId: string, roomId: string, notifications: string) =>
     `/notifications?userId=${userId}&roomId=${roomId}&notifications=${notifications}`
