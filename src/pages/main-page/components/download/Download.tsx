@@ -9,7 +9,7 @@ export default function Download() {
   return (
     <section className="download-now grid">
       <div className={`col ${width < 481 ? "j-s-c" : ""}`}>
-        <img className="demo-img" src="http://localhost:3000/download-r.png" alt={t("main.download.alt")} />
+        <img className="demo-img" src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/download-r-min_lk7ny4.png" alt={t("main.download.alt")} />
       </div>
       <div className="col flex j-c-c a-i-f-s">
         <div className="grid">
@@ -22,10 +22,10 @@ export default function Download() {
           </p>
           <div className={`badges flex a-i-c j-c-s-b  ${width > 480 && width < 670 ? "f-f-c-n" : "f-f-r-w"}`}>
             <a href="#some-link-to-app-store">
-              <img className="btn-sm-x-w" src="http://localhost:3000/app-store-badge.png" alt={t("main.alt.app_st")} />
+              <img className="btn-sm-x-w" src="https://res.cloudinary.com/gachi322/image/upload/v1628535190/ChatiZZe/app-store-badge_ik5o6k.png" alt={t("main.alt.app_st")} />
             </a>
             <a href="#some-link-to-google-play">
-              <img className="btn-sm-x-w" src="http://localhost:3000/google-play-badge.png" alt={t("main.alt.g_pl")} />
+              <img className="btn-sm-x-w" src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google-play-badge_sso7hp.png" alt={t("main.alt.g_pl")} />
             </a>
           </div>
         </div>

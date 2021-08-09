@@ -59,14 +59,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "./public/app-store-badge.png", to: "app-store-badge.png" },
-        { from: "./public/google-play-badge.png", to: "google-play-badge.png" },
-        { from: "./public/chat-demo-r-min.png", to: "chat-demo-r.png" },
-        { from: "./public/download-r-min.png", to: "download-r.png" },
-        { from: "./public/google.png", to: "google.png" },
-        { from: "./public/google_active.png", to: "google_active.png" },
-        { from: "./public/google_focus.png", to: "google_focus.png" },
-        { from: "./public/intro-chat-r-min.png", to: "intro-chat-r.png" },
         { from: "./public/manifest.json", to: "manifest.json" },
         { from: "./public/locale", to: "locale" },
         { from: "./public/robots.txt", to: "robots.txt" },
