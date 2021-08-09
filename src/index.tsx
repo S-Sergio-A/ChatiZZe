@@ -23,7 +23,7 @@ axios.defaults.withCredentials = true;
 if ("serviceWorker" in navigator && typeof window !== "undefined") {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/sw.js")
+      .register("/sw.ts")
       .then((registration) => {
         // console.log('SW registered: ', registration);
       })

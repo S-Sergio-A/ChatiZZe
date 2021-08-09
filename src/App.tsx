@@ -32,7 +32,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [firstRefresh, setFirstRefresh] = useState(true);
 
-  const [cookies, setClientCookie] = useCookies([]);
+  const [cookies, setCookies] = useCookies([]);
 
   const location = useLocation();
   const history = useHistory();
@@ -64,7 +64,7 @@ const App = () => {
   useEffect(() => {
     if (Object.keys(cookies).length === 0) {
       __generateClientsToken().then(({ data }) => {
-        setClientCookie("client", { accessToken: data.clientToken }, cookieOptions(3600 * 24 * 60));
+        setCookies("client", { accessToken: data.clientToken }, cookieOptions(3600 * 24 * 60));
       });
     }
 
@@ -149,7 +149,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));
-    if (logged && cookies["user-auth"].expTime < 1801) {
+    if (logged && cookies["user-auth"] && cookies["user-auth"]?.expTime < 1801) {
       if (firstRefresh) {
         setFirstRefresh(false);
         refreshSession();
@@ -198,7 +198,7 @@ const App = () => {
             }
           )
           .then((response) => {
-            const { success, errors, body } = response.data;
+            const { success, errors, accessToken, refreshToken } = response.data;
 
             if (!success && errors) {
               // dispatchError({
@@ -209,8 +209,8 @@ const App = () => {
               //   }
               // });
             } else if (typeof window !== "undefined") {
-              localStorage.setItem(btoa("token"), btoa(JSON.stringify(body[0].token)));
-              localStorage.setItem(btoa("refreshToken"), btoa(JSON.stringify(body[1].refreshToken)));
+              setCookies("accessToken", { accessToken: accessToken }, cookieOptions(cookies["user-auth"] && cookies["user-auth"].expTime ? 3600 * 24 * 30 : 1800));
+              setCookies("refreshToken", { refreshToken: refreshToken }, cookieOptions(3600 * 24 * 60));
               let subscription = interval(840000).subscribe(() => {
                 subscription.unsubscribe();
                 refreshSession();

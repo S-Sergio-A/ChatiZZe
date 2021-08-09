@@ -40,8 +40,8 @@ module.exports = {
       process: "process/browser"
     }),
     new WorkboxPlugin.InjectManifest({
-      swSrc: "./src/sw.js",
-      swDest: "sw.js"
+      swSrc: "./src/sw.ts",
+      swDest: "sw.ts"
     }),
     new CompressionPlugin({
       filename: "[name][ext].br",

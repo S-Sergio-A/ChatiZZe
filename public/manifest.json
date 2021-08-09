@@ -4,7 +4,7 @@
   "theme_color": "#7400b8",
   "background_color": "#ebebeb",
   "display": "standalone",
-  "orientation": "",
+  "orientation": "any",
   "scope": "/",
   "start_url": "/",
   "incognito": "spanning",
@@ -18,8 +18,8 @@
   "homepage_url": "https://chatizze.herokuapp.com",
   "icons": [
     {
-      "src": "manifest-icons/icon-46x46.png",
-      "sizes": "46x46",
+      "src": "manifest-icons/icon-48x48.png",
+      "sizes": "48x48",
       "type": "image/png"
     },
     {
