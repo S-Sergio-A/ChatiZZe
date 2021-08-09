@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Fragment, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import { Button } from "../../components/button/Button";
+import { setError } from "../../context/actions/error";
 import { Card } from "../../components/card/Card";
 import Head from "../../components/head/Head";
 import i18n from "../../utils/i18n/i18n";
@@ -12,9 +15,6 @@ import { SecondPage } from "./registration-pages/SecondPage";
 import { FirstPage } from "./registration-pages/FirstPage";
 import { ThirdPage } from "./registration-pages/ThirdPage";
 import "./Registration.css";
-import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
-import { setError } from "../../context/actions/error";
-import { useDispatch } from "react-redux";
 
 // import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
 
@@ -90,10 +90,7 @@ export default function Registration() {
           setEmail("");
           setPassword("");
           setPasswordVerification("");
-
-          if (status === 201) {
-            setSuccess(true);
-          }
+          setSuccess(true);
         }
       })
       .catch((error) => logError(error));
