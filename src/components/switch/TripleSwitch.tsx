@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
-import React, { useEffect, useRef, useState } from "react";
-import { timer } from "rxjs";
-import { RootState } from "../../context/rootState.interface";
+import { useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
+import { timer } from "rxjs";
+import "./Switch.css";
 
 interface TripleSwitchProps {
   triple: boolean;

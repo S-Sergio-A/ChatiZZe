@@ -415,8 +415,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     & .transform-label {
-      color: ${(props: any) => props.theme.primaryBackground};
-      background: ${(props: any) => props.theme.primaryColor};
+      color: ${(props: any) => props.theme.primaryBackground} !important;
+      background: ${(props: any) => props.theme.primaryColor} !important;
     }
 
     & .nav {
