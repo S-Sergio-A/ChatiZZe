@@ -22,6 +22,9 @@ function setCustomTheme(
   colorSecondary: string,
   backgroundImage: string
 ) {
+  if (colorPrimary === "#ffffff" || colorSecondary === "#ffffff") {
+    colorSecondary = "#000000";
+  }
   return {
     type: SET_CUSTOM_THEME,
     payload: { primary, secondary, layout, borderPrimary, borderSecondary, colorPrimary, colorSecondary, backgroundImage }
