@@ -52,13 +52,13 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
 
   useEffect(() => {
     if (nameRef && nameRef?.current?.value.length === 0) {
-      nameRef.current.value = chatData.name;
+      nameRef.current.value = chatData?.name;
     }
   }, [nameRef]);
 
   useEffect(() => {
     if (descrRef && descrRef?.current?.value.length === 0) {
-      descrRef.current.value = chatData.description;
+      descrRef.current.value = chatData?.description;
     }
   }, [descrRef]);
 

@@ -32,13 +32,13 @@ export default function ChatDataModal({
         <div className="group-info flex a-i-c j-c-s-b">
           <ChangePhoto
             type={chatData.logo ? "img" : "svg"}
-            alt={`${chatData.name} ${t("chatLogo")}`}
+            alt={`${chatData?.name} ${t("chatLogo")}`}
             previousState={
               chatData.logo ? (
                 chatData.logo
               ) : (
                 <svg height="100" viewBox="0 0 512 512" width="100" xmlns="http://www.w3.org/2000/svg" className="chat-logo">
-                  <title>{chatData.name + " " + t("chatLogo")}</title>
+                  <title>{chatData?.name + " " + t("chatLogo")}</title>
                   <path
                     fill={getRandomColor()}
                     d="m40.831 368.544c4.869-3.891 7.779-8.554 8.647-13.89 1.137-6.991-1.325-15.447-6.586-22.621-9.94-13.551-7.025-32.919-4.638-42.64a15.677 15.677 0 0 0 -7.952 2.591 15.492 15.492 0 0 0 -6.708 10c-3.774 19.184-5.329 45.437 8.691 61.562a15.6 15.6 0 0 0 8.546 4.998z"
@@ -58,12 +58,12 @@ export default function ChatDataModal({
             actionType="chat-photo"
           />
           <div className="flex a-i-f-s j-c-c f-f-c-n f-w">
-            <p className="helper">{chatData.name} </p>
+            <p className="helper">{chatData?.name} </p>
             <p className="helper">
-              {chatData.users} {t("users")}
+              {chatData?.users} {t("users")}
             </p>
             <p className="helper">
-              {chatData.usersOnline} {t("usersOnline")}
+              {chatData?.usersOnline} {t("usersOnline")}
             </p>
           </div>
         </div>

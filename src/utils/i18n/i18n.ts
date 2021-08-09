@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: "http://localhost:3000/locale/{{lng}}.json",
+      loadPath: "https://chatizze.herokuapp.com/locale/{{lng}}.json",
       allowMultiLoading: true
     },
     load: "languageOnly",
