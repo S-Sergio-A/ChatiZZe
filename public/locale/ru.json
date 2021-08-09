@@ -229,6 +229,7 @@
   "button.ch_r": "Изменить права",
   "button.del_ch": "Удалить чат",
   "button.del_u": "Исключить участника",
+  "button.leave_room": "Покинуть комнату",
   "button.update": "Обновить",
   "button.cl_toast": "Скрыть уведомление",
 
@@ -306,6 +307,7 @@
 
   "modal.confirm.del_ch": "Вы хотите удалить этот чат?",
   "modal.confirm.del_u": "Вы хотите исключить этого участника?",
+  "modal.confirm.leave_room": "Вы хотите покинуть эту комнату?",
   "modal.confirm.del_m": "Вы хотите удалить это сообщение?",
 
   "modal.userRights.header": "Изменение прав участника",

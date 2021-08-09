@@ -219,13 +219,14 @@
 
   "button.continue": "Continue",
   "button.reset": "Reset password",
-  "button.addUser": "Add user",
+  "button.addUser": "Add a user",
   "button.close": "Close",
   "button.create": "Create",
   "button.confirm": "Confirm",
   "button.ch_r": "Change rights",
   "button.del_ch": "Delete chat",
-  "button.del_u": "Delete user",
+  "button.del_u": "Delete the user",
+  "button.leave_room": "Leave the room",
   "button.prev": "Previous",
   "button.next": "Next",
   "button.submit": "Submit",
@@ -307,6 +308,7 @@
 
   "modal.confirm.del_ch": "Do You want to delete this chat?",
   "modal.confirm.del_u": "Do You want to delete this user?",
+  "modal.confirm.leave_room": "Do You want to leave this room?",
   "modal.confirm.del_m": "Do You want to delete this message?",
 
   "modal.userRights.header": "Change user rights",
