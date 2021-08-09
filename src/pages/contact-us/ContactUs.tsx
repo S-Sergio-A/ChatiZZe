@@ -73,7 +73,36 @@ export default function ContactUs() {
             const { error } = response.data;
 
             if (error) {
-  
+              if (error.subject) {
+                setContactFormError({
+                  ...contactFormError,
+                  subjectError: error.subject
+                });
+              }
+              if (error.firstName) {
+                setContactFormError({
+                  ...contactFormError,
+                  firstNameError: error.firstName
+                });
+              }
+              if (error.lastName) {
+                setContactFormError({
+                  ...contactFormError,
+                  lastNameError: error.lastName
+                });
+              }
+              if (error.email) {
+                setContactFormError({
+                  ...contactFormError,
+                  emailError: error.email
+                });
+              }
+              if (error.message) {
+                setContactFormError({
+                  ...contactFormError,
+                  messageError: error.message
+                });
+              }
             } else {
               setContactFormError({
                 ...contactFormError,
