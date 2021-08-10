@@ -623,10 +623,14 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-box-shadow: 0 1px 12px rgba(${(props: any) => props.theme.secondaryColor});
         -moz-box-shadow: 0 1px 12px rgba(${(props: any) => props.theme.secondaryColor});
         -o-box-shadow: 0 1px 12px rgba(${(props: any) => props.theme.secondaryColor});
+      }
+    }
+    
+    & .faq-page{
+      color: ${(props: any) => props.theme.secondaryColor};
 
-        h2 {
-          background: ${(props: any) => props.theme.secondaryBackground};
-        }
+      h2 {
+        background: ${(props: any) => props.theme.secondaryBackground};
       }
     }
 
