@@ -60,7 +60,6 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./public/manifest.json", to: "manifest.json" },
-        { from: "./public/favicon.ico", to: "favicon.ico" },
         { from: "./public/locale", to: "locale" },
         { from: "./public/robots.txt", to: "robots.txt" },
         { from: "./public/manifest-icons", to: "manifest-icons" },
