@@ -113,6 +113,7 @@ export const ChatInput = ({
 
     if (expand) setExpand(false);
     if (showEmoji) setShowEmoji(false);
+    if (showMessageModal) setShowMessageModal(false);
   };
 
   function onChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -396,11 +397,8 @@ export const ChatInput = ({
               ))}
           </ul>
         </Modal.Body>
-        <Modal.Footer className="grid input-area">
-          <div
-            className={`btn-cont flex j-c-c a-i-c ${expand ? "exp" : ""} ${width < 769 ? "f-f-c-n" : "f-f-r-n"}`}
-            style={expand ? { rowGap: "15px" } : undefined}
-          >
+        <Modal.Footer layoutType="grid" className="input-area">
+          <div className={`btn-cont flex j-c-c a-i-c ${width < 769 ? "f-f-c-n" : "f-f-r-n"}`}>
             <div className="attach-file-btn">
               <Button
                 onClick={() => inputRef.current && inputRef.current.click()}

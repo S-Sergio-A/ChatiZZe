@@ -1,12 +1,12 @@
+import { Fragment, MutableRefObject, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment, MutableRefObject, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useCookies } from "react-cookie";
 import { displayUserInfo, setDeletedMessageId, setUpdatedMessageId } from "../../context/actions/chat";
 import ConfirmationModal from "../confirmation-modal/ConfirmationModal";
 import { RootState } from "../../context/rootState.interface";
 import { Button } from "../button/Button";
 import "./Message.css";
-import { useTranslation } from "react-i18next";
-import { useCookies } from "react-cookie";
 
 export default function Message({
   setChosenUser,
@@ -15,6 +15,7 @@ export default function Message({
   user,
   text,
   timestamp,
+  attachments,
   nextMessageAuthorId
 }: {
   setChosenUser: (user: { [key: string]: any }) => void;
@@ -23,6 +24,7 @@ export default function Message({
   user: { [key: string]: any };
   text: string;
   timestamp: string;
+  attachments: string[];
   nextMessageAuthorId: string;
 }) {
   const [t] = useTranslation();
@@ -30,11 +32,35 @@ export default function Message({
   const [showActions, setShowActions] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
+  const [attachmentContainerClass, setAttachmentContainerClass] = useState("");
+
   const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    switch (attachments.length) {
+      case 1:
+        setAttachmentContainerClass("one");
+        break;
+      case 2:
+        setAttachmentContainerClass("two");
+        break;
+      case 3:
+        setAttachmentContainerClass("three");
+        break;
+      case 4:
+        setAttachmentContainerClass("four");
+        break;
+      case 5:
+        setAttachmentContainerClass("five");
+        break;
+      default:
+        break;
+    }
+  }, [attachments]);
 
   const removeMessage = (messageId: string) => {
     if (socketRef.current)
@@ -64,16 +90,24 @@ export default function Message({
       >
         <div className="message-user-image flex a-i-f-e j-c-c">
           {nextMessageAuthorId === user._id ? null : (
-            <img
-              width={60}
-              height={60}
-              src={user.photo ? user.photo : cookies["dummy-photo"] ? cookies["dummy-photo"].photo : "https://via.placeholder.com/60"}
-              alt={user.username}
-            />
+            <a
+              href="#"
+              onClick={() => {
+                setChosenUser(user);
+                dispatch(displayUserInfo(true));
+              }}
+            >
+              <img
+                width={60}
+                height={60}
+                src={user.photo ? user.photo : cookies["dummy-photo"] ? cookies["dummy-photo"].photo : "https://via.placeholder.com/60"}
+                alt={user.username}
+              />
+            </a>
           )}
         </div>
         <div
-          className={`grid msg ${nextMessageAuthorId !== user._id ? "last-message" : ""} ${
+          className={`grid msg ${attachments ? "attachment" : "noAttachment"} ${nextMessageAuthorId !== user._id ? "last-message" : ""} ${
             user._id === userId ? "message-yours" : "message-others"
           }`}
         >
@@ -87,6 +121,13 @@ export default function Message({
           >
             {user.username}
           </a>
+          {attachments ? (
+            <div className={`attachments-container grid ${attachmentContainerClass}`}>
+              {attachments.map((link: string, key) => (
+                <img key={key} className="attachment" width={60} height={60} src={link} alt="attachment" />
+              ))}
+            </div>
+          ) : null}
           <span className={`message-timestamp copyright ${user._id === userId ? "j-s-s" : "j-s-e"}`}>{timestamp}</span>
           <p className="message-text helper flex a-i-c j-c-f-s">{text}</p>
           {nextMessageAuthorId === user._id ? null : (

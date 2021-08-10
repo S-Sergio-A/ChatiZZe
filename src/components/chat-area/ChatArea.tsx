@@ -173,6 +173,7 @@ export default function ChatArea({
                           user={item.user}
                           text={item.text}
                           timestamp={item.timestamp}
+                          attachments={item.attachment}
                           nextMessageAuthorId={messages[index + 1] && messages[index + 1].user ? messages[index + 1].user._id : ""}
                         />
                       </li>
