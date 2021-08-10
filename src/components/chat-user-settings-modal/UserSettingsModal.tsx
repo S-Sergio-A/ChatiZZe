@@ -55,7 +55,7 @@ export default function UserSettingsModal() {
             }
           />
           <Button onClick={() => setShowNamesSubModal(true)} className="btn-ter j-c-s-b f-f-r-n">
-            <p className="f-w f-h flex a-i-c j-c-s-b">
+            <p className="u-name f-w f-h flex a-i-c j-c-f-s">
               <span className="h6-s">{user.firstName}</span>
               <span className="h6-s">{user.lastName}</span>
             </p>

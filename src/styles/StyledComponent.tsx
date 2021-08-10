@@ -149,7 +149,7 @@ export const GlobalStyle = createGlobalStyle`
 
     & .btn-ter {
       background: ${(props: any) => props.theme.primaryBorderColor};
-      color: ${(props: any) => props.theme.secondaryColor};
+      color: ${(props: any) => props.theme.primaryColor} !important;
 
       & > svg {
         fill: ${(props: any) => props.theme.primaryColor};

@@ -32,12 +32,12 @@
       grid-area: 1/1/3/2;
     }
 
-    & > p:first-child {
+    & > .u-name {
       grid-area: 1/2/2/3;
       @include columnGap(15px);
     }
 
-    & > p:last-child {
+    & > .u-ph {
       grid-area: 2/2/3/3;
     }
   }

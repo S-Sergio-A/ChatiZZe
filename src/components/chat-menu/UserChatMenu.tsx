@@ -61,14 +61,14 @@ export const UserChatMenu = () => {
           <img src={user.photo ? user.photo : "https://via.placeholder.com/70"} alt={user.username} width={70} height={70} />
         </div>
         {user.firstName && user.lastName ? (
-          <p className="flex a-i-c j-c-f-s">
+          <p className="u-name flex a-i-c j-c-f-s">
             <span className="h6-s">{user.firstName}</span>
             <span className="h6-s">{user.lastName}</span>
           </p>
         ) : (
-          <p className="flex a-i-c j-c-f-s h6-s">{user.username}</p>
+          <p className="u-name flex a-i-c j-c-f-s h6-s">{user.username}</p>
         )}
-        <p className="flex a-i-c j-c-f-s helper">{user.phoneNumber}</p>
+        <p className="u-ph flex a-i-c j-c-f-s helper">{user.phoneNumber}</p>
       </header>
       <div className="langs flex j-c-s-a a-i-c f-f-r-n f-w f-h">
         {languages.map((item, index) => (

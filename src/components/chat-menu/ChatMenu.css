@@ -41,13 +41,13 @@
 .user-menu header > .wrapper {
   grid-area: 1/1/3/2;
 }
-.user-menu header > p:first-child {
+.user-menu header > .u-name {
   grid-area: 1/2/2/3;
   column-gap: 15px;
   -webkit-column-gap: 15px;
   -moz-column-gap: 15px;
 }
-.user-menu header > p:last-child {
+.user-menu header > .u-ph {
   grid-area: 2/2/3/3;
 }
 .user-menu .langs {

@@ -80,7 +80,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         </svg>
       </Button>
       <fieldset className={`${!firstRender && phoneChange ? "show-form" : "hide-form"} ${animate ? "none" : ""} phone`}>
-        <Input labelText={t("label.oldPhone")} inputId="old-phone" showTip={false} disabled />
+        <Input labelText={t("label.oldPhone")} inputId="old-phone" showTip={false} disabled value={user.phoneNumber} />
         <Input
           labelText={t("label.newPhone")}
           errorIdentifier={phoneError}
