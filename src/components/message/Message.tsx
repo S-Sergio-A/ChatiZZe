@@ -107,7 +107,7 @@ export default function Message({
           )}
         </div>
         <div
-          className={`grid msg ${attachments ? "attachment" : "noAttachment"} ${nextMessageAuthorId !== user._id ? "last-message" : ""} ${
+          className={`grid msg ${attachments ? "has-attachment" : "no-attachment"} ${nextMessageAuthorId !== user._id ? "last-message" : ""} ${
             user._id === userId ? "message-yours" : "message-others"
           }`}
         >
@@ -121,10 +121,10 @@ export default function Message({
           >
             {user.username}
           </a>
-          {attachments ? (
+          {attachments.length > 0 && attachments[0].length > 0 ? (
             <div className={`attachments-container grid ${attachmentContainerClass}`}>
               {attachments.map((link: string, key) => (
-                <img key={key} className="attachment" width={60} height={60} src={link} alt="attachment" />
+                <img key={key} className="attachment" src={link} alt="attachment" />
               ))}
             </div>
           ) : null}

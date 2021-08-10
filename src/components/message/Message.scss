@@ -27,7 +27,7 @@
 }
 
 @mixin messageWithImageSize {
-  grid-template-rows: 20px 300px minmax(10px, 1fr) 12px;
+  grid-template-rows: 20px minmax(10px, 1fr) minmax(10px, 1fr) 12px;
   grid-template-columns: minmax(10px, 1fr);
 
   & > .message-attachment {
@@ -90,11 +90,11 @@
   & > .message-yours {
     @include messageStyle;
 
-    &.noAttachment {
+    &.no-attachment {
       @include messageSize;
     }
 
-    &.attachment {
+    &.has-attachment {
       @include messageWithImageSize;
     }
   }
@@ -102,11 +102,11 @@
   & > .message-others {
     @include messageStyle;
 
-    &.noAttachment {
+    &.no-attachment {
       @include messageSize;
     }
 
-    &.attachment {
+    &.has-attachment {
       @include messageWithImageSize;
     }
   }
@@ -129,34 +129,61 @@
 
   &.one {
     grid-template-rows: 300px;
-    grid-template-columns: 300px;
+    grid-template-columns: 100%;
+
+    img {
+      width: 100%;
+      height: 300px;
+    }
   }
 
   &.two {
     grid-template-rows: 150px;
-    grid-template-columns: repeat(2, minmax(50%, 150px));
+    grid-template-columns: repeat(2, 50%);
+
+    img {
+      width: 150px;
+      height: auto;
+    }
   }
 
   &.three {
     grid-template-rows: repeat(2, 150px);
-    grid-template-columns: repeat(2, minmax(50%, 150px));
+    grid-template-columns: repeat(2, 50%);
+
+    img {
+      width: 150px;
+      height: auto;
+    }
 
     img:nth-child(3) {
       grid-area: 2/1/3/3;
+      width: 300px;
     }
   }
 
   &.four {
     grid-template-rows: repeat(2, 150px);
-    grid-template-columns: repeat(2, minmax(50%, 150px));
+    grid-template-columns: repeat(2, 50%);
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   &.five {
     grid-template-rows: repeat(3, 150px);
-    grid-template-columns: repeat(2, minmax(50%, 150px));
+    grid-template-columns: repeat(2, 50%);
+
+    img {
+      width: 150px;
+      height: auto;
+    }
 
     img:nth-child(5) {
       grid-area: 3/1/4/3;
+      width: 300px;
     }
   }
 }
@@ -253,6 +280,8 @@
 @media only screen and (min-width: 769px) {
   .attachment:hover {
     position: absolute;
+    bottom: 0;
+    left: 0;
     @include transform(scale(1.5));
   }
 
