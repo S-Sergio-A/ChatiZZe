@@ -44,7 +44,7 @@ export const Cookie = () => {
           />
         </header>
         <section>
-          <div className="inner-container flex a-i-c j-c-c f-f-c-n">
+          <div className="inner-container flex a-i-c j-c-f-s f-f-c-n">
             <p className="f-w">
               {t("cookie.sen.fir")}
               <br/>

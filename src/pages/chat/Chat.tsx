@@ -31,7 +31,14 @@ import "./Chat.css";
 export default function Chat() {
   const [t] = useTranslation();
   const [chats, setChats] = useState<any[]>([]);
-  const [chatData, setChatData] = useState<any>({});
+  const [chatData, setChatData] = useState<any>({
+    logo: "https://via.placeholder.com/60",
+    name: "Loading...",
+    description: "Real description is loading...",
+    isPrivate: true,
+    usersID: ["loading"],
+    activeUsers: ["loading"]
+  });
   const [messages, setMessages] = useState<any[]>([]);
   const [users, setUsers] = useState<{ [key: string]: any }[]>([]);
 
@@ -83,8 +90,8 @@ export default function Chat() {
         setMessages(lastMessages.reverse());
       });
 
-      socketRef.current.on("users", (usersOnline: any) => {
-        setChatData({ ...chatData, usersOnline: usersOnline.length });
+      socketRef.current.on("users", (activeUsers: any) => {
+        setChatData({ ...chatData, activeUsers: activeUsers.length });
       });
 
       socketRef.current.on("new-message", (newMessage: any) => {

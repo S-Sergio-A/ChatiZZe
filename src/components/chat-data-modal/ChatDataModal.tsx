@@ -60,10 +60,10 @@ export default function ChatDataModal({
           <div className="flex a-i-f-s j-c-c f-f-c-n f-w">
             <p className="helper">{chatData?.name} </p>
             <p className="helper">
-              {chatData?.users} {t("users")}
+              {chatData?.usersID.length} {t("users")}
             </p>
             <p className="helper">
-              {chatData?.usersOnline} {t("usersOnline")}
+              {chatData?.activeUsers} {t("usersOnline")}
             </p>
           </div>
         </div>

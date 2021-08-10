@@ -28,7 +28,6 @@ export const TestData = () => {
         </header>
         <section>
           <div className="inner-container flex a-i-c j-c-c f-f-c-n">
-            <p className="f-w f-w__600">{t("testData.intro")}</p>
             <p className="f-w">{t("testData.email")}</p>
             <p className="f-w">{t("testData.password")}</p>
           </div>
