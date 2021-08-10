@@ -24,7 +24,10 @@ function setCustomTheme(
 ) {
   if (colorPrimary === "#ffffff" || colorSecondary === "#ffffff") {
     colorSecondary = "#000000";
+  } else if (colorPrimary === "#000000" || colorSecondary === "#000000") {
+    colorSecondary = "#ffffff";
   }
+
   return {
     type: SET_CUSTOM_THEME,
     payload: { primary, secondary, layout, borderPrimary, borderSecondary, colorPrimary, colorSecondary, backgroundImage }

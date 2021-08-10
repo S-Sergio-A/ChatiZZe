@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, Fragment, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { CountryDropdown } from "../../../components/dropdown/CountryDropdown";
 import { Input } from "../../../components/input/Input";
@@ -6,13 +6,16 @@ import { Input } from "../../../components/input/Input";
 interface FirstPageProps {
   phoneNumber: string;
   phoneNumberError: string;
-  setPhoneNumber: Dispatch<React.SetStateAction<string>>;
+  setPhoneNumber: Dispatch<SetStateAction<string>>;
 }
 
 export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: FirstPageProps) => {
   const [t] = useTranslation();
+  const userStartedToInputRef = useRef(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    userStartedToInputRef.current = true;
+
     let targetValue = event.target.value;
 
     if (targetValue.substring(0, 1) !== "+") {
@@ -22,8 +25,12 @@ export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: Fir
   }
 
   return (
-    <React.Fragment>
-      <CountryDropdown onClick={(value) => setPhoneNumber(value)} phoneCode={phoneNumber.substring(0, 4)} />
+    <Fragment>
+      <CountryDropdown
+        onClick={(value) => setPhoneNumber(value)}
+        phoneCode={phoneNumber.substring(0, 4)}
+        userStartedToInput={userStartedToInputRef.current}
+      />
       <Input
         labelText={t("label.phone")}
         errorIdentifier={phoneNumberError}
@@ -33,12 +40,11 @@ export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: Fir
         name="tel"
         inputMode="tel"
         autoComplete="tel"
-        min={18}
         max={18}
         required
         tooltipText={t("tooltip.phone")}
         value={phoneNumber}
       />
-    </React.Fragment>
+    </Fragment>
   );
 };

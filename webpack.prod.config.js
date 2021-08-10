@@ -40,8 +40,8 @@ module.exports = {
       process: "process/browser"
     }),
     new WorkboxPlugin.InjectManifest({
-      swSrc: "./src/sw.ts",
-      swDest: "sw.ts"
+      swSrc: "./src/sw.js",
+      swDest: "sw.js"
     }),
     new CompressionPlugin({
       filename: "[name][ext].br",
@@ -60,10 +60,12 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./public/manifest.json", to: "manifest.json" },
+        { from: "./public/favicon.ico", to: "favicon.ico" },
         { from: "./public/locale", to: "locale" },
         { from: "./public/robots.txt", to: "robots.txt" },
         { from: "./public/manifest-icons", to: "manifest-icons" },
-        { from: "./src/server.js", to: "server.js" }
+        { from: "./src/server.js", to: "server.js" },
+        { from: "./src/sw.js", to: "sw.js" }
       ]
     }),
     new MiniCssExtractPlugin({

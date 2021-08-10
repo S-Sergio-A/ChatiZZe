@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 import reducer from "./reducer";
 
 // @ts-ignore
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const browserHistory = createBrowserHistory();
 
@@ -15,4 +15,5 @@ const myRouterMiddleware = routerMiddleware(browserHistory);
 //   return applyMiddleware(myRouterMiddleware, cookieMiddleware);
 // };
 
-export const store = createStore(reducer, composeEnhancers(applyMiddleware()));
+// export const store = createStore(reducer, composeEnhancers(applyMiddleware()));
+export const store = createStore(reducer);

@@ -16,8 +16,6 @@ import { FirstPage } from "./registration-pages/FirstPage";
 import { ThirdPage } from "./registration-pages/ThirdPage";
 import "./Registration.css";
 
-// import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
-
 export default function Registration() {
   const [success, setSuccess] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -83,7 +81,9 @@ export default function Registration() {
           if (error.passwordVerification) {
             setPasswordVerificationError(error.passwordVerification);
           }
-          // dispatch(setError(error));
+          if (error.internalFailure) {
+            dispatch(setError(error.internalFailure));
+          }
         } else {
           setPhoneNumber("");
           setUsername("");

@@ -20,8 +20,7 @@ import Head from "../../components/head/Head";
 import i18n from "../../utils/i18n/i18n";
 import { logError } from "../error/errorHandler";
 import "./Login.css";
-
-// import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
+import { setError } from "../../context/actions/error";
 
 export default function Login() {
   const [userIdentifier, setUserIdentifier] = useState("");
@@ -91,6 +90,10 @@ export default function Login() {
             setPasswordError(error.password);
           } else {
             setPasswordError("");
+          }
+
+          if (error.internalFailure) {
+            dispatch(setError(error.internalFailure));
           }
         } else {
           setAnimate(true);
@@ -193,7 +196,7 @@ export default function Login() {
             <Button onClick={handleLogin} type="button" className="btn-pr dark btn-sm-x-w">
               <span className="flex a-i-c j-c-c">{t("login.button")}</span>
             </Button>
-            <button onClick={() => alert("oopsy...")} type="button" className="google" aria-label={t("login.google")} />
+            <button onClick={() => alert(t("alert.notImplYet"))} type="button" className="google" aria-label={t("login.google")} />
           </div>
         </form>
       </Card>

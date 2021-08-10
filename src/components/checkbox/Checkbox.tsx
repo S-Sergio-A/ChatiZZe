@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import useKeyDown from "../../utils/hooks/useKeyDown";
 import "./Checkbox.css";
 
 interface CheckboxProps {
@@ -35,6 +36,17 @@ const Checkbox = ({ id = undefined, className = "", onClick, reverseLayout = fal
       document.removeEventListener("focusin", nativeWasChecked);
     };
   }, [customCheckboxRef]);
+
+  useKeyDown(
+    "Space",
+    () => {
+      if (customCheckboxRef.current && customCheckboxRef.current === document.activeElement) {
+        setNativeFocused(!nativeFocused);
+        onClick();
+      }
+    },
+    [customCheckboxRef]
+  );
 
   return (
     <div

@@ -82,36 +82,24 @@
 
   "infoPages.faq": [
     {
-      "question": "Do you use nuts in your products?",
-      "answer": "Some of our products, like our nut an pumpkin bars do contain nuts. Additionally, every bakery has only one kitchen, so cross-contact of ingredients is highly possible."
+      "question": "About sending messages on ChatiZZe",
+      "answer": "ChatiZZe uses your phone's cellular connection or Wi-Fi network to send and receive messages and calls to your family and friends. As long as you haven't exceeded your mobile data allowance or you're connected to a free Wi-Fi network, your mobile provider shouldn't charge you for messaging or calling over ChatiZZe. If your phone is roaming, data charges might apply."
     },
     {
-      "question": "Do you offer Gluten-Free items?",
-      "answer": "We offer a few 'gluten-friendly' items on our menu, however all of our foods are prepared in a common kitchen so we cannot guarantee that cross-contact with other gluten-containing products will not occur. As a result, we do not recommend our 'gluten-friendly' items for persons with Celiac Disease. Our 'gluten-friendly' offerings are designed for those with minor gluten sensitivities or those who prefer to avoid gluten for nutritional reasons. Our management team and service staff are not trained on the intricacies of celiac disease or gluten intolerance and cannot be expected to provide recommendations or other advice."
+      "question": "About account bans",
+      "answer": "If your account is banned, you'll see the message when trying to access ChatiZZe. We ban accounts if we believe the account activity violates our Terms of Service. If you think your account was banned by mistake, please email us and we'll look into your case."
     },
     {
-      "question": "Should I refrigerate my cupcakes?",
-      "answer": "Try to eat Your cupcakes as soon as possible — they’ll taste freshest that way. In the event You can’t eat them all in one day, they keep best in an airtight container at room temperature. Of course, cheesecakes, icebox cakes, and cold pies should be refrigerated!"
+      "question": "About seeing your phone number already in ChatiZZe",
+      "answer": "All ChatiZZe accounts are tied to mobile phone numbers. Since it's common for phone numbers to be recycled by mobile providers, it's possible that the previous owner of your current phone number used ChatiZZe. If the previous owner of your phone number didn't delete their ChatiZZe account, you and your contacts may see your phone number in ChatiZZe before you activate a new account. You may also see someone else's profile photo and data attached to your phone number. There's no need to worry. This only means that the previous account wasn't deleted, so old information still exists in the system. This does not mean that the previous owner of the phone number has any access to the ChatiZZe account you activate with your new phone number. Your conversations and other ChatiZZe data are secure."
     },
     {
-      "question": "Are you hiring?",
-      "answer": "We’re always looking for friendly, hardworking people to join our team. If You’re interested, please contact us through a contact form that You can find on our website"
+      "question": "About last seen and online",
+      "answer": "Last seen and online tell you the last time your contacts used ChatiZZe, or if they're online. If a contact is online, they have ChatiZZe open in the foreground on their device and are connected to the Internet. However, it doesn't necessarily mean the contact has read your message. Please note you can't hide your online."
     },
     {
-      "question": "Do you accept credit cards?",
-      "answer": "Yes! We accept Visa, MasterCard, American Express, and Discover."
-    },
-    {
-      "question": "Do you have a mailing list?",
-      "answer": "We do. To sign up for our e-newsletters, fill in the e-mail address in our subscription pop-up."
-    },
-    {
-      "question": "What is your return policy?",
-      "answer": "If You are unhappy with Your order, immediately notify us (when accepting delivery or purchasing in one of our bakeries) of Your concern and return Your dessert to us. We will reimburse You for the cost of the product. You must bring the original receipt of purchase with You."
-    },
-    {
-      "question": "What do you use in your products?",
-      "answer": "We use only the freshest, highest-quality ingredients in our baked goods, including real butter, whole eggs, and fresh fruit and nuts. We don’t use preservatives in any of our products."
+      "question": "We’re updating our Terms of Service and Privacy Policy",
+      "answer": "We are making changes to our Terms of Service and Privacy Policy that relate to messaging on ChatiZZe. We are also providing more information about how we collect, share, and use data. It’s our responsibility to explain these updates clearly."
     }
   ],
 
@@ -190,7 +178,7 @@
   "tooltip.name": "Use only Latin, Cyrillic, hyphens and spaces.",
   "tooltip.email": "Use any valid email. Local part mustn't be longer than 63 characters, the domain mustn't be longer than 190 characters.",
   "tooltip.oldEmail": "Enter Your previous email.",
-  "tooltip.password": "Use at least 1 uppercase and 1 lowercase letter, 1 digit and 1 special symbol (%@?№$^). Minimum length - 8 characters, maximum - 30 characters.",
+  "tooltip.password": "Use at least 1 uppercase and 1 lowercase letter, 1 digit and 1 special symbol (%@?№$^). Minimum length - 8 characters, maximum - 50 characters.",
   "tooltip.passwordVerification": "Repeat Your password.",
   "tooltip.oldPassword": "Enter Your previous password.",
   "tooltip.phone": "Use only digits.",
@@ -232,6 +220,7 @@
   "button.submit": "Submit",
   "button.signUp": "Sign up",
   "button.update": "Update",
+  "button.resetPass": "Reset",
   "button.cl_toast": "Hide toast message",
 
   "chatArea.header": "Choose a person to chat with",
@@ -364,5 +353,13 @@
   "cookie.sen.sec": "For full details read our cookie policy.",
   "cookie.sen.thi": "*By continuing using this site you accept cookie.",
   "verification.header": "Successful Verification",
-  "verification.details": "Changes in Your account were successfully verified! Now you can log in."
+  "verification.details": "Changes in Your account were successfully verified! Now you can log in.",
+
+  "testData.header": "Testing login data",
+  "testData.email": "Email: test@mail.com",
+  "testData.password": "Password: !Password1",
+
+  "alert.tooMany": "Cannot upload more than {{MAX_LENGTH}} files!",
+  "alert.tooBig": "File must be smaller than 200KB!",
+  "alert.notImplYet": "This feature hasn't been implemented yet. Sorry..."
 }

@@ -6,12 +6,19 @@ import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import { Button } from "../button/Button";
 import "./CountryDropdown.css";
 
-export const CountryDropdown = ({ onClick, phoneCode }: { onClick: Dispatch<React.SetStateAction<string>>; phoneCode: string }) => {
+export const CountryDropdown = ({
+  onClick,
+  phoneCode,
+  userStartedToInput
+}: {
+  onClick: Dispatch<React.SetStateAction<string>>;
+  phoneCode: string;
+  userStartedToInput: boolean;
+}) => {
   const [t] = useTranslation();
 
   const [listOfCountries, setListOfCountries] = useState(countries);
   const [country, setCountry] = useState("");
-  const [countryError, setCountryError] = useState("");
   const [cursor, setCursor] = useState(0);
 
   const [inputFocused, setInputFocused] = useState(false);
@@ -19,35 +26,35 @@ export const CountryDropdown = ({ onClick, phoneCode }: { onClick: Dispatch<Reac
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
-  const phoneCodeRef = useRef<string | null>(null);
-  const countryRef = useRef<string | null>(null);
 
   useEffect(() => {
     setFirstRender(false);
   }, []);
 
   useEffect(() => {
-    const threeDigitsPhoneCode = phoneCode.substring(0, 4);
-    const twoDigitsPhoneCode = phoneCode.substring(0, 3);
-    const oneDigitPhoneCode = phoneCode.substring(0, 2);
+    if (!userStartedToInput) {
+      const threeDigitsPhoneCode = phoneCode.substring(0, 4);
+      const twoDigitsPhoneCode = phoneCode.substring(0, 3);
+      const oneDigitPhoneCode = phoneCode.substring(0, 2);
 
-    const oneDigitCountries = countries.filter((item) => item.phone_code === oneDigitPhoneCode);
-    const twoDigitsCountries = countries.filter((item) => item.phone_code === twoDigitsPhoneCode);
-    const threeDigitsCountries = countries.filter((item) => item.phone_code === threeDigitsPhoneCode);
+      const oneDigitCountries = countries.filter((item) => item.phone_code === oneDigitPhoneCode);
+      const twoDigitsCountries = countries.filter((item) => item.phone_code === twoDigitsPhoneCode);
+      const threeDigitsCountries = countries.filter((item) => item.phone_code === threeDigitsPhoneCode);
 
-    const filteredCountries = [...threeDigitsCountries, ...twoDigitsCountries, ...oneDigitCountries];
+      const filteredCountries = [...threeDigitsCountries, ...twoDigitsCountries, ...oneDigitCountries];
 
-    if (filteredCountries.length !== 0) {
-      setCountry(filteredCountries[0].name);
-      onClick(filteredCountries[0].phone_code);
+      if (filteredCountries.length !== 0) {
+        setCountry(filteredCountries[0].name);
+        onClick(filteredCountries[0].phone_code);
+      }
     }
-  }, [phoneCode]);
+  }, [phoneCode, userStartedToInput]);
 
   useEffect(() => {
     if (country.length === 0) {
       setListOfCountries(countries);
     }
-  }, [country, phoneCode]);
+  }, [country]);
 
   function chooseCountry(event: ChangeEvent<HTMLInputElement>): void {
     let searchResults: { name: string; code: string; phone_code: string }[] = [];
@@ -111,7 +118,6 @@ export const CountryDropdown = ({ onClick, phoneCode }: { onClick: Dispatch<Reac
           value={country}
           aria-expanded={inputFocused}
         />
-        <p className={countryError ? "form-l-e it flex a-s-f-s f-w copyright" : "none"}>{countryError ? countryError : null}</p>
         <div
           className={`${firstRender ? "hidden" : ""} ${inputFocused ? "show-dropdown" : "hide-dropdown"} country-dropdown`}
           ref={dropdownRef}

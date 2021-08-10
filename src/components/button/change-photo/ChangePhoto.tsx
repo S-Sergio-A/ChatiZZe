@@ -38,13 +38,10 @@ export default function ChangePhoto({
 
   async function onFileChange(event: any) {
     if (event.target.files && event.target.files[0]) {
-      console.log(event.target.files);
       setPhoto(URL.createObjectURL(event.target.files[0]));
     }
     const file = await fileToBase64(event.target.files[0]).catch((e) => Error(e));
-
-    console.log(file, URL.createObjectURL(event.target.files[0]));
-
+    
     if (actionType === "user-photo") {
       await changeUserPhoto(file);
     } else {

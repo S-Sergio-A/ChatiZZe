@@ -132,9 +132,23 @@ export const ChatInput = ({
   }
 
   async function onFileChange(event: any) {
-    if (Array.from(event.target.files).length > MAX_LENGTH) {
+    if (event.target.files.length > MAX_LENGTH) {
       event.preventDefault();
-      alert(`Cannot upload more than ${MAX_LENGTH} files!`);
+      alert(t("alert.tooMany", { MAX_LENGTH: MAX_LENGTH }));
+      return;
+    }
+
+    let indicateBigFile = false;
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      if (event.target.files[i].size > 200000 && !indicateBigFile) {
+        indicateBigFile = true;
+      }
+    }
+
+    if (indicateBigFile) {
+      event.preventDefault();
+      alert(t("alert.tooBig"));
       return;
     }
 

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
+import { useSelector } from "react-redux";
 import { timer } from "rxjs";
+import { RootState } from "../../context/rootState.interface";
 import "./Switch.css";
 
 interface TripleSwitchProps {
@@ -15,7 +17,10 @@ interface TripleSwitchProps {
 
 export default function TripleSwitch({ labelFirst, labelSecond, labelThird, actionFirst, actionSecond, actionThird }: TripleSwitchProps) {
   const [cookies] = useCookies([]);
+
   const [firstRender, setFirstRender] = useState(true);
+  const [middleStateChanged, setMiddleStateChanged] = useState({ clicked: false, changed: false });
+
   const themeType = cookies["theme-type"]?.type;
 
   const firstRadioRef = useRef<any>(null);
@@ -27,6 +32,8 @@ export default function TripleSwitch({ labelFirst, labelSecond, labelThird, acti
 
   const pointerRef = useRef<any>(null);
   const switchRef = useRef<any>(null);
+
+  const theme = useSelector((state: RootState) => state.theme.type);
 
   useEffect(() => {
     if (firstRender && firstRadioRef.current && secondRadioRef.current && thirdRadioRef.current && pointerRef.current) {
@@ -53,6 +60,19 @@ export default function TripleSwitch({ labelFirst, labelSecond, labelThird, acti
       setFirstRender(false);
     }
   }, [firstRender, firstRadioRef, secondRadioRef, thirdRadioRef, pointerRef]);
+
+  useEffect(() => {
+    if (theme !== "custom" && pointerRef.current && pointerRef.current.classList.contains("middle")) {
+      if (themeType === "light") {
+        thirdRadioRef.current.checked = true;
+        pointerRef.current.setAttribute("class", "pointer end-position");
+      }
+      if (themeType === "dark") {
+        firstRadioRef.current.checked = true;
+        pointerRef.current.setAttribute("class", "pointer start-position");
+      }
+    }
+  }, [theme, pointerRef]);
 
   function onTripleSwitchClick(e: any) {
     if (
@@ -124,6 +144,9 @@ export default function TripleSwitch({ labelFirst, labelSecond, labelThird, acti
               pointerRef.current.classList.add("end");
               actionThird();
               timer(320).subscribe(() => pointerRef.current.setAttribute("class", "pointer end-position"));
+              break;
+            case e.clientX - switchX >= 38 && e.clientX - switchX <= 88:
+              actionSecond();
               break;
             default:
               break;
