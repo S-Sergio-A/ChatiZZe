@@ -164,7 +164,7 @@ export default function ChatArea({
             <section className={`chat-layout grid ${expand ? "expanded" : ""}`} role="log" aria-live="polite">
               <ChatHeader
                 socketRef={socketRef}
-                membersCount={chatData.usersID ? chatData.usersID.length : 2}
+                membersCount={chatData?.usersID ? chatData.usersID.length : 2}
                 activeMembersCount={chatData.activeUsers ? chatData.activeUsers : 1}
               />
               <div className="messages-container">
