@@ -56,6 +56,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));
     if (firstRefresh) invoke();
     if (cookies["lang"]) changeLang(cookies["lang"].language);
@@ -147,8 +148,6 @@ const App = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    dispatch(checkState(cookies));
-    dispatch(checkTheme(cookies));
     if (logged && cookies["user-auth"] && cookies["user-auth"]?.expTime < 1801) {
       if (firstRefresh) {
         setFirstRefresh(false);
@@ -209,7 +208,11 @@ const App = () => {
               //   }
               // });
             } else if (typeof window !== "undefined") {
-              setCookies("accessToken", { accessToken: accessToken }, cookieOptions(cookies["user-auth"] && cookies["user-auth"].expTime ? 3600 * 24 * 30 : 1800));
+              setCookies(
+                "accessToken",
+                { accessToken: accessToken },
+                cookieOptions(cookies["user-auth"] && cookies["user-auth"].expTime ? 3600 * 24 * 30 : 1800)
+              );
               setCookies("refreshToken", { refreshToken: refreshToken }, cookieOptions(3600 * 24 * 60));
               let subscription = interval(840000).subscribe(() => {
                 subscription.unsubscribe();
