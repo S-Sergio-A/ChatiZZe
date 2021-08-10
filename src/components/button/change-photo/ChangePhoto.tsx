@@ -19,7 +19,7 @@ export default function ChangePhoto({
   actionType = "user-photo"
 }: {
   type?: "img" | "svg";
-  previousState: string;
+  previousState: any;
   alt: string;
   actionType?: "chat-photo" | "user-photo";
 }) {
@@ -33,7 +33,7 @@ export default function ChangePhoto({
   const dispatch = useDispatch();
 
   const userId = useSelector((state: RootState) => state.auth.user._id);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   async function onFileChange(event: any) {

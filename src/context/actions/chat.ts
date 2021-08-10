@@ -21,8 +21,26 @@ import {
   RELOAD_CHATS
 } from "../consts/actionTypes";
 
-function setActiveChatAction(chatName: string, roomId: string, isPrivate: boolean, isUser: boolean) {
-  return { type: SET_ACTIVE_CHAT, payload: { chatName, roomId, isPrivate, isUser } };
+function setActiveChat({
+  chatName,
+  roomId,
+  isPrivate,
+  isUser,
+  logo,
+  description,
+  usersID,
+  activeUsers
+}: {
+  chatName: string;
+  roomId: string;
+  isPrivate: boolean;
+  isUser: boolean;
+  logo: string;
+  description: string;
+  usersID: string[];
+  activeUsers: number;
+}) {
+  return { type: SET_ACTIVE_CHAT, payload: { data: { chatName, roomId, isPrivate, isUser, logo, description, usersID, activeUsers } } };
 }
 
 function displayCreateChatModal(showCreateChat: boolean) {
@@ -102,7 +120,7 @@ function setCurrentChatRights(rights: string[]) {
 }
 
 export {
-  setActiveChatAction,
+  setActiveChat,
   displayCreateChatModal,
   displayAddUserModal,
   displayChatData,

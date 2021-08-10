@@ -11,7 +11,7 @@ import {
   reloadChats,
   resetDeletedMessageId,
   resetUpdatedMessageId,
-  resetUpdatedMessageNewState,
+  resetUpdatedMessageNewState, setActiveChat,
   setUpdatedMessagePrevState
 } from "../../context/actions/chat";
 import UserSettingsModal from "../../components/chat-user-settings-modal/UserSettingsModal";
@@ -31,16 +31,7 @@ import "./Chat.css";
 export default function Chat() {
   const [t] = useTranslation();
   const [chats, setChats] = useState<any[]>([]);
-  const [chatData, setChatData] = useState<any>({
-    logo: "https://via.placeholder.com/60",
-    name: "Loading...",
-    description: "Real description is loading...",
-    isPrivate: true,
-    usersID: ["loading"],
-    activeUsers: ["loading"]
-  });
   const [messages, setMessages] = useState<any[]>([]);
-  const [users, setUsers] = useState<{ [key: string]: any }[]>([]);
 
   const [newMessage, setNewMessage] = useState<boolean>(false);
 
@@ -54,7 +45,8 @@ export default function Chat() {
   const history = useHistory();
 
   const logged = useSelector((state: RootState) => state.auth.logged);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const chatData = useSelector((state: RootState) => state.chat.data);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
 
   const deletedMessageId = useSelector((state: RootState) => state.chat.deletedMessageId);
@@ -91,7 +83,7 @@ export default function Chat() {
       });
 
       socketRef.current.on("users", (activeUsers: any) => {
-        setChatData({ ...chatData, activeUsers: activeUsers.length });
+        dispatch(setActiveChat({ ...chatData, activeUsers: activeUsers.length }));
       });
 
       socketRef.current.on("new-message", (newMessage: any) => {
@@ -116,14 +108,6 @@ export default function Chat() {
   useEffect(() => {
     if (chats.length === 0) loadChats();
   }, []);
-
-  useEffect(() => {
-    if (roomId && chats && users && users.length === 0) {
-      const currentChat = chats.find((item: any) => item._id === roomId);
-      setChatData(currentChat);
-      setUsers(currentChat?.usersID);
-    }
-  }, [chats, roomId]);
 
   useEffect(() => {
     if (deletedMessageId !== "") {
@@ -175,11 +159,11 @@ export default function Chat() {
       <div className="placeholder-f" />
       <main id="main" className={`chat-page grid ${enlargeChatList ? "enlarge-menu" : ""}`}>
         <ChatList chats={chats} />
-        <ChatArea messages={messages} newMessage={newMessage} socketRef={socketRef} chatData={chatData} />
+        <ChatArea messages={messages} newMessage={newMessage} socketRef={socketRef} />
         <CreateChatModal />
         <AddUserModal />
-        <ChatDataModal socketRef={socketRef} users={users} chatData={chatData} />
-        <ManageChatModal socketRef={socketRef} users={users} chatData={chatData} />
+        <ChatDataModal socketRef={socketRef} />
+        <ManageChatModal socketRef={socketRef} />
         <UserChatMenu />
         <UserSettingsModal />
       </main>

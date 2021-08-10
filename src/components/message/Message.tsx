@@ -30,7 +30,7 @@ export default function Message({
   const [showActions, setShowActions] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const rights = useSelector((state: RootState) => state.chat.rights);
 

@@ -11,12 +11,10 @@ import Message from "../message/Message";
 import "./ChatArea.css";
 
 export default function ChatArea({
-  chatData,
   newMessage,
   messages,
   socketRef
 }: {
-  chatData: { [key: string]: any };
   newMessage: boolean;
   messages: { [key: string]: any }[];
   socketRef: React.MutableRefObject<any>;
@@ -33,7 +31,7 @@ export default function ChatArea({
    */
   const [timeIsOut, setTimeIsOut] = useState(false);
 
-  const chatName = useSelector((state: RootState) => state.chat.chatName);
+  const chatData = useSelector((state: RootState) => state.chat.data);
 
   const listRef = useRef<any>(null);
   const lastElRef = useRef<any>(null);
@@ -52,7 +50,7 @@ export default function ChatArea({
     if (listRef.current) {
       timer(500).subscribe(() => listRef.current.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" }));
     }
-  }, [listRef.current, chatName]);
+  }, [listRef.current, chatData.chatName]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries, observer) => {
@@ -85,7 +83,7 @@ export default function ChatArea({
     <React.Fragment>
       {timeIsOut ? (
         <React.Fragment>
-          {!chatName ? (
+          {!chatData.chatName ? (
             <section className="chat-layout flex a-i-c j-c-f-s f-f-c-n">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,11 +160,7 @@ export default function ChatArea({
             </section>
           ) : (
             <section className={`chat-layout grid ${expand ? "expanded" : ""}`} role="log" aria-live="polite">
-              <ChatHeader
-                socketRef={socketRef}
-                membersCount={chatData?.usersID ? chatData.usersID.length : 2}
-                activeMembersCount={chatData.activeUsers ? chatData.activeUsers : 1}
-              />
+              <ChatHeader socketRef={socketRef} membersCount={chatData.usersID.length} activeMembersCount={chatData.activeUsers} />
               <div className="messages-container">
                 <ul className="messages-list flex j-c-f-e f-f-c-n" ref={listRef} style={space ? { paddingBottom: "100px" } : undefined}>
                   {messages &&

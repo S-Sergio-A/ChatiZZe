@@ -35,9 +35,9 @@ export default function ChatHeader({
   const [settingsCursor, setSettingsCursor] = useState(0);
 
   const userId = useSelector((state: RootState) => state.auth.user._id);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
 
-  const chatName = useSelector((state: RootState) => state.chat.chatName);
+  const chatName = useSelector((state: RootState) => state.chat.data.chatName);
   const showChatData = useSelector((state: RootState) => state.chat.showChatData);
 
   const settingsRef = useRef<any>(null);

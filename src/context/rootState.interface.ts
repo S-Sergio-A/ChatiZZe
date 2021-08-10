@@ -17,10 +17,16 @@ export interface RootState {
     showForgotPassword: boolean;
   };
   chat: {
-    chatName: string;
-    roomId: string;
-    isPrivate: boolean;
-    isUser: boolean;
+    data: {
+      chatName: string;
+      roomId: string;
+      isPrivate: boolean;
+      isUser: boolean;
+      logo: string;
+      description: string;
+      usersID: string[];
+      activeUsers: number;
+    };
     showCreateChat: boolean;
     showManageChatMenu: boolean;
     showAddUser: boolean;

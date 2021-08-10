@@ -41,7 +41,7 @@ export const ChatInput = ({
   const [t] = useTranslation();
   const dispatch = useDispatch();
 
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const username = useSelector((state: RootState) => state.auth.user.username);
   const updatedMessagePrevState = useSelector((state: RootState) => state.chat.updatedMessagePrevState);

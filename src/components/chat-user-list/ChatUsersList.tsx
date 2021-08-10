@@ -31,7 +31,7 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
 
   const [userRights, setUserRights] = useState([]);
 
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const dispatch = useDispatch();
 

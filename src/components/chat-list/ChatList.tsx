@@ -8,7 +8,7 @@ import {
   changeChatListSize,
   displayCreateChatModal,
   displayUserMenu,
-  setActiveChatAction,
+  setActiveChat,
   setCurrentChatRights,
   setUserMenuButtonRef
 } from "../../context/actions/chat";
@@ -31,7 +31,7 @@ export default function ChatList({ chats }: { chats: any[] }) {
   const [hide, setHide] = useState(false);
 
   const userId = useSelector((state: RootState) => state.auth.user._id);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const enlargeChatList = useSelector((state: RootState) => state.chat.enlargeChatList);
 
   const menuRef = useRef<any>(null);
@@ -127,7 +127,18 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         type="button"
                         onClick={() => {
                           loadRights(item._id).then(() => {
-                            dispatch(setActiveChatAction(item.name, item._id, item.isPrivate, item.isUser));
+                            dispatch(
+                              setActiveChat({
+                                chatName: item.name,
+                                roomId: item._id,
+                                isPrivate: item.isPrivate,
+                                isUser: item.isUser,
+                                logo: item.logo,
+                                description: item.description,
+                                usersID: item.usersID,
+                                activeUsers: 1
+                              })
+                            );
                             dispatch(changeChatListSize(false));
                           });
 

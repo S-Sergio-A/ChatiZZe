@@ -22,7 +22,7 @@ export default function AddUserModal() {
 
   const showAddUserModal = useSelector((state: RootState) => state.chat.showAddUser);
   const userId = useSelector((state: RootState) => state.auth.user._id);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   const dispatch = useDispatch();

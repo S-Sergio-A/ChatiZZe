@@ -29,7 +29,7 @@ export default function ChangeUserRightsModal({
   const [t] = useTranslation();
 
   const userId = useSelector((state: RootState) => state.auth.user._id);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
+  const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   const { width } = useWindowDimensions();

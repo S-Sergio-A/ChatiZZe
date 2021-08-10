@@ -15,13 +15,17 @@ import Modal from "../modal/Modal";
 import "./ManageChatModal.css";
 import { setError } from "../../context/actions/error";
 
-export default function ManageChatModal({ users, chatData, socketRef }: { users: any[]; chatData: any; socketRef: any }) {
+export default function ManageChatModal({ socketRef }: { socketRef: any }) {
+  const userId = useSelector((state: RootState) => state.auth.user._id);
+  const chatData = useSelector((state: RootState) => state.chat.data);
+  const showManageChatModal = useSelector((state: RootState) => state.chat.showManageChatMenu);
+  
   const [changeChat, setChangeChat] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const [name, setName] = useState(chatData?.name);
+  const [name, setName] = useState(chatData.chatName);
   const [nameError, setNameError] = useState("");
 
   const [description, setDescription] = useState(chatData?.description);
@@ -33,11 +37,7 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
   const [descrRef, setDescrRef] = useState<any>(null);
 
   const [t] = useTranslation();
-
-  const showManageChatModal = useSelector((state: RootState) => state.chat.showManageChatMenu);
-  const roomId = useSelector((state: RootState) => state.chat.roomId);
-  const userId = useSelector((state: RootState) => state.auth.user._id);
-
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
 
   useEffect(() => {
     if (nameRef && nameRef?.current?.value.length === 0) {
-      nameRef.current.value = chatData?.name;
+      nameRef.current.value = chatData.chatName;
     }
   }, [nameRef]);
 
@@ -71,12 +71,12 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
 
   async function updateChat() {
     await axios
-      .put(userLinks.updateRoom(userId, roomId), {
+      .put(userLinks.updateRoom(userId, chatData.roomId), {
         name,
         description,
         isUser: false,
         isPrivate,
-        membersCount: users.length
+        membersCount: chatData.usersID.length
       })
       .then(({ data, status }) => {
         if (data.error) {
@@ -103,7 +103,7 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
   }
 
   async function deleteChat() {
-    await axios.delete(userLinks.deleteRoom(roomId)).then(({ data, status }) => {
+    await axios.delete(userLinks.deleteRoom(chatData.roomId)).then(({ data, status }) => {
       if (status === 200) {
         dispatch(reloadChats(true));
         closeModal();
@@ -195,7 +195,7 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
           </div>
         </div>
         <div className="ruler f-w" />
-        <ChatUsersList users={users} socketRef={socketRef} />
+        <ChatUsersList users={chatData.usersID} socketRef={socketRef} />
         <div className="ruler f-w" />
         <div className="del-cont flex j-c-c a-i-c">
           <ConfirmationModal

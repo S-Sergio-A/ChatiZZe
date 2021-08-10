@@ -47,10 +47,16 @@ type ChatAction = {
 };
 
 interface ChatType {
-  chatName: string;
-  roomId: string;
-  isPrivate: boolean;
-  isUser: boolean;
+  data: {
+    chatName: string;
+    roomId: string;
+    isPrivate: boolean;
+    isUser: boolean;
+    logo: string;
+    description: string;
+    usersID: string[];
+    activeUsers: number;
+  };
   showChatData: boolean;
   showUserInfo: boolean;
   showAddUser: boolean;
@@ -69,10 +75,16 @@ interface ChatType {
 }
 
 const initialState = {
-  chatName: "initial",
-  roomId: "initial",
-  isPrivate: false,
-  isUser: false,
+  data: {
+    chatName: "initial",
+    roomId: "initial",
+    isPrivate: false,
+    isUser: false,
+    logo: "https://via.placeholder.com/60",
+    description: "Real description is loading...",
+    usersID: ["loading"],
+    activeUsers: 1
+  },
   showChatData: false,
   showUserInfo: false,
   showAddUser: false,
@@ -105,10 +117,16 @@ export const reducer = (state: ChatType = initialState, action: ChatAction): Cha
     case SET_ACTIVE_CHAT: {
       return {
         ...state,
-        chatName: action.payload.chatName,
-        roomId: action.payload.roomId,
-        isPrivate: action.payload.isPrivate,
-        isUser: action.payload.isUser
+        data: {
+          chatName: action.payload.data.chatName,
+          roomId: action.payload.data.roomId,
+          isPrivate: action.payload.data.isPrivate,
+          isUser: action.payload.data.isUser,
+          logo: action.payload.data.logo,
+          description: action.payload.data.description,
+          usersID: action.payload.data.usersID,
+          activeUsers: action.payload.data.activeUsers
+        }
       };
     }
     case SHOW_CREATE_CHAT_MODAL: {

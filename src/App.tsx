@@ -162,7 +162,8 @@ const App = () => {
   }, [logged]);
 
   async function invoke() {
-    return await axios.get(clientLinks.invoke).catch((e) => logError(e));
+    await axios.get(clientLinks.invoke).catch((e) => logError(e));
+    await axios.get("https://chatizze-messages-service.herokuapp.com/").catch((e) => logError(e));
   }
 
   async function __generateClientsToken() {
