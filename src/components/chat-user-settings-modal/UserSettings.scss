@@ -43,6 +43,10 @@
       .change-photo {
         grid-area: 1/1/3/2;
       }
+
+      button {
+        @include columnGap(8px);
+      }
     }
 
     form {

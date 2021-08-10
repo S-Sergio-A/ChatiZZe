@@ -43,6 +43,9 @@
 }
 .user-menu header > p:first-child {
   grid-area: 1/2/2/3;
+  column-gap: 15px;
+  -webkit-column-gap: 15px;
+  -moz-column-gap: 15px;
 }
 .user-menu header > p:last-child {
   grid-area: 2/2/3/3;
@@ -63,8 +66,7 @@
   row-gap: 10px;
   margin-block: 60px;
 }
-.user-menu .list ul .user-menu-item > button,
-.user-menu .list ul .user-menu-item > a {
+.user-menu .list ul .user-menu-item > button, .user-menu .list ul .user-menu-item > a {
   padding: 20px;
   column-gap: 20px;
   -webkit-column-gap: 20px;

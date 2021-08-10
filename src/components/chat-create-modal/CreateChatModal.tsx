@@ -81,8 +81,8 @@ export default function CreateChatModal() {
               errorIdentifier={nameError}
               errorLabelText={nameError}
               onBlur={(event) => setName(event.target.value)}
-              inputId="name"
-              name="name"
+              inputId="chatName"
+              name="chatName"
               inputMode="text"
               autoComplete="off"
               type="text"

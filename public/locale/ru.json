@@ -216,6 +216,7 @@
   "button.confirm": "Подтвердить",
   "button.ch_r": "Изменить права",
   "button.del_ch": "Удалить чат",
+  "button.ch_chat": "Изменить",
   "button.del_u": "Исключить участника",
   "button.leave_room": "Покинуть комнату",
   "button.update": "Обновить",

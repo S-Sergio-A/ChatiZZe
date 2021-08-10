@@ -83,7 +83,7 @@ export default function ChatArea({
     <React.Fragment>
       {timeIsOut ? (
         <React.Fragment>
-          {!chatData.chatName ? (
+          {!chatData.chatName || chatData.chatName === "initial" ? (
             <section className="chat-layout flex a-i-c j-c-f-s f-f-c-n">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

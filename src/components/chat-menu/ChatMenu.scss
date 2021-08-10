@@ -34,6 +34,7 @@
 
     & > p:first-child {
       grid-area: 1/2/2/3;
+      @include columnGap(15px);
     }
 
     & > p:last-child {

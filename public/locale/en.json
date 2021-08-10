@@ -212,6 +212,7 @@
   "button.create": "Create",
   "button.confirm": "Confirm",
   "button.ch_r": "Change rights",
+  "button.ch_chat": "Change",
   "button.del_ch": "Delete chat",
   "button.del_u": "Delete the user",
   "button.leave_room": "Leave the room",

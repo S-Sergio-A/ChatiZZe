@@ -29,22 +29,7 @@ export default function FirstLastNamesSubModal({
   const [lastName, setLastName] = useState(user.lastName);
   const [lastNameError, setLastNameError] = useState("");
 
-  const [firstNameRef, setFirstNameRef] = useState<any>(null);
-  const [lastNameRef, setLastNameRef] = useState<any>(null);
-
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (firstNameRef && firstNameRef?.current?.value.length === 0) {
-      firstNameRef.current.value = firstName;
-    }
-  }, [firstNameRef]);
-
-  useEffect(() => {
-    if (lastNameRef && lastNameRef?.current?.value.length === 0) {
-      lastNameRef.current.value = lastName;
-    }
-  }, [lastNameRef]);
 
   async function changeOptionalData() {
     axios
@@ -96,14 +81,14 @@ export default function FirstLastNamesSubModal({
             labelText={t("label.firstName")}
             errorIdentifier={firstNameError}
             errorLabelText={firstNameError}
-            onBlur={(event) => setFirstName(event.target.value)}
-            inputId="name"
-            name="name"
+            onChange={(event) => setFirstName(event.target.value)}
+            inputId="firstName"
+            name="firstName"
             inputMode="text"
             autoComplete="given-name"
             type="text"
-            setInputRef={setFirstNameRef}
             required
+            value={firstName}
             showTip={false}
             tooltipText={t("tooltip.name")}
           />
@@ -111,14 +96,14 @@ export default function FirstLastNamesSubModal({
             labelText={t("label.lastName")}
             errorIdentifier={lastNameError}
             errorLabelText={lastNameError}
-            onBlur={(event) => setLastName(event.target.value)}
-            inputId="name"
-            name="name"
+            onChange={(event) => setLastName(event.target.value)}
+            inputId="lastName"
+            name="lastName"
             inputMode="text"
             autoComplete="family-name"
             type="text"
-            setInputRef={setLastNameRef}
             required
+            value={lastName}
             showTip={false}
             tooltipText={t("tooltip.name")}
           />

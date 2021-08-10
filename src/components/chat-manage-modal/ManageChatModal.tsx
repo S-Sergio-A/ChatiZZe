@@ -154,8 +154,8 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
                 errorIdentifier={nameError}
                 errorLabelText={nameError}
                 onBlur={(event) => setName(event.target.value)}
-                inputId="name"
-                name="name"
+                inputId="chatName"
+                name="chatName"
                 inputMode="text"
                 autoComplete="off"
                 type="text"
@@ -205,7 +205,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
             message={t("modal.confirm.del_ch")}
           />
           <Button className="btn-pr dark btn-sm-x-w" onClick={() => setConfirmDelete(true)}>
-            <span>{t("button.del_ch")}</span>
+            <span>{t("button.ch_chat")}</span>
           </Button>
         </div>
       </Modal.Body>
