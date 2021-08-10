@@ -31,8 +31,8 @@ export default function InformationPage() {
           {questions.map((item, index) => {
             return (
               <li key={index} className="flex j-c-s-b a-i-f-s f-f-c-n">
-                <h2 className="h3-s">{item.question}</h2>
-                <p>{item.answer}</p>
+                <h2 className="h4-s f-w__600">{item.question}</h2>
+                <p className="h6-s">{item.answer}</p>
               </li>
             );
           })}

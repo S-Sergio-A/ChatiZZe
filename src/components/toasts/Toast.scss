@@ -18,6 +18,7 @@
     .inner-container {
       overflow-y: auto;
       -ms-overflow-y: auto;
+      max-height: inherit;
     }
   }
 }

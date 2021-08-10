@@ -107,7 +107,7 @@
   .info-page,
   .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
-    grid-template-columns: $standard minmax(10px, 1fr) $standard;
+    grid-template-columns: calc(#{$standard * 3}) minmax(10px, 1fr) calc(#{$standard * 3});
   }
 }
 
@@ -115,6 +115,6 @@
   .info-page,
   .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
-    grid-template-columns: $standard minmax(10px, 1fr) $standard;
+    grid-template-columns: calc(#{$standard * 2}) minmax(10px, 1fr) calc(#{$standard * 2});
   }
 }

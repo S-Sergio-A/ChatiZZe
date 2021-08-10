@@ -39,6 +39,7 @@ export const Cookie = () => {
             onClick={() => {
               setRemove(true);
               dispatch(showCookie(false));
+              setCookies("cookie-shown", { shown: true }, cookieOptions(3600 * 24 * 1000));
             }}
           />
         </header>
@@ -46,6 +47,7 @@ export const Cookie = () => {
           <div className="inner-container flex a-i-c j-c-c f-f-c-n">
             <p className="f-w">
               {t("cookie.sen.fir")}
+              <br/>
               <Link to={`/${i18n.language}/cookie-policy`}>{t("cookie.sen.sec")}</Link>
             </p>
             <p className="f-w">{t("cookie.sen.thi")}</p>

@@ -108,14 +108,14 @@
   .info-page,
 .faq-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
-    grid-template-columns: 5px minmax(10px, 1fr) 5px;
+    grid-template-columns: calc(15px) minmax(10px, 1fr) calc(15px);
   }
 }
 @media only screen and (max-width: 320px) {
   .info-page,
 .faq-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
-    grid-template-columns: 5px minmax(10px, 1fr) 5px;
+    grid-template-columns: calc(10px) minmax(10px, 1fr) calc(10px);
   }
 }
 

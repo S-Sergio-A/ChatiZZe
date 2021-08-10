@@ -19,6 +19,7 @@
 .toast > section .inner-container {
   overflow-y: auto;
   -ms-overflow-y: auto;
+  max-height: inherit;
 }
 
 /*# sourceMappingURL=Toast.css.map */

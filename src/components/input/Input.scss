@@ -243,7 +243,7 @@ input {
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .input-con {
     label {
-      @include transform(translateY(2.35rem) scale(0.7));
+      @include transform(translateY(2.5rem) scale(0.7));
       width: max-content;
       width: -moz-max-content;
       max-width: 16rem;
@@ -271,7 +271,7 @@ input {
 @media only screen and (max-width: 320px) {
   .input-con {
     label {
-      @include transform(translateY(2.25rem) scale(0.7));
+      @include transform(translateY(2.35rem) scale(0.7));
       width: max-content;
       width: -moz-max-content;
       max-width: 16rem;

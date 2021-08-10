@@ -10,17 +10,18 @@ import ForgotPasswordModal from "../../components/forgot-password-modal/ForgotPa
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { login, showForgotPassword } from "../../context/actions/auth";
 import { getRandomColor } from "../../utils/color/shadeColor";
+import { TestData } from "../../components/toasts/TestData";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import Checkbox from "../../components/checkbox/Checkbox";
 import { cookieOptions } from "../../utils/cookieOptions";
 import { Button } from "../../components/button/Button";
+import { setError } from "../../context/actions/error";
 import { Input } from "../../components/input/Input";
 import { Card } from "../../components/card/Card";
 import Head from "../../components/head/Head";
 import i18n from "../../utils/i18n/i18n";
 import { logError } from "../error/errorHandler";
 import "./Login.css";
-import { setError } from "../../context/actions/error";
 
 export default function Login() {
   const [userIdentifier, setUserIdentifier] = useState("");
@@ -209,6 +210,7 @@ export default function Login() {
         </Button>
       </section>
       <ForgotPasswordModal />
+      <TestData />
     </main>
   );
 }
