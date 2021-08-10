@@ -19,6 +19,8 @@
 }
 .users > ul li > img {
   grid-area: 1/1/2/2;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

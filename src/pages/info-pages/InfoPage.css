@@ -1,24 +1,34 @@
 .info-page {
-  row-gap: calc(30px);
+  row-gap: 30px;
 }
-.info-page .t-b {
+
+.faq-page {
+  row-gap: 50px;
+}
+
+.info-page .t-b,
+.faq-page .t-b {
   grid-area: 2/2/3/3;
 }
-.info-page .m-b {
+.info-page .m-b,
+.faq-page .m-b {
   grid-area: 3/2/4/3;
   row-gap: 50px;
 }
-.info-page .m-b p {
+.info-page .m-b p,
+.faq-page .m-b p {
   text-align: justify;
   padding: 0;
 }
-.info-page .m-b h2 {
+.info-page .m-b h2,
+.faq-page .m-b h2 {
   padding: 3px;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
 }
-.info-page .m-b .po-l li {
+.info-page .m-b .po-l li,
+.faq-page .m-b .po-l li {
   background: none;
   list-style-type: circle;
   padding: 0;
@@ -30,11 +40,12 @@
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
 }
-.info-page .m-b ul {
+.info-page .m-b ul,
+.faq-page .m-b ul {
   row-gap: 50px;
 }
-.info-page .m-b ul li {
-  padding: 5px;
+.info-page .m-b ul li,
+.faq-page .m-b ul li {
   row-gap: 20px;
   border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -42,57 +53,69 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 40px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(5px * 10) minmax(10px, 1fr) calc(5px * 10);
   }
-  .info-page li {
+  .info-page li,
+.faq-page li {
     padding: calc(10px) calc(25px);
   }
-  .info-page li h2 {
+  .info-page li h2,
+.faq-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 40px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(35px) minmax(10px, 1fr) calc(35px);
   }
-  .info-page li {
+  .info-page li,
+.faq-page li {
     padding: calc(10px) calc(20px);
   }
-  .info-page li h2 {
+  .info-page li h2,
+.faq-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 100px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(25px) minmax(10px, 1fr) calc(25px);
   }
-  .info-page li {
+  .info-page li,
+.faq-page li {
     padding: 5px calc(15px);
   }
-  .info-page li h2 {
+  .info-page li h2,
+.faq-page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 100px minmax(10px, 1fr) calc(5px * 10);
     grid-template-columns: calc(20px) minmax(10px, 1fr) calc(20px);
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
-    grid-template-columns: calc(15px) minmax(10px, 1fr) calc(15px);
+    grid-template-columns: 5px minmax(10px, 1fr) 5px;
   }
 }
 @media only screen and (max-width: 320px) {
-  .info-page {
+  .info-page,
+.faq-page {
     grid-template-rows: calc(20px) 130px minmax(10px, 1fr) calc(5px * 10);
-    grid-template-columns: calc(10px) minmax(10px, 1fr) calc(10px);
+    grid-template-columns: 5px minmax(10px, 1fr) 5px;
   }
 }
 

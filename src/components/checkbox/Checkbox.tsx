@@ -41,7 +41,7 @@ const Checkbox = ({ id = undefined, className = "", onClick, reverseLayout = fal
     "Space",
     () => {
       if (customCheckboxRef.current && customCheckboxRef.current === document.activeElement) {
-        setNativeFocused(!nativeFocused);
+        setChecked(!checked);
         onClick();
       }
     },

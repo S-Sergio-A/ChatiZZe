@@ -65,6 +65,8 @@ export default function Message({
         <div className="message-user-image flex a-i-f-e j-c-c">
           {nextMessageAuthorId === user._id ? null : (
             <img
+              width={60}
+              height={60}
               src={user.photo ? user.photo : cookies["dummy-photo"] ? cookies["dummy-photo"].photo : "https://via.placeholder.com/60"}
               alt={user.username}
             />

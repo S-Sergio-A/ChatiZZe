@@ -25,9 +25,13 @@ function Wrapper() {
   const layout = useSelector((state: RootState) => state.theme.layout);
 
   useEffect(() => {
-    // console.log(i18n.language);
     // sendErrorReport();
   }, []);
+
+  function handleReturn() {
+    history.push({ pathname: `/${i18n.language}` });
+    history.go(0);
+  }
 
   return (
     <Fragment>
@@ -43,7 +47,7 @@ function Wrapper() {
         }}
       />
       {/* @ts-ignore*/}
-      <ErrorBoundary handleReturn={() => history.push({ pathname: `/${i18n.language}` })}>
+      <ErrorBoundary handleReturn={handleReturn}>
         <CookiesProvider>
           <CloudinaryContext cloudName="gachi322">
             <I18nextProvider i18n={i18n}>

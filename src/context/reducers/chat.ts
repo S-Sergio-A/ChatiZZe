@@ -69,8 +69,8 @@ interface ChatType {
 }
 
 const initialState = {
-  chatName: "",
-  roomId: "",
+  chatName: "initial",
+  roomId: "initial",
   isPrivate: false,
   isUser: false,
   showChatData: false,

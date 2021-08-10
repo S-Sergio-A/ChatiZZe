@@ -90,8 +90,17 @@ export const Menu = () => {
       <span>{t("chatMenu.faq")}</span>
     </Link>,
     !logged ? (
-      <Link to={`/${i18n.language}/locations`} className="a-i-c t-c flex f-w f-h j-c-f-s h6-s btn-sec no-border">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 511.999 511.999" xmlSpace="preserve">
+      <Link to={`/${i18n.language}/user/login`} className="a-i-c t-c flex f-w f-h j-c-f-s h6-s btn-sec no-border">
+        <svg
+          height="24px"
+          width="24px"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          viewBox="0 0 511.999 511.999"
+          xmlSpace="preserve"
+        >
           <path
             d="M418.071,297.743h-40.208H93.929c-31.846,0-57.754,25.909-57.754,57.755s25.909,57.754,57.754,57.754h33.852
             l-4.369,3.549c-5.031,4.088-7.295,10.561-5.909,16.892c1.386,6.332,6.147,11.268,12.426,12.879l2.269,0.583l-11.198,43.629

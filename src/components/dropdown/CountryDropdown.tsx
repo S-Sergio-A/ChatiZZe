@@ -6,15 +6,7 @@ import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import { Button } from "../button/Button";
 import "./CountryDropdown.css";
 
-export const CountryDropdown = ({
-  onClick,
-  phoneCode,
-  userStartedToInput
-}: {
-  onClick: Dispatch<React.SetStateAction<string>>;
-  phoneCode: string;
-  userStartedToInput: boolean;
-}) => {
+export const CountryDropdown = ({ onClick, phoneCode }: { onClick: Dispatch<React.SetStateAction<string>>; phoneCode: string }) => {
   const [t] = useTranslation();
 
   const [listOfCountries, setListOfCountries] = useState(countries);
@@ -32,23 +24,21 @@ export const CountryDropdown = ({
   }, []);
 
   useEffect(() => {
-    if (!userStartedToInput) {
-      const threeDigitsPhoneCode = phoneCode.substring(0, 4);
-      const twoDigitsPhoneCode = phoneCode.substring(0, 3);
-      const oneDigitPhoneCode = phoneCode.substring(0, 2);
+    const threeDigitsPhoneCode = phoneCode.substring(0, 4);
+    const twoDigitsPhoneCode = phoneCode.substring(0, 3);
+    const oneDigitPhoneCode = phoneCode.substring(0, 2);
 
-      const oneDigitCountries = countries.filter((item) => item.phone_code === oneDigitPhoneCode);
-      const twoDigitsCountries = countries.filter((item) => item.phone_code === twoDigitsPhoneCode);
-      const threeDigitsCountries = countries.filter((item) => item.phone_code === threeDigitsPhoneCode);
+    const oneDigitCountries = countries.filter((item) => item.phone_code === oneDigitPhoneCode);
+    const twoDigitsCountries = countries.filter((item) => item.phone_code === twoDigitsPhoneCode);
+    const threeDigitsCountries = countries.filter((item) => item.phone_code === threeDigitsPhoneCode);
 
-      const filteredCountries = [...threeDigitsCountries, ...twoDigitsCountries, ...oneDigitCountries];
+    const filteredCountries = [...threeDigitsCountries, ...twoDigitsCountries, ...oneDigitCountries];
 
-      if (filteredCountries.length !== 0) {
-        setCountry(filteredCountries[0].name);
-        onClick(filteredCountries[0].phone_code);
-      }
+    if (filteredCountries.length !== 0) {
+      setCountry(filteredCountries[0].name);
+      onClick(filteredCountries[0].phone_code);
     }
-  }, [phoneCode, userStartedToInput]);
+  }, [phoneCode]);
 
   useEffect(() => {
     if (country.length === 0) {

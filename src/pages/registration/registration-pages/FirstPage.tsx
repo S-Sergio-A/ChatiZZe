@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, Fragment, useRef } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, Fragment, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { CountryDropdown } from "../../../components/dropdown/CountryDropdown";
 import { Input } from "../../../components/input/Input";
@@ -11,10 +11,14 @@ interface FirstPageProps {
 
 export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: FirstPageProps) => {
   const [t] = useTranslation();
-  const userStartedToInputRef = useRef(false);
+  const userStartedToInputRef = useRef<any>(null);
+
+  useEffect(() => {
+    userStartedToInputRef.current = false;
+  }, []);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    userStartedToInputRef.current = true;
+    if (phoneNumber.length > 4) userStartedToInputRef.current = true;
 
     let targetValue = event.target.value;
 
@@ -27,9 +31,10 @@ export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: Fir
   return (
     <Fragment>
       <CountryDropdown
-        onClick={(value) => setPhoneNumber(value)}
+        onClick={(value) => {
+          if (userStartedToInputRef.current && userStartedToInputRef.current === false) setPhoneNumber(value);
+        }}
         phoneCode={phoneNumber.substring(0, 4)}
-        userStartedToInput={userStartedToInputRef.current}
       />
       <Input
         labelText={t("label.phone")}

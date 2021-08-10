@@ -23,7 +23,18 @@ function logout(removeCookie: (name: string) => void) {
 
 function checkState(cookies: any) {
   const logged = cookies.hasOwnProperty("user-auth") ? cookies["user-auth"]?.logged : false;
-  const user = cookies.hasOwnProperty("user-data") ? cookies["user-data"]?.userId : {};
+  const user = cookies.hasOwnProperty("user-data")
+    ? cookies["user-data"]
+    : {
+        _id: "initial",
+        username: "initial",
+        email: "initial",
+        phoneNumber: "initial",
+        photo: "initial",
+        firstName: "initial",
+        lastName: "initial",
+        birthday: "initial"
+      };
 
   return { type: CHECK_STATE, payload: { logged, user } };
 }

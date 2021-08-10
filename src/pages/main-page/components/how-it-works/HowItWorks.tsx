@@ -50,7 +50,12 @@ export default function HowItWorks() {
       </div>
       <div className="col flex a-i-c j-c-f-s f-f-c-n">
         <figure className="f-w flex a-i-c j-c-c f-f-c-n">
-          <video className="demo-img" controls preload="metadata" poster="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/chat-demo-r-min_xedstv.png" />
+          <video
+            className="demo-img"
+            controls
+            preload="metadata"
+            poster="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/chat-demo-r-min_xedstv.png"
+          />
           <figcaption className="flex a-i-c j-c-s-b">
             <Button onClick={play} type="button" ariaLabel={t("main.how_w.alt")} className="btn-i">
               <svg

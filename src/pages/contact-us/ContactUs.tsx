@@ -3,7 +3,6 @@ import { useCookies } from "react-cookie";
 import { useRef, useState } from "react";
 import { timer } from "rxjs";
 import axios from "axios";
-import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import { Dropdown } from "../../components/dropdown/Dropdown";
 import { clientLinks } from "../../utils/api-endpoints.enum";
@@ -12,12 +11,14 @@ import { Input } from "../../components/input/Input";
 import Head from "../../components/head/Head";
 import { logError } from "../error/errorHandler";
 import "./ContactUs.css";
+import useDropdownNavigation from "../../utils/hooks/useDropdownNavigation";
 
 const maxLength = 1200;
 const options = ["choose", "careers", "support", "pr"];
 
 export default function ContactUs() {
   const [showSubjects, setShowSubjects] = useState(false);
+  const [cursor, setCursor] = useState(0);
 
   const [contactForm, setContactForm] = useState({
     subject: "option.choose",
@@ -37,8 +38,6 @@ export default function ContactUs() {
 
   const [cookies] = useCookies([]);
   const [t] = useTranslation();
-
-  const { width } = useWindowDimensions();
 
   const dropdownRef = useRef<any>(null);
   const subjectButtonRef = useRef<any>(null);
@@ -128,6 +127,18 @@ export default function ContactUs() {
 
   useOutsideClick(dropdownRef, () => setShowSubjects(false), subjectButtonRef);
 
+  useDropdownNavigation({
+    focused: showSubjects,
+    list: options,
+    cursor,
+    setCursor,
+    onEnterClick: () => {
+      setContactForm({ ...contactForm, subject: `option.${options[cursor]}` });
+      setShowSubjects(false);
+    },
+    deps: []
+  });
+
   return (
     <main id="main" className="contact-page grid">
       <Head title={t("contactUs.seo.title")} description={t("contactUs.seo.description")} />
@@ -182,7 +193,7 @@ export default function ContactUs() {
             required
             autoComplete="given-name"
             tooltipText={t("tooltip.name")}
-            overlayPlacement={width < 1200 ? "bottom" : "right"}
+            overlayPlacement="top"
           />
           <Input
             errorIdentifier={contactFormError.lastNameError}
@@ -199,7 +210,7 @@ export default function ContactUs() {
             required
             autoComplete="family-name"
             tooltipText={t("tooltip.name")}
-            overlayPlacement={width < 1200 ? "bottom" : "right"}
+            overlayPlacement="top"
           />
           <Input
             errorIdentifier={contactFormError.emailError}
@@ -216,7 +227,7 @@ export default function ContactUs() {
             required
             autoComplete="email"
             tooltipText={t("tooltip.email")}
-            overlayPlacement={width < 1200 ? "bottom" : "right"}
+            overlayPlacement="top"
           />
           <div className="ta-r">
             <label htmlFor="message" className="form-l a-s-f-s f-w h6-s" tabIndex={-1}>

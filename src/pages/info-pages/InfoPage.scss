@@ -1,8 +1,15 @@
 @import "../../styles/Extensions";
 
 .info-page {
-  row-gap: calc(#{$standard * 6});
+  row-gap: 30px;
+}
 
+.faq-page {
+  row-gap: 50px;
+}
+
+.info-page,
+.faq-page {
   .t-b {
     grid-area: 2/2/3/3;
   }
@@ -33,7 +40,6 @@
       row-gap: 50px;
 
       li {
-        padding: $standard;
         row-gap: 20px;
         @include border-radius(8px);
       }
@@ -42,7 +48,8 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
 
@@ -57,7 +64,8 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 7}) minmax(10px, 1fr) calc(#{$standard * 7});
 
@@ -72,7 +80,8 @@
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 5}) minmax(10px, 1fr) calc(#{$standard * 5});
 
@@ -87,22 +96,25 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard * 4}) minmax(10px, 1fr) calc(#{$standard * 4});
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
-    grid-template-columns: calc(#{$standard * 3}) minmax(10px, 1fr) calc(#{$standard * 3});
+    grid-template-columns: $standard minmax(10px, 1fr) $standard;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .info-page {
+  .info-page,
+  .faq-page {
     grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
-    grid-template-columns: calc(#{$standard * 2}) minmax(10px, 1fr) calc(#{$standard * 2});
+    grid-template-columns: $standard minmax(10px, 1fr) $standard;
   }
 }

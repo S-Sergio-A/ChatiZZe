@@ -1,14 +1,14 @@
 import { CHECK_STATE, LOGIN, LOGOUT, SHOW_FORGOT_PASSWORD } from "../consts/actionTypes";
 
 const initialUserState = {
-  _id: "",
-  username: "",
-  email: "",
-  phoneNumber: "",
-  photo: "",
-  firstName: "",
-  lastName: "",
-  birthday: ""
+  _id: "initial",
+  username: "initial",
+  email: "initial",
+  phoneNumber: "initial",
+  photo: "initial",
+  firstName: "initial",
+  lastName: "initial",
+  birthday: "initial"
 };
 
 type AuthAction = {

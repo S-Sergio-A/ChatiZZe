@@ -61,6 +61,7 @@ module.exports = {
       patterns: [
         { from: "./public/manifest.json", to: "manifest.json" },
         { from: "./public/locale", to: "locale" },
+        { from: "./public/fonts", to: "fonts" },
         { from: "./public/robots.txt", to: "robots.txt" },
         { from: "./public/manifest-icons", to: "manifest-icons" },
         { from: "./src/server.js", to: "server.js" },

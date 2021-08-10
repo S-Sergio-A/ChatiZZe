@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { io } from "socket.io-client";
 import { timer } from "rxjs";
+import i18n from "i18next";
 import axios from "axios";
 import {
   reloadChats,
@@ -22,9 +25,8 @@ import ChatList from "../../components/chat-list/ChatList";
 import ChatArea from "../../components/chat-area/ChatArea";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import "../../components/chat-modals/ChatModals.css";
-import "./Chat.css";
 import Head from "../../components/head/Head";
-import { useTranslation } from "react-i18next";
+import "./Chat.css";
 
 export default function Chat() {
   const [t] = useTranslation();
@@ -39,8 +41,12 @@ export default function Chat() {
 
   const socketRef = useRef<any>(null);
   const indexOfUpdated = useRef(-1);
+
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
+  const logged = useSelector((state: RootState) => state.auth.logged);
   const roomId = useSelector((state: RootState) => state.chat.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
 
@@ -51,6 +57,12 @@ export default function Chat() {
   const showUserMenu = useSelector((state: RootState) => state.chat.showUserMenu);
   const enlargeChatList = useSelector((state: RootState) => state.chat.enlargeChatList);
   const reload = useSelector((state: RootState) => state.chat.reload);
+
+  useEffect(() => {
+    if (!logged) {
+      history.push({ pathname: `/${i18n.language}/user/login` });
+    }
+  }, [logged]);
 
   useEffect(() => {
     if (roomId.length !== 0 && userId.length !== 0) {

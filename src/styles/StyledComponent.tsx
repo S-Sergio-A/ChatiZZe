@@ -404,6 +404,7 @@ export const GlobalStyle = createGlobalStyle`
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
       -webkit-box-shadow: 0 0 0 30px ${(props: any) => props.theme.primaryColor} inset !important;
+      -webkit-text-fill-color: ${(props: any) => props.theme.secondaryColor} !important;
     }
 
     & label {

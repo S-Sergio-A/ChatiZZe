@@ -6,7 +6,7 @@ export default function InformationPage() {
   const questions: { question: string; answer: string }[] = Array.from(t(`infoPages.faq`, { returnObjects: true }));
 
   return (
-    <main id="main" className="info-page grid">
+    <main id="main" className="faq-page grid">
       <Head
         title={t("infoPages.faq.seo.title")}
         description={t("infoPages.faq.seo.description")}
@@ -30,7 +30,7 @@ export default function InformationPage() {
         <ul className="flex j-c-s-b a-i-f-s f-f-c-n f-w f-h">
           {questions.map((item, index) => {
             return (
-              <li key={index} className="flex j-c-s-b a-i-f-s f-w f-h f-f-c-n">
+              <li key={index} className="flex j-c-s-b a-i-f-s f-f-c-n">
                 <h2 className="h3-s">{item.question}</h2>
                 <p>{item.answer}</p>
               </li>
