@@ -54,6 +54,8 @@ export default function UsernameChangeForm({
         if (data.error) {
           if (data.error.username) {
             setUsernameError(data.error.username);
+          } else {
+            setUsernameError("");
           }
         } else {
           dispatch(setError(data.error.message));

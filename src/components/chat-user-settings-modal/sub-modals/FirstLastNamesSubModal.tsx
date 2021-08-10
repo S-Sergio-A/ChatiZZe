@@ -66,10 +66,14 @@ export default function FirstLastNamesSubModal({
         if (data.error) {
           if (data.error.firstName) {
             setFirstNameError(data.error.firstName);
+          } else {
+            setFirstNameError("");
           }
 
           if (data.error.lastName) {
             setLastNameError(data.error.lastName);
+          } else {
+            setLastNameError("");
           }
         } else {
           if (data.user) {

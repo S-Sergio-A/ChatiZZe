@@ -68,21 +68,39 @@ export default function Registration() {
         if (error) {
           if (error.email) {
             setEmailError(error.email);
+          } else {
+            setEmailError("");
           }
           if (error.phoneNumber) {
             setPhoneNumberError(error.phoneNumber);
+          } else {
+            setPhoneNumberError("");
           }
           if (error.username) {
             setUsernameError(error.username);
+          } else {
+            setUsernameError("");
           }
           if (error.password) {
             setPasswordError(error.password);
+          } else {
+            setPasswordError("");
           }
           if (error.passwordVerification) {
             setPasswordVerificationError(error.passwordVerification);
+          } else {
+            setPasswordVerificationError("");
           }
           if (error.internalFailure) {
             dispatch(setError(error.internalFailure));
+          }
+
+          if (error.phoneNumber) {
+            setCurrentPage(1);
+          } else if (error.email || error.username) {
+            setCurrentPage(2);
+          } else if (error.password || error.passwordVerification) {
+            setCurrentPage(3);
           }
         } else {
           setPhoneNumber("");

@@ -38,6 +38,8 @@ export default function ForgotPasswordModal() {
       .then(({ data, status }) => {
         if (data.error.email) {
           setEmailError(data.error.email);
+        } else {
+          setEmailError("");
         }
 
         if (!data.error && status === 200) setPage(2);

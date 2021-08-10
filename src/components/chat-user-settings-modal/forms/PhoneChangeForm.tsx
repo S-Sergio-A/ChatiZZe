@@ -48,6 +48,8 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         if (data.error) {
           if (data.error.phoneNumber) {
             setPhoneError(data.error.phoneNumber);
+          } else {
+            setPhoneError("");
           }
         } else {
           dispatch(setError(data.error.message));

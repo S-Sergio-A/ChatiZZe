@@ -55,6 +55,8 @@ export default function BirthdaySubModal({
         if (data.error) {
           if (data.error.birthday) {
             setBirthdayError(data.error.birthday);
+          } else {
+            setBirthdayError("");
           }
         } else {
           if (data.user) {

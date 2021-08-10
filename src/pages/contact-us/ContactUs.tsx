@@ -77,11 +77,21 @@ export default function ContactUs() {
                   ...contactFormError,
                   subjectError: error.subject
                 });
+              } else {
+                setContactFormError({
+                  ...contactFormError,
+                  subjectError: ""
+                });
               }
               if (error.firstName) {
                 setContactFormError({
                   ...contactFormError,
                   firstNameError: error.firstName
+                });
+              } else {
+                setContactFormError({
+                  ...contactFormError,
+                  firstNameError: ""
                 });
               }
               if (error.lastName) {
@@ -89,17 +99,32 @@ export default function ContactUs() {
                   ...contactFormError,
                   lastNameError: error.lastName
                 });
+              } else {
+                setContactFormError({
+                  ...contactFormError,
+                  lastNameError: ""
+                });
               }
               if (error.email) {
                 setContactFormError({
                   ...contactFormError,
                   emailError: error.email
                 });
+              } else {
+                setContactFormError({
+                  ...contactFormError,
+                  emailError: ""
+                });
               }
               if (error.message) {
                 setContactFormError({
                   ...contactFormError,
                   messageError: error.message
+                });
+              } else {
+                setContactFormError({
+                  ...contactFormError,
+                  messageError: ""
                 });
               }
             } else {

@@ -49,7 +49,11 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
           if (data.error.email) {
             setEmailError(data.error.email);
           }
-        } else {
+        }else {
+          setEmailError("");
+        }
+  
+        if (data.error.message) {
           dispatch(setError(data.error.message));
         }
       });

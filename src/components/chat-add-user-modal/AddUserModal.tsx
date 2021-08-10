@@ -99,6 +99,10 @@ export default function AddUserModal() {
           if (data.error.newUserIdentifier) {
             setNewUserIdError(data.error.newUserIdentifier);
           } else {
+            setNewUserIdError("");
+          }
+
+          if (data.error.message) {
             dispatch(setError(data.error.message));
           }
         } else {

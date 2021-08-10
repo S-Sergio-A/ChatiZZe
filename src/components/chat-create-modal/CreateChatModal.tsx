@@ -53,10 +53,14 @@ export default function CreateChatModal() {
         if (data.error) {
           if (data.error.name) {
             setNameError(data.error.name);
+          } else {
+            setNameError("");
           }
 
           if (data.error.description) {
             setDescriptionError(data.error.description);
+          } else {
+            setDescriptionError("");
           }
         } else {
           dispatch(setError(data.error.message));

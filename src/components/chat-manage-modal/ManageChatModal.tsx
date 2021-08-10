@@ -82,11 +82,17 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
         if (data.error) {
           if (data.error.name) {
             setNameError(data.error.name);
+          } else {
+            setNameError("");
           }
 
           if (data.error.description) {
             setDescriptionError(data.error.description);
           } else {
+            setDescriptionError("");
+          }
+
+          if (data.error.message) {
             dispatch(setError(data.error.message));
           }
         } else {
