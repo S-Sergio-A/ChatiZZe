@@ -14,11 +14,11 @@ export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: Fir
   const userStartedToInputRef = useRef<any>(null);
 
   useEffect(() => {
-    userStartedToInputRef.current = false;
+    userStartedToInputRef.current = "false";
   }, []);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    if (phoneNumber.length > 4) userStartedToInputRef.current = true;
+    if (phoneNumber.length > 4) userStartedToInputRef.current = "true";
 
     let targetValue = event.target.value;
 
@@ -32,7 +32,7 @@ export const FirstPage = ({ phoneNumber, setPhoneNumber, phoneNumberError }: Fir
     <Fragment>
       <CountryDropdown
         onClick={(value) => {
-          if (userStartedToInputRef.current && userStartedToInputRef.current === false) setPhoneNumber(value);
+          if (userStartedToInputRef.current && userStartedToInputRef.current === "false") setPhoneNumber(value);
         }}
         phoneCode={phoneNumber.substring(0, 4)}
       />

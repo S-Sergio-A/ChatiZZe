@@ -21,13 +21,13 @@ export default function ManageChatModal({ users, chatData, socketRef }: { users:
   const [firstRender, setFirstRender] = useState(true);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const [name, setName] = useState(chatData.name);
+  const [name, setName] = useState(chatData?.name);
   const [nameError, setNameError] = useState("");
 
-  const [description, setDescription] = useState(chatData.description);
+  const [description, setDescription] = useState(chatData?.description);
   const [descriptionError, setDescriptionError] = useState("");
 
-  const [isPrivate, setIsPrivate] = useState(chatData.isPrivate);
+  const [isPrivate, setIsPrivate] = useState(chatData?.isPrivate);
 
   const [nameRef, setNameRef] = useState<any>(null);
   const [descrRef, setDescrRef] = useState<any>(null);

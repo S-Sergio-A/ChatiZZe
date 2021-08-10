@@ -31,10 +31,10 @@ export default function ChatDataModal({
         <h1 className="h5-s">{t("modal.chatData.header")}</h1>
         <div className="group-info flex a-i-c j-c-s-b">
           <ChangePhoto
-            type={chatData.logo ? "img" : "svg"}
+            type={chatData?.logo ? "img" : "svg"}
             alt={`${chatData?.name} ${t("chatLogo")}`}
             previousState={
-              chatData.logo ? (
+              chatData?.logo ? (
                 chatData.logo
               ) : (
                 <svg height="100" viewBox="0 0 512 512" width="100" xmlns="http://www.w3.org/2000/svg" className="chat-logo">
