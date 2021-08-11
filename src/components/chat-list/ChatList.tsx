@@ -71,7 +71,7 @@ export default function ChatList({ chats }: { chats: any[] }) {
   }
 
   async function enterRoom(roomId: string) {
-    await axios.post(userLinks.enterPublicRoom(userId, roomId));
+    await axios.put(userLinks.enterPublicRoom(userId, roomId));
   }
 
   async function searchRooms(): Promise<void> {
