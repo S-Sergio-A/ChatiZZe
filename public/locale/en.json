@@ -348,6 +348,8 @@
   "users": " users",
   "usersH": "Users",
   "usersOnline": " users online",
+  "loading": "Loading...",
+  "attachment": "*Attachment*",
 
   "cookie.header": "Cookie",
   "cookie.sen.fir": "This website uses cookie in order to offer the most relevant information and optimal performance.",

@@ -70,9 +70,13 @@ export default function ChatList({ chats }: { chats: any[] }) {
     });
   }
 
+  async function enterRoom(roomId: string) {
+    await axios.post(userLinks.enterPublicRoom(userId, roomId));
+  }
+
   async function searchRooms(): Promise<void> {
     if (searchQuery.length !== 0) {
-      axios.get(userLinks.searchRooms(searchQuery)).then(({ data }) => {
+      axios.get(userLinks.searchRooms(searchQuery, userId)).then(({ data }) => {
         if (data.length > 0) {
           if (notFound) {
             setNotFound(false);
@@ -126,30 +130,34 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         className={`chat btn-sec no-border f-w f-h grid ${roomId === item._id ? "active" : ""}`}
                         type="button"
                         onClick={() => {
-                          loadRights(item._id).then(() => {
-                            dispatch(
-                              setActiveChat({
-                                chatName: item.name,
-                                roomId: item._id,
-                                isPrivate: item.isPrivate,
-                                isUser: item.isUser,
-                                photo: item.photo,
-                                description: item.description,
-                                usersID: item.usersID,
-                                activeUsers: 1,
-                                recentMessage: {
-                                  text: "loading...",
-                                  attachment: ["loading..."],
-                                  timestamp: "loading...",
-                                  user: {
-                                    _id: "br",
-                                    username: "Loading..."
+                          if (!item.usersID.includes(userId)) {
+                            enterRoom(item._id);
+                          } else {
+                            loadRights(item._id).then(() => {
+                              dispatch(
+                                setActiveChat({
+                                  chatName: item.name,
+                                  roomId: item._id,
+                                  isPrivate: item.isPrivate,
+                                  isUser: item.isUser,
+                                  photo: item.photo,
+                                  description: item.description,
+                                  usersID: item.usersID,
+                                  activeUsers: 1,
+                                  recentMessage: {
+                                    text: "loading...",
+                                    attachment: ["loading..."],
+                                    timestamp: "loading...",
+                                    user: {
+                                      _id: "br",
+                                      username: "Loading..."
+                                    }
                                   }
-                                }
-                              })
-                            );
-                            dispatch(changeChatListSize(false));
-                          });
+                                })
+                              );
+                              dispatch(changeChatListSize(false));
+                            });
+                          }
 
                           timer(300).subscribe(() => {
                             if (searchQuery.length > 0 && inputRef.current) {
@@ -192,7 +200,11 @@ export default function ChatList({ chats }: { chats: any[] }) {
                             {item?.recentMessage?.user?._id === cookies.userId ? "You" : item.recentMessage.user.username}:
                           </span>
                           <span className="message flex a-i-c j-c-f-s">
-                            {item?.recentMessage?.text ? item.recentMessage.text : t("attachment")}
+                            {item?.recentMessage?.text
+                              ? item.recentMessage.text
+                              : item?.recentMessage?.attachment
+                              ? t("attachment")
+                              : t("loading")}
                           </span>
                         </div>
                       </button>

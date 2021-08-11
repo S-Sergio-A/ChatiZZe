@@ -16,7 +16,7 @@ export default function ActivationModal() {
   return (
     <Modal onModalClose={() => dispatch(showNotActivated(false))} show={notActivated} className="chat error">
       <Modal.Header onCloseModal={() => dispatch(showNotActivated(false))} layoutType="grid">
-        <h1 className="h5-s">{t("modal.activation.header")}</h1>
+        <h1 className="h6-s">{t("modal.activation.header")}</h1>
       </Modal.Header>
       <Modal.Body className="flex t-c">
         <p className="h6-s">

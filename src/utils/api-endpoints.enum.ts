@@ -25,7 +25,7 @@ export const userLinks = {
   createRoom: "/create-room",
   loadRooms: "/rooms",
   loadUserRooms: "/user-rooms",
-  searchRooms: (name: string) => `/room/${name}`,
+  searchRooms: (name: string, userId: string) => `/room/${name}?userId=${userId}`,
   updateRoom: (userId: string, roomId: string) => `/room?roomId=${roomId}&userId=${userId}`,
   changeRoomPhoto: (userId: string, roomId: string) => `/room-photo?roomId=${roomId}&userId=${userId}`,
   deleteRoom: (userId: string, roomId: string) => `/room?userId=${userId}&roomId=${roomId}`,
