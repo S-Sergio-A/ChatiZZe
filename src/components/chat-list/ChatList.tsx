@@ -185,14 +185,14 @@ export default function ChatList({ chats }: { chats: any[] }) {
                           <span className="name t-l a-s-c f-w__900">
                             {item.isUser ? <img src={"channelIcon"} alt="" /> : null} {item.name}
                           </span>
-                          <span className="time t-l a-s-c">{item.recentMessage.timestamp}</span>
+                          <span className="time t-l a-s-c">{item?.recentMessage?.timestamp}</span>
                         </div>
                         <div className="chat-message grid">
                           <span className="author flex a-i-c j-c-f-s">
-                            {item.recentMessage.user._id === cookies.userId ? "You" : item.recentMessage.user.username}:
+                            {item?.recentMessage?.user?._id === cookies.userId ? "You" : item.recentMessage.user.username}:
                           </span>
                           <span className="message flex a-i-c j-c-f-s">
-                            {item.recentMessage.text ? item.recentMessage.text : t("attachment")}
+                            {item?.recentMessage?.text ? item.recentMessage.text : t("attachment")}
                           </span>
                         </div>
                       </button>
