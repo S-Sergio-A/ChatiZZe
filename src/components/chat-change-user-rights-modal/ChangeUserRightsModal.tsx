@@ -5,11 +5,11 @@ import axios from "axios";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { RootState } from "../../context/rootState.interface";
 import { userLinks } from "../../utils/api-endpoints.enum";
+import { setError } from "../../context/actions/error";
 import Checkbox from "../checkbox/Checkbox";
 import { Button } from "../button/Button";
 import Modal from "../modal/Modal";
 import "./ChangeR.css";
-import { setError } from "../../context/actions/error";
 
 export default function ChangeUserRightsModal({
   userRights,

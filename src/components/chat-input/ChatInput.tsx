@@ -7,11 +7,11 @@ import { resetUpdatedMessagePrevState, setUpdatedMessageNewState } from "../../c
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 import { RootState } from "../../context/rootState.interface";
+import { fileToBase64 } from "../../utils/fileToBase64";
 import useKeyDown from "../../utils/hooks/useKeyDown";
+import Modal from "../modal/Modal";
 import { Button } from "../button/Button";
 import "./ChatInput.css";
-import Modal from "../modal/Modal";
-import { fileToBase64 } from "../../utils/fileToBase64";
 
 type TextMessage = {
   text: string;
@@ -41,6 +41,7 @@ export const ChatInput = ({
   const [t] = useTranslation();
   const dispatch = useDispatch();
 
+  const rights = useSelector((state: RootState) => state.chat.rights);
   const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const username = useSelector((state: RootState) => state.auth.user.username);
@@ -217,6 +218,14 @@ export const ChatInput = ({
     textAreaRef.current.blur();
   });
 
+  useKeyDown(
+    "Enter",
+    () => {
+      if (textAreaRef.current && textAreaRef.current === document.activeElement) sendMessage();
+    },
+    [textAreaRef.current && textAreaRef.current === document.activeElement]
+  );
+
   return (
     <Fragment>
       <div className="input-area grid" ref={inputAreaRef} aria-expanded={expand}>
@@ -288,10 +297,20 @@ export const ChatInput = ({
           style={expand ? { rowGap: "15px" } : undefined}
         >
           <div className="attach-file-btn">
-            <input onChange={onFileChange} type="file" accept="image/*" hidden ref={inputRef} className="none" multiple />
+            <input
+              onChange={onFileChange}
+              type="file"
+              accept="image/*"
+              hidden
+              ref={inputRef}
+              className="none"
+              multiple
+              disabled={!rights.includes("SEND_ATTACHMENTS")}
+            />
             <Button
               onClick={() => inputRef.current && inputRef.current.click()}
               type="button"
+              disabled={!rights.includes("SEND_ATTACHMENTS")}
               className="btn-i btn-sec btn-r no-border"
               ariaLabel={t("ariaLabel.button.attach")}
             >
@@ -356,10 +375,17 @@ export const ChatInput = ({
             onChange={onChange}
             aria-expanded={expand}
             value={message.text}
+            disabled={!rights.includes("SEND_MESSAGES")}
           />
         </div>
         <div className="flex j-c-c a-i-c">
-          <Button onClick={sendMessage} type="button" className="btn-i btn-sec btn-r no-border" ariaLabel={t("ariaLabel.button.send")}>
+          <Button
+            onClick={sendMessage}
+            type="button"
+            className="btn-i btn-sec btn-r no-border"
+            ariaLabel={t("ariaLabel.button.send")}
+            disabled={!rights.includes("SEND_MESSAGES")}
+          >
             {editing ? (
               <svg
                 version="1.1"
@@ -403,6 +429,7 @@ export const ChatInput = ({
               <Button
                 onClick={() => inputRef.current && inputRef.current.click()}
                 type="button"
+                disabled={!rights.includes("SEND_ATTACHMENTS")}
                 className="btn-i btn-sec btn-r no-border"
                 ariaLabel={t("ariaLabel.button.attach")}
               >
@@ -459,10 +486,23 @@ export const ChatInput = ({
             {showEmoji && <Picker onSelect={handleEmojiSelect} emojiSize={16} showPreview={false} />}
           </div>
           <div className="container flex a-i-c j-c-c f-f-c-n">
-            <textarea className="ta f-w f-h" maxLength={4000} ref={textAreaRef} onChange={onChange} value={message.text} />
+            <textarea
+              className="ta f-w f-h"
+              maxLength={4000}
+              ref={textAreaRef}
+              onChange={onChange}
+              value={message.text}
+              disabled={!rights.includes("SEND_MESSAGES")}
+            />
           </div>
           <div className="flex j-c-c a-i-c">
-            <Button onClick={sendMessage} type="button" className="btn-i btn-sec btn-r no-border" ariaLabel={t("ariaLabel.button.send")}>
+            <Button
+              onClick={sendMessage}
+              type="button"
+              className="btn-i btn-sec btn-r no-border"
+              ariaLabel={t("ariaLabel.button.send")}
+              disabled={!rights.includes("SEND_MESSAGES")}
+            >
               <svg enableBackground="new 0 0 512 512" height="25px" viewBox="0 0 512 512" width="25px" xmlns="http://www.w3.org/2000/svg">
                 <path d="m499.394 237.364-471.982-187.41c-16.306-6.474-32.489 9.83-25.907 26.149l56.465 139.955c2.051 5.083 6.09 9.102 11.175 11.121l72.581 28.82-72.581 28.82c-5.086 2.019-9.125 6.038-11.175 11.121l-56.466 139.955c-6.569 16.286 9.566 32.637 25.907 26.149l471.982-187.41c16.774-6.661 16.844-30.582.001-37.27zm-443.304 170.173 35.75-88.611 111.55-44.292c16.771-6.66 16.841-30.582 0-37.27l-111.55-44.293-35.75-88.611 381.641 151.538z" />
               </svg>

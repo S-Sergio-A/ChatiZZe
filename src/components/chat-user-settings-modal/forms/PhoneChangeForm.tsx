@@ -40,7 +40,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
 
   async function changePhone() {
     await axios
-      .post(userLinks.changePhone, {
+      .put(userLinks.changePhone, {
         oldPhoneNumber: user.phoneNumber,
         newPhoneNumber: phone
       })
@@ -51,8 +51,12 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
           } else {
             setPhoneError("");
           }
+
+          if (data.error.message) {
+            dispatch(setError(data.error.message));
+          }
         } else {
-          dispatch(setError(data.error.message));
+          setPhoneChange(false);
         }
       });
   }

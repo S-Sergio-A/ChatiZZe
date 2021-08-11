@@ -18,8 +18,9 @@ import { setError } from "../../context/actions/error";
 export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const chatData = useSelector((state: RootState) => state.chat.data);
+  const rights = useSelector((state: RootState) => state.chat.rights);
   const showManageChatModal = useSelector((state: RootState) => state.chat.showManageChatMenu);
-  
+
   const [changeChat, setChangeChat] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
@@ -37,7 +38,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   const [descrRef, setDescrRef] = useState<any>(null);
 
   const [t] = useTranslation();
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -71,13 +72,17 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
 
   async function updateChat() {
     await axios
-      .put(userLinks.updateRoom(userId, chatData.roomId), {
-        name,
-        description,
-        isUser: false,
-        isPrivate,
-        membersCount: chatData.usersID.length
-      })
+      .put(
+        userLinks.updateRoom(userId, chatData.roomId),
+        {
+          name,
+          description,
+          isUser: false,
+          isPrivate,
+          membersCount: chatData.usersID.length
+        },
+        { headers: { Rights: rights } }
+      )
       .then(({ data, status }) => {
         if (data.error) {
           if (data.error.name) {
@@ -103,7 +108,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   }
 
   async function deleteChat() {
-    await axios.delete(userLinks.deleteRoom(chatData.roomId)).then(({ data, status }) => {
+    await axios.delete(userLinks.deleteRoom(chatData.roomId), { headers: { Rights: rights } }).then(({ data, status }) => {
       if (status === 200) {
         dispatch(reloadChats(true));
         closeModal();
@@ -119,7 +124,6 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
       <Modal.Body>
         <div className="ruler f-w" />
         <div className={`wrapper flex a-i-c j-c-s-a f-f-c-n ${firstRender ? "f-r" : ""} ${animate ? "reduce" : "enlarge"}`}>
-          {/*<div className={`placeholder ${changeChat ? "" : "blurred disabled"}`}/>*/}
           <div className="chat-form f-w f-h flex a-i-c j-c-s-a f-f-c-n">
             <Button
               className={`btn-sec dark ${changeChat ? "active" : ""}`}
@@ -182,14 +186,8 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
               <Checkbox reverseLayout onClick={() => setIsPrivate(!isPrivate)} isChecked={isPrivate}>
                 <p className="h6-s">{t("modal.createChat.isPrivate")}</p>
               </Checkbox>
-              <Button
-                className="btn-pr dark j-s-c a-s-c"
-                type="button"
-                onClick={() => {
-                  updateChat().then(() => closeModal());
-                }}
-              >
-                <span>{t("button.addUser")}</span>
+              <Button className="btn-pr dark j-s-c a-s-c" type="button" onClick={updateChat}>
+                <span>{t("button.ch_chat")}</span>
               </Button>
             </form>
           </div>
@@ -205,7 +203,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
             message={t("modal.confirm.del_ch")}
           />
           <Button className="btn-pr dark btn-sm-x-w" onClick={() => setConfirmDelete(true)}>
-            <span>{t("button.ch_chat")}</span>
+            <span>{t("button.del_ch")}</span>
           </Button>
         </div>
       </Modal.Body>

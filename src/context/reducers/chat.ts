@@ -52,7 +52,7 @@ interface ChatType {
     roomId: string;
     isPrivate: boolean;
     isUser: boolean;
-    logo: string;
+    photo: string;
     description: string;
     usersID: string[];
     activeUsers: number;
@@ -74,17 +74,19 @@ interface ChatType {
   reload: boolean;
 }
 
+export const initialChatData = {
+  chatName: "initial",
+  roomId: "initial",
+  isPrivate: false,
+  isUser: false,
+  photo: "https://via.placeholder.com/60",
+  description: "Real description is loading...",
+  usersID: ["loading"],
+  activeUsers: 1
+};
+
 const initialState = {
-  data: {
-    chatName: "initial",
-    roomId: "initial",
-    isPrivate: false,
-    isUser: false,
-    logo: "https://via.placeholder.com/60",
-    description: "Real description is loading...",
-    usersID: ["loading"],
-    activeUsers: 1
-  },
+  data: initialChatData,
   showChatData: false,
   showUserInfo: false,
   showAddUser: false,
@@ -122,7 +124,7 @@ export const reducer = (state: ChatType = initialState, action: ChatAction): Cha
           roomId: action.payload.data.roomId,
           isPrivate: action.payload.data.isPrivate,
           isUser: action.payload.data.isUser,
-          logo: action.payload.data.logo,
+          photo: action.payload.data.photo,
           description: action.payload.data.description,
           usersID: action.payload.data.usersID,
           activeUsers: action.payload.data.activeUsers

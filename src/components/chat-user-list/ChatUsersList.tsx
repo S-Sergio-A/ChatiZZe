@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { displayAddUserModal, reloadChats } from "../../context/actions/chat";
+import { displayAddUserModal, reloadChats, setActiveChat } from "../../context/actions/chat";
 import { RootState } from "../../context/rootState.interface";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import ChangeUserRightsModal from "../chat-change-user-rights-modal/ChangeUserRightsModal";
@@ -10,6 +10,7 @@ import ConfirmationModal from "../confirmation-modal/ConfirmationModal";
 import { Button } from "../button/Button";
 import "./ChatUsersList.css";
 import { setError } from "../../context/actions/error";
+import { initialChatData } from "../../context/reducers/chat";
 
 export default function ChatUsersList({ users, socketRef }: { users: any[]; socketRef: any }) {
   const [t] = useTranslation();
@@ -52,6 +53,8 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
   const leaveRoom = (userId: string) => {
     if (socketRef.current) {
       socketRef.current.emit("leave-room", { roomId, userId });
+      dispatch(setActiveChat(initialChatData));
+      dispatch(reloadChats(true));
     }
   };
 

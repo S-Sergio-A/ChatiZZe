@@ -48,6 +48,10 @@ blockquote {
   padding: 0;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .flex {
   display: flex;
   display: -webkit-flex;
@@ -203,7 +207,7 @@ blockquote {
   overflow: -moz-hidden-unscrollable;
 }
 
-[class^="btn"] {
+[class^=btn] {
   cursor: pointer;
 }
 

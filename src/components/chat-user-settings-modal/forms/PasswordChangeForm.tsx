@@ -46,7 +46,7 @@ export default function PasswordChangeForm({
 
   async function changePassword() {
     await axios
-      .post(userLinks.changePassword, {
+      .put(userLinks.changePassword, {
         oldPassword,
         newPassword
       })
@@ -62,8 +62,12 @@ export default function PasswordChangeForm({
           } else {
             setNewPasswordError("");
           }
+
+          if (data.error.message) {
+            dispatch(setError(data.error.message));
+          }
         } else {
-          dispatch(setError(data.error.message));
+          setPasswordChange(false);
         }
       });
   }

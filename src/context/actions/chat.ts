@@ -26,7 +26,7 @@ function setActiveChat({
   roomId,
   isPrivate,
   isUser,
-  logo,
+  photo,
   description,
   usersID,
   activeUsers
@@ -35,12 +35,12 @@ function setActiveChat({
   roomId: string;
   isPrivate: boolean;
   isUser: boolean;
-  logo: string;
+  photo: string;
   description: string;
   usersID: string[];
   activeUsers: number;
 }) {
-  return { type: SET_ACTIVE_CHAT, payload: { data: { chatName, roomId, isPrivate, isUser, logo, description, usersID, activeUsers } } };
+  return { type: SET_ACTIVE_CHAT, payload: { data: { chatName, roomId, isPrivate, isUser, photo, description, usersID, activeUsers } } };
 }
 
 function displayCreateChatModal(showCreateChat: boolean) {

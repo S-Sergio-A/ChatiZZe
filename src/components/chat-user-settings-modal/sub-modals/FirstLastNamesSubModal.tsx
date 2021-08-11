@@ -66,6 +66,7 @@ export default function FirstLastNamesSubModal({
             setCookies("user-data", data.user, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
             dispatch(login(data.user));
           }
+          setShowSubModal(false);
         }
       });
   }

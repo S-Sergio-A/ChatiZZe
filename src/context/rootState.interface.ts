@@ -22,7 +22,7 @@ export interface RootState {
       roomId: string;
       isPrivate: boolean;
       isUser: boolean;
-      logo: string;
+      photo: string;
       description: string;
       usersID: string[];
       activeUsers: number;

@@ -46,7 +46,7 @@ export default function UsernameChangeForm({
 
   async function changeUsername() {
     await axios
-      .post(userLinks.changeUsername, {
+      .put(userLinks.changeUsername, {
         oldUsername: user.username,
         newUsername: username
       })
@@ -57,8 +57,12 @@ export default function UsernameChangeForm({
           } else {
             setUsernameError("");
           }
+
+          if (data.error.message) {
+            dispatch(setError(data.error.message));
+          }
         } else {
-          dispatch(setError(data.error.message));
+          setUsernameChange(false);
         }
       });
   }

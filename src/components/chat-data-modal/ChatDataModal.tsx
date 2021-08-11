@@ -24,11 +24,11 @@ export default function ChatDataModal({ socketRef }: { socketRef: any }) {
         <h1 className="h5-s">{t("modal.chatData.header")}</h1>
         <div className="group-info flex a-i-c j-c-s-b">
           <ChangePhoto
-            type={chatData?.logo ? "img" : "svg"}
+            type={chatData?.photo ? "img" : "svg"}
             alt={`${chatData?.chatName} ${t("chatLogo")}`}
             previousState={
-              chatData?.logo ? (
-                chatData.logo
+              chatData?.photo ? (
+                chatData.photo
               ) : (
                 <svg height="100" viewBox="0 0 512 512" width="100" xmlns="http://www.w3.org/2000/svg" className="chat-logo">
                   <title>{chatData?.chatName + " " + t("chatLogo")}</title>

@@ -40,7 +40,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
 
   async function changeEmail() {
     await axios
-      .post(userLinks.changeEmail, {
+      .put(userLinks.changeEmail, {
         oldEmail: user.email,
         newEmail: email
       })
@@ -48,13 +48,15 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
         if (data.error) {
           if (data.error.email) {
             setEmailError(data.error.email);
+          } else {
+            setEmailError("");
           }
-        }else {
-          setEmailError("");
-        }
-  
-        if (data.error.message) {
-          dispatch(setError(data.error.message));
+
+          if (data.error.message) {
+            dispatch(setError(data.error.message));
+          }
+        } else {
+          setEmailChange(false);
         }
       });
   }

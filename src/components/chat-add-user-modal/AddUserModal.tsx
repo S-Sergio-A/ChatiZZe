@@ -107,6 +107,7 @@ export default function AddUserModal() {
           }
         } else {
           dispatch(reloadChats(true));
+          closeModal();
         }
       });
   }
@@ -132,12 +133,7 @@ export default function AddUserModal() {
         <ul className="flex f-f-c-n">
           {rightsList.map((item, index) => (
             <li key={index}>
-              <Checkbox
-                id={item.right}
-                reverseLayout
-                onClick={item.onClick}
-                // onFocusIn={(e) => e.target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" })}
-              >
+              <Checkbox id={item.right} reverseLayout onClick={item.onClick}>
                 <p className={width < 481 ? "copyright" : "helper"}>{item.description}</p>
               </Checkbox>
             </li>
@@ -148,9 +144,7 @@ export default function AddUserModal() {
         <Button
           className="btn-pr dark"
           type="button"
-          onClick={() => {
-            addUser().then(() => closeModal());
-          }}
+          onClick={() => addUser()}
         >
           <span>{t("button.addUser")}</span>
         </Button>

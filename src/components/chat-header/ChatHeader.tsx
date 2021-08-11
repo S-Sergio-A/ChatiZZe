@@ -56,7 +56,8 @@ export default function ChatHeader({
     },
     {
       onClick: disableNotifications,
-      text: t("chatHeader.settings.d_n")
+      text: t("chatHeader.settings.d_n"),
+      disabled: true
     },
     {
       onClick: () => dispatch(displayManageChatModal(true)),
@@ -257,6 +258,7 @@ export default function ChatHeader({
                     type="button"
                     layoutType="flex"
                     className={`btn-sec no-border btn-sm ${settingsCursor === index ? "active" : ""}`}
+                    disabled={item?.disabled ? item.disabled : undefined}
                   >
                     {item.text}
                   </Button>
@@ -273,12 +275,13 @@ export default function ChatHeader({
                 <Button
                   onClick={() => {
                     document.getElementById(item._id)?.scrollIntoView({ block: "center", behavior: "smooth" });
+                    setShowSearchResult(false);
                   }}
                   type="button"
                   layoutType="grid"
                   className={`btn-ter no-border btn-sm ${cursor === index ? "active" : ""}`}
                 >
-                  <img src={item.user.photo} alt={item.user.username} />
+                  <img src={item.user.photo} alt={item.user.username} width={50} height={50} />
                   <div className="flex a-i-c j-c-s-b">
                     <span className="helper f-w__600">{item.user.username}</span>
                     <span className="copyright">{item.timestamp}</span>

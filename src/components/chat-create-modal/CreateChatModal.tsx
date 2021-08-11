@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../context/rootState.interface";
-import { displayCreateChatModal } from "../../context/actions/chat";
+import { displayCreateChatModal, reloadChats } from "../../context/actions/chat";
 import { Input } from "../input/Input";
 import Checkbox from "../checkbox/Checkbox";
 import Modal from "../modal/Modal";
@@ -62,8 +62,13 @@ export default function CreateChatModal() {
           } else {
             setDescriptionError("");
           }
+
+          if (data.error.message) {
+            dispatch(setError(data.error.message));
+          }
         } else {
-          dispatch(setError(data.error.message));
+          dispatch(reloadChats(true));
+          closeModal();
         }
       });
   }
@@ -115,9 +120,7 @@ export default function CreateChatModal() {
         <Button
           className="btn-pr dark"
           type="button"
-          onClick={() => {
-            createChat().then(() => closeModal());
-          }}
+          onClick={() => createChat()}
         >
           <span>{t("button.create")}</span>
         </Button>

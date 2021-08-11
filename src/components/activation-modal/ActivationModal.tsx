@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import i18n from "i18next";
 import { showNotActivated } from "../../context/actions/activation";
 import { RootState } from "../../context/rootState.interface";
-import { displayChatData } from "../../context/actions/chat";
 import Modal from "../modal/Modal";
 
 export default function ActivationModal() {
@@ -16,7 +15,7 @@ export default function ActivationModal() {
 
   return (
     <Modal onModalClose={() => dispatch(showNotActivated(false))} show={notActivated} className="chat error">
-      <Modal.Header onCloseModal={() => dispatch(displayChatData(false))} layoutType="grid">
+      <Modal.Header onCloseModal={() => dispatch(showNotActivated(false))} layoutType="grid">
         <h1 className="h5-s">{t("modal.activation.header")}</h1>
       </Modal.Header>
       <Modal.Body className="flex t-c">
