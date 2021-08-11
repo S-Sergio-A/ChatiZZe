@@ -130,7 +130,7 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         className={`chat btn-sec no-border f-w f-h grid ${roomId === item._id ? "active" : ""}`}
                         type="button"
                         onClick={() => {
-                          if (!item.usersID.includes(userId)) {
+                          if (!item.usersID.some((user: any) => user._id === userId)) {
                             enterRoom(item._id);
                           } else {
                             loadRights(item._id).then(() => {
