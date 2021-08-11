@@ -11,6 +11,7 @@ import { RootState } from "../../../context/rootState.interface";
 import { fileToBase64 } from "../../../utils/fileToBase64";
 import { login } from "../../../context/actions/auth";
 import { cookieOptions } from "../../../utils/cookieOptions";
+import { reloadChats } from "../../../context/actions/chat";
 
 export default function ChangePhoto({
   type = "img",
@@ -97,6 +98,7 @@ export default function ChangePhoto({
         if (data.error && data.error.photo) {
           dispatch(setError(data.error.photo));
         } else {
+          dispatch(reloadChats(true));
         }
       });
   }

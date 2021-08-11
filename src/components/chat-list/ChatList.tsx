@@ -131,7 +131,29 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         type="button"
                         onClick={() => {
                           if (!item.usersID.some((user: any) => user._id === userId)) {
-                            enterRoom(item._id);
+                            enterRoom(item._id).then(() =>
+                              dispatch(
+                                setActiveChat({
+                                  chatName: item.name,
+                                  roomId: item._id,
+                                  isPrivate: item.isPrivate,
+                                  isUser: item.isUser,
+                                  photo: item.photo,
+                                  description: item.description,
+                                  usersID: item.usersID,
+                                  activeUsers: 1,
+                                  recentMessage: {
+                                    text: "loading...",
+                                    attachment: ["loading..."],
+                                    timestamp: "loading...",
+                                    user: {
+                                      _id: "br",
+                                      username: "Loading..."
+                                    }
+                                  }
+                                })
+                              )
+                            );
                           } else {
                             loadRights(item._id).then(() => {
                               dispatch(
