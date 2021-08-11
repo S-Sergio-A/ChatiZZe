@@ -28,11 +28,10 @@ export const userLinks = {
   searchRooms: (name: string) => `/room/${name}`,
   updateRoom: (userId: string, roomId: string) => `/room?roomId=${roomId}&userId=${userId}`,
   changeRoomPhoto: (userId: string, roomId: string) => `/room-photo?roomId=${roomId}&userId=${userId}`,
-  deleteRoom: (roomId: string) => `/room?roomId=${roomId}`,
+  deleteRoom: (userId: string, roomId: string) => `/room?userId=${userId}&roomId=${roomId}`,
   addUserToRoom: (userId: string, roomId: string, newUserIdentifier: string) =>
     `/user?userId=${userId}&roomId=${roomId}&newUserIdentifier=${newUserIdentifier}`,
-  enterPublicRoom: (userId: string, roomId: string) =>
-    `/user?userId=${userId}&roomId=${roomId}`,
+  enterPublicRoom: (userId: string, roomId: string) => `/user?userId=${userId}&roomId=${roomId}`,
   deleteUserFromRoom: (userId: string, roomId: string) => `/user?userId=${userId}&roomId=${roomId}&type=DELETE_USER`,
   changeUserRightsInRoom: (performerUserId: string, targetUserId: string, roomId: string) =>
     `/user-rights?performerUserId=${performerUserId}&targetUserId=${targetUserId}&roomId=${roomId}`,

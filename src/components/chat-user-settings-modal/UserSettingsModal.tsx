@@ -39,7 +39,7 @@ export default function UserSettingsModal() {
   return (
     <Modal onModalClose={closeModal} show={showUserSettings} className="user-settings">
       <Modal.Header onCloseModal={closeModal} layoutType="flex">
-        <h1 className="h5-s">{t("modal.settings.header")}</h1>
+        <h1 className="h6-s">{t("modal.settings.header")}</h1>
       </Modal.Header>
       <Modal.Body
         className={`grid ${emailChange ? "email-ch" : ""} ${usernameChange ? "username-ch" : ""} ${phoneChange ? "phone-ch" : ""} ${

@@ -20,7 +20,7 @@ export default function ConfirmationModal({
   return (
     <Modal onModalClose={onClose} show={show} className="confirm">
       <Modal.Header onCloseModal={onClose} layoutType="grid">
-        <h1 className="h5-s">{message}</h1>
+        <h1 className="h6-s">{message}</h1>
       </Modal.Header>
       <Modal.Footer className="flex j-c-s-a a-i-c">
         <Button

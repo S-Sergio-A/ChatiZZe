@@ -81,7 +81,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
           isPrivate,
           membersCount: chatData.usersID.length
         },
-        { headers: { Rights: rights } }
+        { headers: { Rights: [rights] } }
       )
       .then(({ data, status }) => {
         if (data.error) {
@@ -108,7 +108,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   }
 
   async function deleteChat() {
-    await axios.delete(userLinks.deleteRoom(chatData.roomId), { headers: { Rights: rights } }).then(({ data, status }) => {
+    await axios.delete(userLinks.deleteRoom(userId, chatData.roomId), { headers: { Rights: [rights] } }).then(({ data, status }) => {
       if (status === 200) {
         dispatch(reloadChats(true));
         closeModal();
@@ -119,7 +119,7 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   return (
     <Modal onModalClose={closeModal} show={showManageChatModal} className="manage">
       <Modal.Header onCloseModal={closeModal} layoutType="flex">
-        <h1 className="h5-s">{t("modal.manageChat.header")}</h1>
+        <h1 className="h6-s">{t("modal.manageChat.header")}</h1>
       </Modal.Header>
       <Modal.Body>
         <div className="ruler f-w" />

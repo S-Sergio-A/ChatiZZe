@@ -74,7 +74,7 @@ export default function FirstLastNamesSubModal({
   return (
     <Modal onModalClose={() => setShowSubModal(false)} show={showSubModal} className="user-settings">
       <Modal.Header onCloseModal={() => setShowSubModal(false)} layoutType="flex">
-        <h1 className="h5-s">{t("modal.settings.n_s")}</h1>
+        <h1 className="h6-s">{t("modal.settings.n_s")}</h1>
       </Modal.Header>
       <Modal.Body className="flex a-i-c j-c-s-a f-f-c-n">
         <form className="f-w flex f-f-c-n a-i-c j-c-f-s">

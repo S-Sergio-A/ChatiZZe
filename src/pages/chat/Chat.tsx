@@ -11,7 +11,8 @@ import {
   reloadChats,
   resetDeletedMessageId,
   resetUpdatedMessageId,
-  resetUpdatedMessageNewState, setActiveChat,
+  resetUpdatedMessageNewState,
+  setActiveChat,
   setUpdatedMessagePrevState
 } from "../../context/actions/chat";
 import UserSettingsModal from "../../components/chat-user-settings-modal/UserSettingsModal";
@@ -100,7 +101,7 @@ export default function Chat() {
 
   useEffect(() => {
     if (reload) {
-      loadChats();
+      timer(300).subscribe(() => loadChats());
       dispatch(reloadChats(false));
     }
   }, [reload]);

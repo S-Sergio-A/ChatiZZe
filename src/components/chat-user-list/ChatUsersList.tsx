@@ -34,6 +34,7 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
 
   const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
+  const rights = useSelector((state: RootState) => state.chat.rights);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
   }, [changeUser]);
 
   const removeUser = (userId: string) => {
-    axios.delete(userLinks.deleteUserFromRoom(userId, roomId)).then(({ data, status }) => {
+    axios.delete(userLinks.deleteUserFromRoom(userId, roomId), { headers: { Rights: [rights] } }).then(({ data, status }) => {
       if (data.error) {
         dispatch(setError(data.error.message));
       } else {

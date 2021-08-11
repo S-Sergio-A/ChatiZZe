@@ -8,7 +8,7 @@ export default function useKeyDown(keyCode: string, onClick: () => void, deps?: 
 
     function handleKeyDown(event: any) {
       const condition = deps ? deps.every((m) => Boolean(m)) : true;
-      if (condition && event.code === keyCode) {
+      if (condition && event.code === keyCode && !event.shiftKey) {
         event.preventDefault();
         onClick();
       }

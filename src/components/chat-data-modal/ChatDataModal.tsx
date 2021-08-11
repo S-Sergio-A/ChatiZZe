@@ -21,7 +21,7 @@ export default function ChatDataModal({ socketRef }: { socketRef: any }) {
   return (
     <Modal onModalClose={() => dispatch(displayChatData(false))} show={showChatDataModal} className="chat chat-data">
       <Modal.Header onCloseModal={() => dispatch(displayChatData(false))} layoutType="grid">
-        <h1 className="h5-s">{t("modal.chatData.header")}</h1>
+        <h1 className="h6-s">{t("modal.chatData.header")}</h1>
         <div className="group-info flex a-i-c j-c-s-b">
           <ChangePhoto
             type={chatData?.photo ? "img" : "svg"}

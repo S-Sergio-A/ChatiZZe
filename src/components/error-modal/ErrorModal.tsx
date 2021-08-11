@@ -15,7 +15,7 @@ export default function ErrorModal() {
   return (
     <Modal onModalClose={() => dispatch(hideModal())} show={showErrorModal} className="chat error">
       <Modal.Header onCloseModal={() => dispatch(hideModal())} layoutType="flex">
-        <h1 className="h5-s">{t("error")}</h1>
+        <h1 className="h6-s">{t("error")}</h1>
       </Modal.Header>
       <Modal.Body className="flex t-c">
         <p className="h6-s">{errorText}</p>

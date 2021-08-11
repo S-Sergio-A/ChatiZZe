@@ -49,7 +49,7 @@ export default function ForgotPasswordModal() {
   return (
     <Modal onModalClose={() => dispatch(showForgotPassword(false))} show={forgor} className="chat error">
       <Modal.Header onCloseModal={() => dispatch(showForgotPassword(false))} layoutType="flex">
-        <h1 className="h5-s">{t("modal.forgot.header")}</h1>
+        <h1 className="h6-s">{t("modal.forgot.header")}</h1>
       </Modal.Header>
       <Modal.Body className="flex t-c">
         {page === 1 ? (

@@ -58,7 +58,7 @@ export default function CustomThemeModal() {
   return (
     <Modal onModalClose={() => dispatch(setShowCustomThemeModal(false))} show={showCustomThemeModal} className="theme">
       <Modal.Header onCloseModal={() => dispatch(setShowCustomThemeModal(false))} layoutType="flex">
-        <h1 className="h5-s">{t("modal.theme.header")}</h1>
+        <h1 className="h6-s">{t("modal.theme.header")}</h1>
       </Modal.Header>
       <Modal.Body className="grid">
         <div className="ruler f-w" />
