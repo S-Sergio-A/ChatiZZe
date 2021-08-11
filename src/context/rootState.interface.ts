@@ -26,6 +26,15 @@ export interface RootState {
       description: string;
       usersID: string[];
       activeUsers: number;
+      recentMessage: {
+        text: string;
+        attachment: string[];
+        timestamp: string;
+        user: {
+          _id: string;
+          username: string;
+        };
+      };
     };
     showCreateChat: boolean;
     showManageChatMenu: boolean;

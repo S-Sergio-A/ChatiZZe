@@ -56,6 +56,15 @@ interface ChatType {
     description: string;
     usersID: string[];
     activeUsers: number;
+    recentMessage: {
+      text: string;
+      attachment: string[];
+      timestamp: string;
+      user: {
+        _id: string;
+        username: string;
+      };
+    };
   };
   showChatData: boolean;
   showUserInfo: boolean;
@@ -82,7 +91,16 @@ export const initialChatData = {
   photo: "https://via.placeholder.com/60",
   description: "Real description is loading...",
   usersID: ["loading"],
-  activeUsers: 1
+  activeUsers: 1,
+  recentMessage: {
+    text: "loading...",
+    attachment: ["loading..."],
+    timestamp: "loading...",
+    user: {
+      _id: "br",
+      username: "Loading..."
+    }
+  }
 };
 
 const initialState = {
@@ -127,7 +145,8 @@ export const reducer = (state: ChatType = initialState, action: ChatAction): Cha
           photo: action.payload.data.photo,
           description: action.payload.data.description,
           usersID: action.payload.data.usersID,
-          activeUsers: action.payload.data.activeUsers
+          activeUsers: action.payload.data.activeUsers,
+          recentMessage: action.payload.data.recentMessage
         }
       };
     }

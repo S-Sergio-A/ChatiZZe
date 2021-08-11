@@ -136,7 +136,16 @@ export default function ChatList({ chats }: { chats: any[] }) {
                                 photo: item.photo,
                                 description: item.description,
                                 usersID: item.usersID,
-                                activeUsers: 1
+                                activeUsers: 1,
+                                recentMessage: {
+                                  text: "loading...",
+                                  attachment: ["loading..."],
+                                  timestamp: "loading...",
+                                  user: {
+                                    _id: "br",
+                                    username: "Loading..."
+                                  }
+                                }
                               })
                             );
                             dispatch(changeChatListSize(false));
@@ -152,8 +161,8 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         }}
                         aria-label={`${item.name} ${t("chat")}`}
                       >
-                        {item.logo ? (
-                          <img src={item.logo} alt={`${item.name} chat logo`} className="chat-logo flex j-c-c a-i-c" />
+                        {item.photo ? (
+                          <img src={item.photo} alt={`${item.name} chat logo`} className="chat-logo flex j-c-c a-i-c" />
                         ) : (
                           <svg height="50" viewBox="0 0 512 512" width="50" xmlns="http://www.w3.org/2000/svg" className="chat-logo">
                             <title>{item.name + " " + t("chatLogo")}</title>
@@ -180,9 +189,11 @@ export default function ChatList({ chats }: { chats: any[] }) {
                         </div>
                         <div className="chat-message grid">
                           <span className="author flex a-i-c j-c-f-s">
-                            {item?.recentMessage.user._id === cookies.userId ? "You" : item.recentMessage.user.username}:
+                            {item.recentMessage.user._id === cookies.userId ? "You" : item.recentMessage.user.username}:
                           </span>
-                          <span className="message flex a-i-c j-c-f-s">{item.recentMessage.text ? item.recentMessage.text : t("attachment")}</span>
+                          <span className="message flex a-i-c j-c-f-s">
+                            {item.recentMessage.text ? item.recentMessage.text : t("attachment")}
+                          </span>
                         </div>
                       </button>
                     </li>

@@ -29,7 +29,8 @@ function setActiveChat({
   photo,
   description,
   usersID,
-  activeUsers
+  activeUsers,
+  recentMessage
 }: {
   chatName: string;
   roomId: string;
@@ -39,8 +40,20 @@ function setActiveChat({
   description: string;
   usersID: string[];
   activeUsers: number;
+  recentMessage: {
+    text: string;
+    attachment: string[];
+    timestamp: string;
+    user: {
+      _id: string;
+      username: string;
+    };
+  };
 }) {
-  return { type: SET_ACTIVE_CHAT, payload: { data: { chatName, roomId, isPrivate, isUser, photo, description, usersID, activeUsers } } };
+  return {
+    type: SET_ACTIVE_CHAT,
+    payload: { data: { chatName, roomId, isPrivate, isUser, photo, description, usersID, activeUsers, recentMessage } }
+  };
 }
 
 function displayCreateChatModal(showCreateChat: boolean) {
