@@ -52,7 +52,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
         },
         {
           headers: {
-            fingerprint: result
+            fingerprint: result.visitorId
           }
         }
       )

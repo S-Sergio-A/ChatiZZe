@@ -58,7 +58,7 @@ export default function UsernameChangeForm({
         },
         {
           headers: {
-            fingerprint: result
+            fingerprint: result.visitorId
           }
         }
       )

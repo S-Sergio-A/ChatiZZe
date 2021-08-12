@@ -52,7 +52,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         },
         {
           headers: {
-            fingerprint: result
+            fingerprint: result.visitorId
           }
         }
       )

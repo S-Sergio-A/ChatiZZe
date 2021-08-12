@@ -172,7 +172,7 @@ const App = () => {
 
     return await axios.get(clientLinks.getToken, {
       headers: {
-        fingerprint: result
+        fingerprint: result.visitorId
       }
     });
   }

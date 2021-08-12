@@ -58,7 +58,7 @@ export default function PasswordChangeForm({
         },
         {
           headers: {
-            fingerprint: result
+            fingerprint: result.visitorId
           }
         }
       )
