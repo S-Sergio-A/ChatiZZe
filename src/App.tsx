@@ -63,7 +63,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (Object.keys(cookies["token"]).length === 0) {
+    if (!cookies["client"]?.accessToken) {
       __generateClientsToken().then(({ data }) => {
         setCookies("client", { accessToken: data.clientToken }, cookieOptions(3600 * 24 * 60));
       });
