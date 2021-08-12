@@ -9,6 +9,9 @@ import { setError } from "../../../context/actions/error";
 import { useDispatch } from "react-redux";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useCookies } from "react-cookie";
+import { useHistory } from "react-router-dom";
+import { logout } from "../../../context/actions/auth";
+import i18n from "i18next";
 
 export default function PasswordChangeForm({
   passwordChange,
@@ -30,6 +33,7 @@ export default function PasswordChangeForm({
   const [firstRender, setFirstRender] = useState(true);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (passwordChange && firstRender) {
@@ -84,6 +88,8 @@ export default function PasswordChangeForm({
           }
         } else {
           setPasswordChange(false);
+          dispatch(logout());
+          history.push({ pathname: `/${i18n}/` });
         }
       });
   }

@@ -10,6 +10,9 @@ import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useCookies } from "react-cookie";
+import { useHistory } from "react-router-dom";
+import { logout } from "../../../context/actions/auth";
+import i18n from "i18next";
 
 export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phoneChange: boolean; setPhoneChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
@@ -24,6 +27,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
   const [firstRender, setFirstRender] = useState(true);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (phoneChange && firstRender) {
@@ -73,6 +77,8 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
           }
         } else {
           setPhoneChange(false);
+          dispatch(logout());
+          history.push({ pathname: `/${i18n}/` });
         }
       });
   }

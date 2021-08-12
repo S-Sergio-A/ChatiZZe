@@ -10,6 +10,9 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import { useCookies } from "react-cookie";
+import { logout } from "../../../context/actions/auth";
+import i18n from "i18next";
+import { useHistory } from "react-router-dom";
 
 export default function EmailChangeForm({ emailChange, setEmailChange }: { emailChange: boolean; setEmailChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
@@ -24,6 +27,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
   const [firstRender, setFirstRender] = useState(true);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (emailChange && firstRender) {
@@ -73,6 +77,8 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
           }
         } else {
           setEmailChange(false);
+          dispatch(logout());
+          history.push({ pathname: `/${i18n}/` });
         }
       });
   }
