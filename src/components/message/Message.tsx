@@ -122,7 +122,7 @@ export default function Message({
             {user.username}
           </a>
           {attachments.length > 0 && attachments[0].length > 0 ? (
-            <div className={`attachments-container grid ${attachmentContainerClass}`}>
+            <div className={`attachments-container flex a-i-c j-c-s-a f-f-r-w ${attachmentContainerClass}`}>
               {attachments.map((link: string, key) => (
                 <img key={key} className="attachment" src={link} alt="attachment" />
               ))}

@@ -32,13 +32,14 @@
 
   & > .attachments-container {
     grid-area: 2/1/3/2;
-    row-gap: 5px;
-    @include columnGap(5px);
+    row-gap: 10px;
+    @include columnGap(10px);
 
     & > .attachment {
-      max-width: 50%;
-      max-height: 200px;
-      @include border-radius(0);
+      min-width: 49%;
+      max-width: 100%;
+      max-height: 350px;
+      @include border-radius(15px);
     }
   }
 
@@ -124,7 +125,8 @@
   text-align: left;
   position: relative;
   padding: 10px;
-  border-radius: 10px;
+  row-gap: 10px;
+  @include border-radius(10px);
 }
 
 .message-content {
