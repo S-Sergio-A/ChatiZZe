@@ -9,9 +9,11 @@ import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
+import { useCookies } from "react-cookie";
 
 export default function EmailChangeForm({ emailChange, setEmailChange }: { emailChange: boolean; setEmailChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
+  const [cookies] = useCookies([]);
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -52,7 +54,9 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
         },
         {
           headers: {
-            fingerprint: result.visitorId
+            fingerprint: result.visitorId,
+            "Access-Token": cookies["accessToken"]?.accessToken,
+            "Refresh-Token": cookies["refreshToken"]?.refreshToken
           }
         }
       )

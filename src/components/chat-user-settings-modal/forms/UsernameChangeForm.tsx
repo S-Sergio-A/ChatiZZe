@@ -9,6 +9,7 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { useCookies } from "react-cookie";
 
 export default function UsernameChangeForm({
   usernameChange,
@@ -18,6 +19,7 @@ export default function UsernameChangeForm({
   setUsernameChange: Dispatch<boolean>;
 }) {
   const [t] = useTranslation();
+  const [cookies] = useCookies([]);
 
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -58,7 +60,9 @@ export default function UsernameChangeForm({
         },
         {
           headers: {
-            fingerprint: result.visitorId
+            fingerprint: result.visitorId,
+            "Access-Token": cookies["accessToken"]?.accessToken,
+            "Refresh-Token": cookies["refreshToken"]?.refreshToken
           }
         }
       )

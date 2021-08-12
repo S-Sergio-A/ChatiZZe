@@ -9,9 +9,11 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { useCookies } from "react-cookie";
 
 export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phoneChange: boolean; setPhoneChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
+  const [cookies] = useCookies([]);
 
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
@@ -52,7 +54,9 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         },
         {
           headers: {
-            fingerprint: result.visitorId
+            fingerprint: result.visitorId,
+            "Access-Token": cookies["accessToken"]?.accessToken,
+            "Refresh-Token": cookies["refreshToken"]?.refreshToken
           }
         }
       )

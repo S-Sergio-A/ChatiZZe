@@ -8,6 +8,7 @@ import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import { useDispatch } from "react-redux";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { useCookies } from "react-cookie";
 
 export default function PasswordChangeForm({
   passwordChange,
@@ -17,6 +18,7 @@ export default function PasswordChangeForm({
   setPasswordChange: Dispatch<boolean>;
 }) {
   const [t] = useTranslation();
+  const [cookies] = useCookies([]);
 
   const [oldPassword, setOldPassword] = useState("");
   const [oldPasswordError, setOldPasswordError] = useState("");
@@ -58,7 +60,9 @@ export default function PasswordChangeForm({
         },
         {
           headers: {
-            fingerprint: result.visitorId
+            fingerprint: result.visitorId,
+            "Access-Token": cookies["accessToken"]?.accessToken,
+            "Refresh-Token": cookies["refreshToken"]?.refreshToken
           }
         }
       )
