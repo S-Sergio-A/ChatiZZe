@@ -50,8 +50,7 @@ Before you begin, ensure you have met the following requirements:
 3. Install dependencies
 
 ```javascript
-  npm
-install
+  npm install
 ```
 
 ---
@@ -59,8 +58,7 @@ install
 ## Running the sample app
 
 ```javascript
-  npm
-start
+  npm start
 ```
 
 # License
