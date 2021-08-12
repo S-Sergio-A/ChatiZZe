@@ -38,6 +38,12 @@ export default function ChangePhoto({
   const rights = useSelector((state: RootState) => state.chat.rights);
 
   async function onFileChange(event: any) {
+    if (event.target.files[0].size > 200000) {
+      event.preventDefault();
+      alert(t("alert.tooBig"));
+      return;
+    }
+
     if (event.target.files && event.target.files[0]) {
       setPhoto(URL.createObjectURL(event.target.files[0]));
     }
