@@ -1,7 +1,6 @@
 import { Fragment, MutableRefObject, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useCookies } from "react-cookie";
 import { Link, useHistory } from "react-router-dom";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { setMenuButtonRef, showMenu } from "../../context/actions/menu";
@@ -17,7 +16,6 @@ import "./Navbar.css";
 
 export const Navbar = () => {
   const [t] = useTranslation();
-  const [cookies, setCookies, removeCookies] = useCookies([]);
 
   const [translateNav, setTranslateNav] = useState(false);
 
@@ -127,7 +125,7 @@ export const Navbar = () => {
                 <Button
                   className={width < 600 ? "btn-brgr btn-r no-border btn-pr" : "btn-r btn-pr no-border btn-lang"}
                   onClick={() => {
-                    dispatch(logout(removeCookies));
+                    dispatch(logout());
                     history.push({ pathname: `/${i18n.language}/` });
                   }}
                   aria-label={t("navbar.ariaLabel.logOut")}

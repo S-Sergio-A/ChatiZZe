@@ -1,4 +1,5 @@
 import { CHECK_STATE, LOGIN, LOGOUT, SHOW_FORGOT_PASSWORD } from "../consts/actionTypes";
+import { Cookies } from "react-cookie";
 
 function login(user: {
   _id: string;
@@ -13,11 +14,13 @@ function login(user: {
   return { type: LOGIN, payload: { logged: true, user } };
 }
 
-function logout(removeCookie: (name: string) => void) {
-  removeCookie("user-auth");
-  removeCookie("user-data");
-  removeCookie("access-token");
-  removeCookie("refresh-token");
+function logout() {
+  const cookie = new Cookies();
+  
+  cookie.remove("user-auth");
+  cookie.remove("user-data");
+  cookie.remove("access-token");
+  cookie.remove("refresh-token");
   return { type: LOGOUT, payload: { logged: false } };
 }
 

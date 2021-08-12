@@ -47,7 +47,7 @@ export default function UsernameChangeForm({
 
   async function changeUsername() {
     const fp = await FingerprintJS.load();
-    const fingerprint = await fp.get();
+    const result = await fp.get();
 
     await axios
       .put(
@@ -58,7 +58,7 @@ export default function UsernameChangeForm({
         },
         {
           headers: {
-            fingerprint
+            fingerprint: result
           }
         }
       )

@@ -41,7 +41,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
 
   async function changePhone() {
     const fp = await FingerprintJS.load();
-    const fingerprint = await fp.get();
+    const result = await fp.get();
 
     await axios
       .put(
@@ -52,7 +52,7 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
         },
         {
           headers: {
-            fingerprint
+            fingerprint: result
           }
         }
       )

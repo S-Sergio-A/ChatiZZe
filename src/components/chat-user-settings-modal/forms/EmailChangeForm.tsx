@@ -41,7 +41,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
 
   async function changeEmail() {
     const fp = await FingerprintJS.load();
-    const fingerprint = await fp.get();
+    const result = await fp.get();
 
     await axios
       .put(
@@ -52,7 +52,7 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
         },
         {
           headers: {
-            fingerprint
+            fingerprint: result
           }
         }
       )
