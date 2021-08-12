@@ -9,7 +9,7 @@
 /public/*.svg
 /public/*.png
 /public/*.jpg
-
+README.md
 **.map
 
 /coverage
