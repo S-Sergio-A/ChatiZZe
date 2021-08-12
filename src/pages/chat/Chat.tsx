@@ -28,6 +28,7 @@ import { userLinks } from "../../utils/api-endpoints.enum";
 import "../../components/chat-modals/ChatModals.css";
 import Head from "../../components/head/Head";
 import "./Chat.css";
+import { logError } from "../error/errorHandler";
 
 export default function Chat() {
   const [t] = useTranslation();
@@ -91,6 +92,7 @@ export default function Chat() {
         setMessages((oldMessages) => [...oldMessages, newMessage]);
         setNewMessage(true);
         timer(100).subscribe(() => setNewMessage(false));
+        axios.get(userLinks.recentMessage(roomId)).catch((e) => logError(e));
       });
 
       return () => {

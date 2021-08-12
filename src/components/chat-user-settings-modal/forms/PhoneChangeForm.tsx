@@ -8,6 +8,7 @@ import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phoneChange: boolean; setPhoneChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
@@ -39,11 +40,22 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
   }, [phoneChange]);
 
   async function changePhone() {
+    const fp = await FingerprintJS.load();
+    const fingerprint = await fp.get();
+
     await axios
-      .put(userLinks.changePhone, {
-        oldPhoneNumber: user.phoneNumber,
-        newPhoneNumber: phone
-      })
+      .put(
+        userLinks.changePhone,
+        {
+          oldPhoneNumber: user.phoneNumber,
+          newPhoneNumber: phone
+        },
+        {
+          headers: {
+            fingerprint
+          }
+        }
+      )
       .then(({ data }) => {
         if (data.error) {
           if (data.error.phoneNumber) {

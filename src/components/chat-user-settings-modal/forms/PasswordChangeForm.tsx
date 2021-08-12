@@ -7,6 +7,7 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import { useDispatch } from "react-redux";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 export default function PasswordChangeForm({
   passwordChange,
@@ -45,11 +46,22 @@ export default function PasswordChangeForm({
   }, [passwordChange]);
 
   async function changePassword() {
+    const fp = await FingerprintJS.load();
+    const fingerprint = await fp.get();
+
     await axios
-      .put(userLinks.changePassword, {
-        oldPassword,
-        newPassword
-      })
+      .put(
+        userLinks.changePassword,
+        {
+          oldPassword,
+          newPassword
+        },
+        {
+          headers: {
+            fingerprint
+          }
+        }
+      )
       .then(({ data }) => {
         if (data.error) {
           if (data.error.oldPassword) {

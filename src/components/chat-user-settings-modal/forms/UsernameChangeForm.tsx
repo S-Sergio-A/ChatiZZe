@@ -8,6 +8,7 @@ import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 export default function UsernameChangeForm({
   usernameChange,
@@ -45,11 +46,22 @@ export default function UsernameChangeForm({
   }, [usernameChange]);
 
   async function changeUsername() {
+    const fp = await FingerprintJS.load();
+    const fingerprint = await fp.get();
+
     await axios
-      .put(userLinks.changeUsername, {
-        oldUsername: user.username,
-        newUsername: username
-      })
+      .put(
+        userLinks.changeUsername,
+        {
+          oldUsername: user.username,
+          newUsername: username
+        },
+        {
+          headers: {
+            fingerprint
+          }
+        }
+      )
       .then(({ data }) => {
         if (data.error) {
           if (data.error.username) {

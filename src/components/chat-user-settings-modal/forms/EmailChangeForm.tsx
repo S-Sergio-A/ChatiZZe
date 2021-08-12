@@ -1,6 +1,7 @@
 import React, { Dispatch, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { timer } from "rxjs";
 import axios from "axios";
 import { RootState } from "../../../context/rootState.interface";
@@ -39,11 +40,22 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
   }, [emailChange]);
 
   async function changeEmail() {
+    const fp = await FingerprintJS.load();
+    const fingerprint = await fp.get();
+
     await axios
-      .put(userLinks.changeEmail, {
-        oldEmail: user.email,
-        newEmail: email
-      })
+      .put(
+        userLinks.changeEmail,
+        {
+          oldEmail: user.email,
+          newEmail: email
+        },
+        {
+          headers: {
+            fingerprint
+          }
+        }
+      )
       .then(({ data }) => {
         if (data.error) {
           if (data.error.email) {
