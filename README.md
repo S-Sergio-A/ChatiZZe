@@ -23,7 +23,7 @@ ChatiZZe is a fully functional real-time messaging app capable of private (one-o
 - Room members List
 - Search rooms by name
 - Create private rooms
-- Add users to room and specify their rights
+- Add users to a room and specify their rights
 - Change rooms name, description, photo and type
 - Attach images to the message (up to 5 in one message)
 - Add emojis to your message
@@ -46,7 +46,7 @@ Before you begin, ensure you have met the following requirements:
 ## Installing React Sample App
 
 1. Clone this repository `git clone https://github.com/S-Sergio-A/ChatiZZe.git`
-2. Navigate to the root directory and add an `.env` file with your `REACT_APP_WSS_SERVER` link.
+2. Navigate to the root directory and add the `.env` file with your `REACT_APP_WSS_SERVER` link.
 3. Install dependencies
 
 ```javascript
