@@ -88,12 +88,13 @@ export default function PasswordChangeForm({
           }
         } else {
           setPasswordChange(false);
-          dispatch(logout());
-          removeCookie("user-auth");
-          removeCookie("user-data");
-          removeCookie("access-token");
-          removeCookie("refresh-token");
-          history.push({ pathname: `/${i18n}/` });
+          new Promise(() => {
+            dispatch(logout());
+            removeCookie("user-auth");
+            removeCookie("user-data");
+            removeCookie("access-token");
+            removeCookie("refresh-token");
+          }).then(() => history.push({ pathname: `/${i18n.language}` }));
         }
       });
   }
