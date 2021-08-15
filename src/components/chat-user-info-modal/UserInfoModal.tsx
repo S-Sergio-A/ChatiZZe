@@ -26,7 +26,7 @@ export default function UserInfoModal({ user }: { user: { [key: string]: any } }
         <img width={60} height={60} src={user.photo} alt={`${user.username}`} className="user-photo j-s-c a-s-c" />
         <div className="personal-info flex a-i-f-s j-c-s-a f-f-c-n">
           {user.firstName && user.lastName ? (
-            <div className="name flex j-c-c a-i-c f-w">
+            <div className="name flex j-c-f-s a-i-c f-w">
               <p className="h6-s">{user.firstName}</p>
               <p className="h6-s">{user.lastName}</p>
             </div>

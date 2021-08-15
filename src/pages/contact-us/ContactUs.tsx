@@ -43,12 +43,7 @@ export default function ContactUs() {
   const subjectButtonRef = useRef<any>(null);
 
   async function handleContact() {
-    const id = btoa("" + Date.now());
-
-    let config: any, url: string;
-
     const data = {
-      appealId: id,
       subject: contactForm.subject,
       firstName: contactForm.firstName,
       lastName: contactForm.lastName,
@@ -56,18 +51,15 @@ export default function ContactUs() {
       message: contactForm.message
     };
 
-    config = {
-      headers: {
-        "Client-Token": cookies.accessToken,
-        withCredentials: true
-      }
-    };
-    url = clientLinks.contactUs;
-
     timer(50).subscribe(
       async () =>
         await axios
-          .post(url, data, config)
+          .post(clientLinks.contactUs, data, {
+            headers: {
+              "Client-Token": cookies.accessToken,
+              withCredentials: true
+            }
+          })
           .then((response) => {
             const { error } = response.data;
 
@@ -273,11 +265,7 @@ export default function ContactUs() {
             />
           </div>
         </form>
-        <Button
-          onClick={handleContact}
-          className="btn-pr dark btn-sm-x-w"
-          disabled={!contactForm.firstName || !contactForm.lastName || !contactForm.email || !contactForm.subject || !contactForm.message}
-        >
+        <Button onClick={handleContact} className="btn-pr dark btn-sm-x-w">
           <span>{t("contactUs.button")}</span>
         </Button>
       </section>

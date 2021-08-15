@@ -125,8 +125,7 @@ export const Navbar = () => {
                 <Button
                   className={width < 600 ? "btn-brgr btn-r no-border btn-pr" : "btn-r btn-pr no-border btn-lang"}
                   onClick={() => {
-                    dispatch(logout());
-                    history.push({ pathname: `/${i18n.language}/` });
+                    new Promise(() => dispatch(logout())).then(() => history.push({ pathname: `/${i18n.language}` }));
                   }}
                   aria-label={t("navbar.ariaLabel.logOut")}
                 >
