@@ -32,7 +32,7 @@ export default function ContactUs() {
     subjectError: "",
     firstNameError: "",
     lastNameError: "",
-    clientEmailError: "",
+    emailError: "",
     messageError: ""
   });
 
@@ -74,7 +74,7 @@ export default function ContactUs() {
                   subjectError: ""
                 });
               }
-              if (error.firstName) {
+              if (error.clientFullName) {
                 setContactFormError({
                   ...contactFormError,
                   firstNameError: error.clientFullName
@@ -85,7 +85,7 @@ export default function ContactUs() {
                   firstNameError: ""
                 });
               }
-              if (error.lastName) {
+              if (error.clientFullName) {
                 setContactFormError({
                   ...contactFormError,
                   lastNameError: error.clientFullName
@@ -96,15 +96,15 @@ export default function ContactUs() {
                   lastNameError: ""
                 });
               }
-              if (error.email) {
+              if (error.clientEmail) {
                 setContactFormError({
                   ...contactFormError,
-                  clientEmailError: error.email
+                  emailError: error.clientEmail
                 });
               } else {
                 setContactFormError({
                   ...contactFormError,
-                  clientEmailError: ""
+                  emailError: ""
                 });
               }
               if (error.message) {
@@ -124,7 +124,7 @@ export default function ContactUs() {
                 subjectError: "",
                 firstNameError: "",
                 lastNameError: "",
-                clientEmailError: "",
+                emailError: "",
                 messageError: ""
               });
               setContactForm({
@@ -229,9 +229,9 @@ export default function ContactUs() {
             overlayPlacement="top"
           />
           <Input
-            errorIdentifier={contactFormError.clientEmailError}
+            errorIdentifier={contactFormError.emailError}
             labelText={t("label.email")}
-            errorLabelText={contactFormError.clientEmailError}
+            errorLabelText={contactFormError.emailError}
             inputId="email"
             name="email"
             onBlur={(event) =>
