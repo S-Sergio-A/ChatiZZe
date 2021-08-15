@@ -362,6 +362,6 @@
   "testData.password": "Пароль: !Password1",
 
   "alert.tooMany": "Не возможно отправить болле {{MAX_LENGTH}} файлов за один раз!",
-  "alert.tooBig": "Файл не может превышать 200KB!",
+  "alert.tooBig": "Файл не может превышать 100KB!",
   "alert.notImplYet": "Эта функциональность ещё не была введена."
 }

@@ -363,6 +363,6 @@
   "testData.password": "Password: !Password1",
 
   "alert.tooMany": "Cannot upload more than {{MAX_LENGTH}} files!",
-  "alert.tooBig": "File must be smaller than 200KB!",
+  "alert.tooBig": "File must be smaller than 100KB!",
   "alert.notImplYet": "This feature hasn't been implemented yet. Sorry..."
 }
