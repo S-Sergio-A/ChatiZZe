@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { timer } from "rxjs";
 import axios from "axios";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
@@ -24,7 +24,7 @@ export default function ContactUs() {
     subject: "option.choose",
     firstName: "",
     lastName: "",
-    email: "",
+    clientEmail: "",
     message: ""
   });
 
@@ -32,7 +32,7 @@ export default function ContactUs() {
     subjectError: "",
     firstNameError: "",
     lastNameError: "",
-    emailError: "",
+    clientEmailError: "",
     messageError: ""
   });
 
@@ -45,9 +45,8 @@ export default function ContactUs() {
   async function handleContact() {
     const data = {
       subject: contactForm.subject,
-      firstName: contactForm.firstName,
-      lastName: contactForm.lastName,
-      email: contactForm.email,
+      clientFullName: `${contactForm.firstName} ${contactForm.lastName}`,
+      clientEmail: contactForm.clientEmail,
       message: contactForm.message
     };
 
@@ -78,7 +77,7 @@ export default function ContactUs() {
               if (error.firstName) {
                 setContactFormError({
                   ...contactFormError,
-                  firstNameError: error.firstName
+                  firstNameError: error.clientFullName
                 });
               } else {
                 setContactFormError({
@@ -89,7 +88,7 @@ export default function ContactUs() {
               if (error.lastName) {
                 setContactFormError({
                   ...contactFormError,
-                  lastNameError: error.lastName
+                  lastNameError: error.clientFullName
                 });
               } else {
                 setContactFormError({
@@ -100,12 +99,12 @@ export default function ContactUs() {
               if (error.email) {
                 setContactFormError({
                   ...contactFormError,
-                  emailError: error.email
+                  clientEmailError: error.email
                 });
               } else {
                 setContactFormError({
                   ...contactFormError,
-                  emailError: ""
+                  clientEmailError: ""
                 });
               }
               if (error.message) {
@@ -125,7 +124,7 @@ export default function ContactUs() {
                 subjectError: "",
                 firstNameError: "",
                 lastNameError: "",
-                emailError: "",
+                clientEmailError: "",
                 messageError: ""
               });
               setContactForm({
@@ -133,7 +132,7 @@ export default function ContactUs() {
                 subject: "",
                 firstName: "",
                 lastName: "",
-                email: "",
+                clientEmail: "",
                 message: ""
               });
             }
@@ -230,15 +229,15 @@ export default function ContactUs() {
             overlayPlacement="top"
           />
           <Input
-            errorIdentifier={contactFormError.emailError}
+            errorIdentifier={contactFormError.clientEmailError}
             labelText={t("label.email")}
-            errorLabelText={contactFormError.emailError}
+            errorLabelText={contactFormError.clientEmailError}
             inputId="email"
             name="email"
             onBlur={(event) =>
               setContactForm({
                 ...contactForm,
-                email: event.target.value
+                clientEmail: event.target.value
               })
             }
             required
@@ -263,6 +262,7 @@ export default function ContactUs() {
               }
               required
             />
+            <p className={contactFormError.messageError ? "form-l-e it flex a-s-f-s f-w copyright" : "none"}>{contactFormError.messageError ? contactFormError.messageError : null}</p>
           </div>
         </form>
         <Button onClick={handleContact} className="btn-pr dark btn-sm-x-w">
