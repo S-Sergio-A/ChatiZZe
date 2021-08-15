@@ -14,11 +14,7 @@ function login(user: {
   return { type: LOGIN, payload: { logged: true, user } };
 }
 
-function logout(cookie: Cookies) {
-  cookie.remove("user-auth");
-  cookie.remove("user-data");
-  cookie.remove("access-token");
-  cookie.remove("refresh-token");
+function logout() {
   return { type: LOGOUT, payload: { logged: false } };
 }
 

@@ -13,10 +13,11 @@ import MenuButton from "../button/menu/MenuButton";
 import { Button } from "../button/Button";
 import NavLink from "../link/NavLink";
 import "./Navbar.css";
-import { Cookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 export const Navbar = () => {
   const [t] = useTranslation();
+  const [cookies, set, removeCookie] = useCookies([]);
 
   const [translateNav, setTranslateNav] = useState(false);
 
@@ -126,8 +127,11 @@ export const Navbar = () => {
                 <Button
                   className={width < 600 ? "btn-brgr btn-r no-border btn-pr" : "btn-r btn-pr no-border btn-lang"}
                   onClick={() => {
-                    const cookie = new Cookies();
-                    dispatch(logout(cookie));
+                    dispatch(logout());
+                    removeCookie("user-auth");
+                    removeCookie("user-data");
+                    removeCookie("access-token");
+                    removeCookie("refresh-token");
                     history.push({ pathname: `/${i18n.language}` });
                   }}
                   aria-label={t("navbar.ariaLabel.logOut")}

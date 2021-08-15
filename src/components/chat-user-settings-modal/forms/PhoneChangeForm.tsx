@@ -9,14 +9,14 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../../context/actions/auth";
 import i18n from "i18next";
 
 export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phoneChange: boolean; setPhoneChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies([]);
 
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
@@ -77,8 +77,11 @@ export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phone
           }
         } else {
           setPhoneChange(false);
-          const cookie = new Cookies();
-          dispatch(logout(cookie));
+          dispatch(logout());
+          removeCookie("user-auth");
+          removeCookie("user-data");
+          removeCookie("access-token");
+          removeCookie("refresh-token");
           history.push({ pathname: `/${i18n}/` });
         }
       });

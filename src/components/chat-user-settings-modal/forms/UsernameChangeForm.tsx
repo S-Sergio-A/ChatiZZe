@@ -9,7 +9,7 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../../context/actions/auth";
 import i18n from "i18next";
@@ -22,7 +22,7 @@ export default function UsernameChangeForm({
   setUsernameChange: Dispatch<boolean>;
 }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies([]);
 
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -83,8 +83,11 @@ export default function UsernameChangeForm({
           }
         } else {
           setUsernameChange(false);
-          const cookie = new Cookies();
-          dispatch(logout(cookie));
+          dispatch(logout());
+          removeCookie("user-auth");
+          removeCookie("user-data");
+          removeCookie("access-token");
+          removeCookie("refresh-token");
           history.push({ pathname: `/${i18n}/` });
         }
       });
