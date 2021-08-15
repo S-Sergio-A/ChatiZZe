@@ -63,8 +63,6 @@
   -moz-column-gap: 10px;
 }
 .message > .message-yours.has-attachment > .attachments-container > .attachment {
-  min-width: 49%;
-  max-width: 100%;
   max-height: 350px;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -108,8 +106,6 @@
   -moz-column-gap: 10px;
 }
 .message > .message-others.has-attachment > .attachments-container > .attachment {
-  min-width: 49%;
-  max-width: 100%;
   max-height: 350px;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -215,7 +211,11 @@
     height: 30px;
   }
   .message .msg {
-    width: 30vw;
+    width: 40vw;
+  }
+
+  .has-attachment > .attachment {
+    width: calc(50% - 10px);
   }
 }
 @media only screen and (max-width: 768px) {
@@ -252,6 +252,10 @@
   }
   .message .msg {
     width: 290px;
+  }
+
+  .has-attachment > .attachment {
+    max-width: 100%;
   }
 }
 @media only screen and (max-width: 480px) {

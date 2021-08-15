@@ -36,8 +36,6 @@
     @include columnGap(10px);
 
     & > .attachment {
-      min-width: 49%;
-      max-width: 100%;
       max-height: 350px;
       @include border-radius(15px);
     }
@@ -262,8 +260,12 @@
     }
 
     .msg {
-      width: 30vw;
+      width: 40vw;
     }
+  }
+
+  .has-attachment > .attachment {
+    width: calc(50% - 10px);
   }
 }
 
@@ -297,6 +299,10 @@
     .msg {
       width: 290px;
     }
+  }
+
+  .has-attachment > .attachment {
+    max-width: 100%;
   }
 }
 
