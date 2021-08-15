@@ -58,7 +58,6 @@ const App = () => {
   useEffect(() => {
     dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));
-    if (firstRefresh) invoke();
     if (cookies["lang"]) changeLang(cookies["lang"].language);
   }, []);
 
@@ -148,6 +147,16 @@ const App = () => {
   }, [location.pathname]);
 
   useEffect(() => {
+    if (firstRefresh) {
+      setFirstRefresh(false);
+      invoke();
+    } else {
+      const invokeSub = timer(1500000).subscribe(() => {
+        invokeSub.unsubscribe();
+        invoke();
+      });
+    }
+    
     if (logged && cookies["user-auth"] && cookies["user-auth"]?.expTime < 1801) {
       if (firstRefresh) {
         setFirstRefresh(false);
@@ -164,6 +173,9 @@ const App = () => {
   async function invoke() {
     await axios.get(clientLinks.invoke).catch((e) => logError(e));
     await axios.get("https://chatizze-messages.herokuapp.com").catch((e) => logError(e));
+    await axios.get("https://chatizze-verification.herokuapp.com").catch((e) => logError(e));
+    await axios.get("https://chatizze-rooms.herokuapp.com").catch((e) => logError(e));
+    await axios.get("https://chatizze-auth.herokuapp.com").catch((e) => logError(e));
   }
 
   async function __generateClientsToken() {
