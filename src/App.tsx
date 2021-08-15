@@ -27,6 +27,7 @@ import { changeLang } from "./utils/i18n/i18n";
 import { Routes } from "./pages/routes/Routes";
 import { Menu } from "./components/menu/Menu";
 import i18n from "./utils/i18n/i18n";
+import { languages } from "./utils/i18n/Langs";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -69,15 +70,6 @@ const App = () => {
     }
 
     if (!cookies["cookie-shown"]?.shown) dispatch(showCookie(true));
-  }, []);
-
-  useEffect(() => {
-    const language = navigator.language ? navigator.language : "en";
-
-    if (!localStorage.getItem(btoa("f-r"))) {
-      changeLang(language);
-      localStorage.setItem(btoa("f-r"), btoa("true"));
-    }
   }, []);
 
   useEffect(() => {
@@ -138,11 +130,14 @@ const App = () => {
   }, [location]);
 
   useEffect(() => {
-    const langs = ["en", "ru", "ua"];
     const lang = location.pathname.split("/")[1];
+    const langCookie = cookies["lang"];
+    const navigatorLang = navigator.language ? navigator.language : "en";
 
-    if (lang === "undefined" || !langs.includes(lang)) {
-      history.push({ pathname: `/${i18n.language}/` });
+    if (langCookie?.language) {
+      history.push({ pathname: `${langCookie.language}` });
+    } else if (lang === "undefined" || !languages.includes(lang)) {
+      history.push({ pathname: `/${navigatorLang}` });
     }
   }, [location.pathname]);
 
@@ -158,7 +153,7 @@ const App = () => {
         });
       }
     }
-  
+
     if (firstRefresh) {
       setFirstRefresh(false);
       invoke();
