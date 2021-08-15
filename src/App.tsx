@@ -163,7 +163,7 @@ const App = () => {
 
   async function invoke() {
     await axios.get(clientLinks.invoke).catch((e) => logError(e));
-    await axios.get("https://chatizze-messages-service.herokuapp.com/").catch((e) => logError(e));
+    if (process.env.WSS_SERVER) await axios.get(process.env.WSS_SERVER).catch((e) => logError(e));
   }
 
   async function __generateClientsToken() {
