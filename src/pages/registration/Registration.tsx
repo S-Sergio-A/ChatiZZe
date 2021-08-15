@@ -91,8 +91,8 @@ export default function Registration() {
           } else {
             setPasswordVerificationError("");
           }
-          if (error.internalFailure) {
-            dispatch(setError(error.internalFailure));
+          if (error.message) {
+            dispatch(setError(error.message));
           }
 
           if (error.phoneNumber) {

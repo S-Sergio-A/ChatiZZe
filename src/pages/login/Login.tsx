@@ -93,8 +93,8 @@ export default function Login() {
             setPasswordError("");
           }
 
-          if (error.internalFailure) {
-            dispatch(setError(error.internalFailure));
+          if (error.message) {
+            dispatch(setError(error.message));
           }
         } else {
           setAnimate(true);
