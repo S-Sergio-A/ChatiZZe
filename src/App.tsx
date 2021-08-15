@@ -133,8 +133,8 @@ const App = () => {
     const lang = location.pathname.split("/")[1];
     const langCookie = cookies["lang"];
     const navigatorLang = navigator.language ? navigator.language : "en";
-
-    if (langCookie?.language) {
+    
+    if (langCookie?.language && !languages.includes(lang)) {
       history.push({ pathname: `${langCookie.language}` });
     } else if (lang === "undefined" || !languages.includes(lang)) {
       history.push({ pathname: `/${navigatorLang}` });
