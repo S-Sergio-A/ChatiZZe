@@ -140,7 +140,12 @@ export default function CustomThemeModal() {
                   borderPrimary: primaryBorder,
                   borderSecondary: secondaryBorder,
                   colorPrimary: primaryColor,
-                  colorSecondary: secondaryColor,
+                  colorSecondary:
+                    primaryColor === "#000000" || secondaryColor === "#000000"
+                      ? "#ffffff"
+                      : primaryColor === "#ffffff" || secondaryColor === "#ffffff"
+                      ? "#000000"
+                      : secondaryColor,
                   backgroundImage: ""
                 },
                 cookieOptions(3600 * 24 * 30)
