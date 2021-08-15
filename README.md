@@ -45,9 +45,9 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing React Sample App
 
-1. Clone this repository `git clone https://github.com/S-Sergio-A/ChatiZZe.git`
-2. Navigate to the root directory and add the `.env` file with your `REACT_APP_WSS_SERVER` link.
-3. Install dependencies
+1. Clone this repository `git clone https://github.com/S-Sergio-A/ChatiZZe.git`.
+2. Navigate to the webpack.prod.config.js file in the root directory and change `WSS_SERVER`.
+3. Install dependencies.
 
 ```javascript
   npm install

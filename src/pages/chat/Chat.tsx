@@ -68,7 +68,7 @@ export default function Chat() {
   useEffect(() => {
     if (roomId.length !== 0 && userId.length !== 0) {
       socketRef.current = io(
-        process.env.REACT_APP_WSS_SERVER ? `${process.env.REACT_APP_WSS_SERVER}?roomId=${roomId}&userId=${userId}` : "",
+        process.env.WSS_SERVER ? `${process.env.WSS_SERVER}?roomId=${roomId}&userId=${userId}` : "",
         {
           reconnection: true,
           reconnectionAttempts: 4,
