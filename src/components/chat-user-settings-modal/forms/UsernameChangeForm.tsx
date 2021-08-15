@@ -9,7 +9,7 @@ import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import { useCookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../../context/actions/auth";
 import i18n from "i18next";
@@ -83,7 +83,8 @@ export default function UsernameChangeForm({
           }
         } else {
           setUsernameChange(false);
-          dispatch(logout());
+          const cookie = new Cookies();
+          dispatch(logout(cookie));
           history.push({ pathname: `/${i18n}/` });
         }
       });

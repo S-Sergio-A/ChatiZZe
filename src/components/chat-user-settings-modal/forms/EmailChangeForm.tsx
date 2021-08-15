@@ -9,7 +9,7 @@ import { userLinks } from "../../../utils/api-endpoints.enum";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { setError } from "../../../context/actions/error";
-import { useCookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
 import { logout } from "../../../context/actions/auth";
 import i18n from "i18next";
 import { useHistory } from "react-router-dom";
@@ -77,7 +77,8 @@ export default function EmailChangeForm({ emailChange, setEmailChange }: { email
           }
         } else {
           setEmailChange(false);
-          dispatch(logout());
+          const cookie = new Cookies();
+          dispatch(logout(cookie));
           history.push({ pathname: `/${i18n}/` });
         }
       });

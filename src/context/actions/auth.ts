@@ -14,9 +14,7 @@ function login(user: {
   return { type: LOGIN, payload: { logged: true, user } };
 }
 
-function logout() {
-  const cookie = new Cookies();
-  
+function logout(cookie: Cookies) {
   cookie.remove("user-auth");
   cookie.remove("user-data");
   cookie.remove("access-token");
