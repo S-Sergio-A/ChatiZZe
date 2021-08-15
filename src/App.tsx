@@ -147,16 +147,6 @@ const App = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (firstRefresh) {
-      setFirstRefresh(false);
-      invoke();
-    } else {
-      const invokeSub = timer(1500000).subscribe(() => {
-        invokeSub.unsubscribe();
-        invoke();
-      });
-    }
-    
     if (logged && cookies["user-auth"] && cookies["user-auth"]?.expTime < 1801) {
       if (firstRefresh) {
         setFirstRefresh(false);
@@ -167,6 +157,16 @@ const App = () => {
           refreshSession();
         });
       }
+    }
+  
+    if (firstRefresh) {
+      setFirstRefresh(false);
+      invoke();
+    } else {
+      const invokeSub = timer(1500000).subscribe(() => {
+        invokeSub.unsubscribe();
+        invoke();
+      });
     }
   }, [logged]);
 

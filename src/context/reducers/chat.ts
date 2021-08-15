@@ -85,7 +85,7 @@ interface ChatType {
 
 export const initialChatData = {
   chatName: "initial",
-  roomId: "initial",
+  roomId: "",
   isPrivate: false,
   isUser: false,
   photo: "https://via.placeholder.com/60",
