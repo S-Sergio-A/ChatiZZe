@@ -17,7 +17,7 @@ import "./UserSettings.css";
 
 export default function UserSettingsModal() {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
 
   const user = useSelector((state: RootState) => state.auth.user);
   const showUserSettings = useSelector((state: RootState) => state.chat.showUserSettings);

@@ -4,6 +4,10 @@
   "description": "",
   "author": "Sergey Smovzh",
   "private": true,
+  "scripts": {
+    "build": "webpack --mode production --stats-error-details --config webpack.prod.config.js",
+    "start": "node dist/server.js"
+  },
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.1.3",
     "axios": "^0.21.1",
@@ -82,10 +86,6 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4",
     "workbox-webpack-plugin": "^6.2.2"
-  },
-  "scripts": {
-    "build": "webpack --mode production --stats-error-details --config webpack.prod.config.js",
-    "start": "node dist/server.js"
   },
   "eslintConfig": {
     "extends": [

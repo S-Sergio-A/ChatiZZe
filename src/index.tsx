@@ -1,10 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
 import React, { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { render } from "react-dom";
 import axios from "axios";
 import { LoadingFallback } from "./pages/lazy-loaders/LoadingFallback";
-// import reportWebVitals from "./utils/reportWebVitals";
 import { store } from "./context/store";
 import Wrapper from "./Wrapper";
 import "./components/button/ButtonSecondary.css";
@@ -16,7 +15,7 @@ import "./components/link/Link.css";
 import "./pages/info-pages/InfoPage.css";
 import "./styles/index.css";
 
-axios.defaults.baseURL = "https://chatizze-public-api.herokuapp.com/public";
+axios.defaults.baseURL = "http://localhost:4000/public";
 axios.defaults.timeout = 1500;
 axios.defaults.withCredentials = true;
 
@@ -43,5 +42,3 @@ render(
   </BrowserRouter>,
   document.getElementById("root")
 );
-
-// reportWebVitals(console.log);

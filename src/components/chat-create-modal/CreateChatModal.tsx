@@ -21,7 +21,7 @@ export default function CreateChatModal() {
 
   const [isPrivate, setIsPrivate] = useState(false);
 
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
   const [t] = useTranslation();
 
   const showCreateChatModal = useSelector((state: RootState) => state.chat.showCreateChat);

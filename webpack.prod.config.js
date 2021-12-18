@@ -32,7 +32,7 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin({
-      WSS_SERVER: "wss://chatizze-messages.herokuapp.com",
+      WSS_SERVER: "ws://localhost:7000",
       DEBUG: false
     }),
     new webpack.ProgressPlugin(),

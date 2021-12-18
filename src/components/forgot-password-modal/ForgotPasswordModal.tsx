@@ -12,7 +12,7 @@ import Modal from "../modal/Modal";
 
 export default function ForgotPasswordModal() {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
 
   const [page, setPage] = useState(1);
   const [email, setEmail] = useState("");

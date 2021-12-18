@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 export default function ThemeSwitch() {
   const [t] = useTranslation();
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
   const dispatch = useDispatch();
 
   return (

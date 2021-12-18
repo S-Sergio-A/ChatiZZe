@@ -12,7 +12,7 @@ import CloseButton from "../button/close/CloseButton";
 import "./Cookie.css";
 
 export const Cookie = () => {
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
   const [t] = useTranslation();
 
   const [remove, setRemove] = useState(false);

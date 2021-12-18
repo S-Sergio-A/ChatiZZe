@@ -16,7 +16,7 @@ interface TripleSwitchProps {
 }
 
 export default function TripleSwitch({ labelFirst, labelSecond, labelThird, actionFirst, actionSecond, actionThird }: TripleSwitchProps) {
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
 
   const [firstRender, setFirstRender] = useState(true);
   const [middleStateChanged, setMiddleStateChanged] = useState({ clicked: false, changed: false });

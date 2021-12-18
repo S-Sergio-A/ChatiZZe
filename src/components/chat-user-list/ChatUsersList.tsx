@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Fragment, useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 import { displayAddUserModal, reloadChats, setActiveChat } from "../../context/actions/chat";
+import { initialChatData } from "../../context/reducers/chat";
 import { RootState } from "../../context/rootState.interface";
+import { setError } from "../../context/actions/error";
 import { userLinks } from "../../utils/api-endpoints.enum";
 import ChangeUserRightsModal from "../chat-change-user-rights-modal/ChangeUserRightsModal";
 import ConfirmationModal from "../confirmation-modal/ConfirmationModal";
 import { Button } from "../button/Button";
 import "./ChatUsersList.css";
-import { setError } from "../../context/actions/error";
-import { initialChatData } from "../../context/reducers/chat";
 
 export default function ChatUsersList({ users, socketRef }: { users: any[]; socketRef: any }) {
   const [t] = useTranslation();
@@ -18,12 +19,10 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
     show: false,
     _id: ""
   });
-
   const [confirmLeave, setConfirmLeave] = useState({
     show: false,
     _id: ""
   });
-
   const [changeUser, setChangeUser] = useState({
     show: false,
     _id: "",
@@ -31,6 +30,7 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
   });
 
   const [userRights, setUserRights] = useState([]);
+  const [cookies] = useCookies<any>();
 
   const roomId = useSelector((state: RootState) => state.chat.data.roomId);
   const userId = useSelector((state: RootState) => state.auth.user._id);
@@ -41,18 +41,27 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
     if (changeUser._id) getUserRights(changeUser._id);
   }, [changeUser]);
 
-  const removeUser = (userId: string) => {
-    axios.delete(userLinks.deleteUserFromRoom(userId, roomId), { headers: { Rights: [rights] } }).then(({ data, status }) => {
-      if (data.error) {
-        dispatch(setError(data.error.message));
-      } else {
-        dispatch(reloadChats(true));
-      }
-    });
+  const removeUser = (userId: string, type: string = "DELETE_USER") => {
+    axios
+      .delete(userLinks.deleteUserFromRoom(userId, roomId, type), {
+        headers: {
+          Rights: [rights],
+          "Access-Token": cookies["accessToken"]?.accessToken,
+          "Refresh-Token": cookies["refreshToken"]?.refreshToken
+        }
+      })
+      .then(({ data, status }) => {
+        if (data.error) {
+          dispatch(setError(data.error.message));
+        } else {
+          dispatch(reloadChats(true));
+        }
+      });
   };
 
   const leaveRoom = (userId: string) => {
     if (socketRef.current) {
+      removeUser(userId, "LEAVE_ROOM");
       socketRef.current.emit("leave-room", { roomId, userId });
       dispatch(setActiveChat(initialChatData));
       dispatch(reloadChats(true));

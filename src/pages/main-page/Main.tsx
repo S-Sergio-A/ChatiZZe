@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import Head from "../../components/head/Head";
 import "./Main.css";
 import Intro from "./components/intro/Intro";
@@ -10,7 +9,6 @@ import Download from "./components/download/Download";
 
 export default function Main() {
   const [t] = useTranslation();
-  const { width } = useWindowDimensions();
 
   return (
     <main id="main" className="main-page grid">

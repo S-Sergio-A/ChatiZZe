@@ -21,7 +21,7 @@ export default function PasswordChangeForm({
   setPasswordChange: Dispatch<boolean>;
 }) {
   const [t] = useTranslation();
-  const [cookies, set, removeCookie] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies<any>([]);
 
   const [oldPassword, setOldPassword] = useState("");
   const [oldPasswordError, setOldPasswordError] = useState("");

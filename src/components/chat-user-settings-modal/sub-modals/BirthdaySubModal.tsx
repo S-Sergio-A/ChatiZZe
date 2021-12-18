@@ -19,7 +19,7 @@ export default function BirthdaySubModal({
   setShowSubModal: (val: boolean) => void;
 }) {
   const [t] = useTranslation();
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
 
   const user = useSelector((state: RootState) => state.auth.user);
 

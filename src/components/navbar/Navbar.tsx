@@ -1,7 +1,8 @@
 import { Fragment, MutableRefObject, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useCookies } from "react-cookie";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import { setMenuButtonRef, showMenu } from "../../context/actions/menu";
 import { useTouchDevice } from "../../utils/hooks/useTouchDevice";
@@ -13,11 +14,12 @@ import MenuButton from "../button/menu/MenuButton";
 import { Button } from "../button/Button";
 import NavLink from "../link/NavLink";
 import "./Navbar.css";
-import { useCookies } from "react-cookie";
+import axios from "axios";
+import { logError } from "../../pages/error/errorHandler";
 
 export const Navbar = () => {
   const [t] = useTranslation();
-  const [cookies, set, removeCookie] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies<any>([]);
 
   const [translateNav, setTranslateNav] = useState(false);
 
@@ -46,6 +48,12 @@ export const Navbar = () => {
 
   return (
     <header className={`${translateNav ? "showNavTop" : "hideNavTop"} nav grid`}>
+      <button style={{ width: 40, height: 40 }} onClick={() => axios.get("http://localhost:3300/public/200").catch((e) => logError(e))}>
+        200
+      </button>
+      <button style={{ width: 40, height: 40 }} onClick={() => axios.get("http://localhost:3300/public/500").catch((e) => logError(e))}>
+        500
+      </button>
       <nav role="navigation" className="nav-t grid">
         {!isTouchDevice ? (
           <Fragment>

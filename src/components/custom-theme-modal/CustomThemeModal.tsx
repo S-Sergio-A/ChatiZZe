@@ -12,7 +12,7 @@ import "./CustomThemeModal.css";
 
 export default function CustomThemeModal() {
   const [t] = useTranslation();
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
 
   const themeType = cookies["theme-type"];
   let theme = cookies["theme"];

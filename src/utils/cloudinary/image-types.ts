@@ -6,9 +6,9 @@ export const imageClasses = {
           return { width: 600, height: 350 };
         case screenWidth > 1199 && screenWidth <= 1399:
           return { width: 520, height: 310 };
-        case screenWidth > 991 && screenWidth <= 1199 :
+        case screenWidth > 991 && screenWidth <= 1199:
           return { width: 780, height: 300 };
-        case screenWidth > 768 && screenWidth <= 991 :
+        case screenWidth > 768 && screenWidth <= 991:
           return { width: 600, height: 240 };
         case screenWidth > 480 && screenWidth <= 768:
           return { width: 420, height: 240 };
@@ -26,9 +26,9 @@ export const imageClasses = {
           return { width: 375, height: 710 };
         case screenWidth > 1199 && screenWidth <= 1399:
           return { width: 300, height: 630 };
-        case screenWidth > 991 && screenWidth <= 1199 :
+        case screenWidth > 991 && screenWidth <= 1199:
           return { width: 380, height: 610 };
-        case screenWidth > 768 && screenWidth <= 991 :
+        case screenWidth > 768 && screenWidth <= 991:
           return { width: 290, height: 400 };
         case screenWidth > 480 && screenWidth <= 768:
           return { width: 200, height: 410 };
@@ -47,9 +47,9 @@ export const imageClasses = {
         return { width: 400, height: 400 };
       case screenWidth > 1199 && screenWidth <= 1399:
         return { width: 360, height: 360 };
-      case screenWidth > 991 && screenWidth <= 1199 :
+      case screenWidth > 991 && screenWidth <= 1199:
         return { width: 320, height: 320 };
-      case screenWidth > 768 && screenWidth <= 991 :
+      case screenWidth > 768 && screenWidth <= 991:
         return { width: 300, height: 300 };
       case screenWidth > 480 && screenWidth <= 768:
         return { width: 270, height: 270 };
@@ -67,9 +67,9 @@ export const imageClasses = {
         return { width: 250, height: 250 };
       case screenWidth > 1199 && screenWidth <= 1399:
         return { width: 230, height: 230 };
-      case screenWidth > 991 && screenWidth <= 1199 :
+      case screenWidth > 991 && screenWidth <= 1199:
         return { width: 200, height: 200 };
-      case screenWidth > 768 && screenWidth <= 991 :
+      case screenWidth > 768 && screenWidth <= 991:
         return { width: 180, height: 180 };
       case screenWidth > 480 && screenWidth <= 768:
         return { width: 180, height: 180 };
@@ -88,25 +88,25 @@ export const imageClasses = {
       case screenWidth <= 680:
         return { width: 270, height: 140 };
       default:
-        return { width: 'auto', height: 140 };
+        return { width: "auto", height: 140 };
     }
   },
   pressRelease: (screenWidth: number) => {
     switch (true) {
       case screenWidth >= 1200:
-        return { width: 'auto', height: 400 };
+        return { width: "auto", height: 400 };
       case screenWidth > 991 && screenWidth <= 1199:
-        return { width: 'auto', height: 400 };
-      case screenWidth > 768 && screenWidth <= 991 :
-        return { width: 'auto', height: 300 };
+        return { width: "auto", height: 400 };
+      case screenWidth > 768 && screenWidth <= 991:
+        return { width: "auto", height: 300 };
       case screenWidth > 480 && screenWidth <= 768:
-        return { width: 'auto', height: 250 };
+        return { width: "auto", height: 250 };
       case screenWidth > 320 && screenWidth <= 480:
-        return { width: 'auto', height: 200 };
+        return { width: "auto", height: 200 };
       case screenWidth <= 320:
-        return { width: 'auto', height: 150 };
+        return { width: "auto", height: 150 };
       default:
-        return { width: 'auto', height: 150 };
+        return { width: "auto", height: 150 };
     }
   }
 };

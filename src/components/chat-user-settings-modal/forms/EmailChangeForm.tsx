@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 
 export default function EmailChangeForm({ emailChange, setEmailChange }: { emailChange: boolean; setEmailChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
-  const [cookies, set, removeCookie] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies<any>([]);
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");

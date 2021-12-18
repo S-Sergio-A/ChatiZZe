@@ -156,7 +156,7 @@ export const ChatInput = ({
 
     if (event.target.files) {
       setShowMessageModal(true);
-      const attachedFilesArray = [];
+      const attachedFilesArray: any[] = [];
 
       const length = event.target.files.length <= 5 ? event.target.files.length : MAX_LENGTH;
 

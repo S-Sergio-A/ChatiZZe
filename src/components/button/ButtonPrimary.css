@@ -24,101 +24,87 @@
   letter-spacing: 2px;
   letter-spacing: 1.6px;
 }
-.btn-pr:hover:before,
-.btn-pr:hover:after {
+.btn-pr:hover:before, .btn-pr:hover:after {
   width: 50%;
 }
 .btn-pr:active {
   letter-spacing: 1.6px;
 }
-.btn-pr:active:before,
-.btn-pr:active:after {
+.btn-pr:active:before, .btn-pr:active:after {
   width: 50%;
 }
 .btn-pr:focus {
   letter-spacing: 1.6px;
 }
-.btn-pr:focus:before,
-.btn-pr:focus:after {
+.btn-pr:focus:before, .btn-pr:focus:after {
   width: 50%;
 }
 .btn-pr:focus-visible {
   letter-spacing: 1.6px;
 }
-.btn-pr:focus-visible:before,
-.btn-pr:focus-visible:after {
+.btn-pr:focus-visible:before, .btn-pr:focus-visible:after {
   width: 50%;
 }
 .btn-pr:focus-within {
   letter-spacing: 1.6px;
 }
-.btn-pr:focus-within:before,
-.btn-pr:focus-within:after {
+.btn-pr:focus-within:before, .btn-pr:focus-within:after {
   width: 50%;
 }
 .btn-pr:-moz-focusring {
   letter-spacing: 1.6px;
 }
-.btn-pr:-moz-focusring:before,
-.btn-pr:-moz-focusring:after {
+.btn-pr:-moz-focusring:before, .btn-pr:-moz-focusring:after {
   width: 50%;
 }
 .btn-pr.active {
   letter-spacing: 1.6px;
 }
-.btn-pr.active:before,
-.btn-pr.active:after {
+.btn-pr.active:before, .btn-pr.active:after {
   width: 50%;
 }
 .btn-pr.dark:hover {
   letter-spacing: 2px;
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:hover:before,
-.btn-pr.dark:hover:after {
+.btn-pr.dark:hover:before, .btn-pr.dark:hover:after {
   width: 50%;
 }
 .btn-pr.dark:active {
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:active:before,
-.btn-pr.dark:active:after {
+.btn-pr.dark:active:before, .btn-pr.dark:active:after {
   width: 50%;
 }
 .btn-pr.dark:focus {
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:focus:before,
-.btn-pr.dark:focus:after {
+.btn-pr.dark:focus:before, .btn-pr.dark:focus:after {
   width: 50%;
 }
 .btn-pr.dark:focus-visible {
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:focus-visible:before,
-.btn-pr.dark:focus-visible:after {
+.btn-pr.dark:focus-visible:before, .btn-pr.dark:focus-visible:after {
   width: 50%;
 }
 .btn-pr.dark:focus-within {
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:focus-within:before,
-.btn-pr.dark:focus-within:after {
+.btn-pr.dark:focus-within:before, .btn-pr.dark:focus-within:after {
   width: 50%;
 }
 .btn-pr.dark:-moz-focusring {
   letter-spacing: 1.6px;
 }
-.btn-pr.dark:-moz-focusring:before,
-.btn-pr.dark:-moz-focusring:after {
+.btn-pr.dark:-moz-focusring:before, .btn-pr.dark:-moz-focusring:after {
   width: 50%;
 }
 .btn-pr span {
   text-align: center;
   z-index: 1;
 }
-.btn-pr:before,
-.btn-pr:after {
+.btn-pr:before, .btn-pr:after {
   content: "";
   position: absolute;
   height: 100%;

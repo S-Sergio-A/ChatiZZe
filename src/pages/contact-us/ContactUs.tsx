@@ -36,7 +36,7 @@ export default function ContactUs() {
     messageError: ""
   });
 
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
   const [t] = useTranslation();
 
   const dropdownRef = useRef<any>(null);

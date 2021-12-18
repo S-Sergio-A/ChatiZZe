@@ -25,7 +25,7 @@ export default function ChangePhoto({
   actionType?: "chat-photo" | "user-photo";
 }) {
   const [t] = useTranslation();
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
 
   const [photo, setPhoto] = useState(type === "img" ? previousState : "");
 

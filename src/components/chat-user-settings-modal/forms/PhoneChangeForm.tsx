@@ -16,7 +16,7 @@ import i18n from "i18next";
 
 export default function PhoneChangeForm({ phoneChange, setPhoneChange }: { phoneChange: boolean; setPhoneChange: Dispatch<boolean> }) {
   const [t] = useTranslation();
-  const [cookies, set, removeCookie] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies<any>([]);
 
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");

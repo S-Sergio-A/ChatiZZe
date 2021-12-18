@@ -5,8 +5,6 @@ import { registerRoute } from "workbox-routing";
 import { clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 
-// declare const self: ServiceWorkerGlobalScope;
-
 precacheAndRoute(self.__WB_MANIFEST);
 
 registerRoute(
@@ -43,7 +41,7 @@ registerRoute(
 );
 
 registerRoute(
-  ({ url }) => url.origin === "https://s-s-a.bakely.herokuapp.com",
+  ({ url }) => url.origin === "https://chatizze.herokuapp.com",
   new CacheFirst({
     cacheName: "medium-cache",
     matchOptions: {

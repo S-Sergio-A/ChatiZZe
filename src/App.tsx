@@ -1,44 +1,41 @@
+import { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { useCookies } from "react-cookie";
 import { interval, timer } from "rxjs";
 import axios from "axios";
+import { Routes } from "./pages/routes/Routes";
+import { logError } from "./pages/error/errorHandler";
 import ScrollToTopButton from "./components/button/scroll-to-top/ScrollToTopButton";
 import { SuccessfulVerification } from "./components/toasts/SuccessfulVerification";
 import CustomThemeModal from "./components/custom-theme-modal/CustomThemeModal";
 import ActivationModal from "./components/activation-modal/ActivationModal";
-import useWindowDimensions from "./utils/hooks/useWindowDimensions";
 import ErrorModal from "./components/error-modal/ErrorModal";
+import { Navbar } from "./components/navbar/Navbar";
+import { Footer } from "./components/footer/Footer";
+import { Cookie } from "./components/toasts/Cookie";
+import { Menu } from "./components/menu/Menu";
 import { showCookie } from "./context/actions/notification";
 import { RootState } from "./context/rootState.interface";
 import { displayUserMenu } from "./context/actions/chat";
+import { checkTheme } from "./context/actions/theme";
+import { checkState } from "./context/actions/auth";
+import useWindowDimensions from "./utils/hooks/useWindowDimensions";
 import { clientLinks, userLinks } from "./utils/api-endpoints.enum";
 import { cookieOptions } from "./utils/cookieOptions";
-import { logError } from "./pages/error/errorHandler";
-import { checkTheme } from "./context/actions/theme";
-import { Navbar } from "./components/navbar/Navbar";
-import { Footer } from "./components/footer/Footer";
-import { checkState } from "./context/actions/auth";
-import { Cookie } from "./components/toasts/Cookie";
 import { changeLang } from "./utils/i18n/i18n";
-import { Routes } from "./pages/routes/Routes";
-import { Menu } from "./components/menu/Menu";
-import i18n from "./utils/i18n/i18n";
 import { languages } from "./utils/i18n/Langs";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [firstRefresh, setFirstRefresh] = useState(true);
-
-  const [cookies, setCookies] = useCookies([]);
-
+  const [cookies, setCookies] = useCookies<any>([]);
   const location = useLocation();
   const history = useHistory();
-
   const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
 
   const logged = useSelector((state: RootState) => state.auth.logged);
   const showCreateChat = useSelector((state: RootState) => state.chat.showCreateChat);
@@ -53,9 +50,7 @@ const App = () => {
   const forgotPasswordModal = useSelector((state: RootState) => state.auth.showForgotPassword);
   const errorModal = useSelector((state: RootState) => state.error.show);
   const showAddUserModal = useSelector((state: RootState) => state.chat.showAddUser);
-
-  const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));

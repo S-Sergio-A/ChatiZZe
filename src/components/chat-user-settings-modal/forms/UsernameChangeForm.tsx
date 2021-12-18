@@ -22,7 +22,7 @@ export default function UsernameChangeForm({
   setUsernameChange: Dispatch<boolean>;
 }) {
   const [t] = useTranslation();
-  const [cookies, set, removeCookie] = useCookies([]);
+  const [cookies, set, removeCookie] = useCookies<any>([]);
 
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");

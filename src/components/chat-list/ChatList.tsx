@@ -23,7 +23,7 @@ import "./ChatList.css";
 
 export default function ChatList({ chats }: { chats: any[] }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies(["user"]);
+  const [cookies] = useCookies<any>(["user"]);
 
   const [rooms, setRooms] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");

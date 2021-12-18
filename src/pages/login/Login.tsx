@@ -33,7 +33,7 @@ export default function Login() {
   const [rememberMe, setRememberMe] = useState(false);
   const [animate, setAnimate] = useState(false);
 
-  const [cookies, setCookies] = useCookies([]);
+  const [cookies, setCookies] = useCookies<any>([]);
 
   const [t] = useTranslation();
 

@@ -28,7 +28,7 @@ export default function Message({
   nextMessageAuthorId: string;
 }) {
   const [t] = useTranslation();
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
   const [showActions, setShowActions] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 

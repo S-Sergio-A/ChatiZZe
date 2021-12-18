@@ -37,7 +37,7 @@ export default function Chat() {
 
   const [newMessage, setNewMessage] = useState<boolean>(false);
 
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies<any>([]);
 
   const socketRef = useRef<any>(null);
   const indexOfUpdated = useRef(-1);
