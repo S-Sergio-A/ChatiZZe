@@ -48,12 +48,6 @@ export const Navbar = () => {
 
   return (
     <header className={`${translateNav ? "showNavTop" : "hideNavTop"} nav grid`}>
-      <button style={{ width: 40, height: 40 }} onClick={() => axios.get("http://localhost:3300/public/200").catch((e) => logError(e))}>
-        200
-      </button>
-      <button style={{ width: 40, height: 40 }} onClick={() => axios.get("http://localhost:3300/public/500").catch((e) => logError(e))}>
-        500
-      </button>
       <nav role="navigation" className="nav-t grid">
         {!isTouchDevice ? (
           <Fragment>
