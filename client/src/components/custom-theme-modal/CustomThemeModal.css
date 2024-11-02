@@ -1,0 +1,124 @@
+.theme {
+    padding: 0 !important;
+}
+
+.theme.modal-content > * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.theme > .modal-body {
+    min-height: 110px;
+    padding: 0;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-template-rows: 20px repeat(3, minmax(10px, 1fr)) 120px;
+    row-gap: 20px;
+    column-gap: 20px;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+}
+
+.theme > .modal-body > .ruler {
+    grid-area: 1/1/2/4;
+}
+
+.theme > .modal-body > div.grid label {
+    font-size: 18px;
+}
+
+.theme > .modal-body > div.grid input[type="color"] {
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+}
+
+.theme > .modal-body > [class^="color-"] {
+    grid-template-rows: 80px auto;
+    grid-template-columns: minmax(10px, 1fr);
+    row-gap: 10px;
+    padding: 10px;
+}
+
+.theme > .modal-body > .color-back-pr {
+    grid-area: 2/1/3/2;
+}
+
+.theme > .modal-body > .color-pr {
+    grid-area: 2/2/3/3;
+}
+
+.theme > .modal-body > .color-b-pr {
+    grid-area: 2/3/3/4;
+}
+
+.theme > .modal-body > .color-back-sec {
+    grid-area: 3/1/4/2;
+}
+
+.theme > .modal-body > .color-sec {
+    grid-area: 3/2/4/3;
+}
+
+.theme > .modal-body > .color-b-sec {
+    grid-area: 3/3/4/4;
+}
+
+.theme > .modal-body > .color-l {
+    grid-area: 4/1/5/4;
+}
+
+.theme > .modal-body > .container {
+    grid-area: 5/1/6/4;
+}
+
+@media only screen and (max-width: 500px) {
+    .theme > .modal-body {
+        min-height: 110px;
+        padding: 0;
+        grid-template-columns: repeat(2, minmax(10px, 1fr));
+        grid-template-rows: 20px repeat(4, minmax(10px, 1fr)) 120px;
+        row-gap: 20px;
+        column-gap: 20px;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+    }
+
+    .theme > .modal-body > .ruler {
+        grid-area: 1/1/2/3;
+    }
+
+    .theme > .modal-body > .color-back-pr {
+        grid-area: 2/1/3/2;
+    }
+
+    .theme > .modal-body > .color-pr {
+        grid-area: 3/1/4/2;
+    }
+
+    .theme > .modal-body > .color-b-pr {
+        grid-area: 4/1/5/2;
+    }
+
+    .theme > .modal-body > .color-back-sec {
+        grid-area: 2/2/3/3;
+    }
+
+    .theme > .modal-body > .color-sec {
+        grid-area: 3/2/4/3;
+    }
+
+    .theme > .modal-body > .color-b-sec {
+        grid-area: 4/2/5/3;
+    }
+
+    .theme > .modal-body > .color-l {
+        grid-area: 5/1/6/3;
+    }
+
+    .theme > .modal-body > .container {
+        grid-area: 6/1/7/3;
+    }
+}
+
+/*# sourceMappingURL=CustomThemeModal.css.map */

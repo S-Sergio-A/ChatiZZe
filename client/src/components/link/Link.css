@@ -1,0 +1,57 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+a:focus {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    text-decoration: underline;
+}
+
+a:-moz-focusring {
+    text-decoration: underline;
+}
+
+a:focus-within {
+    text-decoration: underline;
+}
+
+a:disabled {
+    text-decoration: none;
+}
+
+.link:focus-within {
+    outline: none;
+}
+
+.skip-link {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.skip-link:-moz-focusring {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/*# sourceMappingURL=Link.css.map */

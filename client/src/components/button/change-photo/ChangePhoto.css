@@ -1,0 +1,43 @@
+.change-photo {
+    position: relative;
+}
+
+.change-photo > .label {
+    position: absolute;
+    width: 30px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.change-photo > .label-back {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    top: 9px;
+    right: 7px;
+    background: #ffffff;
+}
+
+.change-photo > button {
+    border: 1px solid #000000;
+}
+
+.change-photo > button > .chat-logo {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.change-photo > button > .user-photo {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.change-photo > button,
+.change-photo img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+/*# sourceMappingURL=ChangePhoto.css.map */

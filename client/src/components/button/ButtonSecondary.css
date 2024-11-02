@@ -1,0 +1,13 @@
+.btn-sec {
+    border: 1px solid;
+}
+
+.btn-sec.no-border {
+    border: none;
+}
+
+.btn-sec.icon-tooltip {
+    border-left: none;
+}
+
+/*# sourceMappingURL=ButtonSecondary.css.map */

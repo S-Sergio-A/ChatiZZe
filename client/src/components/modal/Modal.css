@@ -1,0 +1,50 @@
+.modal-container {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px) brightness(0.8);
+    -webkit-backdrop-filter: blur(6px) brightness(0.8);
+}
+
+.modal-container .modal-content {
+    max-height: 80vh;
+    max-width: 95vw;
+    padding: 0 20px;
+    position: relative;
+    border: 1px solid;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.modal-container .modal-content > * {
+    padding: 9px 20px;
+}
+
+.modal-container .modal-content .modal-header {
+    padding: 9px 20px;
+    column-gap: 5px;
+    -webkit-column-gap: 5px;
+    -moz-column-gap: 5px;
+}
+
+.modal-container .modal-content .modal-body {
+    overflow-y: auto;
+    border-top: solid 1px;
+}
+
+.modal-container .modal-content .modal-footer {
+    border-top: solid 1px;
+}
+
+.modal-container .modal-content .modal-footer > .btn-pr {
+    width: 180px;
+    height: 45px;
+}
+
+/*# sourceMappingURL=Modal.css.map */
