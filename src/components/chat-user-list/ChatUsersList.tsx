@@ -41,16 +41,16 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
     if (changeUser._id) getUserRights(changeUser._id);
   }, [changeUser]);
 
-  const removeUser = (userId: string, type: string = "DELETE_USER") => {
+  const removeUser = (userId: string, type = "DELETE_USER") => {
     axios
       .delete(userLinks.deleteUserFromRoom(userId, roomId, type), {
         headers: {
-          Rights: [rights],
+          "Rights": rights,
           "Access-Token": cookies["accessToken"]?.accessToken,
           "Refresh-Token": cookies["refreshToken"]?.refreshToken
         }
       })
-      .then(({ data, status }) => {
+      .then(({ data }) => {
         if (data.error) {
           dispatch(setError(data.error.message));
         } else {

@@ -4,7 +4,7 @@
         </div>    
 </div>
 
-# ChattiZZe (React)
+# Chatterly (React)
 
 ![App preview](https://res.cloudinary.com/gachi322/image/upload/v1628787931/ChatiZZe/preview_jbikmo.png "Preview")
 
