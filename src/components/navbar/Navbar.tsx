@@ -133,8 +133,8 @@ export const Navbar = () => {
                       dispatch(logout());
                       removeCookie("user-auth");
                       removeCookie("user-data");
-                      removeCookie("access-token");
-                      removeCookie("refresh-token");
+                      removeCookie("x-access-token");
+                      removeCookie("x-refresh-token");
                     }).then(() => history.push({ pathname: `/${i18n.language}` }));
                   }}
                   aria-label={t("navbar.ariaLabel.logOut")}

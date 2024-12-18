@@ -15,7 +15,7 @@ import "./components/link/Link.css";
 import "./pages/info-pages/InfoPage.css";
 import "./styles/index.css";
 
-axios.defaults.baseURL = "http://localhost:4000/public";
+axios.defaults.baseURL = process.env.PUBLIC_URL;
 axios.defaults.timeout = 1500;
 axios.defaults.withCredentials = true;
 

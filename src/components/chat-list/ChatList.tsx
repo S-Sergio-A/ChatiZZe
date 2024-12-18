@@ -65,27 +65,50 @@ export default function ChatList({ chats }: { chats: any[] }) {
   }, [enlargeChatList]);
 
   async function loadRights(roomId: string) {
-    axios.get(userLinks.loadUserRights(userId, roomId)).then(({ data }) => {
-      dispatch(setCurrentChatRights(data.rights));
-    });
+    axios
+      .get(userLinks.loadUserRights(userId, roomId), {
+        headers: {
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
+        }
+      })
+      .then(({ data }) => {
+        dispatch(setCurrentChatRights(data.rights));
+      });
   }
 
   async function enterRoom(roomId: string) {
-    await axios.put(userLinks.enterPublicRoom(userId, roomId));
+    await axios.put(
+      userLinks.enterPublicRoom(userId, roomId),
+      {},
+      {
+        headers: {
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
+        }
+      }
+    );
   }
 
   async function searchRooms(): Promise<void> {
     if (searchQuery.length !== 0) {
-      axios.get(userLinks.searchRooms(searchQuery, userId)).then(({ data }) => {
-        if (data.length > 0) {
-          if (notFound) {
-            setNotFound(false);
+      axios
+        .get(userLinks.searchRooms(searchQuery, userId), {
+          headers: {
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
           }
-          setRooms(data);
-        } else {
-          setNotFound(true);
-        }
-      });
+        })
+        .then(({ data }) => {
+          if (data.length > 0) {
+            if (notFound) {
+              setNotFound(false);
+            }
+            setRooms(data);
+          } else {
+            setNotFound(true);
+          }
+        });
     }
   }
 

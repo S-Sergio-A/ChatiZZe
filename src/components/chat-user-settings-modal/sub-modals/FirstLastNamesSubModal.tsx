@@ -41,8 +41,8 @@ export default function FirstLastNamesSubModal({
         },
         {
           headers: {
-            "Access-Token": cookies["accessToken"]?.accessToken,
-            "Refresh-Token": cookies["refreshToken"]?.refreshToken,
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken,
             withCredentials: true
           }
         }
@@ -61,10 +61,10 @@ export default function FirstLastNamesSubModal({
             setLastNameError("");
           }
         } else {
-          if (data.user) {
+          if (data) {
             const expTime = cookies["user-auth"].expTime;
-            setCookies("user-data", data.user, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
-            dispatch(login(data.user));
+            setCookies("user-data", data, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
+            dispatch(login(data));
           }
           setShowSubModal(false);
         }

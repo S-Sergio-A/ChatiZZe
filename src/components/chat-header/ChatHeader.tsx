@@ -15,6 +15,7 @@ import { Dropdown } from "../dropdown/Dropdown";
 import { Button } from "../button/Button";
 import "./ChatHeader.css";
 import { setError } from "../../context/actions/error";
+import { useCookies } from "react-cookie";
 
 export default function ChatHeader({
   socketRef,
@@ -28,6 +29,7 @@ export default function ChatHeader({
   const [t] = useTranslation();
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [cookies] = useCookies<any>([]);
 
   const [showSearchResult, setShowSearchResult] = useState(false);
   const [searchResult, setSearchResult] = useState<any[]>([]);
@@ -96,11 +98,22 @@ export default function ChatHeader({
   }
 
   async function disableNotifications() {
-    axios.put(userLinks.notifications(userId, roomId, "false"), {}).then(({ data }) => {
-      if (data.error) {
-        dispatch(setError(data.error.message));
-      }
-    });
+    axios
+      .put(
+        userLinks.notifications(userId, roomId, "false"),
+        {},
+        {
+          headers: {
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
+          }
+        }
+      )
+      .then(({ data }) => {
+        if (data.error) {
+          dispatch(setError(data.error.message));
+        }
+      });
   }
 
   useOutsideClick(settingsRef, () => setShowSettings(false), settingsDropdownRef);
@@ -131,7 +144,10 @@ export default function ChatHeader({
       });
     },
     onArrowClick: () =>
-      document.getElementById(`${searchResult[cursor]._id}-menu-item`)!.scrollIntoView({ block: "center", behavior: "smooth" }),
+      document.getElementById(`${searchResult[cursor]._id}-menu-item`)!.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+      }),
     deps: []
   });
 

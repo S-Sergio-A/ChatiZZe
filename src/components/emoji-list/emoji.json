@@ -14502,15 +14502,6 @@
     "ios_version": "8.3"
   },
   {
-    "emoji": "🇧🇾",
-    "description": "flag: Belarus",
-    "category": "Flags",
-    "aliases": ["belarus"],
-    "tags": [],
-    "unicode_version": "6.0",
-    "ios_version": "8.3"
-  },
-  {
     "emoji": "🇧🇿",
     "description": "flag: Belize",
     "category": "Flags",
@@ -15195,15 +15186,6 @@
     "ios_version": "8.3"
   },
   {
-    "emoji": "🇮🇷",
-    "description": "flag: Iran",
-    "category": "Flags",
-    "aliases": ["iran"],
-    "tags": [],
-    "unicode_version": "6.0",
-    "ios_version": "8.3"
-  },
-  {
     "emoji": "🇮🇸",
     "description": "flag: Iceland",
     "category": "Flags",
@@ -15307,15 +15289,6 @@
     "description": "flag: St. Kitts & Nevis",
     "category": "Flags",
     "aliases": ["st_kitts_nevis"],
-    "tags": [],
-    "unicode_version": "6.0",
-    "ios_version": "8.3"
-  },
-  {
-    "emoji": "🇰🇵",
-    "description": "flag: North Korea",
-    "category": "Flags",
-    "aliases": ["north_korea"],
     "tags": [],
     "unicode_version": "6.0",
     "ios_version": "8.3"
@@ -15940,15 +15913,6 @@
     "tags": [],
     "unicode_version": "6.0",
     "ios_version": "8.3"
-  },
-  {
-    "emoji": "🇷🇺",
-    "description": "flag: Russia",
-    "category": "Flags",
-    "aliases": ["ru"],
-    "tags": ["russia"],
-    "unicode_version": "6.0",
-    "ios_version": "6.0"
   },
   {
     "emoji": "🇷🇼",

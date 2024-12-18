@@ -64,9 +64,9 @@ export default function PasswordChangeForm({
         },
         {
           headers: {
-            fingerprint: result.visitorId,
-            "Access-Token": cookies["accessToken"]?.accessToken,
-            "Refresh-Token": cookies["refreshToken"]?.refreshToken
+            "x-fingerprint": result.visitorId,
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
           }
         }
       )
@@ -92,8 +92,8 @@ export default function PasswordChangeForm({
             dispatch(logout());
             removeCookie("user-auth");
             removeCookie("user-data");
-            removeCookie("access-token");
-            removeCookie("refresh-token");
+            removeCookie("x-access-token");
+            removeCookie("x-refresh-token");
           }).then(() => history.push({ pathname: `/${i18n.language}` }));
         }
       });

@@ -1,27 +1,27 @@
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito-Black"), url(https://chatizze.herokuapp.com/fonts/Nunito-Black.woff2) format("woff2");
+  src: local("Nunito-Black"), url(https://www.chatterly.top/fonts/Nunito-Black.woff2) format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito-SemiBold"), url(https://chatizze.herokuapp.com/fonts/Nunito-SemiBold.woff2) format("woff2");
+  src: local("Nunito-SemiBold"), url(https://www.chatterly.top/fonts/Nunito-SemiBold.woff2) format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito-Light"), url(https://chatizze.herokuapp.com/fonts/Nunito-Light.woff2) format("woff2");
+  src: local("Nunito-Light"), url(https://www.chatterly.top/fonts/Nunito-Light.woff2) format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
-  src: local("Nunito-LightItalic"), url(https://chatizze.herokuapp.com/fonts/Nunito-LightItalic.woff2) format("woff2");
+  src: local("Nunito-LightItalic"), url(https://www.chatterly.top/fonts/Nunito-LightItalic.woff2) format("woff2");
   font-weight: 300;
   font-style: italic;
   font-display: swap;

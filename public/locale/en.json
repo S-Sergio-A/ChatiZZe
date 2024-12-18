@@ -2,13 +2,13 @@
   "attribution.header": "Attribution Page",
   "attribution.main": "If You see that I used Your photos, icons or anything else and You aren't attributed, please email me",
 
-  "attr.seo.title": "ChatiZZe - Attribution",
-  "attr.seo.description": "ChatiZZe - Attribution.",
+  "attr.seo.title": "Chatterly - Attribution",
+  "attr.seo.description": "Chatterly - Attribution.",
 
   "blog.header": "Press Releases",
 
-  "blog.seo.title": "ChatiZZe - News",
-  "blog.seo.description": "ChatiZZe - News.",
+  "blog.seo.title": "Chatterly - News",
+  "blog.seo.description": "Chatterly - News.",
 
   "contactUs.header": "Contact from",
   "option.choose": "Choose subject",
@@ -17,10 +17,10 @@
   "option.pr": "Marketing & PR",
   "contactUs.button": "Send",
 
-  "contactUs.seo.title": "ChatiZZe - Contact Us",
-  "contactUs.seo.description": "ChatiZZe - Contact Us.",
+  "contactUs.seo.title": "Chatterly - Contact Us",
+  "contactUs.seo.description": "Chatterly - Contact Us.",
 
-  "chat.seo.title": "ChatiZZe - Chat",
+  "chat.seo.title": "Chatterly - Chat",
   "chat.seo.description": "Send one-on-one and group texts, and use international voice and video calls, share you feelings with emoji and wrap your app with colourful themes.",
 
   "error.header.login": "Session expired",
@@ -31,24 +31,24 @@
   "error.title": "Page not found",
   "error.button": "To the main page",
 
-  "error.seo.title": "ChatiZZe - Error 404 | Not Found",
+  "error.seo.title": "Chatterly - Error 404 | Not Found",
   "error.seo.description": "Error 404. Page not found.",
 
   "errorBoundary.header": "Unexpected error",
 
-  "errorBoundary.seo.title": "ChatiZZe - Internal Error",
+  "errorBoundary.seo.title": "Chatterly - Internal Error",
   "errorBoundary.seo.description": "Internal error.",
 
   "features.header": "Features",
 
   "features.security.header": "You're secured",
-  "features.security.text": "ChatiZZe has a built-in end-to-end encryption which means only you and the person you're communicating with can read them, and nobody in between, not even ChatiZZe.",
+  "features.security.text": "Chatterly has a built-in end-to-end encryption which means only you and the person you're communicating with can read them, and nobody in between, not even Chatterly.",
 
   "features.emoji.header": "Make life brighter",
   "features.emoji.text": "You can share your feelings with a provided list of emojis. Customize your chats, wrap the app with colourful themes.",
 
   "features.moments.header": "Share moments",
-  "features.moments.text": "Send photos and videos on ChatiZZe instantly. Photos and videos send quickly even if you're on a slow connection.",
+  "features.moments.text": "Send photos and videos on Chatterly instantly. Photos and videos send quickly even if you're on a slow connection.",
 
   "features.files.header": "Files Sharing Made Easy",
   "features.files.text": "Send PDFs, documents, spreadsheets, slideshows and more, without the hassle of file sharing apps. You can send files up to 30 MB.",
@@ -57,10 +57,10 @@
   "features.gr_chat.text": "Keep in touch with the groups of people that matter the most. Group chats have the same features like the private ones, but moreover, you can change the name of your group, mute people, customize notifications, and more.",
 
   "features.sync.header": "Sync your devices",
-  "features.sync.text": "With ChatiZZe on the web and desktop, you can seamlessly sync all of your chats to your computer so that you can chat on whatever device is most convenient for you. Download the desktop app or visit chatizze.herokuapp.com to get started.",
+  "features.sync.text": "With Chatterly on the web and desktop, you can seamlessly sync all of your chats to your computer so that you can chat on whatever device is most convenient for you. Download the desktop app or visit chatterly.top to get started.",
 
-  "features.seo.title": "ChatiZZe - Features",
-  "features.seo.description": "Explore all features of the ChatiZZe.",
+  "features.seo.title": "Chatterly - Features",
+  "features.seo.description": "Explore all features of the Chatterly.",
 
   "infoPages.cookies.header": "Cookie Policy",
   "infoPages.privacy.header": "Privacy Policy",
@@ -68,45 +68,45 @@
 
   "infoPages.faq.header": "Frequently asked questions",
 
-  "infoPages.faq.seo.title": "ChatiZZe - Frequently Asked Questions",
-  "infoPages.faq.seo.description": "ChatiZZe - Frequently Asked Questions.",
+  "infoPages.faq.seo.title": "Chatterly - Frequently Asked Questions",
+  "infoPages.faq.seo.description": "Chatterly - Frequently Asked Questions.",
 
-  "infoPages.cookies.seo.title": "ChatiZZe - Cookie Policy",
-  "infoPages.cookies.seo.description": "Find more information and read ChatiZZe’s Cookie Policy here.",
+  "infoPages.cookies.seo.title": "Chatterly - Cookie Policy",
+  "infoPages.cookies.seo.description": "Find more information and read Chatterly’s Cookie Policy here.",
 
-  "infoPages.privacy.seo.title": "ChatiZZe - Privacy Policy",
+  "infoPages.privacy.seo.title": "Chatterly - Privacy Policy",
   "infoPages.privacy.seo.description": "We take Your privacy seriously. We are as honest about what we do with Your personal information as we are about the ingredients that go into the food we serve.",
 
-  "infoPages.terms.seo.title": "ChatiZZe - Terms and Conditions",
-  "infoPages.terms.seo.description": "Find more information and read ChatiZZe’s Terms and Conditions here.",
+  "infoPages.terms.seo.title": "Chatterly - Terms and Conditions",
+  "infoPages.terms.seo.description": "Find more information and read Chatterly’s Terms and Conditions here.",
 
   "infoPages.faq": [
     {
-      "question": "About sending messages on ChatiZZe",
-      "answer": "ChatiZZe uses your phone's cellular connection or Wi-Fi network to send and receive messages and calls to your family and friends. As long as you haven't exceeded your mobile data allowance or you're connected to a free Wi-Fi network, your mobile provider shouldn't charge you for messaging or calling over ChatiZZe. If your phone is roaming, data charges might apply."
+      "question": "About sending messages on Chatterly",
+      "answer": "Chatterly uses your phone's cellular connection or Wi-Fi network to send and receive messages and calls to your family and friends. As long as you haven't exceeded your mobile data allowance or you're connected to a free Wi-Fi network, your mobile provider shouldn't charge you for messaging or calling over Chatterly. If your phone is roaming, data charges might apply."
     },
     {
       "question": "About account bans",
-      "answer": "If your account is banned, you'll see the message when trying to access ChatiZZe. We ban accounts if we believe the account activity violates our Terms of Service. If you think your account was banned by mistake, please email us and we'll look into your case."
+      "answer": "If your account is banned, you'll see the message when trying to access Chatterly. We ban accounts if we believe the account activity violates our Terms of Service. If you think your account was banned by mistake, please email us and we'll look into your case."
     },
     {
-      "question": "About seeing your phone number already in ChatiZZe",
-      "answer": "All ChatiZZe accounts are tied to mobile phone numbers. Since it's common for phone numbers to be recycled by mobile providers, it's possible that the previous owner of your current phone number used ChatiZZe. If the previous owner of your phone number didn't delete their ChatiZZe account, you and your contacts may see your phone number in ChatiZZe before you activate a new account. You may also see someone else's profile photo and data attached to your phone number. There's no need to worry. This only means that the previous account wasn't deleted, so old information still exists in the system. This does not mean that the previous owner of the phone number has any access to the ChatiZZe account you activate with your new phone number. Your conversations and other ChatiZZe data are secure."
+      "question": "About seeing your phone number already in Chatterly",
+      "answer": "All Chatterly accounts are tied to mobile phone numbers. Since it's common for phone numbers to be recycled by mobile providers, it's possible that the previous owner of your current phone number used Chatterly. If the previous owner of your phone number didn't delete their Chatterly account, you and your contacts may see your phone number in Chatterly before you activate a new account. You may also see someone else's profile photo and data attached to your phone number. There's no need to worry. This only means that the previous account wasn't deleted, so old information still exists in the system. This does not mean that the previous owner of the phone number has any access to the Chatterly account you activate with your new phone number. Your conversations and other Chatterly data are secure."
     },
     {
       "question": "About last seen and online",
-      "answer": "Last seen and online tell you the last time your contacts used ChatiZZe, or if they're online. If a contact is online, they have ChatiZZe open in the foreground on their device and are connected to the Internet. However, it doesn't necessarily mean the contact has read your message. Please note you can't hide your online."
+      "answer": "Last seen and online tell you the last time your contacts used Chatterly, or if they're online. If a contact is online, they have Chatterly open in the foreground on their device and are connected to the Internet. However, it doesn't necessarily mean the contact has read your message. Please note you can't hide your online."
     },
     {
       "question": "We’re updating our Terms of Service and Privacy Policy",
-      "answer": "We are making changes to our Terms of Service and Privacy Policy that relate to messaging on ChatiZZe. We are also providing more information about how we collect, share, and use data. It’s our responsibility to explain these updates clearly."
+      "answer": "We are making changes to our Terms of Service and Privacy Policy that relate to messaging on Chatterly. We are also providing more information about how we collect, share, and use data. It’s our responsibility to explain these updates clearly."
     }
   ],
 
-  "main.seo.title": "ChatiZZe - New Era of Messaging",
+  "main.seo.title": "Chatterly - New Era of Messaging",
   "main.seo.description": "New communication app which allows you to securely send FREE messages whenever and wherever you are! Enjoy Flexibility and Simplicity.",
   "main.seo.cardDescription": "New communication app which allows you to securely send FREE messages whenever and wherever you are! Enjoy Flexibility and Simplicity.",
-  "main.seo.imgAlt": "ChatiZZe’s logo.",
+  "main.seo.imgAlt": "Chatterly’s logo.",
 
   "main.intro.fir": "New Era of Messaging.",
   "main.intro.sec": "Enjoy Flexibility and Simplicity",
@@ -130,7 +130,7 @@
 
   "main.download.header": "Download the app",
   "main.download.alt": "Download our app on IOS or Android for free!",
-  "main.download.fir": "Chatizze is available on IOS and Android.",
+  "main.download.fir": "Chatterly is available on IOS and Android.",
   "main.download.sec": "Download now and enjoy free conversations 24/7!",
 
   "login.header": "Login",
@@ -140,14 +140,14 @@
   "login.button": "Sign in",
   "login.link.signUp": "Don't have an account? Try now!",
 
-  "login.seo.title": "ChatiZZe - Log In",
+  "login.seo.title": "Chatterly - Log In",
   "login.seo.description": "Access all the features by logging in with Your account.",
 
   "signUp.header": "Sign Up",
   "signUp.link.login": "Already have an account? Log in!",
   "signUp.created": "Account is created. Now you need to verify it, check your email.",
 
-  "signUp.seo.title": "ChatiZZe - Sign Up",
+  "signUp.seo.title": "Chatterly - Sign Up",
   "signUp.seo.description": "Create an account and get full access to all the features.",
 
   "label.userId": "Username/ email/ phone",
@@ -251,7 +251,6 @@
   "navbar.ariaLabel.menuButton": "Open menu.",
   "navbar.ariaLabel.langButton": "Select Your preferred language.",
   "navbar.ariaLabel.langButton.en": "English language.",
-  "navbar.ariaLabel.langButton.ru": "Russian language.",
   "navbar.ariaLabel.langButton.ua": "Ukrainian language.",
 
   "footer.header.legal": "Trust",
@@ -330,7 +329,7 @@
 
   "search.placeholder": "Search...",
 
-  "logo": "ChatiZZe logo",
+  "logo": "Chatterly logo",
   "error": "Error!",
   "flag": "flag",
   "step": "Step",

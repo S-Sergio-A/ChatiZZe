@@ -18,26 +18,26 @@
   height: 46px;
 }
 .login-page .google {
-  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_tahcwn.png");
-  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_tahcwn.png");
-  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_tahcwn.png");
-  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_tahcwn.png");
+  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_tahcwn.png");
+  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_tahcwn.png");
+  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_tahcwn.png");
+  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_tahcwn.png");
   background-size: contain;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   cursor: pointer;
 }
 .login-page .google:active {
-  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_active_ioubb4.png");
-  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_active_ioubb4.png");
-  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_active_ioubb4.png");
-  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_active_ioubb4.png");
+  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_active_ioubb4.png");
+  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_active_ioubb4.png");
+  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_active_ioubb4.png");
+  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_active_ioubb4.png");
 }
 .login-page .google:focus {
-  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_focus_cdw5m7.png");
-  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_focus_cdw5m7.png");
-  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_focus_cdw5m7.png");
-  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google_focus_cdw5m7.png");
+  background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_focus_cdw5m7.png");
+  -webkit-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_focus_cdw5m7.png");
+  -moz-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_focus_cdw5m7.png");
+  -o-background-image: url("https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google_focus_cdw5m7.png");
 }
 .login-page .b-b {
   grid-area: 2/1/3/2;

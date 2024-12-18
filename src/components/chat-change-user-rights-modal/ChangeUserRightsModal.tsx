@@ -10,6 +10,7 @@ import Checkbox from "../checkbox/Checkbox";
 import { Button } from "../button/Button";
 import Modal from "../modal/Modal";
 import "./ChangeR.css";
+import { useCookies } from "react-cookie";
 
 export default function ChangeUserRightsModal({
   userRights,
@@ -47,6 +48,7 @@ export default function ChangeUserRightsModal({
   const [t] = useTranslation();
   const dispatch = useDispatch();
   const { width } = useWindowDimensions();
+  const [cookies] = useCookies<any>([]);
 
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const roomId = useSelector((state: RootState) => state.chat.data.roomId);
@@ -111,7 +113,9 @@ export default function ChangeUserRightsModal({
         },
         {
           headers: {
-            Rights: [rights]
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken,
+            "x-rights": [rights]
           }
         }
       )

@@ -1,14 +1,14 @@
 <div style="width:100%">
         <div align="center" style="margin-block: 40px">
-        <img align="center" width="300" src="https://res.cloudinary.com/gachi322/image/upload/v1628539170/ChatiZZe/logo_tvuvuw.svg" alt="App logo"/>
+        <img align="center" width="300" src="https://res.cloudinary.com/gachi322/image/upload/v1628539170/Chatterly/logo_tvuvuw.svg" alt="App logo"/>
         </div>    
 </div>
 
 # Chatterly (React)
 
-![App preview](https://res.cloudinary.com/gachi322/image/upload/v1628787931/ChatiZZe/preview_jbikmo.png "Preview")
+![App preview](https://res.cloudinary.com/gachi322/image/upload/v1628787931/Chatterly/preview_jbikmo.png "Preview")
 
-ChatiZZe is a fully functional real-time messaging app capable of private (one-on-one) and group messaging.
+Chatterly is a fully functional real-time messaging app capable of private (one-on-one) and group messaging.
 
 ---
 
@@ -45,8 +45,8 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing React Sample App
 
-1. Clone this repository `git clone https://github.com/S-Sergio-A/ChatiZZe.git`.
-2. Navigate to the webpack.prod.config.js file in the root directory and change `WSS_SERVER`.
+1. Clone this repository `git clone https://github.com/S-Sergio-A/Chatterly.git`.
+2. Navigate to the webpack.prod.config.js file in the root directory and change `WSS_SERVER_URL`.
 3. Install dependencies.
 
 ```javascript
@@ -65,4 +65,4 @@ Before you begin, ensure you have met the following requirements:
 
 ---
 
-This project uses the following [license](https://github.com/S-Sergio-A/ChatiZZe/blob/master/LICENSE).
+This project uses the following [license](https://github.com/S-Sergio-A/Chatterly/blob/master/LICENSE).

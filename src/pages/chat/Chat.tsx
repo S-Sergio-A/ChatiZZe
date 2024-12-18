@@ -67,16 +67,13 @@ export default function Chat() {
 
   useEffect(() => {
     if (roomId.length !== 0 && userId.length !== 0) {
-      socketRef.current = io(
-        process.env.WSS_SERVER ? `${process.env.WSS_SERVER}?roomId=${roomId}&userId=${userId}` : "",
-        {
-          reconnection: true,
-          reconnectionAttempts: 4,
-          reconnectionDelay: 3000,
-          reconnectionDelayMax: 10000,
-          transports: ["websocket"]
-        }
-      );
+      socketRef.current = io(process.env.WSS_SERVER_URL ? `${process.env.WSS_SERVER_URL}?roomId=${roomId}&userId=${userId}` : "", {
+        reconnection: true,
+        reconnectionAttempts: 4,
+        reconnectionDelay: 3000,
+        reconnectionDelayMax: 10000,
+        transports: ["websocket"]
+      });
 
       socketRef.current.emit("load-last-messages");
 
@@ -92,11 +89,19 @@ export default function Chat() {
         setMessages((oldMessages) => [...oldMessages, newMessage]);
         setNewMessage(true);
         timer(100).subscribe(() => setNewMessage(false));
-        axios.get(userLinks.recentMessage(roomId)).catch((e) => logError(e));
+        axios
+          .get(userLinks.recentMessage(roomId), {
+            headers: {
+              "x-access-token": cookies["accessToken"]?.accessToken,
+              "x-refresh-token": cookies["refreshToken"]?.refreshToken
+            }
+          })
+          .catch((e) => logError(e));
       });
 
       return () => {
         socketRef.current.disconnect();
+        socketRef.current = null;
       };
     }
   }, [roomId, userId]);
@@ -147,8 +152,8 @@ export default function Chat() {
     axios
       .get(userLinks.loadUserRooms, {
         headers: {
-          "Access-Token": cookies["accessToken"]?.accessToken,
-          "Refresh-Token": cookies["refreshToken"]?.refreshToken
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
         }
       })
       .then(({ data }) => {

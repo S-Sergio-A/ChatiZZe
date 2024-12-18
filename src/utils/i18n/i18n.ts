@@ -11,7 +11,7 @@ i18n
       allowMultiLoading: true
     },
     load: "languageOnly",
-    supportedLngs: ["en", "ru", "ua"],
+    supportedLngs: ["en", "ua"],
     ns: ["common"],
     defaultNS: "common",
     fallbackLng: "en",

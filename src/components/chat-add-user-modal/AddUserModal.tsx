@@ -12,11 +12,13 @@ import { Input } from "../input/Input";
 import Modal from "../modal/Modal";
 import "./AddUser.css";
 import { setError } from "../../context/actions/error";
+import { useCookies } from "react-cookie";
 
 export default function AddUserModal() {
   const [userRights, setUserRights] = useState<string[]>([]);
   const [newUserId, setNewUserId] = useState<string>("");
   const [newUserIdError, setNewUserIdError] = useState<string>("");
+  const [cookies] = useCookies<any>([]);
 
   const [t] = useTranslation();
 
@@ -90,7 +92,9 @@ export default function AddUserModal() {
         },
         {
           headers: {
-            Rights: [rights]
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken,
+            "x-rights": [rights]
           }
         }
       )

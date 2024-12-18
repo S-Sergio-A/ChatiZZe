@@ -45,9 +45,9 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
     axios
       .delete(userLinks.deleteUserFromRoom(userId, roomId, type), {
         headers: {
-          "Rights": rights,
-          "Access-Token": cookies["accessToken"]?.accessToken,
-          "Refresh-Token": cookies["refreshToken"]?.refreshToken
+          "x-rights": [rights],
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
         }
       })
       .then(({ data }) => {
@@ -69,9 +69,16 @@ export default function ChatUsersList({ users, socketRef }: { users: any[]; sock
   };
 
   const getUserRights = (userId: string) => {
-    axios.get(userLinks.loadUserRights(userId, roomId)).then(({ data }) => {
-      setUserRights(data.rights);
-    });
+    axios
+      .get(userLinks.loadUserRights(userId, roomId), {
+        headers: {
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
+        }
+      })
+      .then(({ data }) => {
+        setUserRights(data.rights);
+      });
   };
 
   return (

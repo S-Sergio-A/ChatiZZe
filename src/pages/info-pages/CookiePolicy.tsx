@@ -13,8 +13,8 @@ export default function CookiePolicy() {
       <article className="m-b flex j-c-s-b a-i-f-s f-f-c-n">
         <p>
           This cookie policy (&quot;Policy&quot;) describes what cookies are and how and they&#039;re being used by the
-          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatizze.com">
-            chatizze.com
+          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatterly.top">
+            chatterly.top
           </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its related products and services (collectively,
           &quot;Services&quot;). This Policy is a legally binding agreement between you (&quot;User&quot;, &quot;you&quot; or
@@ -22,7 +22,7 @@ export default function CookiePolicy() {
           read this Policy so you can understand the types of cookies we use, the information we collect using cookies and how that
           information is used. It also describes the choices available to you regarding accepting or declining the use of cookies. For
           further information on how we use, store and keep your personal data secure, see our
-          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatizze.com/en/privacy-policy">
+          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatterly.top/en/privacy-policy">
             Privacy Policy
           </a>
           .
@@ -107,7 +107,7 @@ export default function CookiePolicy() {
         <p>
           If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to our
           use of cookies, you may do so via the
-          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatizze.com/en/contact-us">
+          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatterly.top/en/contact-us">
             contact form
           </a>
           or send an email to &#98;a&#107;&#101;&#108;&#121;&#46;&#117;kr&#64;gm&#97;il.&#99;&#111;m

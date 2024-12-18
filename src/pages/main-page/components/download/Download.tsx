@@ -11,7 +11,7 @@ export default function Download() {
       <div className={`col ${width < 481 ? "j-s-c" : ""}`}>
         <img
           className="demo-img"
-          src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/download-r-min_lk7ny4.png"
+          src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/download-r-min_lk7ny4.png"
           alt={t("main.download.alt")}
         />
       </div>
@@ -28,14 +28,14 @@ export default function Download() {
             <a href="#some-link-to-app-store">
               <img
                 className="btn-sm-x-w"
-                src="https://res.cloudinary.com/gachi322/image/upload/v1628535190/ChatiZZe/app-store-badge_ik5o6k.png"
+                src="https://res.cloudinary.com/gachi322/image/upload/v1628535190/Chatterly/app-store-badge_ik5o6k.png"
                 alt={t("main.alt.app_st")}
               />
             </a>
             <a href="#some-link-to-google-play">
               <img
                 className="btn-sm-x-w"
-                src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/google-play-badge_sso7hp.png"
+                src="https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/google-play-badge_sso7hp.png"
                 alt={t("main.alt.g_pl")}
               />
             </a>

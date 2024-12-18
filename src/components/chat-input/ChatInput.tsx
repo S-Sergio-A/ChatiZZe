@@ -21,7 +21,10 @@ type FileMessage = {
   attachment?: any[];
 };
 
-export type Message = { roomId: string; timestamp: string; user: string } & TextMessage & FileMessage & { timestamp: string };
+export type Message = { roomId: string; timestamp: string; user: string } & TextMessage &
+  FileMessage & {
+    timestamp: string;
+  };
 
 const MAX_LENGTH = 5;
 
@@ -48,7 +51,7 @@ export const ChatInput = ({
   const updatedMessagePrevState = useSelector((state: RootState) => state.chat.updatedMessagePrevState);
   const enlargeChatList = useSelector((state: RootState) => state.chat.enlargeChatList);
 
-  const initialMessage = { user: userId, username, roomId, text: "", attachment: [], timestamp: "" };
+  const initialMessage = { user: userId, username, roomId, text: "", attachment: [], timestamp: "", rights };
 
   const [attachedFilesClass, setAttachedFilesClass] = useState("");
   const [showMessageModal, setShowMessageModal] = useState(false);

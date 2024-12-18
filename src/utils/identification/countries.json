@@ -85,11 +85,6 @@
     "phone_code": "+1"
   },
   {
-    "name": "Belarus",
-    "code": "BY",
-    "phone_code": "+375"
-  },
-  {
     "name": "Belgium",
     "code": "BE",
     "phone_code": "+32"
@@ -133,11 +128,6 @@
     "name": "Brazil",
     "code": "BR",
     "phone_code": "+55"
-  },
-  {
-    "name": "British Indian Ocean Territory",
-    "code": "IO",
-    "phone_code": "+246"
   },
   {
     "name": "British Virgin Islands",
@@ -350,11 +340,6 @@
     "phone_code": "+33"
   },
   {
-    "name": "French Guiana",
-    "code": "GF",
-    "phone_code": "+594"
-  },
-  {
     "name": "French Polynesia",
     "code": "PF",
     "phone_code": "+689"
@@ -398,11 +383,6 @@
     "name": "Grenada",
     "code": "GD",
     "phone_code": "+1"
-  },
-  {
-    "name": "Guadeloupe",
-    "code": "GP",
-    "phone_code": "+590"
   },
   {
     "name": "Guam",
@@ -465,11 +445,6 @@
     "phone_code": "+62"
   },
   {
-    "name": "Iran",
-    "code": "IR",
-    "phone_code": "+98"
-  },
-  {
     "name": "Iraq",
     "code": "IQ",
     "phone_code": "+964"
@@ -518,11 +493,6 @@
     "name": "Kiribati",
     "code": "KI",
     "phone_code": "+686"
-  },
-  {
-    "name": "Kosovo",
-    "code": "XK",
-    "phone_code": "+383"
   },
   {
     "name": "Kuwait",
@@ -745,11 +715,6 @@
     "phone_code": "+672"
   },
   {
-    "name": "North Korea",
-    "code": "KP",
-    "phone_code": "+850"
-  },
-  {
     "name": "Northern Mariana Islands",
     "code": "MP",
     "phone_code": "+1"
@@ -840,19 +805,9 @@
     "phone_code": "+40"
   },
   {
-    "name": "Russia",
-    "code": "RU",
-    "phone_code": "+7"
-  },
-  {
     "name": "Rwanda",
     "code": "RW",
     "phone_code": "+250"
-  },
-  {
-    "name": "Saint Barthélemy",
-    "code": "BL",
-    "phone_code": "+590"
   },
   {
     "name": "Saint Helena",
@@ -868,11 +823,6 @@
     "name": "Saint Martin",
     "code": "MF",
     "phone_code": "+590"
-  },
-  {
-    "name": "Saint Pierre and Miquelon",
-    "code": "PM",
-    "phone_code": "+508"
   },
   {
     "name": "Saint Vincent and the Grenadines",

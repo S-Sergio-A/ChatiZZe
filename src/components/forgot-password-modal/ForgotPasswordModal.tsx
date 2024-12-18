@@ -29,8 +29,8 @@ export default function ForgotPasswordModal() {
         { email },
         {
           headers: {
-            "Access-Token": cookies["accessToken"]?.accessToken,
-            "Refresh-Token": cookies["refreshToken"]?.refreshToken,
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken,
             withCredentials: true
           }
         }

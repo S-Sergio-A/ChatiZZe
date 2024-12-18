@@ -10,6 +10,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
+require("dotenv").config();
+
 module.exports = {
   mode: "production",
   target: "web",
@@ -31,9 +33,15 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.EnvironmentPlugin({
-      WSS_SERVER: "ws://localhost:7000",
-      DEBUG: false
+    new webpack.DefinePlugin({
+      "process.env": {
+        DEBUG: JSON.stringify(process.env.DEBUG),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        PORT: +process.env.PORT,
+        PUBLIC_URL: JSON.stringify(process.env.PUBLIC_URL),
+        WSS_SERVER_URL: JSON.stringify(process.env.WSS_SERVER_URL),
+        REACT_APP_ABSTRACT_KEY: JSON.stringify(process.env.REACT_APP_ABSTRACT_KEY)
+      }
     }),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({

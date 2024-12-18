@@ -55,7 +55,7 @@ export default function ContactUs() {
         await axios
           .post(clientLinks.contactUs, data, {
             headers: {
-              "Client-Token": cookies.accessToken,
+              "x-client-token": cookies.accessToken,
               withCredentials: true
             }
           })
@@ -160,8 +160,8 @@ export default function ContactUs() {
       <Head title={t("contactUs.seo.title")} description={t("contactUs.seo.description")} />
       <header className="t-b flex j-c-c a-i-c f-f-c-n">
         <h1 className="t-c">{t("contactUs.header")}</h1>
-        <a href="mailto:sales@chatizze.com" className="h6-s Secondary-Link">
-          sales@chatizze.com
+        <a href="mailto:sales@chatterly.top" className="h6-s Secondary-Link">
+          sales@chatterly.top
         </a>
       </header>
       <section className="m-b flex j-c-c a-i-c f-f-c-n">

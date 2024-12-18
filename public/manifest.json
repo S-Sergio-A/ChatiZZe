@@ -1,5 +1,5 @@
 {
-  "name": "ChatiZZe",
+  "name": "Chatterly",
   "short_name": "chtz",
   "theme_color": "#7400b8",
   "background_color": "#ebebeb",
@@ -15,7 +15,7 @@
   "developer": {
     "name": "Sergey Smovzh"
   },
-  "homepage_url": "https://chatizze.herokuapp.com",
+  "homepage_url": "https://www.chatterly.top",
   "icons": [
     {
       "src": "manifest-icons/icon-48x48.png",

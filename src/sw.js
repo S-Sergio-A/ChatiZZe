@@ -5,43 +5,38 @@ import { registerRoute } from "workbox-routing";
 import { clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 
-precacheAndRoute(self.__WB_MANIFEST);
+precacheAndRoute(self.__WB_MANIFEST, {
+  cleanURLs: true,
+  directoryIndex: null,
+  urlManipulation: ({ url }) => {
+    if (url.pathname.includes("invalid")) {
+      console.warn(`Skipping invalid resource: ${url}`);
+      return null;
+    }
+    return [url];
+  }
+});
 
 registerRoute(
-  ({ request }) => request.destination === "image",
+  ({ request, url }) => request.destination === "image",
   new CacheFirst({
     cacheName: "images",
     plugins: [
       new ExpirationPlugin({
         maxEntries: 30,
         maxAgeSeconds: 7 * 24 * 60 * 60
-      })
-    ]
-  })
-);
-
-registerRoute(
-  ({ request, url }) => request.mode === "navigate" && url.pathname.includes("/shop/"),
-  new CacheFirst({
-    cacheName: "shop-cache",
-    matchOptions: {
-      ignoreVary: true
-    },
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 20,
-        maxAgeSeconds: 1800,
-        purgeOnQuotaError: true
       }),
-      new CacheableResponsePlugin({
-        statuses: [0, 200]
-      })
+      {
+        fetchDidFail: async ({ originalRequest }) => {
+          console.error(`Failed to fetch resource: ${originalRequest.url}`);
+        }
+      }
     ]
   })
 );
 
 registerRoute(
-  ({ url }) => url.origin === "https://chatizze.herokuapp.com",
+  ({ url }) => url.origin === "https://www.chatterly.top",
   new CacheFirst({
     cacheName: "medium-cache",
     matchOptions: {
@@ -60,9 +55,20 @@ registerRoute(
   })
 );
 
+self.addEventListener("install", () => {
+  self.skipWaiting();
+});
+
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
     clientsClaim();
   }
+});
+
+self.addEventListener("quotaerror", () => {
+  caches.keys().then((keys) => {
+    keys.forEach((key) => caches.delete(key));
+    console.warn("Cache deleted due to quota errors.");
+  });
 });

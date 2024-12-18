@@ -69,7 +69,7 @@ export default function Login() {
         },
         {
           headers: {
-            Fingerprint: result.visitorId
+            "x-fingerprint": result.visitorId
           }
         }
       )
@@ -123,8 +123,8 @@ export default function Login() {
             },
             cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800)
           );
-          setCookies("accessToken", { accessToken: accessToken }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
-          setCookies("refreshToken", { refreshToken: refreshToken }, cookieOptions(3600 * 24 * 60));
+          setCookies("accessToken", { accessToken }, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
+          setCookies("refreshToken", { refreshToken }, cookieOptions(3600 * 24 * 60));
           setCookies("user-data", user, cookieOptions(rememberMe ? 3600 * 24 * 30 : 1800));
           setCookies(
             "user-auth",

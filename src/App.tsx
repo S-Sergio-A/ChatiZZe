@@ -50,7 +50,7 @@ const App = () => {
   const forgotPasswordModal = useSelector((state: RootState) => state.auth.showForgotPassword);
   const errorModal = useSelector((state: RootState) => state.error.show);
   const showAddUserModal = useSelector((state: RootState) => state.chat.showAddUser);
-  
+
   useEffect(() => {
     dispatch(checkState(cookies));
     dispatch(checkTheme(cookies));
@@ -128,7 +128,7 @@ const App = () => {
     const lang = location.pathname.split("/")[1];
     const langCookie = cookies["lang"];
     const navigatorLang = navigator.language ? navigator.language : "en";
-    
+
     if (langCookie?.language && !languages.includes(lang)) {
       history.push({ pathname: `${langCookie.language}` });
     } else if (lang === "undefined" || !languages.includes(lang)) {
@@ -162,10 +162,6 @@ const App = () => {
 
   async function invoke() {
     await axios.get(clientLinks.invoke).catch((e) => logError(e));
-    await axios.get("https://chatizze-messages.herokuapp.com").catch((e) => logError(e));
-    await axios.get("https://chatizze-verification.herokuapp.com").catch((e) => logError(e));
-    await axios.get("https://chatizze-rooms.herokuapp.com").catch((e) => logError(e));
-    await axios.get("https://chatizze-auth.herokuapp.com").catch((e) => logError(e));
   }
 
   async function __generateClientsToken() {
@@ -174,7 +170,7 @@ const App = () => {
 
     return await axios.get(clientLinks.getToken, {
       headers: {
-        fingerprint: result.visitorId
+        "x-fingerprint": result.visitorId
       }
     });
   }
@@ -193,8 +189,8 @@ const App = () => {
             },
             {
               headers: {
-                "Access-Token": cookies["accessToken"]?.accessToken,
-                "Refresh-Token": cookies["refreshToken"]?.refreshToken,
+                "x-access-token": cookies["accessToken"]?.accessToken,
+                "x-refresh-token": cookies["refreshToken"]?.refreshToken,
                 withCredentials: true
               }
             }

@@ -44,7 +44,7 @@ export const Routes = () => {
       <Route exact path="/:lang/blog" component={Blog} />
       <Route exact path="/:lang/user/registration" component={Registration} />
       <Route path="/:lang/user/login" component={Login} />
-      <Route exact path="/:lang/verification/:type/:verificationCode" component={Verification} />
+      <Route exact path="/verification/:type/:verificationCode" component={Verification} />
       <Route exact path="/:lang/chat" component={Chat} />
       <Route component={PageNotFound} />
     </Switch>

@@ -19,10 +19,10 @@ export default function Verification() {
   const [showForm, setShowForm] = useState(false);
 
   const [newPassword, setNewPassword] = useState("");
-  const [newPasswordError, setNewPasswordError] = useState("");
+  const [newPasswordError] = useState("");
 
   const [newPasswordVerification, setNewPasswordVerification] = useState("");
-  const [newPasswordVerificationError, setNewPasswordVerificationError] = useState("");
+  const [newPasswordVerificationError] = useState("");
 
   const [t] = useTranslation();
   const [cookies, setCookies] = useCookies<any>([]);
@@ -32,9 +32,9 @@ export default function Verification() {
 
   useEffect(() => {
     const pathname = location.pathname.split("/");
-    const verificationType = pathname[3];
-    const email = pathname[4];
-    const verificationCode = pathname[5];
+    const verificationType = pathname[2];
+    const email = pathname[3];
+    const verificationCode = pathname[4];
     
     switch (verificationType) {
       case "verify_email":
@@ -44,8 +44,8 @@ export default function Verification() {
             {},
             {
               headers: {
-                "Access-Token": cookies["accessToken"]?.accessToken,
-                "Refresh-Token": cookies["refreshToken"]?.refreshToken
+                "x-access-token": cookies["accessToken"]?.accessToken,
+                "x-refresh-token": cookies["refreshToken"]?.refreshToken
               }
             }
           )
@@ -66,8 +66,8 @@ export default function Verification() {
             {},
             {
               headers: {
-                "Access-Token": cookies["accessToken"]?.accessToken,
-                "Refresh-Token": cookies["refreshToken"]?.refreshToken
+                "x-access-token": cookies["accessToken"]?.accessToken,
+                "x-refresh-token": cookies["refreshToken"]?.refreshToken
               }
             }
           )
@@ -76,10 +76,10 @@ export default function Verification() {
               dispatch(setError(data.error.message));
             }
 
-            if (data.user) {
+            if (data) {
               const expTime = cookies["user-auth"].expTime;
-              setCookies("user-data", data.user, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
-              dispatch(login(data.user));
+              setCookies("user-data", data, cookieOptions(expTime > 1800 ? 3600 * 24 * 30 : expTime));
+              dispatch(login(data));
             }
 
             history.push({
@@ -107,8 +107,8 @@ export default function Verification() {
         },
         {
           headers: {
-            "Access-Token": cookies["accessToken"]?.accessToken,
-            "Refresh-Token": cookies["refreshToken"]?.refreshToken
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
           }
         }
       )

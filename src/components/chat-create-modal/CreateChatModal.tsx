@@ -44,12 +44,12 @@ export default function CreateChatModal() {
         },
         {
           headers: {
-            "Access-Token": cookies["accessToken"]?.accessToken,
-            "Refresh-Token": cookies["refreshToken"]?.refreshToken
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
           }
         }
       )
-      .then(({ data, status }) => {
+      .then(({ data }) => {
         if (data.error) {
           if (data.error.name) {
             setNameError(data.error.name);

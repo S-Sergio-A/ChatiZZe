@@ -62,7 +62,7 @@ export default function Registration() {
         password,
         passwordVerification
       })
-      .then(({ data, status }) => {
+      .then(({ data }) => {
         const { error } = data;
 
         if (error) {

@@ -13,8 +13,8 @@ export default function TermsAndConditions() {
       <article className="m-b flex j-c-s-a a-i-f-s f-f-c-n">
         <p>
           These terms and conditions (&quot;Agreement&quot;) set forth the general terms and conditions of your use of the
-          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatizze.com">
-            chatizze.com
+          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatterly.top">
+            chatterly.top
           </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its related products and services (collectively,
           &quot;Services&quot;). This Agreement is legally binding between you (&quot;User&quot;, &quot;you&quot; or &quot;your&quot;) and
@@ -140,7 +140,7 @@ export default function TermsAndConditions() {
         <p>
           If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter relating to
           it, you may do so via the
-          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatizze.com/en/contact-us">
+          <a target="_blank" rel="nofollow noreferrer" href="https://www.chatterly.top/en/contact-us">
             contact form
           </a>
           or send an email to ba&#107;e&#108;&#121;.&#117;k&#114;&#64;gmail&#46;c&#111;&#109;

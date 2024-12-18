@@ -20,7 +20,7 @@ export const CloudinaryImage = ({ alt, folders, imageHeight, imageName, imageWid
 
   if (imageHeight && imageWidth) {
     return (
-      <Image publicId={`ChatiZZe/${folders}/${imageName}`} secure alt={alt} loading="lazy">
+      <Image publicId={`Chatterly/${folders}/${imageName}`} secure alt={alt} loading="lazy">
         <Transformation rawTransformation={`w_${width ? width : "auto"},h_${height ? height : "auto"},c_fill`} />
         <Placeholder type="blur" />
       </Image>

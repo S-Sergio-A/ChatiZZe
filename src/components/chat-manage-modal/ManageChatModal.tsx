@@ -14,12 +14,14 @@ import { Input } from "../input/Input";
 import Modal from "../modal/Modal";
 import "./ManageChatModal.css";
 import { setError } from "../../context/actions/error";
+import { useCookies } from "react-cookie";
 
 export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   const userId = useSelector((state: RootState) => state.auth.user._id);
   const chatData = useSelector((state: RootState) => state.chat.data);
   const rights = useSelector((state: RootState) => state.chat.rights);
   const showManageChatModal = useSelector((state: RootState) => state.chat.showManageChatMenu);
+  const [cookies] = useCookies<any>([]);
 
   const [changeChat, setChangeChat] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -81,7 +83,13 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
           isPrivate,
           membersCount: chatData.usersID.length
         },
-        { headers: { Rights: [rights] } }
+        {
+          headers: {
+            "x-rights": [rights],
+            "x-access-token": cookies["accessToken"]?.accessToken,
+            "x-refresh-token": cookies["refreshToken"]?.refreshToken
+          }
+        }
       )
       .then(({ data, status }) => {
         if (data.error) {
@@ -108,12 +116,20 @@ export default function ManageChatModal({ socketRef }: { socketRef: any }) {
   }
 
   async function deleteChat() {
-    await axios.delete(userLinks.deleteRoom(userId, chatData.roomId), { headers: { Rights: [rights] } }).then(({ data, status }) => {
-      if (status === 200) {
-        dispatch(reloadChats(true));
-        closeModal();
-      }
-    });
+    await axios
+      .delete(userLinks.deleteRoom(userId, chatData.roomId), {
+        headers: {
+          "x-rights": [rights],
+          "x-access-token": cookies["accessToken"]?.accessToken,
+          "x-refresh-token": cookies["refreshToken"]?.refreshToken
+        }
+      })
+      .then(({ status }) => {
+        if (status === 200) {
+          dispatch(reloadChats(true));
+          closeModal();
+        }
+      });
   }
 
   return (

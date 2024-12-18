@@ -54,7 +54,7 @@ export default function HowItWorks() {
             className="demo-img"
             controls
             preload="metadata"
-            poster="https://res.cloudinary.com/gachi322/image/upload/v1628535189/ChatiZZe/chat-demo-r-min_xedstv.png"
+            poster="https://res.cloudinary.com/gachi322/image/upload/v1628535189/Chatterly/chat-demo-r-min_xedstv.png"
           />
           <figcaption className="flex a-i-c j-c-s-b">
             <Button onClick={play} type="button" ariaLabel={t("main.how_w.alt")} className="btn-i">

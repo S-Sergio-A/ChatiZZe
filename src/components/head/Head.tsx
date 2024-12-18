@@ -48,10 +48,6 @@ export default function Head({
         setLocale("en_US");
         setLocaleArray([...localeArray, "ru_RU", "ua_UA"]);
         break;
-      case "ru":
-        setLocale("ru_RU");
-        setLocaleArray([...localeArray, "en_US", "ua_UA"]);
-        break;
       case "ua":
         setLocale("ua_UA");
         setLocaleArray([...localeArray, "en_US", "ru_RU"]);
@@ -71,7 +67,7 @@ export default function Head({
       {/* ----------Open Graph---------- */}
       <meta property="og:title" content={cardTitle} />
       <meta property="og:description" content={cardDescription} />
-      <meta property="og:site_name" content="Bakely" />
+      <meta property="og:site_name" content="Chatterly" />
       {/* Website, article, book, profile, video or music */}
       {ogType ? <meta property="og:type" content={ogType} /> : null}
       {ogUrl ? <meta property="og:url" content={ogUrl} /> : null}

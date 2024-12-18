@@ -163,7 +163,7 @@ const ListItem = ({
         buttonRef={ref}
       >
         <img
-          src={`https://www.countryflags.io/${countryCode}/flat/48.png`}
+          src={`https://www.flagsapi.com/${countryCode}/flat/48.png`}
           alt={`${countryName} ${t("flag")}`}
           className="icon-flag flex j-c-c a-i-c"
         />
