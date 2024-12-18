@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: "http://localhost:3000/locale/{{lng}}.json",
+      loadPath: `${process.env.APP_URL}/locale/{{lng}}.json`,
       allowMultiLoading: true
     },
     load: "languageOnly",

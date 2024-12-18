@@ -40,7 +40,8 @@ module.exports = {
         PORT: +process.env.PORT,
         PUBLIC_URL: JSON.stringify(process.env.PUBLIC_URL),
         WSS_SERVER_URL: JSON.stringify(process.env.WSS_SERVER_URL),
-        REACT_APP_ABSTRACT_KEY: JSON.stringify(process.env.REACT_APP_ABSTRACT_KEY)
+        REACT_APP_ABSTRACT_KEY: JSON.stringify(process.env.REACT_APP_ABSTRACT_KEY),
+        APP_URL: JSON.stringify(process.env.APP_URL)
       }
     }),
     new webpack.ProgressPlugin(),
