@@ -72,6 +72,7 @@ export default function Chat() {
         reconnectionAttempts: 4,
         reconnectionDelay: 3000,
         reconnectionDelayMax: 10000,
+        secure: process.env.NODE_ENV === "production",
         transports: ["websocket"]
       });
 
